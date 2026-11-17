@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Phase mapping — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Phase mapping task in the Crystal Maps workspace of 4DSTEM Studio: the phases, the matrix, the matching settings, and how to read the phase map and its evidence.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/phase-mapping.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/phase-mapping.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+      <li><a href="/docs/4dstem-studio/reference/orientation.html">Orientation</a></li>
+      <li><a href="/docs/4dstem-studio/reference/phase-mapping.html" aria-current="page">Phase mapping</a></li>
+      <li><a href="/docs/4dstem-studio/reference/reconstruction.html">Reconstruction</a></li>
+      <li><a href="/docs/4dstem-studio/reference/spectroscopy.html">Spectroscopy</a></li>
+      <li><a href="/docs/4dstem-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Phase mapping</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Phase mapping decides, for each scan position, which of the phases you named explains its detected disks. This page lists every control of the task, which is in the Crystal Maps workspace.</p>
+
+<p>The task is made for a matrix with precipitates. One phase is the matrix. Its reflections are removed from every pattern, and the other phases are looked for in what is left. Where too little is left, the position is the matrix.</p>
+<p>Phase mapping works on the detected disks of the whole scan and compares distances in Å⁻¹, so it needs the Q pixel size. Run <span class="ui">Detect All Disks</span> in Bragg Disks first. Weak precipitate reflections are easy to lose, so tune the detection on a pattern with a precipitate in it.</p>
+<h2 id="phases">Phases</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Phase</td>
+<td>Adds a phase from <span class="ui">Materials Project…</span> or <span class="ui">From CIF file…</span></td>
+</tr>
+<tr>
+<td>The row of a phase</td>
+<td>Its name and colour, with a button to remove it</td>
+</tr>
+<tr>
+<td>Matrix</td>
+<td>Which of the phases is the matrix. The matrix is stated, not found.</td>
+</tr>
+<tr>
+<td>Excitation slab</td>
+<td>Per phase: how far from the Bragg condition its reflections still count as excited, in Å⁻¹. A thin plate or a needle needs more than a bulk crystal. Empty means the default.</td>
+</tr>
+<tr>
+<td>Parallel to matrix</td>
+<td>Per phase: the plane (hkl) or direction [uvw] of the phase that lies parallel to one of the matrix, as an orientation relationship is written. List each variant, for example (002) ∥ (200), (002) ∥ (020). Empty means any in-plane rotation.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The phases are yours to name. The app does not guess them from the dataset.</p>
+<h2 id="matching">Matching</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Unit</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max |q|</td>
+<td>Å⁻¹</td>
+<td>The structures are searched out to this radius, or to the edge of the detector when that is nearer</td>
+</tr>
+<tr>
+<td>Pair radius</td>
+<td>Å⁻¹</td>
+<td>How close a detected disk must lie to a predicted reflection to count as that reflection</td>
+</tr>
+<tr>
+<td>Matrix removal</td>
+<td>Å⁻¹</td>
+<td>How close a detected disk must lie to a matrix reflection to be removed as matrix</td>
+</tr>
+<tr>
+<td>Not indexed above</td>
+<td>Å⁻¹</td>
+<td>A position whose best mean distance is above this is not indexed, rather than given a forced label. It is smaller than the pair radius.</td>
+</tr>
+<tr>
+<td>Ignore peaks beyond</td>
+<td>Å⁻¹</td>
+<td>Disks further out are left out of the match. 0 means the edge of the detector. Use it for a masked or cropped pattern, whose edge is a ring of maxima no phase explains.</td>
+</tr>
+<tr>
+<td>On this detector</td>
+<td></td>
+<td>The distances above in detector pixels, so you can see whether the detector resolves them</td>
+</tr>
+<tr>
+<td>Scale to This Detector</td>
+<td></td>
+<td>Appears with a warning when the distances are too fine or too coarse for the detector, and scales them</td>
+</tr>
+<tr>
+<td>Map Phases</td>
+<td></td>
+<td>Runs the match over the whole scan</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition note">
+<p class="admonition-title">Settings belong to a dataset</p>
+<p>The distances depend on the camera length, the binning and the precipitates. Settings that separate the phases on one dataset are not defaults for the next. Check the map against patterns you can read by hand.</p>
+</div>
+<h2 id="typed-zone-axes">Typed zone axes</h2>
+<p>By default the orientations of every phase are found from its structure. <span class="ui">Advanced › Typed zone axes</span> switches to the older way, where each phase is matched at a zone axis you type, against a reference library. These controls appear with it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zone axis</td>
+<td>Per phase: the axis the phase is viewed along</td>
+</tr>
+<tr>
+<td>Find Matrix Zone Axis</td>
+<td>Measures which axis the matrix is viewed along and lists the candidates, best first</td>
+</tr>
+<tr>
+<td>Orientations</td>
+<td>The size of the reference library. It turns orange when the library is larger than the app allows.</td>
+</tr>
+<tr>
+<td>Max |q|, In-plane step</td>
+<td>The radius the library reaches, in Å⁻¹, and the step of the in-plane rotation, in degrees</td>
+</tr>
+<tr>
+<td>Advanced › Vectors per orientation</td>
+<td>The most reflections kept per orientation. A library that holds every allowed reflection matches anything; the cap keeps a match informative.</td>
+</tr>
+<tr>
+<td>Advanced › Min. intensity</td>
+<td>Reflections weaker than this fraction of the strongest of an orientation are dropped</td>
+</tr>
+<tr>
+<td>Advanced › Excitation slab</td>
+<td>The default excitation slab of the library, in Å⁻¹</td>
+</tr>
+<tr>
+<td>Classifier</td>
+<td><span class="ui">Search</span> or <span class="ui">Known variants</span>. Known variants scores every remaining disk, and the residual cutoff alone decides.</td>
+</tr>
+<tr>
+<td>Residual cutoff</td>
+<td>A position whose best orientation leaves a larger mean distance between its disks and the predicted spots is not indexed</td>
+</tr>
+<tr>
+<td>Direct matrix, max</td>
+<td>A position with at most this many disks left after the matrix removal is the matrix</td>
+</tr>
+<tr>
+<td>Specific reflections, min</td>
+<td>A winner that matches fewer reflections the matrix does not also have falls back to the matrix. The default is 1; 0 turns the rule off.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each row of the zone axis list shows the axis, the share of the disks it explains and the mean distance in Å⁻¹. Symmetry-equivalent axes should tie exactly. A row marked "at chance" explains no more than random vectors would, and one marked "no better than a wrong axis" explains no more than a wrong axis does on this data. When no axis beats chance, or none stands out, the app says so: check the Q pixel size and the disk detection before you go on.</p>
+<h2 id="result">Result</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show Phase Map</td>
+<td>Each position in the colour of its phase</td>
+</tr>
+<tr>
+<td>Show Objects</td>
+<td>The precipitates as separate objects</td>
+</tr>
+<tr>
+<td>Show Match Distance</td>
+<td>The mean distance between the disks and the predicted spots of the winning phase</td>
+</tr>
+<tr>
+<td>Show Reliability</td>
+<td>How far the phase of each position is ahead of the best other phase, from 0 to 100</td>
+</tr>
+<tr>
+<td>Show Orientation</td>
+<td>The positions of one phase coloured by their orientation (IPF-Z); the other phases grey. <span class="ui">Orientation of</span> chooses the phase.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>What it says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase fractions</td>
+<td>The share of the scan each phase takes</td>
+</tr>
+<tr>
+<td>Matrix evidence</td>
+<td>How much of the detected signal at the matrix positions the matrix itself accounts for, as a median. Near 100 % the matrix explains the pattern. Well below it, a position is matrix because nothing else fitted. There is no threshold: the number falls as the detection admits more noise.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>A diagnosis in words when the match is weakly supported</td>
+</tr>
+<tr>
+<td>Reliable above</td>
+<td>A position is drawn as its best phase when that phase is at least this far ahead of the next one; below it the position is not indexed. Moving it redraws the map and matches nothing again.</td>
+</tr>
+<tr>
+<td>Chance match at max |q|</td>
+<td>The share of random vectors the densest phase would match by chance. A match carries information only well above it.</td>
+</tr>
+<tr>
+<td>Orientations, Matrix in-plane</td>
+<td>The size of the library used and the fitted in-plane rotation of the matrix</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="warnings">Warnings</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>The app says</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Detection settings changed — rerun Detect All Disks"</td>
+<td>Run <span class="ui">Detect All Disks</span> again, then <span class="ui">Map Phases</span></td>
+</tr>
+<tr>
+<td>The map is from an earlier run and the settings have changed since</td>
+<td>Run <span class="ui">Map Phases</span> again</td>
+</tr>
+<tr>
+<td>"The Å⁻¹ scale is exploratory, not calibrated"</td>
+<td>Every distance is only as good as the scale. Calibrate the Q pixel size in <a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a>.</td>
+</tr>
+<tr>
+<td>"The session keeps its picture, not the map behind it"</td>
+<td>A reopened session shows the saved picture. Run <span class="ui">Map Phases</span> to work with the map.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="method">Method</h2>
+<p>Vector matching of detected Bragg disks after removal of the matrix reflections, after Thronsen et al., Ultramicroscopy 255 (2024) 113861. The phase reliability follows Rauch and Dupuy, Archives of Metallurgy and Materials 50 (2005) 87. How the app compares with the paper on its public dataset is written down in the <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/orientation.html"><span>Previous</span>Orientation</a><a class="next" href="/docs/4dstem-studio/reference/reconstruction.html"><span>Next</span>Reconstruction</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

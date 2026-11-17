@@ -33,12 +33,17 @@ The tutorials are being written. They will follow the app's workspaces from top 
 
 ## Reference
 
-Every control of a workspace, under the name the app shows. More workspaces follow.
+Every control of a workspace, under the name the app shows.
 
 - [Prepare](/docs/4dstem-studio/reference/prepare.html): the calibration steps, what each unlocks, and how to read the fits.
 - [Imaging](/docs/4dstem-studio/reference/imaging.html): virtual imaging, diffraction from a region, and diffraction groups.
 - [Bragg Disks](/docs/4dstem-studio/reference/bragg-disks.html): the probe kernel, the detector, and every detection setting with its default.
 - [Strain](/docs/4dstem-studio/reference/strain.html): the reference, the basis, the components and the fit diagnostics.
+- [Orientation](/docs/4dstem-studio/reference/orientation.html): the area, the phase model, the quality levels and the display modes.
+- [Phase mapping](/docs/4dstem-studio/reference/phase-mapping.html): the phases, the matrix, the matching settings and the evidence.
+- [Reconstruction](/docs/4dstem-studio/reference/reconstruction.html): DPC and iDPC, parallax and ptychography, and what each needs.
+- [Spectroscopy](/docs/4dstem-studio/reference/spectroscopy.html): EDS maps, elements, regions, quantification and exports.
+- [Results](/docs/4dstem-studio/reference/results.html): review, save, compare and export.
 
 ## Help
 
