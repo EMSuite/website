@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Example data — Example data documentation</title>
-<meta name="description" content="The public example datasets the tutorials for 4DSTEM Studio and Electron Microscopy Studio use, with source, licence, size and download.">
+<meta name="description" content="The public example datasets for 4DSTEM Studio and Electron Microscopy Studio, each with what it shows, its source, its licence and how to cite it.">
 <link rel="canonical" href="https://mac4dstem.com/docs/data/">
 <link rel="alternate" type="text/markdown" href="/docs/data/index.md">
 <meta name="color-scheme" content="light dark">
@@ -48,10 +48,128 @@
   <main id="main">
     <article class="doc">
       <h1>Example data</h1>
-<p class="lede">The datasets the tutorials use. All of them are public, and each is listed with its source and licence.</p>
+<p class="lede">Data to learn the apps on. Every dataset here is public and is listed with its source, its licence and how to cite it.</p>
 
-<p>This page is being written. Each dataset will be listed with what it shows, its size and format, where to download it, its licence and how to cite it, and the tutorials that use it.</p>
-<p>Both apps also carry a small demo dataset of their own, so a first look needs no download.</p>
+<p>No data file is kept on this site. Each dataset is linked at the place where its authors published it, so you always get their current version and their own description.</p>
+<h2 id="in-the-apps">In the apps</h2>
+<p>Both apps carry demo data, so a first look needs no download.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>App</th>
+<th>How to open it</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4DSTEM Studio</td>
+<td><span class="ui">Try Demo Data</span> on the welcome screen</td>
+<td>A small synthetic 4D-STEM dataset on which every workspace works. See <a href="/docs/4dstem-studio/first-look.html">First look</a>.</td>
+</tr>
+<tr>
+<td>Electron Microscopy Studio</td>
+<td><span class="ui">Try Demo Data</span> on the welcome screen</td>
+<td>Generated examples, and four public files: the nickel EBSD patterns and their master pattern, a two-phase orientation map and an SEM-EDS spectrum (credits below).</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="for-4dstem-studio">For 4DSTEM Studio</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>What it shows</th>
+<th>Format</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.5113449">SrTiO3 along [100], high magnification</a></td>
+<td>An atomic-resolution scan, 128 × 128 positions with 256 × 256 patterns, recorded at 300 kV on a probe-corrected FEI Titan 80-300 with a Merlin detector</td>
+<td>Merlin (<code>.mib</code> and <code>.hdr</code>)</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.23890861">BiFeO3–BaTiO3 films</a></td>
+<td>Atomic-resolution scans of oxide films recorded on an EMPAD detector, published with ADF and iDPC images</td>
+<td>EMPAD (<code>.raw</code> and <code>.xml</code>)</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.2652906">Sheared β″ precipitates in Al-Mg-Si</a></td>
+<td>Scanning precession electron diffraction of a peak-aged AA6060 alloy after compression: a matrix with small precipitates</td>
+<td>HDF5</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.6645396">Precipitate phase mapping in aluminium alloys</a></td>
+<td>Scanning precession electron diffraction of an Al-Cu-Li alloy with T1 and θ′ precipitates, 512 × 512 positions, with the authors' phase maps</td>
+<td>See the record</td>
+<td>CC BY 4.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cite them as:</p>
+<ul>
+<li>Strauch, A., Clausen, A., Weber, D. &amp; Müller-Caspary, K. (2021). <em>High-resolution 4D STEM dataset of SrTiO3 along the [1 0 0] axis at high magnification</em>. Zenodo. doi:10.5281/zenodo.5113449</li>
+<li>Xu, M., Zhu, M., Kim, T., Wu, L., Spanier, J., Martin, L. &amp; LeBeau, J. (2026). <em>Data for: Measuring the structure of defect clusters in (1-x)BiFeO3 - (x)BaTiO3 alloys with advanced electron microscopy and ptychography</em>. Zenodo. doi:10.5281/zenodo.23890861</li>
+<li>Christiansen, E., Marioara, C. D., Holmedal, B., Hopperstad, O. S. &amp; Holmestad, R. (2019). <em>Data for "Nano-scale characterisation of sheared β″ precipitates in a deformed Al-Mg-Si alloy"</em>. Zenodo. doi:10.5281/zenodo.2652906. The paper: Sci. Rep. 9, doi:10.1038/s41598-019-53772-4</li>
+<li>Thronsen, E., Bergh, T., Thorsen, T. I., Christensen, E. F. &amp; Frafjord, J. (2022). <em>Dataset for "Scanning precession electron diffraction data analysis approaches for phase mapping of precipitates in aluminium alloys"</em>. Zenodo. doi:10.5281/zenodo.6645396. The paper: Ultramicroscopy 255 (2024) 113861</li>
+</ul>
+<h2 id="for-electron-microscopy-studio">For Electron Microscopy Studio</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>What it shows</th>
+<th>Format</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.7497682">Nickel EBSD patterns with varying camera gain</a></td>
+<td>EBSD patterns of recrystallised nickel, recorded at 20 kV with a NORDIF detector. A part of it is the app's nickel demo scan.</td>
+<td>NORDIF (<code>Pattern.dat</code> and <code>Setting.txt</code>)</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.4730184">EBSD map of shot-peened RR1000</a></td>
+<td>An orientation map of a nickel superalloy, 0.45 µm step, recorded at 20 kV</td>
+<td>Oxford <code>.ctf</code></td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.8210797">Large SEM-BSE images of hydrated alite</a></td>
+<td>Very large backscattered-electron images of cement pastes, recorded at 10 to 15 kV on a Helios G4 UX</td>
+<td>See the record</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><a href="https://doi.org/10.5281/zenodo.14113591">pyxem demo data</a></td>
+<td>Among others a ring pattern of a polycrystalline gold cross-grating (<code>au_xgrating_20cm.tif</code>), a standard for calibrating diffraction patterns</td>
+<td>TIFF and others</td>
+<td>CC BY 4.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cite them as:</p>
+<ul>
+<li>Ånes, H. W., Hjelen, J., van Helvoort, A. T. J. &amp; Marthinsen, K. (2019). <em>Electron backscatter patterns from Nickel acquired with varying camera gain</em>. Zenodo. doi:10.5281/zenodo.7497682</li>
+<li>Orozco-Caballero, A. &amp; Quinta da Fonseca, J. (2021). <em>EBSD dataset for the HRDIC strain localization study in shot peened Ni superalloy</em>. Zenodo. doi:10.5281/zenodo.4730184</li>
+<li>Kleiner, F. (2023). <em>Large SEM-BSE images of hydrated alite of ages from 1 day up to 1 year</em>. Zenodo. doi:10.5281/zenodo.8210797</li>
+<li>Francis, C. (2024). <em>Pyxem 4D STEM Demo Data</em>. Zenodo. doi:10.5281/zenodo.14113591</li>
+</ul>
+<p>The demo files in the app come from the nickel dataset above (Ånes et al., CC BY 4.0), the nickel master pattern of <a href="https://kikuchipy.org">kikuchipy</a> (doi:10.5281/zenodo.7498645, CC BY 4.0), the data of <a href="https://orix.readthedocs.io">orix</a> (the ferrite and austenite map, CC BY 4.0) and <a href="https://github.com/hyperspy/exspy">exSpy</a> (the EDS spectrum of the BAM EDS-TM002 standard, GPL-3.0).</p>
+<h2 id="using-a-dataset">Using a dataset</h2>
+<div class="admonition note">
+<p class="admonition-title">Licence</p>
+<p>CC BY 4.0 lets you use, share and adapt the data when you name its authors. Cite the dataset as above in anything you publish with it. The licence shown here was read from each record; the record itself is what counts.</p>
+</div>
+<p>Some of these files are large. Before you open a large 4D-STEM scan, read <a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a>: crop or bin it with <span class="ui">Open with Options…</span> so that it fits your Mac.</p>
+<p>More datasets are added as the tutorials are written. Each tutorial names the dataset it uses.</p>
     </article>
   </main>
 </div>
