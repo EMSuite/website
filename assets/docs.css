@@ -49,6 +49,7 @@
 .docs-nav a[aria-current="true"] { color: var(--accent); font-weight: 600; }
 
 .docs-sections { padding-bottom: 0.75rem !important; border-bottom: 1px solid var(--hair); }
+.docs-sections:last-child { padding-bottom: 0 !important; border-bottom: 0; }
 
 .docs-group, .docs-version {
   padding-inline: 0.6rem;
