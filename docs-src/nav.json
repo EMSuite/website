@@ -9,7 +9,10 @@
     {
       "title": "4DSTEM Studio",
       "app": "4DSTEM Studio",
-      "groups": [{"pages": ["4dstem-studio/index"]}]
+      "groups": [
+        {"pages": ["4dstem-studio/index"]},
+        {"title": "Get started", "pages": ["4dstem-studio/install", "4dstem-studio/first-look", "4dstem-studio/window"]}
+      ]
     },
     {
       "title": "Electron Microscopy Studio",

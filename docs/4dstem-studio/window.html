@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The window — 4DSTEM Studio documentation</title>
+<meta name="description" content="The parts of the 4DSTEM Studio window: sidebar and workspaces, the two image panes, the inspector, the bottom pane, the menus and their keyboard shortcuts.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/window.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/window.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html" aria-current="page">The window</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Get started</p>
+      <h1>The window</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">One window per dataset. The sidebar lists the workspaces in the order an analysis usually takes.</p>
+
+<h2 id="workspaces">Workspaces</h2>
+<p>The sidebar on the left lists the workspaces, top to bottom. Each has a shortcut.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Workspace</th>
+<th>Key</th>
+<th>What you do there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prepare</td>
+<td><kbd>⌘1</kbd></td>
+<td>Inspect and calibrate the dataset</td>
+</tr>
+<tr>
+<td>Imaging</td>
+<td><kbd>⌘2</kbd></td>
+<td>Virtual images and diffraction groups</td>
+</tr>
+<tr>
+<td>Bragg Disks</td>
+<td><kbd>⌘3</kbd></td>
+<td>Detect Bragg disks and label them</td>
+</tr>
+<tr>
+<td>Crystal Maps</td>
+<td><kbd>⌘4</kbd></td>
+<td>Strain, orientation and phases from Bragg disks</td>
+</tr>
+<tr>
+<td>Reconstruction</td>
+<td><kbd>⌘5</kbd></td>
+<td>DPC, parallax and ptychography</td>
+</tr>
+<tr>
+<td>Spectroscopy</td>
+<td><kbd>⌘6</kbd></td>
+<td>EDS spectrum images, alone or with the 4D scan</td>
+</tr>
+<tr>
+<td>Results</td>
+<td><kbd>⌘7</kbd></td>
+<td>Review, save and export</td>
+</tr>
+</tbody>
+</table></div>
+<p>A workspace with more than one task lists its tasks below it, for example <span class="ui">Strain</span>, <span class="ui">Orientation</span> and <span class="ui">Phase mapping</span> in Crystal Maps. <kbd>⌥⌘↓</kbd> and <kbd>⌥⌘↑</kbd> step through the tasks.</p>
+<p>Spectroscopy needs a spectrum image; with a 4D scan alone it is not available.</p>
+<h2 id="the-panes">The panes</h2>
+<p>The middle of the window shows the data: a diffraction pattern, and the scan as an image or a map. What you drag on one changes what the other shows.</p>
+<h2 id="the-inspector">The inspector</h2>
+<p>The inspector on the right holds the settings of the task you are in. Show or hide it with <kbd>⌥⌘I</kbd>.</p>
+<h2 id="the-bottom-pane">The bottom pane</h2>
+<p>Below the panes are <span class="ui">Output</span> and <span class="ui">Lineage</span>. Output is the log: every step the app ran, with its numbers and any warning. Lineage shows how each result was made, step by step. Show or hide the bottom pane with <kbd>⌃⌘L</kbd>.</p>
+<p>Read Output after each step. When a step is flagged there, for example a calibration that is not good enough for quantitative results, deal with it before you build the next step on it.</p>
+<h2 id="running-a-task">Running a task</h2>
+<p>Some results update while you drag, such as a virtual image. Others are computed over the whole scan when you ask for it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analysis › Run Current Task</td>
+<td><kbd>⌘R</kbd></td>
+</tr>
+<tr>
+<td>Analysis › Cancel Analysis</td>
+<td><kbd>⌘.</kbd></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="more-shortcuts">More shortcuts</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File › New Dataset Window</td>
+<td><kbd>⌘N</kbd></td>
+</tr>
+<tr>
+<td>File › Open Dataset…</td>
+<td><kbd>⌘O</kbd></td>
+</tr>
+<tr>
+<td>File › Reopen the last dataset</td>
+<td><kbd>⇧⌘O</kbd></td>
+</tr>
+<tr>
+<td>File › Export Result PNG…</td>
+<td><kbd>⇧⌘E</kbd></td>
+</tr>
+<tr>
+<td>File › Export Diffraction PNG…</td>
+<td><kbd>⌥⌘E</kbd></td>
+</tr>
+<tr>
+<td>Show or hide the sidebar</td>
+<td><kbd>⌃⌘S</kbd></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="settings">Settings</h2>
+<p><span class="ui">Settings…</span> in the app menu (<kbd>⌘,</kbd>) has six parts: General, Appearance, Analysis, Materials Project, Agents and Advanced. The defaults follow py4DSTEM, so an analysis started here and one started in Python begin from the same values.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/first-look.html"><span>Previous</span>First look</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
