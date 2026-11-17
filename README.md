@@ -38,7 +38,7 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `docs/` | The documentation pages and their Markdown copies. Generated, do not edit. |
 | `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
 | `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
-| `tools/check_site.py` | The CI check: internal links, and versions and download sizes against the GitHub releases. |
+| `tools/check_site.py` | The CI check: internal links, no old app names (mac4DSTEM, macEM, macTEM) in the page text, and versions and download sizes against the GitHub releases. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
 
 ## Writing a documentation page
@@ -73,10 +73,10 @@ and `llms.txt`. The `.nojekyll` file makes GitHub Pages serve the repository as 
 ## Checks and releases
 
 CI (`.github/workflows/ci.yml`) runs on every push to `main`, on pull requests, and once a day. It scans for
-references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, each
+references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, no page text (alt text and link previews included) may use an old app name, each
 app page must state the latest release's version and `.dmg` size (in the text and in the JSON-LD), and
-`suite/releases.html` must name each kit's and MacEMUI's latest tag. Run it locally with
-`python3 tools/check_site.py` (or `--offline` for links only).
+`suite/releases.html` must name each kit's and EMSuiteUI's latest tag. Run it locally with
+`python3 tools/check_site.py` (or `--offline` for links and names only).
 
 After an app release, update the version and size on its page. After a kit or MacEMUI release, regenerate `suite/`.
 
