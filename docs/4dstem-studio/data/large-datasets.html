@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Large datasets — 4DSTEM Studio documentation</title>
+<meta name="description" content="Opening large 4D-STEM datasets in 4DSTEM Studio: crop and binning before loading, memory, and where to keep the files.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/data/large-datasets.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/data/large-datasets.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html" aria-current="page">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Your data</p>
+      <h1>Large datasets</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">A 4D-STEM scan can be tens of gigabytes. Choose how much of it to load before it is loaded.</p>
+
+<h2 id="open-with-options">Open with Options</h2>
+<p><span class="ui">Open with Options…</span>, on the welcome screen and in the File menu, shows the dataset before loading it: a preview, its sizes, and what your choice will cost in memory.</p>
+<p>Under <span class="ui">Size</span> you see:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File on disk</td>
+<td>The size of the file</td>
+</tr>
+<tr>
+<td>Scan (Rx × Ry)</td>
+<td>The number of scan positions</td>
+</tr>
+<tr>
+<td>Detector (Qx × Qy)</td>
+<td>The size of each diffraction pattern</td>
+</tr>
+<tr>
+<td>Whole cube</td>
+<td>The memory the whole dataset would take</td>
+</tr>
+<tr>
+<td>This selection</td>
+<td>The memory your crop and binning will take</td>
+</tr>
+</tbody>
+</table></div>
+<p>Then choose:</p>
+<ul>
+<li><strong>A crop.</strong> Load only part of the scan. The source file is never changed.</li>
+<li><strong>Diffraction binning</strong>, with <span class="ui">Bin factor</span>. Binning by 2 adds each 2 × 2 block of detector pixels into one.</li>
+</ul>
+<p>Click <span class="ui">Load</span> when the selection fits.</p>
+<div class="admonition note">
+<p class="admonition-title">Crop or bin?</p>
+<p>A crop of the detector limits the angular range. Binning keeps the range but makes disk positions coarser. With a bin factor of 2 the counts become 4 times larger and each reciprocal pixel 2 times coarser, so check any absolute threshold you set before.</p>
+</div>
+<p>To see these options every time, set <span class="ui">Settings › General › "Open Dataset…" does</span> to <span class="ui">Show options</span>.</p>
+<h2 id="memory">Memory</h2>
+<p>The app keeps the data at the bit depth it was stored in. A 16-bit scan takes half the memory of the same scan held as 32-bit numbers.</p>
+<p>With <span class="ui">Keep in memory</span> on, the dataset is read into memory once and every analysis runs from there. With it off, analyses read the file in pieces as they go, which needs little memory and more time.</p>
+<p>The app warns when a selection would take more than half of the Mac's memory. Other apps may slow down then; crop or bin instead.</p>
+<h2 id="where-to-keep-the-files">Where to keep the files</h2>
+<p>Work from a local disk. A dataset on a network share is read far more slowly every time an analysis goes through the whole scan.</p>
+<p>For long runs, <span class="ui">Settings › General › Keep the Mac awake during long runs</span> stops the Mac from sleeping in the middle.</p>
+<h2 id="make-a-smaller-copy">Make a smaller copy</h2>
+<p><span class="ui">File › Preprocess Raw Data…</span> writes a new <code>.h5</code> file from a raw dataset, with a crop of the scan, binning and a hot-pixel filter of your choice. The original stays as it is. Use it when you will come back to the same reduced dataset often.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/data/formats.html"><span>Previous</span>File formats</a><a class="next" href="/docs/4dstem-studio/data/sessions.html"><span>Next</span>Sessions</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

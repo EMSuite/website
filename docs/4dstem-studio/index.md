@@ -9,6 +9,13 @@ Documentation for 4DSTEM Studio, the native macOS application for 4D-STEM analys
 - [First look](/docs/4dstem-studio/first-look.html): a first virtual image within minutes, with the demo dataset.
 - [The window](/docs/4dstem-studio/window.html): where everything is, and the keyboard shortcuts.
 
+## Your data
+
+- [File formats](/docs/4dstem-studio/data/formats.html): what opens, companion files, and what a refusal means.
+- [Large datasets](/docs/4dstem-studio/data/large-datasets.html): crop and binning before loading, memory.
+- [Sessions](/docs/4dstem-studio/data/sessions.html): how your work is saved beside the dataset.
+- [Export](/docs/4dstem-studio/data/export.html): figures, data files and tables.
+
 ## Tutorials
 
 The tutorials are being written. They will follow the app's workspaces from top to bottom:

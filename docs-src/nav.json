@@ -11,7 +11,8 @@
       "app": "4DSTEM Studio",
       "groups": [
         {"pages": ["4dstem-studio/index"]},
-        {"title": "Get started", "pages": ["4dstem-studio/install", "4dstem-studio/first-look", "4dstem-studio/window"]}
+        {"title": "Get started", "pages": ["4dstem-studio/install", "4dstem-studio/first-look", "4dstem-studio/window"]},
+        {"title": "Your data", "pages": ["4dstem-studio/data/formats", "4dstem-studio/data/large-datasets", "4dstem-studio/data/sessions", "4dstem-studio/data/export"]}
       ]
     },
     {
