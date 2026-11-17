@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Export — Electron Microscopy Studio documentation</title>
+<meta name="description" content="What Electron Microscopy Studio exports from each part, as PNG pictures, CSV tables, method JSON, orientation maps in .ang and .ctf, and a session report.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/data/export.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/data/export.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html" aria-current="page">Export</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Your data</p>
+      <h1>Export</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Pictures leave the app as PNG, numbers as CSV, and the method as JSON, so a result can be repeated.</p>
+
+<p>The export commands are in the <span class="ui">File</span> menu and as buttons in the inspector of each part. A command is available when its part has the result.</p>
+<h2 id="by-part">By part</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Exports</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image</td>
+<td><span class="ui">Export Image…</span> (<kbd>⇧⌘E</kbd>), <span class="ui">Export Profile…</span></td>
+</tr>
+<tr>
+<td>FFT</td>
+<td><span class="ui">Export Transform…</span> (<kbd>⌥⌘E</kbd>), <span class="ui">Export Radial Profile…</span>, <span class="ui">Export Spots…</span></td>
+</tr>
+<tr>
+<td>Patterns</td>
+<td>Map PNG, Pattern PNG, Pattern with Overlay, Overlay CSV, Metadata JSON, Method JSON</td>
+</tr>
+<tr>
+<td>Indexing</td>
+<td>Map PNG, Results CSV, EDAX ANG, Oxford CTF, Method JSON</td>
+</tr>
+<tr>
+<td>Maps</td>
+<td>Map PNG, Grains CSV, Histogram CSV, Texture PNG</td>
+</tr>
+<tr>
+<td>EDS</td>
+<td>Spectrum CSV, Maps, Results CSV, Method JSON, Regions CSV</td>
+</tr>
+<tr>
+<td>EELS</td>
+<td>Results CSV, Spectrum CSV, Spectrum MSA, Regions CSV, Maps, Per-pixel CSV, Method JSON</td>
+</tr>
+<tr>
+<td>Results</td>
+<td><span class="ui">Export Results…</span> (<kbd>⌥⇧⌘E</kbd>), <span class="ui">Export Session Report…</span></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-the-files-are-for">What the files are for</h2>
+<ul>
+<li><strong>PNG</strong> is for pictures: images, maps, patterns and transforms.</li>
+<li><strong>CSV</strong> tables open in any spreadsheet or script.</li>
+<li><strong>Method JSON</strong> records the settings a result was made with. Keep it with the result.</li>
+<li><strong>EDAX ANG</strong> and <strong>Oxford CTF</strong> carry an indexed map to other EBSD software, such as MTEX or orix.</li>
+<li><strong>Spectrum MSA</strong> is the EMSA format that spectroscopy software reads.</li>
+</ul>
+<h2 id="the-session-report">The session report</h2>
+<p><span class="ui">Export Results…</span> writes every finished measurement of the file as one CSV.</p>
+<p><span class="ui">Export Session Report…</span> writes the SEM work of the session (patterns, indexing, maps and SEM spectra) as one report with its figures, as Markdown or PDF. It states the date, the app version and the packages the app is built with.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/data/sessions.html"><span>Previous</span>Sessions</a><a class="next" href="/docs/electron-microscopy-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The window — Electron Microscopy Studio documentation</title>
+<meta name="description" content="The parts of the Electron Microscopy Studio window: sidebar and workspaces, the picture, the inspector, the Output pane, the menus and their keyboard shortcuts.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/window.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/window.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html" aria-current="page">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Get started</p>
+      <h1>The window</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">One window per file. The sidebar lists five workspaces, one for each kind of data.</p>
+
+<h2 id="workspaces">Workspaces</h2>
+<p>The sidebar on the left lists the workspaces, top to bottom. Each has a shortcut. A workspace with more than one part lists its parts below it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Workspace</th>
+<th>Key</th>
+<th>Parts</th>
+<th>What you do there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Imaging</td>
+<td><kbd>⌘1</kbd></td>
+<td>Image, FFT</td>
+<td>TEM and SEM images and their Fourier transform</td>
+</tr>
+<tr>
+<td>Diffraction</td>
+<td><kbd>⌘2</kbd></td>
+<td></td>
+<td>Camera length, d-spacings, indexing and zone axis</td>
+</tr>
+<tr>
+<td>EBSD</td>
+<td><kbd>⌘3</kbd></td>
+<td>Patterns, Indexing, Maps</td>
+<td>EBSD and TKD: patterns, indexing and orientation maps</td>
+</tr>
+<tr>
+<td>Spectroscopy</td>
+<td><kbd>⌘4</kbd></td>
+<td>EDS, EELS</td>
+<td>EDS and EELS spectra and spectrum images</td>
+</tr>
+<tr>
+<td>Results</td>
+<td><kbd>⌘5</kbd></td>
+<td></td>
+<td>Review and export the numbers</td>
+</tr>
+</tbody>
+</table></div>
+<p>The file decides what is available. A workspace or a part with no data for the open file is dimmed, and says why when you point at it; see <a href="/docs/electron-microscopy-studio/troubleshooting.html#a-workspace-or-a-part-is-dimmed">Troubleshooting</a>. Going back to a workspace returns to the part you left it in.</p>
+<h2 id="the-picture-and-the-inspector">The picture and the inspector</h2>
+<p>The middle of the window shows the data: the image, the pattern, the map or the spectrum. The inspector on the right holds the settings and the results of the part you are in. Show or hide it with <kbd>⌥⌘I</kbd>.</p>
+<h2 id="output">Output</h2>
+<p><span class="ui">Output</span>, below the picture, is the log: every step the app ran, with its numbers and any warning. Show or hide it with <kbd>⌃⌘L</kbd>. Read it after each step.</p>
+<h2 id="running-a-step">Running a step</h2>
+<p>Most results update while you work. A step that goes through a whole scan, such as indexing, runs when you ask for it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace › run the current step (the menu names it)</td>
+<td><kbd>⌘R</kbd></td>
+</tr>
+<tr>
+<td>Workspace › Stop</td>
+<td><kbd>⌘.</kbd></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="more-shortcuts">More shortcuts</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File › New Window</td>
+<td><kbd>⌘N</kbd></td>
+</tr>
+<tr>
+<td>File › Open Image…</td>
+<td><kbd>⌘O</kbd></td>
+</tr>
+<tr>
+<td>File › Reopen Last Session</td>
+<td><kbd>⇧⌘O</kbd></td>
+</tr>
+<tr>
+<td>File › Close (the image, dataset, map or spectrum image shown)</td>
+<td><kbd>⌘W</kbd></td>
+</tr>
+<tr>
+<td>File › Close Window</td>
+<td><kbd>⇧⌘W</kbd></td>
+</tr>
+<tr>
+<td>File › Export Image…</td>
+<td><kbd>⇧⌘E</kbd></td>
+</tr>
+<tr>
+<td>File › Export Transform…</td>
+<td><kbd>⌥⌘E</kbd></td>
+</tr>
+<tr>
+<td>File › Export Results…</td>
+<td><kbd>⌥⇧⌘E</kbd></td>
+</tr>
+<tr>
+<td>Image › Pan, Distance, Angle, Profile</td>
+<td><kbd>⌃⌘1</kbd> to <kbd>⌃⌘4</kbd></td>
+</tr>
+<tr>
+<td>Show or hide the sidebar</td>
+<td><kbd>⌃⌘S</kbd></td>
+</tr>
+</tbody>
+</table></div>
+<p>In the EDS part, <kbd>⌃⌘0</kbd> to <kbd>⌃⌘4</kbd> choose the region tools instead: select, rectangle, ellipse, polygon and line.</p>
+<h2 id="settings">Settings</h2>
+<p><span class="ui">Settings…</span> in the app menu (<kbd>⌘,</kbd>) has three parts: Images, Agents and Software Update.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/first-look.html"><span>Previous</span>First look</a><a class="next" href="/docs/electron-microscopy-studio/data/formats.html"><span>Next</span>File formats</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

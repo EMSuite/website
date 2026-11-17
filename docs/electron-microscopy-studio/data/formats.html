@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>File formats — Electron Microscopy Studio documentation</title>
+<meta name="description" content="The TEM and SEM file formats Electron Microscopy Studio opens: images, EDS and EELS spectrum images, EBSD patterns and orientation maps, and the files that are read together.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/data/formats.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/data/formats.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html" aria-current="page">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Your data</p>
+      <h1>File formats</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Open the file the microscope wrote. What the file holds decides where it opens.</p>
+
+<p>Open a file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) or from <span class="ui">File › Open Recent</span>. The same command opens every kind of file, not only images.</p>
+<h2 id="what-opens">What opens</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Kind of data</th>
+<th>Formats</th>
+<th>Opens in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TEM images</td>
+<td>DigitalMicrograph <code>.dm3</code> and <code>.dm4</code>, Velox <code>.emd</code>, TIFF, MRC</td>
+<td>Imaging</td>
+</tr>
+<tr>
+<td>SEM images</td>
+<td>TIFF from Thermo Fisher (FEI), Zeiss and Tescan, read with the microscope's settings; JEOL <code>.img</code> and <code>.map</code></td>
+<td>Imaging</td>
+</tr>
+<tr>
+<td>TEM spectrum images</td>
+<td>EDS from Velox and GMS, EELS from GMS, single <code>.msa</code> spectra</td>
+<td>Spectroscopy</td>
+</tr>
+<tr>
+<td>SEM-EDS</td>
+<td>Bruker <code>.bcf</code> and <code>.spx</code>; EDAX <code>.spd</code>, <code>.lsd</code> and <code>.spc</code>; JEOL <code>.pts</code>, <code>.eds</code> and <code>.asw</code>; a single spectrum in a HyperSpy <code>.hspy</code> file</td>
+<td>Spectroscopy</td>
+</tr>
+<tr>
+<td>EBSD and TKD patterns</td>
+<td>h5ebsd from kikuchipy, Bruker, EDAX and Oxford Instruments (<code>.h5oina</code>); EDAX <code>.up1</code> and <code>.up2</code>; Oxford <code>.ebsp</code>; NORDIF <code>Pattern.dat</code></td>
+<td>EBSD › Patterns</td>
+</tr>
+<tr>
+<td>Orientation maps</td>
+<td><code>.ang</code>, <code>.ctf</code>, Oxford <code>.h5oina</code> saved without patterns, <code>.h5</code> maps from orix, Bruker Esprit and EDAX OIM saved without patterns, EMsoft's dictionary indexing</td>
+<td>EBSD › Maps</td>
+</tr>
+</tbody>
+</table></div>
+<p>A diffraction pattern is an image file; open it and go to the Diffraction workspace.</p>
+<p>TKD patterns are read and indexed as EBSD patterns are. No TKD dataset has been checked in the app yet.</p>
+<h2 id="files-that-are-read-together">Files that are read together</h2>
+<p>Some files are read together with a file of the same name beside them. Keep them in one folder:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>You open</th>
+<th>The app also reads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EDAX <code>.spd</code> or <code>.lsd</code></td>
+<td>the <code>.spc</code> of the same name</td>
+</tr>
+<tr>
+<td>EDAX <code>.up1</code> or <code>.up2</code></td>
+<td>the <code>.ang</code> of the same name</td>
+</tr>
+<tr>
+<td>Oxford <code>.ebsp</code></td>
+<td>the <code>.ctf</code> of the same name</td>
+</tr>
+<tr>
+<td>NORDIF <code>Pattern.dat</code></td>
+<td><code>Setting.txt</code> and the background pattern in its folder</td>
+</tr>
+</tbody>
+</table></div>
+<p>For a NORDIF scan the app asks for the folder the first time, because macOS gives it only the file you picked. Choose the folder and click <span class="ui">Allow</span>; the app remembers it.</p>
+<div class="admonition warning">
+<p class="admonition-title">JEOL .asw projects</p>
+<p>A JEOL <code>.asw</code> project names other files. The app is not given access to those yet, so a project may not open. Open the <code>.pts</code> or <code>.eds</code> file itself.</p>
+</div>
+<h2 id="calibration-from-the-file">Calibration from the file</h2>
+<p>The app reads the pixel size, and for SEM images the microscope's settings, from the file. The <span class="ui">Calibration</span> section of the Image inspector shows the pixel size and the field it came from. When the file carries none, the image is marked "Not calibrated" and lengths are given in pixels.</p>
+<p>For an SEM image with a databar, <span class="ui">Settings › Images › Hide the SEM databar</span> crops the bar from the picture.</p>
+<h2 id="when-a-file-is-not-read">When a file is not read</h2>
+<p>The app does not guess. A file it cannot read is listed with "Can't read" and the reason, or an alert says why it cannot be opened. <a href="/docs/electron-microscopy-studio/troubleshooting.html#a-file-does-not-open">Troubleshooting</a> lists the usual cases.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/window.html"><span>Previous</span>The window</a><a class="next" href="/docs/electron-microscopy-studio/data/sessions.html"><span>Next</span>Sessions</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
