@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FFT — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the FFT part of the Imaging workspace in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and the HRTEM filters.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/fft.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/fft.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html" aria-current="page">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>FFT</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">FFT shows the Fourier transform of an image or of a region of it, measures its spots, and filters the image through a mask. This page lists every control of the part, which is in the Imaging workspace.</p>
+
+<h2 id="region">Region</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transformed</td>
+<td>What is transformed: the whole image, or the region with its position and size</td>
+</tr>
+<tr>
+<td>Use Centred Square</td>
+<td>Sets the largest centred square as the region</td>
+</tr>
+<tr>
+<td>Clear Region</td>
+<td>Transforms the whole image again</td>
+</tr>
+<tr>
+<td>Δq, or Δq (x) and Δq (y)</td>
+<td>The frequency step between neighbouring bins of the transform</td>
+</tr>
+</tbody>
+</table></div>
+<p>Draw a region on the image to transform only that part.</p>
+<h2 id="before-the-transform">Before the transform</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Window</td>
+<td></td>
+<td>Tapers the edges of the region before the transform. A hard edge streaks the spectrum along both axes.</td>
+</tr>
+<tr>
+<td>Smoothing</td>
+<td><span class="ui">None</span>, <span class="ui">Gaussian</span> with σ</td>
+<td>Smooths the region first</td>
+</tr>
+<tr>
+<td>Band-pass</td>
+<td><span class="ui">None</span>, <span class="ui">Difference of Gaussians</span>, <span class="ui">Butterworth high-pass</span>, <span class="ui">Butterworth low-pass</span></td>
+<td>Keeps a band of frequencies. <span class="ui">Low σ</span> or <span class="ui">Cutoff</span> sets it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The inspector sums the steps up in one line that starts "Before the transform:". The picture is drawn as log₁₀ of the power. The window changes the picture, never a number.</p>
+<h2 id="spots">Spots</h2>
+<p>Click a spot on the transform to measure it. The spot is listed in the inspector with its values.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find Spots</td>
+<td>Puts the strongest reflections on the transform, each measured as a click would be</td>
+</tr>
+<tr>
+<td>Threshold, Distance, Most spots</td>
+<td>The finder's settings: the level as a fraction of the range, the least distance between spots in bins, and the most spots it places</td>
+</tr>
+<tr>
+<td>Measure at…</td>
+<td>Measures at a position you type, <span class="ui">kx</span> and <span class="ui">ky</span> in bins</td>
+</tr>
+<tr>
+<td>In Mask</td>
+<td>Passes this spot in the masked inverse. Only a measured spot can be in the mask.</td>
+</tr>
+<tr>
+<td>Remove, Remove All</td>
+<td>Deletes one spot, or all</td>
+</tr>
+</tbody>
+</table></div>
+<p>A yellow ring is a measured spot, a blue one the selected spot, and a dashed one a spot that could not be measured. ⚠ marks a spot with another peak close by: its position is less certain.</p>
+<h2 id="radial-profile">Radial Profile</h2>
+<p>The mean power against |q|. Point at the chart to read a bin.</p>
+<h2 id="masked-inverse">Masked Inverse</h2>
+<p>Appears once a spot is measured. The inverse transform through a mask around the spots marked <span class="ui">In Mask</span> shows where in the image those frequencies come from.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Unit</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radius</td>
+<td>bins</td>
+<td>The mask passes everything within this distance of the centre of a spot</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>bins</td>
+<td>The mask falls to nothing over this distance beyond the radius</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="hrtem-filters">HRTEM Filters</h2>
+<p>A re-implementation of D. R. G. Mitchell's HRTEM filter script for Digital Micrograph (ABSF and Wiener). <span class="ui">Parameters</span> holds the settings, <span class="ui">Filter</span> runs it, and <span class="ui">Last run</span> says what the run did.</p>
+<div class="admonition warning">
+<p class="admonition-title">Filtered images are for looking, not for measuring</p>
+<p>The app states the limits itself. A lattice that falls between two Fourier bins loses amplitude: on synthetic lattices it keeps 5 to 57 % in a 128 px region and 77 to 97 % at 256 px. Intensities are not preserved: the mean of the output is below that of the input.</p>
+</div>
+<h2 id="display">Display</h2>
+<p><span class="ui">View</span> chooses what the image pane shows, for example the image itself or the masked inverse.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/image.html"><span>Previous</span>Image</a><a class="next" href="/docs/electron-microscopy-studio/reference/diffraction.html"><span>Next</span>Diffraction</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EBSD Indexing — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the Indexing part of the EBSD workspace in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/ebsd-indexing.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/ebsd-indexing.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html" aria-current="page">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>EBSD Indexing</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Indexing finds the crystal orientation of every pattern of an EBSD or TKD scan, by Hough indexing or by dictionary indexing. This page lists every control of the part, which is in the EBSD workspace.</p>
+
+<p>The part needs an h5ebsd pattern file and at least one phase. The names in brackets are those of pyEBSDindex and kikuchipy.</p>
+<h2 id="calibration">Calibration</h2>
+<p>The patterns the run uses, the projection centre and the pattern size. <span class="ui">Edit in Patterns</span> takes you to Patterns, where the processing and the geometry are set.</p>
+<h2 id="phases">Phases</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The switch of a phase</td>
+<td>Index against this phase</td>
+</tr>
+<tr>
+<td>Edit</td>
+<td>The phase whose reflector list and removal the controls below apply to</td>
+</tr>
+<tr>
+<td>Reflectors</td>
+<td>The reflector list of pyEBSDindex used for the phase</td>
+</tr>
+<tr>
+<td>Preset, Add Preset</td>
+<td>Adds a built-in phase</td>
+</tr>
+<tr>
+<td>Add from CIF…</td>
+<td>Adds the structure of a CIF. It needs the space group number.</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>Takes the phase out of the list. The file is unchanged.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A phase of the file that states no space group or lattice is left out, and the inspector names it.</p>
+<h2 id="method">Method</h2>
+<p><span class="ui">Hough</span> detects the bands of each pattern and votes for an orientation. <span class="ui">Dictionary</span> compares every pattern with simulated patterns of a master pattern. Dictionary needs a master pattern. The section is marked "stale" when the settings no longer match the result.</p>
+<h2 id="hough">Hough</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Name</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bands</td>
+<td>nBands</td>
+<td>The number of bands detected in each pattern</td>
+</tr>
+<tr>
+<td>ρ mask</td>
+<td>rhoMaskFrac</td>
+<td>The fraction of the ρ range of the Radon transform at each edge where no band is taken</td>
+</tr>
+<tr>
+<td>ρ bins, θ bins</td>
+<td>nRho, nTheta</td>
+<td>The bins of the Radon transform across the distance from the centre, and over 180° of band angle</td>
+</tr>
+<tr>
+<td>ρ width, θ width</td>
+<td>rSigma, tSigma</td>
+<td>The width of the band-shaped kernel, in Radon bins</td>
+</tr>
+<tr>
+<td>Tolerance</td>
+<td>angTol</td>
+<td>How far an interband angle may be from that of a reflector pair to vote for it, in degrees</td>
+</tr>
+<tr>
+<td>Early exit</td>
+<td>nband_earlyexit</td>
+<td>A pattern stops voting once this many bands agree on one orientation</td>
+</tr>
+<tr>
+<td>Reset Hough</td>
+<td></td>
+<td>Back to the values of kikuchipy's tutorial</td>
+</tr>
+</tbody>
+</table></div>
+<p>Hough indexing runs on the CPU in double precision.</p>
+<h2 id="dictionary">Dictionary</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Master Pattern…</td>
+<td>Opens an EMsoft EBSD or TKD master pattern (<code>.h5</code>), as kikuchipy loads it</td>
+</tr>
+<tr>
+<td>The master of a phase</td>
+<td>The master pattern the dictionary of the phase is simulated from. Its space group must be that of the phase.</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>The mean angle between neighbouring orientations of the dictionary, from 1° to 15°</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>The number of orientations sampled, one simulated pattern each</td>
+</tr>
+<tr>
+<td>Metric</td>
+<td>How a pattern and a simulated pattern are compared</td>
+</tr>
+<tr>
+<td>Keep</td>
+<td>The best matches kept per pattern (keep_n). The map shows the best.</td>
+</tr>
+<tr>
+<td>Signal mask</td>
+<td>None compares every pixel. The circular mask compares only the pixels inside the inscribed circle of the pattern.</td>
+</tr>
+<tr>
+<td>Chunk</td>
+<td>How many dictionary patterns are simulated and compared at once, as the memory allows</td>
+</tr>
+<tr>
+<td>Reset Dictionary</td>
+<td>Back to 4°, NCC, keep 5, no mask</td>
+</tr>
+</tbody>
+</table></div>
+<p>With more than one phase on, each phase has its own dictionary, and each point takes the phase whose best match scores highest.</p>
+<h2 id="refine">Refine</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After indexing</td>
+<td>Refines every indexed pattern against the master pattern after the dictionary run</td>
+</tr>
+<tr>
+<td>Refine</td>
+<td>What is refined: the orientation, the projection centre, or both</td>
+</tr>
+<tr>
+<td>Angle trust, PC trust</td>
+<td>How far the refinement may move the orientation, in degrees, and the projection centre</td>
+</tr>
+<tr>
+<td>Solver</td>
+<td>Nelder–Mead, as SciPy's, at kikuchipy's default tolerances</td>
+</tr>
+<tr>
+<td>Mean score</td>
+<td>The mean score over the refined points, as indexed and as refined</td>
+</tr>
+<tr>
+<td>PC mean, PC std</td>
+<td>The mean and the standard deviation of the refined projection centres</td>
+</tr>
+<tr>
+<td>Reset Refine</td>
+<td>Back to the trust region of kikuchipy's tutorial: orientation, ±2° and ±0.05</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-map">The map</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map</td>
+<td>What the map draws: IPF-Z, IPF-X, IPF-Y, Euler, Phase, Confidence index, Fit, Matched bands, Pattern quality, Score or OSM, as the method provides them</td>
+</tr>
+<tr>
+<td>Detected bands</td>
+<td>Draws the bands the Hough transform found on the pattern: matched ones solid green with their family, unmatched ones dashed orange</td>
+</tr>
+<tr>
+<td>Compare</td>
+<td>Shows two results side by side on one zoom, with the histogram of the disorientation between them</td>
+</tr>
+<tr>
+<td>A, B</td>
+<td>The two results: the last Hough or Dictionary run of the part, or the indexing the file holds</td>
+</tr>
+</tbody>
+</table></div>
+<p>Read the quality maps before the colours. A point with few matched bands or a low score has an orientation you should not rely on.</p>
+<h2 id="export">Export</h2>
+<p>The map on screen as PNG; the result as a table with one row per point; the orientations as an EDAX <code>.ang</code> or an Oxford <code>.ctf</code> file; and every input of the run in the names of kikuchipy and orix, to redo it in Python. <span class="ui">Open in Maps</span> shows the run in <a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">Maps</a> without a file.</p>
+<h2 id="method_1">Method</h2>
+<p>Hough indexing: Krieger Lassen 1994 (Radon transform), Wright and Adams 1992 (triplet voting), Shuster and Oh 1981 (QUEST), Rowenhorst et al. 2024 (pyEBSDindex), as kikuchipy drives it. Dictionary indexing: Chen et al. 2015 and Jackson et al. 2019, with the master patterns of EMsoft (Callahan and De Graef 2013). Orientations and colours as in orix. The app shows the full references in the Info tab; the functions and their tolerances are listed in the <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html"><span>Previous</span>EBSD Patterns</a><a class="next" href="/docs/electron-microscopy-studio/reference/ebsd-maps.html"><span>Next</span>EBSD Maps</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

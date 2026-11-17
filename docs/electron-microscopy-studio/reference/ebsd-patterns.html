@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EBSD Patterns — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the Patterns part of the EBSD workspace in Electron Microscopy Studio: virtual images, the processing stages with kikuchipy&#x27;s names, and the exports.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/ebsd-patterns.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/ebsd-patterns.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html" aria-current="page">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>EBSD Patterns</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Patterns browses the patterns of an EBSD or TKD scan, forms virtual images from them, and processes them before indexing. This page lists every control of the part, which is in the EBSD workspace.</p>
+
+<p>The part needs an h5ebsd pattern file. The processing follows kikuchipy; the names in brackets below are kikuchipy's, so a run can be redone in Python.</p>
+<h2 id="calibration">Calibration</h2>
+<p>The detector values of the file: they are shown, not edited. The projection centre is in the Bruker convention, as kikuchipy stores it.</p>
+<h2 id="virtual-images">Virtual images</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grid</td>
+<td><span class="ui">1</span> is the whole detector, the virtual BSE image. A larger number cuts the detector into that many tiles each way.</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>The image the scan map draws: the mean, a tile, or the colour mix</td>
+</tr>
+<tr>
+<td>Red, Green, Blue</td>
+<td>The tile summed into each channel of the colour mix</td>
+</tr>
+<tr>
+<td>Tiles</td>
+<td>Shows the image of every tile in a pane under the map. A click makes it the map.</td>
+</tr>
+</tbody>
+</table></div>
+<p>In the colour mix each channel is normalised to its median and spread, then the three are rescaled together, as in kikuchipy.</p>
+<h2 id="processing">Processing</h2>
+<p>Each stage is a section with a switch. The pattern on screen shows the stages as they are set now; <span class="ui">Process</span> runs them over the whole scan. The stages that need the neighbouring patterns show only once Process has run.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Controls</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static background</td>
+<td><span class="ui">Remove</span>, <span class="ui">Source</span>, <span class="ui">Operation</span>, <span class="ui">Scale</span></td>
+<td>Removes the shading of the detector, which is the same in every pattern (remove_static_background). When the file carries no static background, the mean pattern of the scan stands in.</td>
+</tr>
+<tr>
+<td>Dynamic background</td>
+<td><span class="ui">Remove</span>, <span class="ui">Filter</span>, <span class="ui">Operation</span>, <span class="ui">Std</span>, <span class="ui">Truncate</span></td>
+<td>Removes the low-frequency intensity of each pattern, a Gaussian blur of it (remove_dynamic_background). An empty Std is kikuchipy's default, the pattern width divided by 8.</td>
+</tr>
+<tr>
+<td>Average neighbours</td>
+<td><span class="ui">Average</span>, <span class="ui">Window</span></td>
+<td>Averages each pattern with its neighbours in the scan, weighted by the window (average_neighbour_patterns)</td>
+</tr>
+<tr>
+<td>NLPAR</td>
+<td><span class="ui">Average</span>, <span class="ui">Radius</span>, λ</td>
+<td>Averages each pattern with its similar neighbours (pyebsdindex NLPAR). The radius r searches (2 r + 1) × (2 r + 1) patterns. λ is chosen from the noise of the scan.</td>
+</tr>
+<tr>
+<td>FFT filter</td>
+<td><span class="ui">Filter</span>, <span class="ui">Pass</span>, cutoffs and widths in pixels</td>
+<td>Multiplies the spectrum of each pattern by a transfer function (fft_filter). Low-pass smooths the noise.</td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td><span class="ui">Intensity</span>, <span class="ui">Percentiles</span>, <span class="ui">Std</span>, <span class="ui">÷ √n</span>, <span class="ui">Equalise</span>, <span class="ui">Kernel</span>, <span class="ui">Clip limit</span></td>
+<td>Rescales each pattern to the full grey range (rescale_intensity), optionally between two percentiles, or normalises it. Equalise is the contrast-limited adaptive histogram equalisation (adaptive_histogram_equalization).</td>
+</tr>
+<tr>
+<td>Size</td>
+<td><span class="ui">Bin</span></td>
+<td>Sums k × k pixels (downsample). The note below says the size of the processed patterns and the binning of the detector that follows.</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Pattern</span>, in the Static background section, switches the pattern on screen between the file's own and the processed one.</p>
+<div class="admonition note">
+<p class="admonition-title">Indexing uses what you set here</p>
+<p>The processing, the background and the geometry belong to Patterns. A change here makes the result in Indexing stale.</p>
+</div>
+<h2 id="export">Export</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Export</th>
+<th>What it writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The scan map</td>
+<td>The map on screen as a PNG, one pixel per scan point</td>
+</tr>
+<tr>
+<td>The pattern</td>
+<td>The pattern on screen as a PNG, one pixel per detector pixel, with its colormap and contrast</td>
+</tr>
+<tr>
+<td>The pattern with overlay</td>
+<td>The pattern with the Kikuchi overlay as drawn: bands, edges, zone axes and labels</td>
+</tr>
+<tr>
+<td>The overlay as CSV</td>
+<td>The band lines (hkl, ends in detector pixels, θ) and the zone axes (uvw, position), for a figure made elsewhere</td>
+</tr>
+<tr>
+<td>The header as JSON</td>
+<td>The scan, pattern and detector header as the reader holds it</td>
+</tr>
+<tr>
+<td>The processing</td>
+<td>Every stage with its parameters in kikuchipy's names, to redo the run in Python</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="method">Method</h2>
+<p>Pattern processing as in kikuchipy 0.13.1; NLPAR as in pyEBSDindex (Brewick et al., Ultramicroscopy 200 (2019) 50). The functions and their tolerances are listed in the <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/diffraction.html"><span>Previous</span>Diffraction</a><a class="next" href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html"><span>Next</span>EBSD Indexing</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
