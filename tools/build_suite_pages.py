@@ -105,7 +105,7 @@ def page(title, desc, body, path):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{E(title)} — macEM suite</title>
+<title>{E(title)} — EMSuite</title>
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="https://mac4dstem.com/suite/{path}">
 <meta name="color-scheme" content="light dark">
@@ -194,14 +194,14 @@ def main():
         rows += (f'<tr><td><a class="u-link" href="https://github.com/{ORG}/{k}">{k}</a></td><td>{E(line)}</td><td>{E(ref)}</td>'
                  f'<td>{d["ver"]}</td><td>{p}</td>'
                  f'<td><a class="u-link" href="{PAGES}/{k}/documentation/">API</a></td></tr>\n')
-    body = f"""<h1>The macEM suite</h1>
+    body = f"""<h1>EMSuite</h1>
 <p class="lede">Six Swift packages that port the Python electron-microscopy stack to Apple silicon, and the two Mac apps built on them. Every number is checked against the Python package it comes from, within that package's own tolerance.</p>
 <div class="tablewrap"><table><thead><tr><th>Kit</th><th>What it does</th><th>Reference</th><th>Version</th><th>Parity: present of rows</th><th>Docs</th></tr></thead><tbody>
 {rows}</tbody></table></div>
 <p>Beside the kits, <a class="u-link" href="https://github.com/{ORG}/{SHELL[0]}">{SHELL[0]}</a> {shell["ver"]} holds the apps' shared window, controls and Metal image view. It has no Python reference.</p>
 <p>"Parity: present of rows" counts the functions of the reference package that the kit has and has tested against it; each kit's <code>docs/parity.md</code> lists every function with its state and tolerance. See <a class="u-link" href="/suite/benchmarks.html">benchmarks</a> and <a class="u-link" href="/suite/releases.html">releases</a>.</p>
-<p>Apps: <a class="u-link" href="/">mac4DSTEM</a> (4D-STEM) and <a class="u-link" href="/mactem/">macEM</a> (TEM and SEM images, spectroscopy and diffraction).</p>"""
-    (out / "index.html").write_text(page("Kits", "The six Swift kits of the macEM suite: what each does, its Python reference, version and parity.", body, ""))
+<p>Apps: <a class="u-link" href="/">4DSTEM Studio</a> (4D-STEM) and <a class="u-link" href="/mactem/">Electron Microscopy Studio</a> (TEM and SEM images, spectroscopy and diffraction).</p>"""
+    (out / "index.html").write_text(page("Kits", "The six Swift kits of EMSuite: what each does, its Python reference, version and parity.", body, ""))
 
     body = ["<h1>Benchmarks</h1>",
             "<p class=\"lede\">Each kit against the Python package it ports, same inputs, on an Apple M-series Mac. Tables are copied from each kit's <code>docs/benchmarks.md</code> at its latest tag; where the kit is slower than Python, the table says so.</p>"]
@@ -212,7 +212,7 @@ def main():
         body.append(f'<h2 id="{k.lower()}">{k} {d["ver"]}</h2>')
         body.append(f'<p><a class="u-link" href="https://github.com/{ORG}/{k}/blob/{d["ver"]}/docs/benchmarks.md">Full file and method</a></p>')
         body.append(md(t))
-    (out / "benchmarks.html").write_text(page("Benchmarks", "Timings of the macEM suite kits against NumPy, SciPy, py4DSTEM, HyperSpy, RosettaSciIO and abTEM.", "\n".join(body), "benchmarks.html"))
+    (out / "benchmarks.html").write_text(page("Benchmarks", "Timings of the EMSuite kits against NumPy, SciPy, py4DSTEM, HyperSpy, RosettaSciIO and abTEM.", "\n".join(body), "benchmarks.html"))
 
     rows = ""
     for k, d in [(k, data[k]) for k, _, _ in KITS] + [(SHELL[0], shell)]:
@@ -223,8 +223,8 @@ def main():
 <p class="lede">Latest version of each kit and of EMSuiteUI. Tags are bare versions and equal the top entry of the package's CHANGELOG. The apps pin exact tags.</p>
 <div class="tablewrap"><table><thead><tr><th>Package</th><th>Version</th><th>Date</th><th>Tag</th><th>Changes</th></tr></thead><tbody>
 {rows}</tbody></table></div>
-<p>The apps: <a class="u-link" href="https://github.com/{ORG}/4DSTEM-Studio/releases">mac4DSTEM releases</a> and <a class="u-link" href="https://github.com/{ORG}/Electron-Microscopy-Studio/releases">macEM releases</a> on GitHub.</p>"""
-    (out / "releases.html").write_text(page("Releases", "Current versions and tags of the macEM suite kits and EMSuiteUI.", body, "releases.html"))
+<p>The apps: <a class="u-link" href="https://github.com/{ORG}/4DSTEM-Studio/releases">4DSTEM Studio releases</a> and <a class="u-link" href="https://github.com/{ORG}/Electron-Microscopy-Studio/releases">Electron Microscopy Studio releases</a> on GitHub.</p>"""
+    (out / "releases.html").write_text(page("Releases", "Current versions and tags of the EMSuite kits and EMSuiteUI.", body, "releases.html"))
 
 if __name__ == "__main__":
     main()
