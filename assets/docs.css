@@ -88,6 +88,8 @@
 
 /* The name of a control, as the app writes it. */
 .docs .ui { color: var(--ink); font-weight: 600; white-space: nowrap; }
+/* A long control name (a Settings path) may break on a phone instead of widening the page. */
+@media (max-width: 40rem) { .docs p .ui, .docs li .ui { white-space: normal; } }
 
 .docs kbd {
   font-family: var(--sans);

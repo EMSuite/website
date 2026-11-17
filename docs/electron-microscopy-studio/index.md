@@ -17,4 +17,7 @@ These pages are being written. They will follow the app's workspaces from top to
 | EELS | Thickness maps, core-loss edges and composition |
 | Results | Reviewing and exporting the numbers |
 
-Until then, [Support](/support.html) lists the requirements and the known limits.
+## Help
+
+- [Troubleshooting](/docs/electron-microscopy-studio/troubleshooting.html): the app's messages and what to do about each.
+- [Support](/support.html): contact and requirements.

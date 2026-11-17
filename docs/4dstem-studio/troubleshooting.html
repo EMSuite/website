@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Troubleshooting — 4DSTEM Studio documentation</title>
+<meta name="description" content="Answers to the usual problems in 4DSTEM Studio: files that do not open, folder access, large datasets, a calibration that is not quantitative, disk detection, updates and the agent door.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/troubleshooting.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/troubleshooting.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html" aria-current="page">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Help</p>
+      <h1>Troubleshooting</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">The app says what is wrong in its own words. This page lists those messages and what to do about each.</p>
+
+<h2 id="a-file-does-not-open">A file does not open</h2>
+<p><strong>The app refuses the file and names a reason.</strong> The reader never guesses. The message says what it found and what it expected; <a href="/docs/4dstem-studio/data/formats.html#when-a-file-is-refused">File formats</a> explains the usual ones.</p>
+<p><strong>"Could not open …".</strong> The file is missing, or macOS did not let the app read it. Check that the file is where you picked it, and open it again with <span class="ui">Open Dataset…</span> (<kbd>⌘O</kbd>).</p>
+<p><strong>"Vendor data is truncated".</strong> The file is shorter than its header says, which usually means a copy that did not finish. Copy the file again from the microscope computer.</p>
+<p><strong>"… is no longer reachable: its disk was disconnected".</strong> The dataset is on an external disk or a network share that went away. Reconnect it and reopen the dataset.</p>
+<p><strong>"Dataset rank … is not supported".</strong> The HDF5 dataset you chose is not a 4D-STEM scan. The app expects a dataset with three or four dimensions.</p>
+<h2 id="the-app-asks-for-a-folder">The app asks for a folder</h2>
+<p>Merlin and EMPAD data, and session files, sit in more than one file. macOS may give the app only the file you picked. The app then shows an Open panel on the dataset's folder: click <span class="ui">Open</span> there. It asks once and remembers the folder.</p>
+<p>If the dataset's folder cannot be written to, for example on a read-only share, use <span class="ui">Change Session File…</span> to keep the session somewhere else. See <a href="/docs/4dstem-studio/data/sessions.html">Sessions</a>.</p>
+<h2 id="the-dataset-is-large-or-the-app-is-slow">The dataset is large or the app is slow</h2>
+<p><strong>"More than half of this Mac's memory; other apps may slow down."</strong> The selection you are about to load is large for this Mac. In <span class="ui">Open with Options…</span>, crop the scan or raise the <span class="ui">Bin factor</span> until <span class="ui">This selection</span> fits, or turn <span class="ui">Keep in memory</span> off.</p>
+<p><strong>Keep in memory is dimmed.</strong> The dataset would not fit; the caption under the switch says by how much. Crop or bin, or work from the file.</p>
+<p><strong>Everything works but is slow.</strong> With <span class="ui">Keep in memory</span> off, each analysis reads the file in pieces. A dataset on a network share or a slow external disk is read at that disk's speed: copy it to the internal disk. <a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a> has the details.</p>
+<h2 id="the-calibration-says-not-quantitative">The calibration says "Not quantitative"</h2>
+<p>The <span class="ui">Prepare</span> workspace lists each part of the calibration with its state: <span class="ui">Not set</span>, <span class="ui">From file</span>, <span class="ui">Measured</span>, <span class="ui">Manual</span>, <span class="ui">From session</span> or <span class="ui">Not quantitative</span>. The verdict underneath reads <span class="ui">Quantitative</span>, or "Not quantitative — still needed:" followed by the parts that are in the way.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>The verdict or the row says</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A part is <span class="ui">Not set</span></td>
+<td>Measure it in Prepare, or type the value if you know it. The voltage and the pixel sizes come from the file when it carries them.</td>
+</tr>
+<tr>
+<td>Origin: "Spot pattern" or "Centre of mass scattered"</td>
+<td>The strong disks of a crystal pull the centre of mass off the beam. Run <span class="ui">Detect All Disks</span> in Bragg Disks, then <span class="ui">Origin from Bragg Peaks</span> in Prepare. Check afterwards that the Bragg vector map shows sharp spots.</td>
+</tr>
+<tr>
+<td>Origin: "Beam stop over the direct beam"</td>
+<td>Set the origin method to Friedel when the row suggests it; otherwise set the origin by hand.</td>
+</tr>
+<tr>
+<td>Origin: "exceeds probe radius; recalibrate before quantitative use"</td>
+<td>The fit moved further than the probe is wide. Run <span class="ui">Calibrate Origin</span> again after checking the probe radius.</td>
+</tr>
+<tr>
+<td>Origin: "Window pull … (the window is mostly background…)"</td>
+<td>The fit window holds little signal. The maps are fine for finding features; do not quote their numbers.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition note">
+<p class="admonition-title">You can still work</p>
+<p>A dataset that is not quantitative can still be imaged and mapped. The results are marked, and their numbers are in pixels. Use them to find features, and calibrate before you report values.</p>
+</div>
+<h2 id="disk-detection-finds-too-few-or-too-many-disks">Disk detection finds too few or too many disks</h2>
+<p>Tune on single patterns first: one on a feature and one in the matrix. Change one setting at a time and look at the circles on the pattern after each change.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What to change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circles on empty background</td>
+<td>Raise <span class="ui">Minimum relative</span>. To find the noise floor, lower it until false disks appear on the background, then set it just above.</td>
+</tr>
+<tr>
+<td>Weak disks are missing</td>
+<td>Lower <span class="ui">Minimum relative</span>. If a saturated direct beam sets the scale, use <span class="ui">Reference outside</span> to measure against the brightest disk outside that radius.</td>
+</tr>
+<tr>
+<td>Circles larger or smaller than the disks</td>
+<td>The probe radius is wrong. Correct <span class="ui">Probe radius</span> and click <span class="ui">Build Kernel</span> again.</td>
+</tr>
+<tr>
+<td>Neighbouring disks are lost in pairs</td>
+<td><span class="ui">Minimum spacing</span> is larger than the distance between the closest real disks. Lower it.</td>
+</tr>
+<tr>
+<td>Disks at the detector edge are missing</td>
+<td><span class="ui">Edge exclusion</span> drops disks cut by the edge. That is expected.</td>
+</tr>
+<tr>
+<td>"This pattern was truncated to the configured maximum peak count."</td>
+<td>Raise <span class="ui">Maximum peaks</span>, or raise the threshold if the extra disks are noise.</td>
+</tr>
+<tr>
+<td>Noisy data, unstable positions</td>
+<td>Raise <span class="ui">Pattern smoothing σ</span> or <span class="ui">Correlation smoothing σ</span>, and keep <span class="ui">Correlation power</span> at 1.</td>
+</tr>
+</tbody>
+</table></div>
+<p>There is no single right value. The defaults are scaled to the detector, and the right threshold depends on the dynamic range of your data.</p>
+<p><strong>"Detection settings changed — rerun Detect All Disks".</strong> Strain, orientation and phase maps are built from the disks of the whole scan. After you change a detection setting, run <span class="ui">Detect All Disks</span> again before the next map.</p>
+<h2 id="a-step-cannot-run">A step cannot run</h2>
+<p>When a step cannot run, the app names what is missing. The usual ones:</p>
+<ul>
+<li><strong>"Needs Detect All Disks first."</strong> The step works on the detected disks. Run <span class="ui">Detect All Disks</span> in Bragg Disks.</li>
+<li><strong>"mrad needs accelerating voltage and Q pixel calibration."</strong> Set both in Prepare.</li>
+<li><strong>"From an earlier run — the settings above have changed."</strong> The result on screen no longer matches the settings. Run the step again.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<p>The app checks once a day whether a newer version exists. To check now, choose <span class="ui">Check for Updates…</span> in the app menu. To turn the daily check off, clear <span class="ui">Settings › General › Check for updates automatically</span>.</p>
+<p>If an update does not install, download the current disk image from the <a href="/">4DSTEM Studio page</a> and replace the app in Applications. Your settings, recent datasets and sessions stay.</p>
+<h2 id="an-agent-cannot-connect">An agent cannot connect</h2>
+<ol>
+<li>Open <span class="ui">Settings › Agents</span> and turn on <span class="ui">Let agents on this Mac look at open windows</span>.</li>
+<li>Read <span class="ui">Status</span>. "On (port 47811), no agent has asked yet" means the app is listening and the agent has not reached it. "Could not open:" is followed by the reason. The port in the status is the one the app uses; it takes another when 47811 is in use.</li>
+<li>Click <span class="ui">Copy Connection Command</span> and paste it into Terminal once. The command holds the token; an agent set up with an older token is refused after <span class="ui">New Token</span>.</li>
+</ol>
+<p><strong>The agent can look but not act.</strong> Tools that change something need <span class="ui">Let agents run analyses</span>, which is off by default.</p>
+<p><strong>The agent is on another computer.</strong> The app answers only on the Mac it runs on. Run the agent on the same Mac.</p>
+<h2 id="something-else">Something else</h2>
+<p>Write to <a href="mailto:mail@mac4dstem.com">mail@mac4dstem.com</a> or open an issue on <a href="https://github.com/EMSuite/4DSTEM-Studio/issues">GitHub</a>. Say which version you use (<span class="ui">About 4DSTEM Studio</span> in the app menu), the file format, and the message the app showed. <a href="/support.html">Support</a> has the contact details.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/data/export.html"><span>Previous</span>Export</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
