@@ -2,7 +2,7 @@
 """Check the site before it publishes: every internal link resolves, and the pages name the current releases.
 
     python3 tools/check_site.py             # links, then versions and download sizes against GitHub releases
-    python3 tools/check_site.py --offline   # links only
+    python3 tools/check_site.py --offline   # links and old app names only
 
 Links: every href, src and srcset that points into the site must name a file in this repo, and every #fragment an id
 on its page. Releases: each app page must give the latest release's version and its .dmg size wherever it states
@@ -49,6 +49,64 @@ class Page(html.parser.HTMLParser):
                 self.refs.append(a[key])
         if a.get("srcset"):
             self.refs += [part.split()[0] for part in a["srcset"].split(",") if part.strip()]
+
+
+# Old app names (mac4DSTEM, macEM, macTEM) must not appear in what a reader sees. Text is joined across inline tags, so a
+# wordmark split by markup (mac<em>4D</em>STEM) is caught; alt, title, aria-label and meta descriptions count too.
+# File and domain names keep the old names: mac4dstem.com, mac4DSTEM.dmg, mac4DSTEM-5.4.1.dmg, .mac4dstem.h5, /mactem/.
+OLD_NAME = re.compile(r"(?<![\w./-])mac(?:4dstem|em|tem)(?![\w.-])", re.I)
+INLINE = {"a", "abbr", "b", "bdi", "bdo", "cite", "code", "data", "dfn", "em", "i", "kbd", "mark", "q", "s", "samp",
+          "small", "span", "strong", "sub", "sup", "time", "u", "var", "wbr"}
+META = {"description", "og:title", "og:description", "og:site_name", "twitter:title", "twitter:description",
+        "application-name", "apple-mobile-web-app-title"}
+
+
+class Text(html.parser.HTMLParser):
+    """The text a reader sees (or a screen reader or a link preview reads), with inline markup joined."""
+    def __init__(self):
+        super().__init__()
+        self.parts, self.skip = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag in ("script", "style") and a.get("type") != "application/ld+json":
+            self.skip += 1
+        if tag not in INLINE:
+            self.parts.append(" ")
+        for key in ("alt", "title", "aria-label"):
+            if a.get(key):
+                self.parts.append(f" {a[key]} ")
+        if tag == "meta" and (a.get("name") or a.get("property")) in META and a.get("content"):
+            self.parts.append(f" {a['content']} ")
+
+    def handle_endtag(self, tag):
+        if tag in ("script", "style") and self.skip:
+            self.skip -= 1
+        if tag not in INLINE:
+            self.parts.append(" ")
+
+    def handle_data(self, data):
+        if not self.skip:
+            self.parts.append(data)
+
+    def text(self):
+        return re.sub(r"\s+", " ", "".join(self.parts))
+
+
+def old_names(source):
+    """Each old app name in a page's visible text, with a little context."""
+    t = Text()
+    t.feed(source)
+    s = t.text()
+    return [s[max(0, m.start() - 30):m.end() + 30].strip() for m in OLD_NAME.finditer(s)]
+
+
+def check_names():
+    errors = []
+    for page in pages():
+        for hit in old_names(page.read_text()):
+            errors.append(f"{page.relative_to(ROOT)}: old app name in the page text: …{hit}…")
+    return errors
 
 
 def pages():
@@ -200,10 +258,12 @@ def check_stamps(app, ver, src=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--offline", action="store_true", help="check links only")
+    ap.add_argument("--offline", action="store_true", help="check links and old app names only")
     a = ap.parse_args()
     errors, n = check_links()
     print(f"links: {n} pages checked")
+    errors += check_names()
+    print(f"names: {n} pages checked for old app names")
     if not a.offline:
         errors += check_releases()
         print(f"releases: {len(APPS)} apps and {len(PACKAGES)} packages checked")

@@ -45,5 +45,27 @@ class Stamps(unittest.TestCase):
         self.assertEqual(c.check_stamps("App Studio", "5.5.0", self.src / "missing"), [])
 
 
+class OldNames(unittest.TestCase):
+    def test_split_wordmark_is_caught(self):
+        self.assertEqual(len(c.old_names('<h1 class="wordmark">mac<em>4D</em>STEM</h1>')), 1)
+        self.assertEqual(len(c.old_names('<h1>mac<em>EM</em></h1>')), 1)
+
+    def test_alt_and_meta_are_read(self):
+        self.assertEqual(len(c.old_names('<img src="a.png" alt="The macTEM window">')), 1)
+        self.assertEqual(len(c.old_names('<meta property="og:title" content="mac4DSTEM">')), 1)
+
+    def test_file_and_domain_names_pass(self):
+        ok = ('<p>Download mac4DSTEM.dmg or mac4DSTEM-5.4.1.dmg from mac4dstem.com; the session is scan.mac4dstem.h5 '
+              'or scan.dm4.mactem.h5.</p><a href="/mactem/">Electron Microscopy Studio</a>'
+              '<script>var x = "macEM";</script><img src="/assets/mactem-og.jpg" alt="">')
+        self.assertEqual(c.old_names(ok), [])
+
+    def test_store_names_pass(self):
+        self.assertEqual(c.old_names('<h1><em>4D</em>STEM Studio</h1><h1>Electron Microscopy <em>Studio</em></h1>'), [])
+
+    def test_block_tags_do_not_join_words(self):
+        self.assertEqual(c.old_names('<p>mac</p><p>EM</p>'), [])
+
+
 if __name__ == "__main__":
     unittest.main()
