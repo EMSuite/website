@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Export — 4DSTEM Studio documentation</title>
+<meta name="description" content="Exporting from 4DSTEM Studio: figures as PNG or PDF, results as data files that py4DSTEM reads, and EDS spectra, maps and tables.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/data/export.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/data/export.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html" aria-current="page">Export</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Your data</p>
+      <h1>Export</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Figures for a paper, and the numbers behind them for further work.</p>
+
+<h2 id="figures">Figures</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Key</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File › Export Result PNG…</td>
+<td><kbd>⇧⌘E</kbd></td>
+<td>The result on screen: the image or map with its colour scale and scale bar</td>
+</tr>
+<tr>
+<td>File › Export Diffraction PNG…</td>
+<td><kbd>⌥⌘E</kbd></td>
+<td>The diffraction pattern on screen</td>
+</tr>
+</tbody>
+</table></div>
+<p>In the <span class="ui">Results</span> workspace, the <span class="ui">Figure</span> section of the inspector sets how a figure is written:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Choices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format</td>
+<td>PNG, or PDF (vector)</td>
+</tr>
+<tr>
+<td>Image size</td>
+<td>A multiple of the data's own pixels</td>
+</tr>
+<tr>
+<td>Detector outline</td>
+<td>Draw the virtual detector on the pattern, or leave it off</td>
+</tr>
+<tr>
+<td>Regions</td>
+<td>Draw the scan regions, or leave them off</td>
+</tr>
+</tbody>
+</table></div>
+<p>The defaults for format and image size are in <span class="ui">Settings › General</span> under <span class="ui">Exported images</span>. <span class="ui">Show scale bar</span> is in <span class="ui">Settings › Appearance</span>.</p>
+<h2 id="data">Data</h2>
+<p>In the <span class="ui">Results</span> workspace, the <span class="ui">Export</span> menu writes the numbers.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export Data…</td>
+<td>The result on screen as its own <code>.h5</code> file: the values exactly as computed, not the colours of the picture, with pixel size, units and how the result was made</td>
+</tr>
+<tr>
+<td>Export Bundle…</td>
+<td>Several results of the dataset together in one <code>.h5</code> file</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both are EMD files that py4DSTEM reads, so an analysis can continue in Python.</p>
+<p>A result that exists only as a colour image, such as a colour-coded orientation map, has no single number per pixel and is exported as a figure.</p>
+<h2 id="eds">EDS</h2>
+<p>With a spectrum image open, the File menu also has:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export Spectrum CSV…</td>
+<td>The spectrum on screen as a table</td>
+</tr>
+<tr>
+<td>Export Maps…</td>
+<td>The element maps as pictures</td>
+</tr>
+<tr>
+<td>Export Results CSV…</td>
+<td>The quantification table</td>
+</tr>
+<tr>
+<td>Export Method JSON…</td>
+<td>The settings the quantification used</td>
+</tr>
+<tr>
+<td>Export Regions CSV…</td>
+<td>The regions you pinned and their results</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-every-export-carries">What every export carries</h2>
+<p>Each exported file names the method its result came from. Keep the dataset's <a href="/docs/4dstem-studio/data/sessions.html">session file</a> with your exports: it holds the settings, so the figure in a paper can be made again.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/data/sessions.html"><span>Previous</span>Sessions</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

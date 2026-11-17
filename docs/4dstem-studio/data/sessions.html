@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sessions — 4DSTEM Studio documentation</title>
+<meta name="description" content="How 4DSTEM Studio saves your work on a dataset in a session file beside it, what the Dataset menu does, and how results stay reproducible.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/data/sessions.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/data/sessions.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html" aria-current="page">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Your data</p>
+      <h1>Sessions</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Your work on a dataset is kept in a session file beside it. The dataset itself is never changed.</p>
+
+<h2 id="the-session-file">The session file</h2>
+<p>The session file sits in the same folder as the dataset and has its name with the ending <code>.mac4dstem.h5</code>. For <code>scan.dm4</code> it is <code>scan.mac4dstem.h5</code>.</p>
+<p>When you open the dataset again, the app finds the session file and brings back what was saved in it. Move or copy the two files together.</p>
+<h2 id="what-you-save">What you save</h2>
+<p>In the <span class="ui">Dataset</span> menu:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Save Current Result to Session</td>
+<td>Keeps the result on screen with the dataset</td>
+</tr>
+<tr>
+<td>Save Calibration to Session</td>
+<td>Keeps the calibration, so the next open starts calibrated</td>
+</tr>
+<tr>
+<td>Apply Saved Controls</td>
+<td>Sets the controls back to the settings a saved result was made with. Shown when a saved result is selected.</td>
+</tr>
+<tr>
+<td>Change Session File…</td>
+<td>Uses a session file in another place, for example when the dataset's folder is read-only</td>
+</tr>
+<tr>
+<td>Allow Access to Session File…</td>
+<td>Gives the app permission for a session file macOS has not let it read</td>
+</tr>
+<tr>
+<td>Ignore Session…</td>
+<td>Opens the dataset again without its saved session, for this one time</td>
+</tr>
+</tbody>
+</table></div>
+<p>Saved results are listed in the <span class="ui">Results</span> workspace under <span class="ui">Saved products</span>. From there you can compare two of them side by side or remove one.</p>
+<p><span class="ui">Ignore Session…</span> asks before it acts: reopening replaces what is in the window, so results you computed and did not save are gone. The session file itself stays untouched.</p>
+<h2 id="the-record-of-how-a-result-was-made">The record of how a result was made</h2>
+<p>Every step is written down as it runs.</p>
+<ul>
+<li><strong>Output</strong>, in the bottom pane, is the log: each step with its settings, its numbers and any warning.</li>
+<li><strong>Lineage</strong>, beside it, shows each result and the steps it came from. Turn on <span class="ui">Active path only</span> to see just the steps behind the result on screen.</li>
+</ul>
+<p>Because the settings are saved with the result, a result can be made again: on the same dataset with <span class="ui">Apply Saved Controls</span>, and by anyone you send the dataset and its session file to.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/data/large-datasets.html"><span>Previous</span>Large datasets</a><a class="next" href="/docs/4dstem-studio/data/export.html"><span>Next</span>Export</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
