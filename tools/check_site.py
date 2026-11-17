@@ -25,7 +25,7 @@ REPOS = {"mac4DSTEM": "4DSTEM-Studio", "macEM": "Electron-Microscopy-Studio"}
 PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "SimulatoKit", "EMSuiteUI"]
 SKIP = {".git", "datacube", "tools"}
 # Apps whose website download reads an update feed, the feed's path in this repo, and the first version that reads it.
-FEEDS = {"mac4DSTEM": ("appcast/mac4dstem.xml", (5, 3, 0))}
+FEEDS = {"mac4DSTEM": ("appcast/mac4dstem.xml", (5, 3, 0)), "macEM": ("appcast/macem.xml", (2, 1, 0))}
 SPARKLE = "{http://www.andymatuschak.org/xml-namespaces/sparkle}"
 
 
