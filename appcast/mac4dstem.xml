@@ -9,7 +9,7 @@
       <sparkle:version>5.3.1</sparkle:version>
       <sparkle:shortVersionString>5.3.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/macEMSuite/mac4DSTEM/releases/tag/v5.3.1</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.3.1</sparkle:fullReleaseNotesLink>
       <description sparkle:format="plain-text">mac4DSTEM 5.3.1 fixes wrong or misleading results.
 
 • Placing a virtual detector no longer moves the origin. You now set the origin on purpose in Prepare.
@@ -17,7 +17,7 @@
 • Calibrate Q reads diamond-type rings correctly.
 • Opening a dataset writes nothing to its disk, and a new file no longer shows the last file's EDS maps.
 • A tidier status bar, keyboard and VoiceOver fixes, and a new update signing key.</description>
-      <enclosure url="https://github.com/macEMSuite/mac4DSTEM/releases/download/v5.3.1/mac4DSTEM-5.3.1.dmg" type="application/octet-stream" sparkle:edSignature="DrLSNeF0yXjE6phI7RoRvruD41WiddFZlBqq7yw8mnalESAxKvEQBrpKHipUrSPhCoLkl6q5VpI9hk4o0MboBQ==" length="19475071"/>
+      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.3.1/mac4DSTEM-5.3.1.dmg" type="application/octet-stream" sparkle:edSignature="DrLSNeF0yXjE6phI7RoRvruD41WiddFZlBqq7yw8mnalESAxKvEQBrpKHipUrSPhCoLkl6q5VpI9hk4o0MboBQ==" length="19475071"/>
     </item>
   </channel>
 </rss>
