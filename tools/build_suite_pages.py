@@ -2,7 +2,7 @@
 """Generate suite/index.html, suite/benchmarks.html and suite/releases.html from the six kits' own files.
 
 Nothing is typed in by hand here except the one-line kit descriptions: versions and dates come from each kit's
-CHANGELOG.md, parity totals from docs/parity.md, benchmark tables from docs/benchmarks.md. MacEMUI, the apps' shared
+CHANGELOG.md, parity totals from docs/parity.md, benchmark tables from docs/benchmarks.md. EMSuiteUI, the apps' shared
 window package, is listed beside the kits with its version only. Run it after a kit or MacEMUI release:
 
     python3 tools/build_suite_pages.py [--kits DIR]      # DIR holds the kit checkouts (default: ..)
@@ -23,7 +23,7 @@ KITS = [  # name, one line (from the kit's README), the Python reference
     ("CuboKit", "The 4D-STEM library: virtual imaging, centre of mass, DPC, strain, Bragg disks, parallax, ptychography.", "py4DSTEM"),
     ("SimulatoKit", "Multislice TEM/STEM simulation: potentials, frozen phonons, scans, detectors, CTF.", "abTEM"),
 ]
-SHELL = ("MacEMUI", "The apps' shared window, controls and Metal image view.")   # an app package: no parity, no benchmarks
+SHELL = ("EMSuiteUI", "The apps' shared window, controls and Metal image view.")   # an app package: no parity, no benchmarks
 # Benchmark files are written for the kit's developers; sentences about how a table was made in development
 # (sessions, the nightly run, audits) are left off the public page. The tables and the method stay.
 INTERNAL = re.compile(r"\bsessions?\b|\bnightly\b|\baudits?\b|\bROADMAP\b|working tree|\btask \d+|\bCLAUDE\b|mem ?cap|memory cap", re.I)
@@ -220,11 +220,11 @@ def main():
                  f'<td><a class="u-link" href="https://github.com/{ORG}/{k}/releases/tag/{d["ver"]}">tag</a></td>'
                  f'<td><a class="u-link" href="https://github.com/{ORG}/{k}/blob/{d["ver"]}/CHANGELOG.md">changelog</a></td></tr>\n')
     body = f"""<h1>Releases</h1>
-<p class="lede">Latest version of each kit and of MacEMUI. Tags are bare versions and equal the top entry of the package's CHANGELOG. The apps pin exact tags.</p>
+<p class="lede">Latest version of each kit and of EMSuiteUI. Tags are bare versions and equal the top entry of the package's CHANGELOG. The apps pin exact tags.</p>
 <div class="tablewrap"><table><thead><tr><th>Package</th><th>Version</th><th>Date</th><th>Tag</th><th>Changes</th></tr></thead><tbody>
 {rows}</tbody></table></div>
 <p>The apps: <a class="u-link" href="https://github.com/{ORG}/4DSTEM-Studio/releases">mac4DSTEM releases</a> and <a class="u-link" href="https://github.com/{ORG}/Electron-Microscopy-Studio/releases">macEM releases</a> on GitHub.</p>"""
-    (out / "releases.html").write_text(page("Releases", "Current versions and tags of the macEM suite kits and MacEMUI.", body, "releases.html"))
+    (out / "releases.html").write_text(page("Releases", "Current versions and tags of the macEM suite kits and EMSuiteUI.", body, "releases.html"))
 
 if __name__ == "__main__":
     main()
