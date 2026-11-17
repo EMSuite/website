@@ -122,10 +122,10 @@ th,td{{padding:.3rem .7rem;border-bottom:1px solid color-mix(in srgb,currentColo
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap">
-    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span>mac<em>4D</em>STEM</span></a>
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
     <nav aria-label="Sections">
-      <a href="/">mac4DSTEM</a>
-      <a href="/mactem/">macEM</a>
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/">Docs</a>
       <a href="/suite/">Kits</a>
       <a href="/suite/benchmarks.html">Benchmarks</a>
       <a href="/suite/releases.html">Releases</a>
