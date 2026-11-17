@@ -8,7 +8,9 @@ Links: every href, src and srcset that points into the site must name a file in 
 on its page. Releases: each app page must give the latest release's version and its .dmg size wherever it states
 them (the text and the JSON-LD), and the kits pages the latest tag of each kit and of EMSuiteUI. From mac4DSTEM 5.3.0 on,
 the website download updates itself (Sparkle), so appcast/mac4dstem.xml must name that latest release: its version, and
-its mac4DSTEM-<version>.dmg on the release with the same length. CI runs it on every push
+its mac4DSTEM-<version>.dmg on the release with the same length. Documentation: a page under docs-src/ that says which
+version it applies to (applies_to in its front matter) must name the latest release's major.minor; moving the stamp says
+the page was read against that version. CI runs it on every push
 and once a day, so a new release turns it red until the pages follow. Standard library only; GITHUB_TOKEN is used
 when set.
 """
@@ -26,6 +28,8 @@ PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "
 SKIP = {".git", "datacube", "tools"}
 # Apps whose website download reads an update feed, the feed's path in this repo, and the first version that reads it.
 FEEDS = {"mac4DSTEM": ("appcast/mac4dstem.xml", (5, 3, 0)), "macEM": ("appcast/macem.xml", (2, 1, 0))}
+# The app name a docs section carries in docs-src/nav.json, for each app.
+DOCS_APPS = {"mac4DSTEM": "4DSTEM Studio", "macEM": "Electron Microscopy Studio"}
 SPARKLE = "{http://www.andymatuschak.org/xml-namespaces/sparkle}"
 
 
@@ -126,6 +130,7 @@ def check_releases():
         if not ld.get("downloadUrl", "").endswith(f"/{app}.dmg"):
             errors.append(f"{rel}: JSON-LD downloadUrl must point at {app}.dmg")
         errors += check_feed(app, ver, r["assets"])
+        errors += check_stamps(DOCS_APPS[app], ver)
     releases = (ROOT / "suite/releases.html").read_text()
     for pkg in PACKAGES:
         ver = latest(pkg)["tag_name"]
@@ -171,6 +176,25 @@ def check_feed(app, ver, assets):
             errors.append(f"{path}: the v{ver} release has no {name} for the feed to point at")
         elif str(asset["size"]) != enclosure.get("length"):
             errors.append(f"{path}: length {enclosure.get('length')}, the release's {name} is {asset['size']} bytes")
+    return errors
+
+
+def check_stamps(app, ver, src=None):
+    """Every docs page of `app` that carries applies_to names the major.minor of `ver`, the app's latest release."""
+    src = src or ROOT / "docs-src"
+    if not (src / "nav.json").exists():
+        return []
+    current = ".".join(ver.split(".")[:2])
+    errors = []
+    for section in json.loads((src / "nav.json").read_text())["sections"]:
+        if section.get("app") != app:
+            continue
+        for path in (p for group in section["groups"] for p in group["pages"]):
+            front = (src / f"{path}.md").read_text().split("---", 2)[1]
+            m = re.search(r"^applies_to:\s*(\S+)\s*$", front, re.M)
+            if m and m.group(1) != current:
+                errors.append(f"docs-src/{path}.md: applies_to {m.group(1)}, the latest {app} release is {ver}: read the "
+                              f"page against {current}, correct it, and set applies_to: {current}")
     return errors
 
 

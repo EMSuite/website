@@ -29,4 +29,7 @@ The tutorials are being written. They will follow the app's workspaces from top 
 | Spectroscopy | EDS spectrum images, alone or beside the 4D scan |
 | Results | Reviewing, saving and exporting |
 
-[Support](/support.html) lists the requirements and the known limits.
+## Help
+
+- [Troubleshooting](/docs/4dstem-studio/troubleshooting.html): the app's messages and what to do about each.
+- [Support](/support.html): contact and requirements.

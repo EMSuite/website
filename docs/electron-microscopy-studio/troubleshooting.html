@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Troubleshooting — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Answers to the usual problems in Electron Microscopy Studio: files that cannot be read, folder access, a workspace that is dimmed, images without a scale, updates and the agent door.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/troubleshooting.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/troubleshooting.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html" aria-current="page">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Help</p>
+      <h1>Troubleshooting</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">The app says what is wrong in its own words. This page lists those messages and what to do about each.</p>
+
+<h2 id="a-file-does-not-open">A file does not open</h2>
+<p><strong>"Can't read …" in the window.</strong> The file is listed but its content could not be read. The sentence underneath gives the reason. If the file was on a disk or share that was away, reconnect it and click <span class="ui">Try Again</span>.</p>
+<p><strong>An alert says the app can't open this file.</strong> The file is not one of the formats the app reads, or it is damaged. The alert names what the reader found. A file that was cut short while copying has to be copied again from the microscope computer.</p>
+<h2 id="the-app-asks-for-a-folder">The app asks for a folder</h2>
+<p>A NORDIF EBSD scan is read together with the <code>Setting.txt</code> and the background pattern beside it. macOS gives the app only the file you picked, so the app shows a panel on the scan's folder: choose that folder, or one around it, and click <span class="ui">Allow</span>. The app remembers the folder and does not ask again for scans inside it.</p>
+<h2 id="a-workspace-is-dimmed">A workspace is dimmed</h2>
+<p>Each workspace needs its own kind of data. A dimmed workspace says why when you point at it:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>The reason</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No file open holds an image</td>
+<td>Image, FFT and Diffraction work on an image. Open one.</td>
+</tr>
+<tr>
+<td>No file open holds an EDS spectrum image</td>
+<td>EDS needs a spectrum image with X-ray counts.</td>
+</tr>
+<tr>
+<td>No file open holds an EELS spectrum image</td>
+<td>EELS needs an energy-loss spectrum image.</td>
+</tr>
+<tr>
+<td>No file open holds EBSD patterns</td>
+<td>Patterns and Indexing need a pattern dataset.</td>
+</tr>
+<tr>
+<td>No file open holds an orientation map</td>
+<td>Maps needs an indexed map.</td>
+</tr>
+<tr>
+<td>The open images belong to a spectrum image, not a diffraction pattern</td>
+<td>The image is the survey image of a spectrum image. Diffraction needs a diffraction pattern.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-image-has-no-scale">The image has no scale</h2>
+<p><strong>"Not calibrated: the scale bar counts pixels."</strong> The file carries no pixel size. Distances, profiles and particle sizes are then given in pixels. The <span class="ui">Calibration</span> section of the Image inspector shows what the file carries and where it came from.</p>
+<p><strong>"Pixels are not square".</strong> The file's two axes have different pixel sizes. The scale bar uses the horizontal axis.</p>
+<p><strong>A diffraction pattern without a scale.</strong> In the Diffraction workspace, record a standard under the same conditions, choose it under <span class="ui">Standard</span>, drag an annulus over one of its rings and click <span class="ui">Calibrate on Ring</span>.</p>
+<h2 id="updates">Updates</h2>
+<p>The app checks once a day whether a newer version exists. To check now, choose <span class="ui">Check for Updates…</span> in the app menu. To turn the daily check off, clear <span class="ui">Check for updates automatically</span> in Settings.</p>
+<p>If an update does not install, download the current disk image from the <a href="/mactem/">Electron Microscopy Studio page</a> and replace the app in Applications. Your settings stay.</p>
+<h2 id="an-agent-cannot-connect">An agent cannot connect</h2>
+<ol>
+<li>Open <span class="ui">Settings › Agents</span> and turn on <span class="ui">Let agents on this Mac look at open windows</span>.</li>
+<li>Read <span class="ui">Status</span>. "On (port 47812), no agent has asked yet" means the app is listening and the agent has not reached it. "Could not open:" is followed by the reason.</li>
+<li>Click <span class="ui">Copy Connection Command</span> and paste it into Terminal once. The command holds the token; an agent set up with an older token is refused after <span class="ui">New Token</span>.</li>
+</ol>
+<p><strong>The agent can look but not act.</strong> Tools that change something need <span class="ui">Let agents run analyses</span>, which is off by default.</p>
+<p><strong>The agent is on another computer.</strong> The app answers only on the Mac it runs on. Run the agent on the same Mac.</p>
+<h2 id="something-else">Something else</h2>
+<p>Write to <a href="mailto:mail@mac4dstem.com">mail@mac4dstem.com</a> or open an issue on <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/issues">GitHub</a>. Say which version you use, the file format, and the message the app showed. <a href="/support.html">Support</a> has the contact details.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/"><span>Previous</span>Electron Microscopy Studio</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

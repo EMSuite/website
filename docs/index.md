@@ -20,7 +20,7 @@ Each app has the same five parts:
 - **Reference**: each workspace and what its controls do.
 - **Troubleshooting**: answers to the usual problems.
 
-Every page says which version of the app it applies to.
+Every page says which version of the app it applies to. The documentation describes the latest release; what changed from version to version is in the release notes of [4DSTEM Studio](https://github.com/EMSuite/4DSTEM-Studio/releases) and [Electron Microscopy Studio](https://github.com/EMSuite/Electron-Microscopy-Studio/releases).
 
 ## Questions
 
