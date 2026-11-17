@@ -34,7 +34,7 @@ Choose the reference with care. A region of the matrix far from any feature is t
 | Row | How to read it |
 |---|---|
 | Basis consensus or Basis support | How well the reference's disks agree on the basis: consensus for an automatic basis, support for a manual one |
-| Basis fit | The RMS distance in pixels between the reference's disks and the fitted basis, and the condition number κ of the basis. A large κ means g₁ and g₂ are nearly parallel: choose another pair. |
+| Basis fit | The RMS distance in pixels between the reference's disks and the fitted basis, and the condition number κ of the basis. A large κ means g₁ and g₂ are nearly parallel or very different in length: choose another pair. |
 | Local fits | The share of positions that were indexed, and the median RMS of their fits in pixels |
 | Reference inliers | How many of the reference's disks fit the basis |
 
@@ -42,7 +42,7 @@ Choose the reference with care. A region of the matrix far from any feature is t
 
 | The app says | What to do |
 |---|---|
-| Too few peaks | Indexing needs the direct beam and two more reflections in a pattern. Lower the detection thresholds in Bragg Disks, not the reference. <span class="ui">Go to Bragg Disks</span> takes you there. |
+| Too few peaks | A position is fitted only when at least five of its disks, the direct beam among them, index on the lattice (py4DSTEM's `minNumPeaks`, 5). Lower the detection thresholds in Bragg Disks, not the reference. <span class="ui">Go to Bragg Disks</span> takes you there. |
 | No single lattice fits the whole reference | The reference mixes regions with different lattices. Choose an unstrained region with <span class="ui">Use the current ROI as the reference</span>, move the region onto an unstrained area, or set g₁ and g₂ by hand. |
 | Detection settings changed — rerun Detect All Disks before strain | The disks were made with other settings than those shown. Detect again. |
 

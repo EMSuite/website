@@ -104,7 +104,7 @@
 </tr>
 <tr>
 <td>Measured kernel mode</td>
-<td><span class="ui">Flat</span> uses the probe as it is: py4DSTEM's recommendation for bullseye and other structured probes, and it needs no radius. <span class="ui">Sigmoid trench</span> subtracts a ring from the probe radius to twice it, so the correlation responds to the disk edge.</td>
+<td><span class="ui">Flat</span> uses the probe as it is: py4DSTEM's recommendation for bullseye and other structured probes, and it needs no radius. <span class="ui">Sigmoid trench</span> subtracts a disk whose edge falls smoothly to zero between the probe radius and twice it, so the kernel sums to zero, has a negative trench around the probe, and the correlation responds to the disk edge (py4DSTEM's <code>sigmoid</code> kernel). It is only as good as the probe radius.</td>
 </tr>
 <tr>
 <td>Build Kernel</td>

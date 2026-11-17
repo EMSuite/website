@@ -114,7 +114,7 @@
 </tr>
 <tr>
 <td>Preset</td>
-<td><span class="ui">BF</span> (bright field), <span class="ui">ADF</span> and <span class="ui">HAADF</span> (annular dark field) set the detector in one click. <span class="ui">Custom</span> is shown once you change it.</td>
+<td><span class="ui">BF</span> (bright field), <span class="ui">ADF</span> (annular dark field) and <span class="ui">HAADF</span> (high-angle annular dark field) set the detector in one click. <span class="ui">Custom</span> is shown once you change it.</td>
 </tr>
 <tr>
 <td>Centre and radii</td>
@@ -123,7 +123,7 @@
 </tbody>
 </table></div>
 <p>The image of the scan updates while you drag. Each pixel of it is the signal that fell on the detector at that scan position.</p>
-<p>The presets are fractions of the detector. Measure the beam in Prepare (<span class="ui">Calibrate Origin</span>) and they fit the beam instead.</p>
+<p>Without a measured beam the presets are fractions of the detector. Once <span class="ui">Calibrate Origin</span> in Prepare has measured the probe radius r, BF becomes the disk of radius r and ADF the annulus from 3r to 6r, as in py4DSTEM's virtual-imaging tutorial. HAADF stays a fraction of the detector. The presets are not set in mrad: to report collection angles, read the radii against the Q calibration.</p>
 <h3 id="region-to-diffraction">Region to diffraction</h3>
 <div class="tablewrap"><table>
 <thead>
@@ -194,7 +194,7 @@
 <p>The groups are regions with similar patterns, not phases. Two orientations of one phase fall into different groups, and thickness changes can split one. Use the groups to choose where to look, then identify what is there in Bragg Disks and Crystal Maps.</p>
 </div>
 <h2 id="method">Method</h2>
-<p>Virtual imaging and the grouping follow py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The grouping is principal component analysis followed by k-means. The numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+<p>Virtual imaging follows py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The grouping is principal component analysis followed by k-means. Its input, log-scaled, normalised and binned patterns, has no counterpart in py4DSTEM, which groups maps you supply; the principal components are checked against scikit-learn. The numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
       <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/prepare.html"><span>Previous</span>Prepare</a><a class="next" href="/docs/4dstem-studio/reference/bragg-disks.html"><span>Next</span>Bragg Disks</a></nav>
     </article>
   </main>
