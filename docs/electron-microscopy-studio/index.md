@@ -9,6 +9,12 @@ Documentation for Electron Microscopy Studio, the native macOS application for T
 - [First look](/docs/electron-microscopy-studio/first-look.html): a first measurement within minutes, with the demo data.
 - [The window](/docs/electron-microscopy-studio/window.html): where everything is, and the keyboard shortcuts.
 
+## Your data
+
+- [File formats](/docs/electron-microscopy-studio/data/formats.html): what opens, and the files that are read together.
+- [Sessions](/docs/electron-microscopy-studio/data/sessions.html): how your measurements are saved beside the image.
+- [Export](/docs/electron-microscopy-studio/data/export.html): pictures, tables and the method, part by part.
+
 ## Tutorials
 
 The tutorials are being written. They will follow the app's workspaces and their parts from top to bottom:

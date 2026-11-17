@@ -22,6 +22,7 @@
       "groups": [
         {"pages": ["electron-microscopy-studio/index"]},
         {"title": "Get started", "pages": ["electron-microscopy-studio/install", "electron-microscopy-studio/first-look", "electron-microscopy-studio/window"]},
+        {"title": "Your data", "pages": ["electron-microscopy-studio/data/formats", "electron-microscopy-studio/data/sessions", "electron-microscopy-studio/data/export"]},
         {"title": "Help", "pages": ["electron-microscopy-studio/troubleshooting"]}
       ]
     },

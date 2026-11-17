@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sessions — Electron Microscopy Studio documentation</title>
+<meta name="description" content="How Electron Microscopy Studio keeps the measurements you draw on an image in a session file beside it, and how they come back.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/data/sessions.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/data/sessions.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html" aria-current="page">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Your data</p>
+      <h1>Sessions</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">The distances, angles and profiles you draw on an image are kept in a session file beside the image. Your data file is never changed.</p>
+
+<h2 id="the-session-file">The session file</h2>
+<p>The session file sits in the same folder as the image and has its whole name with <code>.mactem.h5</code> added. For <code>scan.dm4</code> it is <code>scan.dm4.mactem.h5</code>.</p>
+<h2 id="save">Save</h2>
+<p>In the Image part of Imaging, choose <span class="ui">File › Save to Session</span> (<kbd>⌘S</kbd>).</p>
+<p>The first time, a save panel shows the session file's name in the image's folder. Click <span class="ui">Save</span> without changing the name or the folder: the app finds the file again by them. macOS needs this one click to let the app write beside your image. Later saves need no panel.</p>
+<p>When you close an image with marks that are not saved, the app asks first.</p>
+<h2 id="open-again">Open again</h2>
+<p>Open the image as usual. The marks from its session file come back with it.</p>
+<p>If macOS did not give the app the session file, the image's row says "session file needs access". In the <span class="ui">Measure</span> section of the inspector, click <span class="ui">Choose Session File…</span> and pick it. <span class="ui">Show in Finder</span> there shows where the session file is.</p>
+<h2 id="the-last-session">The last session</h2>
+<p><span class="ui">File › Reopen Last Session</span> (<kbd>⇧⌘O</kbd>) opens the files you had open when you last quit, in the place you left. It is offered, never done at launch, so a large file is not loaded before you ask.</p>
+<h2 id="moving-data">Moving data</h2>
+<p>Move or copy the image and its <code>.mactem.h5</code> file together and keep their names. A session file belongs to the image it was saved for.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/data/formats.html"><span>Previous</span>File formats</a><a class="next" href="/docs/electron-microscopy-studio/data/export.html"><span>Next</span>Export</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
