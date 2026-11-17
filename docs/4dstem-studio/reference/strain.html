@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Strain — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Strain task in the Crystal Maps workspace of 4DSTEM Studio: the reference, the basis, the strain components and how to read the fit diagnostics.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/strain.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/strain.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html" aria-current="page">Strain</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Strain</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Strain measures how the lattice at each scan position differs from a reference lattice. This page lists every control of the task, which is in the Crystal Maps workspace.</p>
+
+<p>Strain works on the detected disks of the whole scan. Run <span class="ui">Detect All Disks</span> in Bragg Disks first, with the origin calibrated in Prepare.</p>
+<h2 id="settings">Settings</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference</td>
+<td><span class="ui">Whole-scan mean</span>, <span class="ui">Current real-space ROI</span></td>
+<td>Defines zero strain. With the whole scan, strain is measured relative to the mean lattice. With the ROI, the region around the selected scan point is treated as unstrained.</td>
+</tr>
+<tr>
+<td>Basis</td>
+<td><span class="ui">Automatic</span>, <span class="ui">Manual g₁ / g₂</span></td>
+<td>The pair of reciprocal lattice vectors every position is indexed against</td>
+</tr>
+<tr>
+<td>g₁ x, g₁ y, g₂ x, g₂ y</td>
+<td>pixels</td>
+<td>With a manual basis: the two vectors as offsets from the origin, in calibrated detector pixels</td>
+</tr>
+<tr>
+<td>Compute Strain Map</td>
+<td></td>
+<td>Fits the lattice at every scan position and computes the strain against the reference</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>ε_xx, ε_yy, ε_xy, θ (rotation), Fit residual, Indexed</td>
+<td>The map shown</td>
+</tr>
+</tbody>
+</table></div>
+<p>Choose the reference with care. A region of the matrix far from any feature is the usual choice. The whole-scan mean suits a scan that is mostly unstrained matrix.</p>
+<h2 id="the-components">The components</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ε_xx, ε_yy</td>
+<td>The normal strain along the two axes of the frame (see below): positive where the lattice is stretched against the reference</td>
+</tr>
+<tr>
+<td>ε_xy</td>
+<td>The shear strain</td>
+</tr>
+<tr>
+<td>θ (rotation)</td>
+<td>The rotation of the lattice against the reference</td>
+</tr>
+<tr>
+<td>Fit residual</td>
+<td>How far the detected disks lie from the fitted lattice at each position. A map of where the fit can be trusted.</td>
+</tr>
+<tr>
+<td>Indexed</td>
+<td>The positions where a lattice could be fitted at all</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="reading-the-diagnostics">Reading the diagnostics</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basis consensus or Basis support</td>
+<td>How well the reference's disks agree on the basis: consensus for an automatic basis, support for a manual one</td>
+</tr>
+<tr>
+<td>Basis fit</td>
+<td>The RMS distance in pixels between the reference's disks and the fitted basis, and the condition number κ of the basis. A large κ means g₁ and g₂ are nearly parallel: choose another pair.</td>
+</tr>
+<tr>
+<td>Local fits</td>
+<td>The share of positions that were indexed, and the median RMS of their fits in pixels</td>
+</tr>
+<tr>
+<td>Reference inliers</td>
+<td>How many of the reference's disks fit the basis</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="warnings">Warnings</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>The app says</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Too few peaks</td>
+<td>Indexing needs the direct beam and two more reflections in a pattern. Lower the detection thresholds in Bragg Disks, not the reference. <span class="ui">Go to Bragg Disks</span> takes you there.</td>
+</tr>
+<tr>
+<td>No single lattice fits the whole reference</td>
+<td>The reference mixes regions with different lattices. Choose an unstrained region with <span class="ui">Use the current ROI as the reference</span>, move the region onto an unstrained area, or set g₁ and g₂ by hand.</td>
+</tr>
+<tr>
+<td>Detection settings changed — rerun Detect All Disks before strain</td>
+<td>The disks were made with other settings than those shown. Detect again.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-frame-of-the-components">The frame of the components</h2>
+<p>Under <span class="ui">Component</span> the app says which axes the components are along:</p>
+<ul>
+<li>"Scan frame (R–Q … applied)": the R–Q rotation is calibrated, so ε_xx and ε_yy are along the horizontal and vertical of the map.</li>
+<li>"Components along detector x/y — R–Q rotation not calibrated", in orange: the components are along the detector's axes, which need not be the map's. Measure the R–Q rotation in Prepare before you read directions from the map.</li>
+</ul>
+<p>Strain uses the origin from Prepare. Calibrate it first, so that the disk positions are corrected for the beam's movement over the scan.</p>
+<h2 id="method">Method</h2>
+<p>Strain mapping from Bragg disk positions as in py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/bragg-disks.html"><span>Previous</span>Bragg Disks</a><a class="next" href="/docs/4dstem-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

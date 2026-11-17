@@ -36,7 +36,9 @@ The tutorials are being written. They will follow the app's workspaces from top 
 Every control of a workspace, under the name the app shows. More workspaces follow.
 
 - [Prepare](/docs/4dstem-studio/reference/prepare.html): the calibration steps, what each unlocks, and how to read the fits.
+- [Imaging](/docs/4dstem-studio/reference/imaging.html): virtual imaging, diffraction from a region, and diffraction groups.
 - [Bragg Disks](/docs/4dstem-studio/reference/bragg-disks.html): the probe kernel, the detector, and every detection setting with its default.
+- [Strain](/docs/4dstem-studio/reference/strain.html): the reference, the basis, the components and the fit diagnostics.
 
 ## Help
 

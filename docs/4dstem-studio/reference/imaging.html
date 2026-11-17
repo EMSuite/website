@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Imaging — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Imaging workspace of 4DSTEM Studio: virtual imaging with its detector shapes and presets, diffraction from a scan region, and diffraction groups.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/imaging.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/imaging.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html" aria-current="page">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Imaging</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Imaging turns the scan into pictures: a virtual image from a detector you draw, and the diffraction of a region you choose. This page lists every control of its two tasks.</p>
+
+<h2 id="virtual-imaging">Virtual imaging</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction</td>
+<td>What dragging on the panes controls. <span class="ui">Detector</span>: the virtual detector on the diffraction pane, which produces the image of the scan. <span class="ui">Region</span>: the scan region, which produces the diffraction pattern.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="detector-real-space">Detector → real space</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td>The detector drawn on the diffraction pane: <span class="ui">Circle</span>, <span class="ui">Annulus</span>, <span class="ui">Rectangle</span> or <span class="ui">Point</span> (a single pixel)</td>
+</tr>
+<tr>
+<td>Preset</td>
+<td><span class="ui">BF</span> (bright field), <span class="ui">ADF</span> and <span class="ui">HAADF</span> (annular dark field) set the detector in one click. <span class="ui">Custom</span> is shown once you change it.</td>
+</tr>
+<tr>
+<td>Centre and radii</td>
+<td>The detector's position and size in detector pixels. Type them, or drag the detector on the diffraction pane.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The image of the scan updates while you drag. Each pixel of it is the signal that fell on the detector at that scan position.</p>
+<p>The presets are fractions of the detector. Measure the beam in Prepare (<span class="ui">Calibrate Origin</span>) and they fit the beam instead.</p>
+<h3 id="region-to-diffraction">Region to diffraction</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td>The scan region summed into the diffraction pattern: one position, a rectangle or a circle</td>
+</tr>
+<tr>
+<td>Half-width or Radius</td>
+<td>The size of the region in scan pixels</td>
+</tr>
+</tbody>
+</table></div>
+<p>With a single position, dragging on the image steps through the patterns. With a rectangle or a circle, the diffraction pane shows the summed pattern of the region and updates while you drag.</p>
+<h2 id="diffraction-groups">Diffraction groups</h2>
+<p>This task sorts the scan positions into groups with similar diffraction patterns. It needs no calibration and no model of the sample, so it is a quick first look at what a scan contains.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binned size</td>
+<td>8 × 8, 16 × 16, 32 × 32</td>
+<td>Each pattern is log-scaled, normalised and binned to this many pixels per side before grouping</td>
+</tr>
+<tr>
+<td>Components</td>
+<td>a number</td>
+<td>The principal components kept from the binned patterns</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>a number</td>
+<td>The number of groups (k-means on the principal components)</td>
+</tr>
+<tr>
+<td>Group Patterns</td>
+<td></td>
+<td>Runs the grouping over every scan position</td>
+</tr>
+<tr>
+<td>Find similar to current position</td>
+<td></td>
+<td>Shows how similar every pattern is to the one at the selected scan position, using the last grouping</td>
+</tr>
+</tbody>
+</table></div>
+<p>After a run the section reports:</p>
+<ul>
+<li>how much of the variance the first three components explain,</li>
+<li>the size of each group,</li>
+<li>the settings the result was computed with, including the seed, so the run can be repeated exactly.</li>
+</ul>
+<p>"From an earlier run — the settings above have changed" means the map on screen no longer matches the settings. Run <span class="ui">Group Patterns</span> again.</p>
+<div class="admonition note">
+<p class="admonition-title">What the groups are</p>
+<p>The groups are regions with similar patterns, not phases. Two orientations of one phase fall into different groups, and thickness changes can split one. Use the groups to choose where to look, then identify what is there in Bragg Disks and Crystal Maps.</p>
+</div>
+<h2 id="method">Method</h2>
+<p>Virtual imaging and the grouping follow py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The grouping is principal component analysis followed by k-means. The numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/prepare.html"><span>Previous</span>Prepare</a><a class="next" href="/docs/4dstem-studio/reference/bragg-disks.html"><span>Next</span>Bragg Disks</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
