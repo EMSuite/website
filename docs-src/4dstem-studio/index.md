@@ -5,7 +5,15 @@ description: Documentation for 4DSTEM Studio, the native macOS application for 4
 
 <p class="lede">4D-STEM analysis on the Mac: from the open scan to calibrated virtual images, Bragg disks, strain and crystal maps.</p>
 
-These pages are being written. They will follow the app's workspaces from top to bottom:
+## Get started
+
+- [Install](/docs/4dstem-studio/install.html): requirements, download, updating and removing the app.
+- [First look](/docs/4dstem-studio/first-look.html): a first virtual image within minutes, with the demo dataset.
+- [The window](/docs/4dstem-studio/window.html): where everything is, and the keyboard shortcuts.
+
+## Tutorials
+
+The tutorials are being written. They will follow the app's workspaces from top to bottom:
 
 | Workspace | What the tutorial covers |
 |---|---|
@@ -16,4 +24,4 @@ These pages are being written. They will follow the app's workspaces from top to
 | Spectroscopy | EDS spectrum images, alone or beside the 4D scan |
 | Results | Reviewing, saving and exporting |
 
-Until then, [Support](/support.html) lists the requirements and the known limits.
+[Support](/support.html) lists the requirements and the known limits.
