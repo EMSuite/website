@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kits — macEM suite</title>
-<meta name="description" content="The six Swift kits of the macEM suite: what each does, its Python reference, version and parity.">
+<title>Kits — EMSuite</title>
+<meta name="description" content="The six Swift kits of EMSuite: what each does, its Python reference, version and parity.">
 <link rel="canonical" href="https://mac4dstem.com/suite/">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -33,7 +33,7 @@ th,td{padding:.3rem .7rem;border-bottom:1px solid color-mix(in srgb,currentColor
 <main id="main">
   <div class="wrap">
     <article class="doc">
-<h1>The macEM suite</h1>
+<h1>EMSuite</h1>
 <p class="lede">Six Swift packages that port the Python electron-microscopy stack to Apple silicon, and the two Mac apps built on them. Every number is checked against the Python package it comes from, within that package's own tolerance.</p>
 <div class="tablewrap"><table><thead><tr><th>Kit</th><th>What it does</th><th>Reference</th><th>Version</th><th>Parity: present of rows</th><th>Docs</th></tr></thead><tbody>
 <tr><td><a class="u-link" href="https://github.com/EMSuite/FormatoKit">FormatoKit</a></td><td>File formats for electron microscopy: Velox EMD, DM3/DM4, HDF5/EMD, MRC, TIFF, MIB, EMPAD.</td><td>RosettaSciIO</td><td>0.17.0</td><td>2 of 38</td><td><a class="u-link" href="https://emsuite.github.io/FormatoKit/documentation/">API</a></td></tr>
@@ -45,7 +45,7 @@ th,td{padding:.3rem .7rem;border-bottom:1px solid color-mix(in srgb,currentColor
 </tbody></table></div>
 <p>Beside the kits, <a class="u-link" href="https://github.com/EMSuite/EMSuiteUI">EMSuiteUI</a> 0.12.3 holds the apps' shared window, controls and Metal image view. It has no Python reference.</p>
 <p>"Parity: present of rows" counts the functions of the reference package that the kit has and has tested against it; each kit's <code>docs/parity.md</code> lists every function with its state and tolerance. See <a class="u-link" href="/suite/benchmarks.html">benchmarks</a> and <a class="u-link" href="/suite/releases.html">releases</a>.</p>
-<p>Apps: <a class="u-link" href="/">mac4DSTEM</a> (4D-STEM) and <a class="u-link" href="/mactem/">macEM</a> (TEM and SEM images, spectroscopy and diffraction).</p>
+<p>Apps: <a class="u-link" href="/">4DSTEM Studio</a> (4D-STEM) and <a class="u-link" href="/mactem/">Electron Microscopy Studio</a> (TEM and SEM images, spectroscopy and diffraction).</p>
     </article>
   </div>
 </main>
