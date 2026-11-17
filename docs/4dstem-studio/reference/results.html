@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Results — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Results workspace of 4DSTEM Studio: reviewing a result, saving it to the session, comparing two saved results and exporting.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/results.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/results.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+      <li><a href="/docs/4dstem-studio/reference/orientation.html">Orientation</a></li>
+      <li><a href="/docs/4dstem-studio/reference/phase-mapping.html">Phase mapping</a></li>
+      <li><a href="/docs/4dstem-studio/reference/reconstruction.html">Reconstruction</a></li>
+      <li><a href="/docs/4dstem-studio/reference/spectroscopy.html">Spectroscopy</a></li>
+      <li><a href="/docs/4dstem-studio/reference/results.html" aria-current="page">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Results</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Results is where you review what the other workspaces made, keep it with the dataset, compare two results and export them. This page lists every control of the workspace.</p>
+
+<p>Until you have made an image, a map or a reconstruction, the workspace reads "No Results Yet".</p>
+<h2 id="the-result-on-screen">The result on screen</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Save to Results</td>
+<td>Keeps the result on screen with the dataset. It is there again when you reopen the dataset.</td>
+</tr>
+<tr>
+<td>Export › Export Result PNG…</td>
+<td>The picture as you see it</td>
+</tr>
+<tr>
+<td>Export › Export Data…</td>
+<td>The values as computed, as an <code>.h5</code> file</td>
+</tr>
+<tr>
+<td>Export › Export Bundle…</td>
+<td>Several results of the dataset in one <code>.h5</code> file</td>
+</tr>
+<tr>
+<td>Quantifications</td>
+<td>The numbers that belong to the result</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/docs/4dstem-studio/data/export.html">Export</a> describes the files, and <a href="/docs/4dstem-studio/data/sessions.html">Sessions</a> what is kept with the dataset.</p>
+<h2 id="saved-products">Saved products</h2>
+<p>The inspector lists the saved results of the dataset, each with its size, its unit and its sampling. Click one to show it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set as A, Set as B</td>
+<td>Loads the result into the comparison</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>Removes the saved result from the session, after you confirm</td>
+</tr>
+</tbody>
+</table></div>
+<p>A session can also hold the settings a result was made with. To use them on a dataset, choose <span class="ui">Dataset › Apply Saved Controls</span>.</p>
+<h2 id="compare-saved-products">Compare saved products</h2>
+<p>With A and B set, the workspace shows both side by side.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same scale</td>
+<td>Colours A and B with one range, from the lowest to the highest value in either. Without it each uses its own range, so the same colour can mean different values.</td>
+</tr>
+<tr>
+<td>Zoom In, Zoom Out, Reset</td>
+<td>Zoom all panels together. Drag to pan; double-click, or <span class="ui">Reset</span>, shows the whole image again.</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>Removes A and B from the comparison. The saved products stay in the session.</td>
+</tr>
+</tbody>
+</table></div>
+<p>When A and B match in kind, size, units, sampling and quantitative state, a third panel shows the difference A − B. When they do not, the workspace reads "Difference unavailable:" and the reason.</p>
+<h2 id="figure">Figure</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format</td>
+<td>The file format of an exported figure</td>
+</tr>
+<tr>
+<td>Image size</td>
+<td>The scale of an exported image. A PDF is vector and has no pixels to scale.</td>
+</tr>
+<tr>
+<td>Detector outline</td>
+<td>Draws the virtual detector on an exported pattern</td>
+</tr>
+<tr>
+<td>Regions</td>
+<td>Draws the regions on an exported image</td>
+</tr>
+</tbody>
+</table></div>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/spectroscopy.html"><span>Previous</span>Spectroscopy</a><a class="next" href="/docs/4dstem-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

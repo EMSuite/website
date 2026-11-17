@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Reconstruction — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Reconstruction workspace of 4DSTEM Studio: DPC and iDPC, parallax, and single-slice ptychography, with what each task needs.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/reconstruction.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/reconstruction.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+      <li><a href="/docs/4dstem-studio/reference/orientation.html">Orientation</a></li>
+      <li><a href="/docs/4dstem-studio/reference/phase-mapping.html">Phase mapping</a></li>
+      <li><a href="/docs/4dstem-studio/reference/reconstruction.html" aria-current="page">Reconstruction</a></li>
+      <li><a href="/docs/4dstem-studio/reference/spectroscopy.html">Spectroscopy</a></li>
+      <li><a href="/docs/4dstem-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Reconstruction</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Reconstruction recovers phase from the 4D scan: DPC and iDPC, parallax, and single-slice ptychography. This page says what each task is and what it needs.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Not yet checked on real data</p>
+<p>The tasks of this workspace follow py4DSTEM. They have not yet been checked on real datasets the way the other workspaces have, and there are no tutorials for them. Treat a reconstruction as a first look, and compare it with py4DSTEM before you report it.</p>
+</div>
+<h2 id="the-tasks">The tasks</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPC &amp; iDPC</td>
+<td>Maps the deflection of the beam at each scan position and integrates it to the projected phase</td>
+</tr>
+<tr>
+<td>Parallax</td>
+<td>Aligns the bright-field images, fits the aberrations, corrects the phase and sections the depth</td>
+</tr>
+<tr>
+<td>Single-slice ptychography</td>
+<td>Reconstructs the object and the probe iteratively from the whole scan</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-a-task-needs">What a task needs</h2>
+<p>The <span class="ui">Requirements</span> section at the top of the inspector lists what a task still needs. Missing values are rejected, not guessed.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Needs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPC &amp; iDPC</td>
+<td>The origin calibrated in Prepare. The deflection in mrad needs the accelerating voltage and the Q pixel size. A meaningful iDPC and vector direction need the rotation between scan and detector.</td>
+</tr>
+<tr>
+<td>Parallax</td>
+<td>The calibration the Requirements section names. The task runs in stages, each unlocked by the one before: prepare the preview, align the bright-field stack, fit and correct the phase, then inspect or reconstruct the products.</td>
+</tr>
+<tr>
+<td>Single-slice ptychography</td>
+<td>The calibration the Requirements section names, and a defocus to start from</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="dpc-idpc">DPC &amp; iDPC</h2>
+<p><span class="ui">Display</span> chooses the picture. When the requirements for a quantitative result are not met, the inspector reads "Qualitative iDPC" with the reason, and the values are in relative units. <span class="ui">Open Prepare to Calibrate</span> takes you to the missing step.</p>
+<h2 id="parallax">Parallax</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Button</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Prepare preview</td>
+<td><span class="ui">Prepare Parallax Preview</span></td>
+</tr>
+<tr>
+<td>2 Align bright-field stack</td>
+<td><span class="ui">Align Next Level</span> runs the next step of the coarse-to-fine alignment. <span class="ui">Reset Alignment</span> discards the completed levels.</td>
+</tr>
+<tr>
+<td>3 Fit and correct phase</td>
+<td><span class="ui">Fit Aberrations</span>. The fit is a diagnosis: the calibration and the aligned data stay unchanged.</td>
+</tr>
+<tr>
+<td>4 Inspect or reconstruct products</td>
+<td>The corrected images, and <span class="ui">Compute Depth Stack</span> for the depth sections</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Run details</span> records what each stage did.</p>
+<h2 id="method">Method</h2>
+<p>DPC and iDPC after Lazić, Bosch and Lazar, Ultramicroscopy 160 (2016) 265. Parallax and ptychography as implemented in py4DSTEM: Varnavides et al., arXiv:2309.05250.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/phase-mapping.html"><span>Previous</span>Phase mapping</a><a class="next" href="/docs/4dstem-studio/reference/spectroscopy.html"><span>Next</span>Spectroscopy</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

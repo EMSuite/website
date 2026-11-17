@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Orientation — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Orientation task in the Crystal Maps workspace of 4DSTEM Studio: the area, the phase model, the quality levels, the engine, the Q scale and the display modes.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/orientation.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/orientation.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+      <li><a href="/docs/4dstem-studio/reference/orientation.html" aria-current="page">Orientation</a></li>
+      <li><a href="/docs/4dstem-studio/reference/phase-mapping.html">Phase mapping</a></li>
+      <li><a href="/docs/4dstem-studio/reference/reconstruction.html">Reconstruction</a></li>
+      <li><a href="/docs/4dstem-studio/reference/spectroscopy.html">Spectroscopy</a></li>
+      <li><a href="/docs/4dstem-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Orientation</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Orientation matches the detected disks at each scan position against templates of one crystal and maps the orientation that fits best. This page lists every control of the task, which is in the Crystal Maps workspace.</p>
+
+<p>Orientation works on the detected disks of the whole scan. Run <span class="ui">Detect All Disks</span> in Bragg Disks first, and choose a phase model. When the detection settings change afterwards, the task asks you to run <span class="ui">Detect All Disks</span> again.</p>
+<h2 id="area">Area</h2>
+<p>Start small. A preview takes seconds and shows whether the phase model and the Q scale fit before you map the whole scan.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Area</td>
+<td><span class="ui">Preview</span>, <span class="ui">Region</span> or <span class="ui">Full scan</span></td>
+</tr>
+<tr>
+<td>Center X, Center Y, Half-size</td>
+<td>With a region: the square that is matched, in scan positions. The orange square on the image shows it.</td>
+</tr>
+<tr>
+<td>Work, Expected</td>
+<td>How many positions will be matched, and the time the app expects</td>
+</tr>
+<tr>
+<td>Use Full Scan</td>
+<td>Switches the area to the full scan</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What is matched</th>
+<th>The button reads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preview</td>
+<td>At most 32 × 32 positions across the scan, shown as coarse blocks. A quick check of the whole field.</td>
+<td><span class="ui">Preview Orientation</span></td>
+</tr>
+<tr>
+<td>Region</td>
+<td>The orange square, at full spatial resolution</td>
+<td><span class="ui">Map Selected Region</span></td>
+</tr>
+<tr>
+<td>Full scan</td>
+<td>Every scan position</td>
+<td><span class="ui">Run Full Orientation Map</span></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="phase-model">Phase model</h2>
+<p>The phase model is the crystal the patterns are matched against. You choose it; the app never infers it from the name of the dataset.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase model</td>
+<td>The crystal to match: one from the built-in library, one you imported, or a custom cell</td>
+</tr>
+<tr>
+<td>Materials Project…</td>
+<td>Imports a structure by its Materials Project id</td>
+</tr>
+<tr>
+<td>Import CIF…</td>
+<td>Imports a structure from a CIF file</td>
+</tr>
+<tr>
+<td>Symmetry</td>
+<td>The symmetry of the chosen model, for example cubic m-3m or hexagonal 6/mmm</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Where the model comes from: <span class="ui">Imported CIF</span>, <span class="ui">Materials Project</span> with its id, <span class="ui">Built-in library</span> or <span class="ui">Custom cell</span></td>
+</tr>
+<tr>
+<td>Element, Structure, a</td>
+<td>With a custom cell: the element, the cubic structure and the lattice parameter in Å</td>
+</tr>
+</tbody>
+</table></div>
+<p>A custom cell is a cubic cell of one element. Every other phase needs a CIF file or a Materials Project structure.</p>
+<h2 id="quality">Quality</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Quality</th>
+<th>Templates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast</td>
+<td>96</td>
+</tr>
+<tr>
+<td>Balanced</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Best</td>
+<td>400</td>
+</tr>
+</tbody>
+</table></div>
+<p>More templates sample the orientations more finely and take longer. A monoclinic phase uses four times the number, because its orientation zone is larger. More templates are not always more accurate: see the warning below.</p>
+<div class="admonition warning">
+<p class="admonition-title">How accurate the orientations are</p>
+<p>The accuracy was measured on simulated aluminium patterns at 200 templates. On most zone axes the result is exact to the spacing of the templates. It is up to 1.9° off on ⟨011⟩ and 13.6° off on ⟨122⟩. It was not measured for other phases, and more templates measured worse. Check an orientation you want to report against a pattern you can index by hand.</p>
+</div>
+<h2 id="engine-and-q-scale">Engine and Q scale</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td><span class="ui">Automatic</span>, <span class="ui">Accelerate CPU</span>, <span class="ui">Metal GPU</span></td>
+<td>Where the matching runs. Automatic uses the CPU engine, which is the one checked on real data.</td>
+</tr>
+<tr>
+<td>Will use</td>
+<td></td>
+<td>The engine the next run takes</td>
+</tr>
+<tr>
+<td>Refine in-plane angle</td>
+<td>off by default</td>
+<td>Places the in-plane angle between the steps of the 128-step grid, at the top of a parabola through the best match. It runs on the CPU engine only.</td>
+</tr>
+<tr>
+<td>Interpretation</td>
+<td><span class="ui">Physical</span>, <span class="ui">Exploratory</span></td>
+<td>Whether the result rests on a calibrated Q scale</td>
+</tr>
+<tr>
+<td>Q scale, Provenance</td>
+<td></td>
+<td>The scale in Å⁻¹ per pixel and where it comes from</td>
+</tr>
+<tr>
+<td>Review Q Calibration in Prepare</td>
+<td></td>
+<td>Opens Prepare at the Q pixel size</td>
+</tr>
+<tr>
+<td>Exploratory scale</td>
+<td>Å⁻¹ per pixel</td>
+<td>A scale you type to try a match when the dataset has no calibrated one</td>
+</tr>
+</tbody>
+</table></div>
+<p>Template matching compares distances in reciprocal space, so it needs the Q pixel size. With a calibrated scale the result is <span class="ui">Physical</span>. With a typed scale it is <span class="ui">Exploratory</span>, and stays so: a typed scale can help you look at the match, but it is not a calibration. Calibrate the Q pixel size in <a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a> before you report orientations.</p>
+<h2 id="result">Result</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Display</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPF · Z</td>
+<td>The crystal direction along the beam, coloured by the inverse pole figure key of the symmetry</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>How clearly the best template wins over the others</td>
+</tr>
+<tr>
+<td>Score</td>
+<td>The match score of the best template</td>
+</tr>
+<tr>
+<td>Symmetry FZ angle</td>
+<td>The rotation angle of the orientation after it is reduced into the fundamental zone of the symmetry</td>
+</tr>
+<tr>
+<td>In-plane angle</td>
+<td>The rotation about the beam direction, relative to the matched template</td>
+</tr>
+<tr>
+<td>Euler φ₁, Euler Φ, Euler φ₂</td>
+<td>The three Euler angles</td>
+</tr>
+<tr>
+<td>Mirrored match</td>
+<td>Where the pattern matched the mirror image of the template</td>
+</tr>
+</tbody>
+</table></div>
+<p>The in-plane angle of a mirrored match is measured from the mirror image, as in py4DSTEM. Angles on the two sides of a mirror boundary do not compare.</p>
+<p>Read <span class="ui">Reliability</span> and <span class="ui">Score</span> before the colours. A position with a low score has few disks or disks the model does not explain. A position with low reliability has two templates that fit about equally well.</p>
+<h2 id="method">Method</h2>
+<p>Automated crystal orientation mapping by template matching of Bragg disk positions, after Ophus et al., Microscopy and Microanalysis 28 (2022) 390, as implemented in py4DSTEM. The matching runs in DiffractoKit and is checked against py4DSTEM; the functions and their tolerances are listed in the kit's <a href="https://github.com/EMSuite/DiffractoKit/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/strain.html"><span>Previous</span>Strain</a><a class="next" href="/docs/4dstem-studio/reference/phase-mapping.html"><span>Next</span>Phase mapping</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
