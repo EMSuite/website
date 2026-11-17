@@ -29,6 +29,13 @@ The tutorials are being written. They will follow the app's workspaces from top 
 | Spectroscopy | EDS spectrum images, alone or beside the 4D scan |
 | Results | Reviewing, saving and exporting |
 
+## Reference
+
+Every control of a workspace, under the name the app shows. More workspaces follow.
+
+- [Prepare](/docs/4dstem-studio/reference/prepare.html): the calibration steps, what each unlocks, and how to read the fits.
+- [Bragg Disks](/docs/4dstem-studio/reference/bragg-disks.html): the probe kernel, the detector, and every detection setting with its default.
+
 ## Help
 
 - [Troubleshooting](/docs/4dstem-studio/troubleshooting.html): the app's messages and what to do about each.

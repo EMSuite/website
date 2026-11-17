@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bragg Disks — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Bragg Disks workspace of 4DSTEM Studio: the probe kernel, the detector, every disk detection setting with its default, and the counts the app reports.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/bragg-disks.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/bragg-disks.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html" aria-current="page">Bragg Disks</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Bragg Disks</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Bragg Disks finds the diffraction disks in every pattern. This page lists every control of its inspector under the name the app shows.</p>
+
+<p>The detector correlates each pattern with a probe kernel and keeps the correlation peaks that pass the settings. The settings and their defaults are py4DSTEM's.</p>
+<h2 id="probe-kernel">Probe kernel</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Where the kernel comes from: <span class="ui">Synthetic</span> (a disk of the probe radius), <span class="ui">Current CBED / ROI</span> (the pattern on screen), <span class="ui">File's probe</span> (a probe stored in the file) or <span class="ui">Vacuum scan…</span> (a separate scan without a sample)</td>
+</tr>
+<tr>
+<td>Probe radius</td>
+<td>The radius the synthetic kernel is built at, in detector pixels. Empty until <span class="ui">Calibrate Origin</span> measures it. A typed value replaces the measured one.</td>
+</tr>
+<tr>
+<td>Measured kernel mode</td>
+<td><span class="ui">Flat</span> uses the probe as it is: py4DSTEM's recommendation for bullseye and other structured probes, and it needs no radius. <span class="ui">Sigmoid trench</span> subtracts a ring from the probe radius to twice it, so the correlation responds to the disk edge.</td>
+</tr>
+<tr>
+<td>Build Kernel</td>
+<td>Builds the kernel from the chosen source</td>
+</tr>
+<tr>
+<td>Kernel</td>
+<td>The kernel in use: its source, its mode and its radius</td>
+</tr>
+</tbody>
+</table></div>
+<p>For a ring-shaped probe the app notes where the probe's outer edge is and offers a button to use that radius.</p>
+<h2 id="detector">Detector</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detector</td>
+<td><span class="ui">Classical</span> or <span class="ui">Neural net</span>. The neural net proposes candidate positions on the whole pattern; the classical refinement still measures every one.</td>
+</tr>
+<tr>
+<td>Threshold</td>
+<td>The pick threshold on the neural net's heatmap, 0.3 to 0.99. Lower accepts more candidates.</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>The neural-net model in use: <span class="ui">Bundled</span>, or one you fine-tuned on your own labels. Each result records which model made it.</td>
+</tr>
+<tr>
+<td>Compare Detectors</td>
+<td>Shows a map of the peaks the two detectors do not share at each position. Available once <span class="ui">Detect All Disks</span> has run with each detector.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The neural net is offered when <span class="ui">Settings › Analysis › Offer the learned (neural net) detector</span> is on.</p>
+<h2 id="disk-detection">Disk detection</h2>
+<p>With a kernel built, the pattern on screen shows the detected disks as rings, and this section counts them:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current CBED</td>
+<td>The number of disks found in the pattern on screen</td>
+</tr>
+<tr>
+<td>Acceptance funnel</td>
+<td>How many candidates there were and how many were accepted, then how many passed the absolute threshold, the relative threshold and the spacing rule. It shows which setting removes the disks you miss.</td>
+</tr>
+<tr>
+<td>Peaks found</td>
+<td>After <span class="ui">Detect All Disks</span>: the number of disks in the whole scan</td>
+</tr>
+<tr>
+<td>Per pattern</td>
+<td>The median and the range of disks per pattern over the scan</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Detect All Disks</span>, the toolbar's action, runs the detection over the whole scan (<kbd>⌘R</kbd>).</p>
+<h2 id="advanced-detection">Advanced detection</h2>
+<p>Changes update the rings on the current pattern at once. Run <span class="ui">Detect All Disks</span> again to apply them to strain and orientation.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum peaks</td>
+<td>70</td>
+<td>The most disks kept for each pattern</td>
+</tr>
+<tr>
+<td>Pattern smoothing σ</td>
+<td>0 px</td>
+<td>Gaussian smoothing of each pattern before the correlation. Too much merges nearby features.</td>
+</tr>
+<tr>
+<td>Correlation smoothing σ</td>
+<td>2 px</td>
+<td>Gaussian smoothing of the correlation map before its maxima are picked. Zero turns it off.</td>
+</tr>
+<tr>
+<td>Minimum absolute</td>
+<td>0</td>
+<td>The weakest correlation peak kept, on the absolute correlation scale. It depends on the data and the kernel. Zero turns it off.</td>
+</tr>
+<tr>
+<td>Minimum relative</td>
+<td>0.5 %</td>
+<td>The weakest peak kept, as a fraction of the reference peak. Zero turns it off.</td>
+</tr>
+<tr>
+<td>Reference peak</td>
+<td>#1</td>
+<td>The peak the relative threshold is measured against, by brightness rank. #1 is the brightest.</td>
+</tr>
+<tr>
+<td>Reference outside</td>
+<td>0 px</td>
+<td>Measures the relative threshold against the brightest candidate at least this far from the brightest one, so that a saturated direct beam does not set the scale. For a flat plateau, set at least its diameter. 0 keeps py4DSTEM's rule.</td>
+</tr>
+<tr>
+<td>Minimum spacing</td>
+<td>60 px</td>
+<td>The smallest distance between two disks. When two candidates are closer, the brighter one is kept. Building a kernel sets it to fit the probe unless you chose a value.</td>
+</tr>
+<tr>
+<td>Edge exclusion</td>
+<td>20 px</td>
+<td>Drops maxima closer than this to the edge of the detector</td>
+</tr>
+<tr>
+<td>Correlation power</td>
+<td>1</td>
+<td>1 is cross-correlation (robust on noisy data), 0 is phase correlation (sharp, for patterned probes), values between mix both</td>
+</tr>
+<tr>
+<td>Subpixel localization</td>
+<td>Fourier multicorr</td>
+<td>Pixel is fastest, parabolic is quick, Fourier multicorr refines for strain-grade positions</td>
+</tr>
+<tr>
+<td>Fourier upsampling</td>
+<td>16×</td>
+<td>The upsampling used by Fourier multicorr. Higher is finer and slower.</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Reset Recommended Settings</span> puts every setting back to its default.</p>
+<p>The defaults are scaled to the detector when a dataset opens, so a small detector starts with a smaller spacing and edge exclusion than the table shows.</p>
+<h2 id="training-labels">Training labels</h2>
+<p>This section is for fine-tuning the neural net on your own data.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label centres on click</td>
+<td>While on, a click on the diffraction pane adds a disk centre at the current scan position; a click near one removes it</td>
+</tr>
+<tr>
+<td>This position, Labelled</td>
+<td>How many centres are labelled here and in the whole scan</td>
+</tr>
+<tr>
+<td>Clear This Position</td>
+<td>Removes every centre at the current scan position</td>
+</tr>
+<tr>
+<td>Save to Session</td>
+<td>Writes the labels to the session file beside the dataset</td>
+</tr>
+<tr>
+<td>Export Labels…, Import Labels…</td>
+<td>Writes the labels to a JSON file, or replaces the current labels with those of a file</td>
+</tr>
+<tr>
+<td>Split</td>
+<td>About 30 % of the labelled positions are held out. They judge the fine-tuned model and never train it.</td>
+</tr>
+<tr>
+<td>Train Model…</td>
+<td>Fine-tunes the bundled model on the training positions and judges it against the active model on the held-out ones. It is offered only if it is at least as good on recall and precision and better on one.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="warnings">Warnings</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>The app says</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detection failed on this pattern</td>
+<td>The detection itself failed here. The empty result is a failure, not a pattern without disks.</td>
+</tr>
+<tr>
+<td>This pattern was truncated to the configured maximum peak count</td>
+<td>More disks passed than <span class="ui">Maximum peaks</span> allows</td>
+</tr>
+<tr>
+<td>The selected reference-peak rank is absent in this pattern</td>
+<td>There are fewer peaks than the rank of <span class="ui">Reference peak</span>, so the relative threshold cannot be applied</td>
+</tr>
+<tr>
+<td>Detection settings changed — rerun Detect All Disks</td>
+<td>The disks of the whole scan were made with other settings than those shown</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="method">Method</h2>
+<p>Template matching as in py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. Hybrid correlation: Pekin et al. (2017), Ultramicroscopy 176, 170. The numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+<p>For how to judge a detection, see <a href="/docs/4dstem-studio/troubleshooting.html#disk-detection-finds-too-few-or-too-many-disks">Troubleshooting</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/reference/prepare.html"><span>Previous</span>Prepare</a><a class="next" href="/docs/4dstem-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
