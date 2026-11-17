@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>First look — Electron Microscopy Studio documentation</title>
+<meta name="description" content="See a first measurement in Electron Microscopy Studio within minutes, using the demo data that comes with the app.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/first-look.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/first-look.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html" aria-current="page">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Get started</p>
+      <h1>First look</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">From the welcome screen to a measured distance and a Fourier transform in a few minutes, with the demo data that comes with the app. No download needed.</p>
+
+<h2 id="open-a-demo">Open a demo</h2>
+<ol>
+<li>Open Electron Microscopy Studio. The welcome screen offers <span class="ui">Open Image…</span> and <span class="ui">Try Demo Data</span>.</li>
+<li>Click <span class="ui">Try Demo Data</span> and choose <span class="ui">Lattice Image</span>.</li>
+</ol>
+<p>The image opens in the Imaging workspace. The <span class="ui">Calibration</span> section of the inspector on the right shows the pixel size and where it came from.</p>
+<h2 id="measure-a-distance">Measure a distance</h2>
+<ol>
+<li>Choose the <span class="ui">Distance</span> tool in the <span class="ui">Measure</span> section of the inspector, or press <kbd>⌃⌘2</kbd>.</li>
+<li>Drag across the feature you want to measure, for example over ten lattice fringes.</li>
+</ol>
+<p>The fringes of the demo image are 0.235 nm apart, so ten of them measure 2.35 nm. The measurement appears in the Measure section, in the unit of the image and in pixels. The <span class="ui">Angle</span> tool (<kbd>⌃⌘3</kbd>) and the <span class="ui">Profile</span> tool (<kbd>⌃⌘4</kbd>) work the same way; <span class="ui">Pan</span> (<kbd>⌃⌘1</kbd>) moves the picture again.</p>
+<h2 id="look-at-the-fourier-transform">Look at the Fourier transform</h2>
+<ol>
+<li>Under Imaging in the sidebar, choose <span class="ui">FFT</span>.</li>
+<li>The window shows the image and its Fourier transform side by side. Drag on the image to draw a square region and transform only that part.</li>
+<li>In the <span class="ui">Spots</span> section of the inspector, click <span class="ui">Find Spots</span>. The spots are ringed and listed.</li>
+</ol>
+<p>A lattice image gives sharp spots in its transform, one pair for each set of fringes. The further out a spot lies, the finer the spacing it stands for.</p>
+<h2 id="save-the-picture">Save the picture</h2>
+<p>Choose <span class="ui">File › Export Image…</span> (<kbd>⇧⌘E</kbd>).</p>
+<h2 id="try-the-other-demos">Try the other demos</h2>
+<p><span class="ui">Try Demo Data</span>, also under <span class="ui">Help › Open Demo Data</span>, has one document for every part of the app. Each opens where it belongs:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Demo</th>
+<th>Opens in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lattice Image</td>
+<td>Imaging › Image</td>
+</tr>
+<tr>
+<td>SEM Image (generated)</td>
+<td>Imaging › Image</td>
+</tr>
+<tr>
+<td>Au Diffraction Pattern</td>
+<td>Diffraction</td>
+</tr>
+<tr>
+<td>Ni EBSD Patterns (kikuchipy)</td>
+<td>EBSD › Patterns</td>
+</tr>
+<tr>
+<td>Duplex Steel Orientation Map (orix)</td>
+<td>EBSD › Maps</td>
+</tr>
+<tr>
+<td>EDX Spectrum Image</td>
+<td>Spectroscopy › EDS</td>
+</tr>
+<tr>
+<td>SEM-EDS Spectrum (BAM TM002)</td>
+<td>Spectroscopy › EDS</td>
+</tr>
+<tr>
+<td>EELS Spectrum Image</td>
+<td>Spectroscopy › EELS</td>
+</tr>
+</tbody>
+</table></div>
+<p>The lattice image, the diffraction pattern, the SEM image and the two spectrum images are generated. The nickel patterns, the orientation map and the SEM-EDS spectrum are public data; <a href="/docs/data/">Example data</a> names their sources.</p>
+<h2 id="next">Next</h2>
+<ul>
+<li>Open your own file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>). The file decides where it opens: an image in Imaging, a spectrum image in Spectroscopy, an EBSD scan in EBSD.</li>
+<li><a href="/docs/electron-microscopy-studio/window.html">The window</a> explains where everything is.</li>
+</ul>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/install.html"><span>Previous</span>Install Electron Microscopy Studio</a><a class="next" href="/docs/electron-microscopy-studio/window.html"><span>Next</span>The window</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

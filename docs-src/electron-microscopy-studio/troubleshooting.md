@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Answers to the usual problems in Electron Microscopy Studio: files that cannot be read, folder access, a workspace that is dimmed, images without a scale, updates and the agent door.
+description: Answers to the usual problems in Electron Microscopy Studio: files that cannot be read, folder access, a workspace or part that is dimmed, images without a scale, updates and the agent door.
 applies_to: 2.1
 ---
 
@@ -16,16 +16,16 @@ applies_to: 2.1
 
 A NORDIF EBSD scan is read together with the `Setting.txt` and the background pattern beside it. macOS gives the app only the file you picked, so the app shows a panel on the scan's folder: choose that folder, or one around it, and click <span class="ui">Allow</span>. The app remembers the folder and does not ask again for scans inside it.
 
-## A workspace is dimmed
+## A workspace or a part is dimmed
 
-Each workspace needs its own kind of data. A dimmed workspace says why when you point at it:
+Each part of a workspace needs its own kind of data. A dimmed one says why when you point at it:
 
 | The reason | What it means |
 |---|---|
 | No file open holds an image | Image, FFT and Diffraction work on an image. Open one. |
 | No file open holds an EDS spectrum image | EDS needs a spectrum image with X-ray counts. |
 | No file open holds an EELS spectrum image | EELS needs an energy-loss spectrum image. |
-| No file open holds EBSD patterns | Patterns and Indexing need a pattern dataset. |
+| No file open holds EBSD patterns | Patterns and Indexing need an EBSD pattern dataset. |
 | No file open holds an orientation map | Maps needs an indexed map. |
 | The open images belong to a spectrum image, not a diffraction pattern | The image is the survey image of a spectrum image. Diffraction needs a diffraction pattern. |
 
@@ -35,11 +35,11 @@ Each workspace needs its own kind of data. A dimmed workspace says why when you 
 
 **"Pixels are not square".** The file's two axes have different pixel sizes. The scale bar uses the horizontal axis.
 
-**A diffraction pattern without a scale.** In the Diffraction workspace, record a standard under the same conditions, choose it under <span class="ui">Standard</span>, drag an annulus over one of its rings and click <span class="ui">Calibrate on Ring</span>.
+**A diffraction pattern without a scale.** For the Diffraction workspace, record a standard under the same conditions, choose it under <span class="ui">Standard</span>, drag an annulus over one of its rings and click <span class="ui">Calibrate on Ring</span>.
 
 ## Updates
 
-The app checks once a day whether a newer version exists. To check now, choose <span class="ui">Check for Updates…</span> in the app menu. To turn the daily check off, clear <span class="ui">Check for updates automatically</span> in Settings.
+The app checks once a day whether a newer version exists. To check now, choose <span class="ui">Check for Updates…</span> in the app menu. To turn the daily check off, clear <span class="ui">Settings › Software Update › Check for updates automatically</span>.
 
 If an update does not install, download the current disk image from the [Electron Microscopy Studio page](/mactem/) and replace the app in Applications. Your settings stay.
 
