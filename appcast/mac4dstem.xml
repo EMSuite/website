@@ -4,20 +4,21 @@
     <title>mac4DSTEM</title>
     <link>https://mac4dstem.com/</link>
     <item>
-      <title>mac4DSTEM 5.3.1</title>
-      <pubDate>Sat, 14 Nov 2026 23:23:44 GMT</pubDate>
-      <sparkle:version>5.3.1</sparkle:version>
-      <sparkle:shortVersionString>5.3.1</sparkle:shortVersionString>
+      <title>mac4DSTEM 5.4.1</title>
+      <pubDate>Tue, 17 Nov 2026 18:31:15 GMT</pubDate>
+      <sparkle:version>5.4.1</sparkle:version>
+      <sparkle:shortVersionString>5.4.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/macEMSuite/mac4DSTEM/releases/tag/v5.3.1</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">mac4DSTEM 5.3.1 fixes wrong or misleading results.
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.1</sparkle:fullReleaseNotesLink>
+      <description sparkle:format="plain-text">Version 5.4.1 is a stability release.
 
-• Placing a virtual detector no longer moves the origin. You now set the origin on purpose in Prepare.
-• Phase mapping refuses an unmeasured origin, a typed orientation relationship covers all its variants, and Fit Distortion fits the right matrix.
-• Calibrate Q reads diamond-type rings correctly.
-• Opening a dataset writes nothing to its disk, and a new file no longer shows the last file's EDS maps.
-• A tidier status bar, keyboard and VoiceOver fixes, and a new update signing key.</description>
-      <enclosure url="https://github.com/macEMSuite/mac4DSTEM/releases/download/v5.3.1/mac4DSTEM-5.3.1.dmg" type="application/octet-stream" sparkle:edSignature="DrLSNeF0yXjE6phI7RoRvruD41WiddFZlBqq7yw8mnalESAxKvEQBrpKHipUrSPhCoLkl6q5VpI9hk4o0MboBQ==" length="19475071"/>
+• Keep in memory holds the cube at its stored bit depth and is on by default when the cube fits a quarter of the RAM; closing a window frees it at once.
+• The origin row reads its own fit: a scattered centre of mass on a spot pattern points to Origin from Bragg Peaks, and a beam stop gets only its own remedy.
+• Closing, opening another file or quitting asks before it stops a running analysis; crafted or damaged files are refused instead of stopping the app.
+• The agent door reaches more of the app: the EDS room, the view, Settings and the Materials Project.
+
+Results that change: disk detection follows py4DSTEM's default minimum relative intensity (0.5 %), so counts at default settings differ from 5.3.1; EDS absorption on GMS files takes the stage tilt from Stage Alpha and Beta, as exSpy does; viridis, inferno and RdBu are drawn from matplotlib's own tables and tagged sRGB, so map colours shift slightly.</description>
+      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.4.1/mac4DSTEM-5.4.1.dmg" type="application/octet-stream" sparkle:edSignature="L/5KBBhDzc+TR3huB/UbohTe90kbS3ylN6hog6fVaECLPWfFxpaWTZQmzkvg2kLT/dkMIJZJuLMw5I0ZrY3IAg==" length="19801986"/>
     </item>
   </channel>
 </rss>
