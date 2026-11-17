@@ -57,6 +57,9 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 
    `applies_to` is the app version the page was read against; the page shows "Applies to … 5.4 and later".
    A tutorial also names its `recipe` and `dataset`.
+   When the app has a new minor release, `tools/check_site.py` fails for every page whose `applies_to` is behind it:
+   read the page against the new version, correct it, and move the stamp. A feature that arrived with that version
+   gets a note in the text, `!!! note "New in 5.5"`. There are no copies of the documentation per version.
 2. List the page in `docs-src/nav.json`, in the group and at the place where the sidebar should show it.
 3. Run `python3 tools/build_docs.py` and commit `docs-src/` and `docs/` together. CI fails when they disagree.
 
