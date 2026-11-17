@@ -13,6 +13,7 @@
         {"pages": ["4dstem-studio/index"]},
         {"title": "Get started", "pages": ["4dstem-studio/install", "4dstem-studio/first-look", "4dstem-studio/window"]},
         {"title": "Your data", "pages": ["4dstem-studio/data/formats", "4dstem-studio/data/large-datasets", "4dstem-studio/data/sessions", "4dstem-studio/data/export"]},
+        {"title": "Reference", "pages": ["4dstem-studio/reference/prepare", "4dstem-studio/reference/imaging", "4dstem-studio/reference/bragg-disks", "4dstem-studio/reference/strain"]},
         {"title": "Help", "pages": ["4dstem-studio/troubleshooting"]}
       ]
     },

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Prepare — 4DSTEM Studio documentation</title>
+<meta name="description" content="Reference for the Prepare workspace of 4DSTEM Studio: every calibration step and control, what it unlocks, the signals the app shows and how to read them.">
+<link rel="canonical" href="https://mac4dstem.com/docs/4dstem-studio/reference/prepare.html">
+<link rel="alternate" type="text/markdown" href="/docs/4dstem-studio/reference/prepare.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/" aria-current="true">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/4dstem-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/install.html">Install</a></li>
+      <li><a href="/docs/4dstem-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/4dstem-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/4dstem-studio/data/large-datasets.html">Large datasets</a></li>
+      <li><a href="/docs/4dstem-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/4dstem-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/reference/prepare.html" aria-current="page">Prepare</a></li>
+      <li><a href="/docs/4dstem-studio/reference/imaging.html">Imaging</a></li>
+      <li><a href="/docs/4dstem-studio/reference/bragg-disks.html">Bragg Disks</a></li>
+      <li><a href="/docs/4dstem-studio/reference/strain.html">Strain</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/4dstem-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">4DSTEM Studio · Reference</p>
+      <h1>Prepare</h1>
+      <p class="docs-applies">Applies to 4DSTEM Studio 5.4 and later</p>
+<p class="lede">Prepare is where the dataset is calibrated. This page lists every control of its inspector under the name the app shows.</p>
+
+<h2 id="calibration">Calibration</h2>
+<p>The <span class="ui">Calibration</span> section lists five steps and the voltage. Each row shows its state (<span class="ui">Not set</span>, <span class="ui">From file</span>, <span class="ui">Measured</span>, <span class="ui">Manual</span>, <span class="ui">From session</span> or <span class="ui">Not quantitative</span>) and has the action that sets it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What it unlocks</th>
+<th>How it is set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin &amp; probe</td>
+<td>Descan-corrected DPC, Bragg vectors, strain and reconstruction</td>
+<td><span class="ui">Calibrate Origin</span>, or <span class="ui">Use Detector Centre as Origin</span> for a centre by hand</td>
+</tr>
+<tr>
+<td>Ellipse distortion</td>
+<td>Corrects detector distortion in Bragg, strain and orientation coordinates</td>
+<td><span class="ui">Fit Detector Ellipse</span></td>
+</tr>
+<tr>
+<td>R–Q rotation</td>
+<td>Scan-frame DPC and iDPC, calibrated reconstruction geometry</td>
+<td><span class="ui">Measure R–Q Rotation</span></td>
+</tr>
+<tr>
+<td>Q pixel scale</td>
+<td>Reciprocal units, physical orientation matching, quantitative phase</td>
+<td>From the file, typed, or <span class="ui">Calibrate from Selected Material</span></td>
+</tr>
+<tr>
+<td>R pixel scale</td>
+<td>Real-space axes, scale bars, quantitative reconstruction sampling</td>
+<td>From the file or typed. It cannot be measured from the data: enter it from the acquisition parameters.</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Voltage</span> is the accelerating voltage in kV. It is read from the file when the file carries it. Without it, mrad and Å⁻¹ cannot be converted.</p>
+<p>Typing a value into a row replaces the one that was there; the row's state becomes <span class="ui">Manual</span>.</p>
+<p>Under the rows the verdict reads "Quantitative — all 5 steps set", or "Quantitative in 3 of 5 steps" with what is still needed. Point at a row to read its detail and what it unlocks.</p>
+<p><span class="ui">Clear Calibration</span> returns every step to <span class="ui">Not set</span> without reloading the file. The voltage stays. Results computed against the old values are discarded or should be rerun; the confirmation says which.</p>
+<h2 id="fit-diagnostics-advanced-correction">Fit diagnostics &amp; advanced correction</h2>
+<p>This section is closed at first. It holds the choices behind the origin and what the fits reported.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin source</td>
+<td>Where the origin comes from: a fit, the file, the session, or a centre set by hand</td>
+</tr>
+<tr>
+<td>Origin fit</td>
+<td>The surface fitted through the per-position origins: <span class="ui">Constant</span>, <span class="ui">Plane</span> (the default, as in py4DSTEM) or <span class="ui">Parabola</span></td>
+</tr>
+<tr>
+<td>Origin method</td>
+<td><span class="ui">Centre of mass</span> is the fast default. <span class="ui">Friedel</span> finds the beam through a beam stop by the pattern's own symmetry; it is slower and meant for data whose direct beam is hidden.</td>
+</tr>
+<tr>
+<td>Calibrate Origin</td>
+<td>Finds the beam centre at every scan position, fits the surface, and measures the probe radius</td>
+</tr>
+<tr>
+<td>Origin from Bragg Peaks</td>
+<td>Follows the direct beam among the detected Bragg disks instead of the centre of mass. For crystals whose strong disks pull the centre of mass off the beam. Needs <span class="ui">Detect All Disks</span> first.</td>
+</tr>
+<tr>
+<td>Measure R–Q Rotation</td>
+<td>Measures the rotation between the scan and the detector</td>
+</tr>
+<tr>
+<td>Fit Distortion from Spots</td>
+<td>Measures the detector's stretch on the matrix crystal's own spots, for a scan of one crystal that has no ring. Nothing changes until you click <span class="ui">Apply Distortion</span>.</td>
+</tr>
+<tr>
+<td>Flip 180°</td>
+<td>The rotation measurement cannot tell θ from θ + 180°. If iDPC contrast is inverted, flip it here.</td>
+</tr>
+<tr>
+<td>Typed θ, Transposed, Apply Rotation</td>
+<td>Enter the R–Q rotation by hand in py4DSTEM's convention (<code>QR_rotation</code> in degrees, <code>QR_flip</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>What the fits report:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Probe radius</td>
+<td>The measured radius of the direct beam in detector pixels. Disk detection builds its kernel at this radius.</td>
+</tr>
+<tr>
+<td>Fit residual</td>
+<td>The RMS distance, in pixels, between the measured origins and the fitted surface. Small is good; a value over 1 px on a spot pattern brings the hint to use <span class="ui">Origin from Bragg Peaks</span>.</td>
+</tr>
+<tr>
+<td>Positions used</td>
+<td>The fit is robust: positions whose origin lies far from the surface are excluded and the surface is fitted again. "Nothing excluded" means there was no outlier tail, not that every position measured well.</td>
+</tr>
+<tr>
+<td>Q shell check</td>
+<td>The Q scale from a crystal assumes the innermost detected peak is the innermost allowed reflection. With two shells visible the app checks this; with one it cannot, and says so.</td>
+</tr>
+<tr>
+<td>R–Q rotation</td>
+<td>The measured or typed rotation, with ⊤ when the detector axes are transposed</td>
+</tr>
+<tr>
+<td>Spot distortion</td>
+<td>The stretch of the long over the short axis, its direction, and how far the detected spots are from the fitted ones</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="ellipse-correction">Ellipse correction</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fit annulus inner, Fit annulus outer</td>
+<td>The radii, in detector pixels from the origin, between which the ring is fitted. Choose an annulus around a ring that is present in every pattern.</td>
+</tr>
+<tr>
+<td>Fit Ellipse</td>
+<td>Fits the ring in the annulus. The annulus must contain a ring with broad angular coverage.</td>
+</tr>
+<tr>
+<td>Fit Anyway</td>
+<td>Offered when the app refuses a fit because only a few of 36 sectors carry ring signal. Spots from a few grains fit an ellipse as well as a distorted detector does, so use it only if the annulus holds exactly one ring. The result is marked "Fit anyway".</td>
+</tr>
+<tr>
+<td>Semi-axis a, Semi-axis b, θ, Apply Ellipse</td>
+<td>Enter an ellipse by hand in py4DSTEM's convention: a is the longer semi-axis, θ the tilt of the a axis from qx in degrees. Only b/a and θ change the correction.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The <span class="ui">Correction</span> row shows the ellipse in use. It is applied to calibrated Bragg maps, strain and orientation. <span class="ui">Residual</span> shows the fit's residual and how many of 36 sectors carried signal.</p>
+<h2 id="a-centre-by-hand">A centre by hand</h2>
+<p><span class="ui">Use Detector Centre as Origin</span> sets the origin to the centre of the virtual detector: put the detector on the direct beam first. <span class="ui">Origin x</span> and <span class="ui">Origin y</span> take the beam centre's column and row in pixels. <span class="ui">Restore Fitted Origin</span> brings back the fitted origin that the manual centre set aside.</p>
+<h2 id="method">Method</h2>
+<p>The calibration follows py4DSTEM: Savitzky et al. (2021), <em>py4DSTEM: A Software Package for Four-Dimensional Scanning Transmission Electron Microscopy Data Analysis</em>, Microsc. Microanal. 27, 712. The app's results are checked against it; the numbers are in the app's <a href="https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md">parity notes</a>.</p>
+<p>If a step is flagged, see <a href="/docs/4dstem-studio/troubleshooting.html#the-calibration-says-not-quantitative">Troubleshooting</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/4dstem-studio/data/export.html"><span>Previous</span>Export</a><a class="next" href="/docs/4dstem-studio/reference/imaging.html"><span>Next</span>Imaging</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
