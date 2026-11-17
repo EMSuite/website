@@ -39,7 +39,7 @@ This section is closed at first. It holds the choices behind the origin and what
 | Measure R–Q Rotation | Measures the rotation between the scan and the detector |
 | Fit Distortion from Spots | Measures the detector's stretch on the matrix crystal's own spots, for a scan of one crystal that has no ring. Nothing changes until you click <span class="ui">Apply Distortion</span>. |
 | Flip 180° | The rotation measurement cannot tell θ from θ + 180°. If iDPC contrast is inverted, flip it here. |
-| Typed θ, Transposed, Apply Rotation | Enter the R–Q rotation by hand in py4DSTEM's convention (`QR_rotation` in degrees, `QR_flip`) |
+| Typed θ, Transposed, Apply Rotation | Enter the R–Q rotation by hand in py4DSTEM's convention: the angle in degrees (`QR_rotation_degrees`; py4DSTEM's `QR_rotation` holds the same angle in radians) and the transpose (`QR_flip`) |
 
 What the fits report:
 

@@ -169,7 +169,7 @@
 </tr>
 <tr>
 <td>Basis fit</td>
-<td>The RMS distance in pixels between the reference's disks and the fitted basis, and the condition number κ of the basis. A large κ means g₁ and g₂ are nearly parallel: choose another pair.</td>
+<td>The RMS distance in pixels between the reference's disks and the fitted basis, and the condition number κ of the basis. A large κ means g₁ and g₂ are nearly parallel or very different in length: choose another pair.</td>
 </tr>
 <tr>
 <td>Local fits</td>
@@ -192,7 +192,7 @@
 <tbody>
 <tr>
 <td>Too few peaks</td>
-<td>Indexing needs the direct beam and two more reflections in a pattern. Lower the detection thresholds in Bragg Disks, not the reference. <span class="ui">Go to Bragg Disks</span> takes you there.</td>
+<td>A position is fitted only when at least five of its disks, the direct beam among them, index on the lattice (py4DSTEM's <code>minNumPeaks</code>, 5). Lower the detection thresholds in Bragg Disks, not the reference. <span class="ui">Go to Bragg Disks</span> takes you there.</td>
 </tr>
 <tr>
 <td>No single lattice fits the whole reference</td>

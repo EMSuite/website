@@ -22,7 +22,7 @@ A virtual image shows, for every scan position, how much signal fell on a chosen
 
 1. Go to the <span class="ui">Imaging</span> workspace in the sidebar, or press <kbd>⌘2</kbd>. Its first task, <span class="ui">Virtual imaging</span>, is selected.
 2. In the inspector on the right, set <span class="ui">Direction</span> to <span class="ui">Detector</span>. Dragging now moves the virtual detector.
-3. Choose a <span class="ui">Preset</span>: <span class="ui">BF</span> (bright field), <span class="ui">ADF</span> or <span class="ui">HAADF</span> (annular dark field).
+3. Choose a <span class="ui">Preset</span>: <span class="ui">BF</span> (bright field), <span class="ui">ADF</span> (annular dark field) or <span class="ui">HAADF</span> (high-angle annular dark field).
 4. Drag the detector on the diffraction pane, or type its centre and radii. The image of the scan updates while you drag.
 
 Try the bright-field preset first, then an annular one, and watch how the contrast of the image changes: bright field collects the direct beam, the annular detectors collect what the sample scattered away from it.

@@ -16,12 +16,12 @@ Applies to 4DSTEM Studio 5.4 and later.
 | Control | What it does |
 |---|---|
 | Shape | The detector drawn on the diffraction pane: <span class="ui">Circle</span>, <span class="ui">Annulus</span>, <span class="ui">Rectangle</span> or <span class="ui">Point</span> (a single pixel) |
-| Preset | <span class="ui">BF</span> (bright field), <span class="ui">ADF</span> and <span class="ui">HAADF</span> (annular dark field) set the detector in one click. <span class="ui">Custom</span> is shown once you change it. |
+| Preset | <span class="ui">BF</span> (bright field), <span class="ui">ADF</span> (annular dark field) and <span class="ui">HAADF</span> (high-angle annular dark field) set the detector in one click. <span class="ui">Custom</span> is shown once you change it. |
 | Centre and radii | The detector's position and size in detector pixels. Type them, or drag the detector on the diffraction pane. |
 
 The image of the scan updates while you drag. Each pixel of it is the signal that fell on the detector at that scan position.
 
-The presets are fractions of the detector. Measure the beam in Prepare (<span class="ui">Calibrate Origin</span>) and they fit the beam instead.
+Without a measured beam the presets are fractions of the detector. Once <span class="ui">Calibrate Origin</span> in Prepare has measured the probe radius r, BF becomes the disk of radius r and ADF the annulus from 3r to 6r, as in py4DSTEM's virtual-imaging tutorial. HAADF stays a fraction of the detector. The presets are not set in mrad: to report collection angles, read the radii against the Q calibration.
 
 ### Region to diffraction
 
@@ -57,4 +57,4 @@ After a run the section reports:
 
 ## Method
 
-Virtual imaging and the grouping follow py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The grouping is principal component analysis followed by k-means. The numbers are in the app's [parity notes](https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md).
+Virtual imaging follows py4DSTEM: Savitzky et al. (2021), Microsc. Microanal. 27, 712. The grouping is principal component analysis followed by k-means. Its input, log-scaled, normalised and binned patterns, has no counterpart in py4DSTEM, which groups maps you supply; the principal components are checked against scikit-learn. The numbers are in the app's [parity notes](https://github.com/EMSuite/4DSTEM-Studio/blob/main/docs/parity.md).

@@ -13,7 +13,7 @@ The detector correlates each pattern with a probe kernel and keeps the correlati
 |---|---|
 | Source | Where the kernel comes from: <span class="ui">Synthetic</span> (a disk of the probe radius), <span class="ui">Current CBED / ROI</span> (the pattern on screen), <span class="ui">File's probe</span> (a probe stored in the file) or <span class="ui">Vacuum scan…</span> (a separate scan without a sample) |
 | Probe radius | The radius the synthetic kernel is built at, in detector pixels. Empty until <span class="ui">Calibrate Origin</span> measures it. A typed value replaces the measured one. |
-| Measured kernel mode | <span class="ui">Flat</span> uses the probe as it is: py4DSTEM's recommendation for bullseye and other structured probes, and it needs no radius. <span class="ui">Sigmoid trench</span> subtracts a ring from the probe radius to twice it, so the correlation responds to the disk edge. |
+| Measured kernel mode | <span class="ui">Flat</span> uses the probe as it is: py4DSTEM's recommendation for bullseye and other structured probes, and it needs no radius. <span class="ui">Sigmoid trench</span> subtracts a disk whose edge falls smoothly to zero between the probe radius and twice it, so the kernel sums to zero, has a negative trench around the probe, and the correlation responds to the disk edge (py4DSTEM's `sigmoid` kernel). It is only as good as the probe radius. |
 | Build Kernel | Builds the kernel from the chosen source |
 | Kernel | The kernel in use: its source, its mode and its radius |
 
