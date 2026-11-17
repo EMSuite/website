@@ -6,7 +6,7 @@
 
 Links: every href, src and srcset that points into the site must name a file in this repo, and every #fragment an id
 on its page. Releases: each app page must give the latest release's version and its .dmg size wherever it states
-them (the text and the JSON-LD), and the kits pages the latest tag of each kit and of MacEMUI. From mac4DSTEM 5.3.0 on,
+them (the text and the JSON-LD), and the kits pages the latest tag of each kit and of EMSuiteUI. From mac4DSTEM 5.3.0 on,
 the website download updates itself (Sparkle), so appcast/mac4dstem.xml must name that latest release: its version, and
 its mac4DSTEM-<version>.dmg on the release with the same length. CI runs it on every push
 and once a day, so a new release turns it red until the pages follow. Standard library only; GITHUB_TOKEN is used
@@ -18,9 +18,11 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-ORG = "macEMSuite"
+ORG = "EMSuite"
 APPS = {"mac4DSTEM": "index.html", "macEM": "mactem/index.html"}
-PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "SimulatoKit", "MacEMUI"]
+# Each app's GitHub repo (renamed 2026-11-17); release assets keep the app names.
+REPOS = {"mac4DSTEM": "4DSTEM-Studio", "macEM": "Electron-Microscopy-Studio"}
+PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "SimulatoKit", "EMSuiteUI"]
 SKIP = {".git", "datacube", "tools"}
 # Apps whose website download reads an update feed, the feed's path in this repo, and the first version that reads it.
 FEEDS = {"mac4DSTEM": ("appcast/mac4dstem.xml", (5, 3, 0))}
@@ -100,7 +102,7 @@ def latest(repo):
 def check_releases():
     errors = []
     for app, rel in APPS.items():
-        r = latest(app)
+        r = latest(REPOS[app])
         ver = r["tag_name"].lstrip("v")
         dmg = next((a for a in r["assets"] if a["name"] == f"{app}.dmg"), None)
         if dmg is None:
@@ -159,7 +161,7 @@ def check_feed(app, ver, assets):
     enclosure = item.find("enclosure")
     name = f"{app}-{ver}.dmg"
     url = enclosure.get("url", "") if enclosure is not None else ""
-    if url != f"https://github.com/{ORG}/{app}/releases/download/v{ver}/{name}":
+    if url != f"https://github.com/{ORG}/{REPOS[app]}/releases/download/v{ver}/{name}":
         errors.append(f"{path}: the enclosure must point at {name} on the v{ver} release, not {url or 'nothing'}")
     elif not (enclosure.get(f"{SPARKLE}edSignature") or "").strip():
         errors.append(f"{path}: the enclosure has no sparkle:edSignature")
