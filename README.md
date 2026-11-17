@@ -34,8 +34,38 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `assets/demo.js` | The interactive virtual-imaging demo. |
 | `suite/` | Kits overview, benchmarks and releases pages for the macEM suite. Generated, do not edit. |
 | `tools/build_suite_pages.py` | Generates `suite/` from the kits' and MacEMUI's CHANGELOG, `docs/parity.md` and `docs/benchmarks.md`. Run `python3 tools/build_suite_pages.py --fetch` after a kit or MacEMUI release. |
+| `docs-src/` | The documentation's sources: `nav.json` (sections, groups, page order) and one Markdown file per page. |
+| `docs/` | The documentation pages and their Markdown copies. Generated, do not edit. |
+| `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
+| `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
 | `tools/check_site.py` | The CI check: internal links, and versions and download sizes against the GitHub releases. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
+
+## Writing a documentation page
+
+1. Add `docs-src/<section>/<page>.md`. It starts with a front-matter block, then Markdown:
+
+   ```markdown
+   ---
+   title: Install
+   description: One sentence for search engines.
+   applies_to: 5.4
+   ---
+
+   ## What you need
+   ```
+
+   `applies_to` is the app version the page was read against; the page shows "Applies to … 5.4 and later".
+   A tutorial also names its `recipe` and `dataset`.
+2. List the page in `docs-src/nav.json`, in the group and at the place where the sidebar should show it.
+3. Run `python3 tools/build_docs.py` and commit `docs-src/` and `docs/` together. CI fails when they disagree.
+
+Links between pages are absolute (`/docs/4dstem-studio/install.html`). Tables, fenced code, notes
+(`!!! note "Title"`, `!!! warning`) and raw HTML work; a control's name is written
+`<span class="ui">Detect All Disks</span>` and a key `<kbd>⌘R</kbd>`. Pictures go to `assets/docs/<section>/<page>/`.
+
+While `nav.json` says `"live": false` the pages ask search engines not to index them and stay out of `sitemap.xml`
+and `llms.txt`. The `.nojekyll` file makes GitHub Pages serve the repository as it is, Markdown included.
 
 ## Checks and releases
 
