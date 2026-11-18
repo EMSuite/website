@@ -4,21 +4,23 @@
     <title>mac4DSTEM</title>
     <link>https://mac4dstem.com/</link>
     <item>
-      <title>mac4DSTEM 5.4.1</title>
-      <pubDate>Tue, 17 Nov 2026 18:31:15 GMT</pubDate>
-      <sparkle:version>5.4.1</sparkle:version>
-      <sparkle:shortVersionString>5.4.1</sparkle:shortVersionString>
+      <title>mac4DSTEM 5.4.2</title>
+      <pubDate>Wed, 18 Nov 2026 13:05:35 GMT</pubDate>
+      <sparkle:version>5.4.2</sparkle:version>
+      <sparkle:shortVersionString>5.4.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.1</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">Version 5.4.1 is a stability release.
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.2</sparkle:fullReleaseNotesLink>
+      <description sparkle:format="plain-text">Version 5.4.2 is a stability release.
 
-• Keep in memory holds the cube at its stored bit depth and is on by default when the cube fits a quarter of the RAM; closing a window frees it at once.
-• The origin row reads its own fit: a scattered centre of mass on a spot pattern points to Origin from Bragg Peaks, and a beam stop gets only its own remedy.
-• Closing, opening another file or quitting asks before it stops a running analysis; crafted or damaged files are refused instead of stopping the app.
-• The agent door reaches more of the app: the EDS room, the view, Settings and the Materials Project.
+• Origin from Bragg Peaks finds the direct beam on spot patterns whose first-order disks outshine it, such as Si/SiGe.
+• Fit Ellipse on a mean pattern with sharp crystalline rings keeps the ring fit instead of an amorphous-ring model that could distort it.
+• Saved disk-centre labels come back after the dataset's folder is renamed or moved.
+• The run progress bar follows its count smoothly.
+• EDS: Auto ID quantifies an element found by its L line on its Kα when the spectrum holds it well excited, and offers its near misses (such as carbon below 0.45 keV) as one-click additions. Long DM4 reads use less memory.
+• VoiceOver reads the workspace list as buttons.
 
-Results that change: disk detection follows py4DSTEM's default minimum relative intensity (0.5 %), so counts at default settings differ from 5.3.1; EDS absorption on GMS files takes the stage tilt from Stage Alpha and Beta, as exSpy does; viridis, inferno and RdBu are drawn from matplotlib's own tables and tagged sRGB, so map colours shift slightly.</description>
-      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.4.1/mac4DSTEM-5.4.1.dmg" type="application/octet-stream" sparkle:edSignature="L/5KBBhDzc+TR3huB/UbohTe90kbS3ylN6hog6fVaECLPWfFxpaWTZQmzkvg2kLT/dkMIJZJuLMw5I0ZrY3IAg==" length="19801986"/>
+Results that change: the Bragg-peak origin on spot patterns where a disk outshines the beam, ellipse fits on crystalline mean patterns, and EDS Auto ID element lists.</description>
+      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.4.2/mac4DSTEM-5.4.2.dmg" type="application/octet-stream" sparkle:edSignature="VxWtVFLysj3vJ+kv+XpLa4/0aTUqzxIyndRRYWZkEU3Qv0TN6QkyTsLL4jkaVBBV9dfDNA0Bm6dqsrdjSY7iBQ==" length="19898069"/>
     </item>
   </channel>
 </rss>
