@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Diffraction — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the Diffraction workspace of Electron Microscopy Studio: the centre, the calibration on a standard, rings and spots, the crystal and indexing.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/diffraction.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/diffraction.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html" aria-current="page">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>Diffraction</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Diffraction measures a single diffraction pattern: its centre, its scale, the d-spacings of rings and spots, and which reflections of a crystal they are. This page lists every control of the workspace.</p>
+
+<h2 id="tools">Tools</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ring</td>
+<td>Drag from the inner to the outer edge of a ring. The ring is fitted inside that annulus.</td>
+</tr>
+<tr>
+<td>Spot</td>
+<td>Click a spot</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="centre">Centre</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row, Column</td>
+<td>The centre of the pattern in pixels</td>
+</tr>
+<tr>
+<td>Use Ring's Centre</td>
+<td>Takes the fitted centre of the selected ring as the centre of the pattern</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="calibration">Calibration</h2>
+<p>The scale of the pattern in Å⁻¹ per pixel comes from the file, from a ring of a standard, or from a value you type.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale</td>
+<td>The scale in use and its source</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>The standard the pattern is of: Au, Al or Si</td>
+</tr>
+<tr>
+<td>Ring</td>
+<td>The family of reflections the fitted ring belongs to, with its spacing in Å</td>
+</tr>
+<tr>
+<td>Calibrate on Ring</td>
+<td>Fits the ring in the annulus and takes Δq from its radius and the listed spacing of the family</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>Removes the ring calibration</td>
+</tr>
+<tr>
+<td>L</td>
+<td>The camera length that follows, in pixels, and in mm when the pixel pitch of the camera is known</td>
+</tr>
+<tr>
+<td>Δq typed</td>
+<td>A scale you type, in Å⁻¹ per pixel</td>
+</tr>
+<tr>
+<td>Beam</td>
+<td>The beam energy from the file. Type it when the file does not state it.</td>
+</tr>
+<tr>
+<td>Camera, Pixel pitch</td>
+<td>The camera, or its pixel pitch in mm, for the camera length in mm</td>
+</tr>
+</tbody>
+</table></div>
+<p>When both exist, the inspector says how far the fitted Δq is from the axis of the file, in percent. Check a large difference before you rely on either.</p>
+<h2 id="rings-and-spots">Rings and Spots</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inner, Outer</td>
+<td>The annulus a ring is fitted in, in pixels</td>
+</tr>
+<tr>
+<td>Fit Ring</td>
+<td>Fits a ring in the annulus</td>
+</tr>
+<tr>
+<td>Remove, Remove All</td>
+<td>Deletes the selected ring or spot, or all</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="crystal">Crystal</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crystal</td>
+<td>The crystal the rings and spots are indexed against: a built-in one or a CIF</td>
+</tr>
+<tr>
+<td>Open CIF…</td>
+<td>Reads a crystal from a CIF file</td>
+</tr>
+<tr>
+<td>k_max</td>
+<td>How far out reflections are listed, in Å⁻¹</td>
+</tr>
+<tr>
+<td>Tolerance</td>
+<td>How far a measured q may be from a listed one to count as that reflection, in percent of q</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="display-and-export">Display and export</h2>
+<p>The display controls are those of <a href="/docs/electron-microscopy-studio/reference/image.html#display">Image</a>. <span class="ui">Export Readout CSV…</span> writes the readout of the rings and spots as CSV.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/fft.html"><span>Previous</span>FFT</a><a class="next" href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html"><span>Next</span>EBSD Patterns</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

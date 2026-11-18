@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EDS — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the EDS part of the Spectroscopy workspace in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/eds.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/eds.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html" aria-current="page">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>EDS</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">EDS works on an EDS spectrum image or a single spectrum, from a TEM or an SEM. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Not yet validated against reference data</p>
+<p>The fit is checked against exSpy, but the compositions have not yet been validated against standards of known composition. Treat at% and wt% as a first estimate, and check them against a standard measured under the same conditions before you report them.</p>
+</div>
+<p>Open a spectrum image with <span class="ui">Open Spectrum Image…</span>. The window shows the element maps, the spectrum of the selected region below them, and the results beside the spectrum. <span class="ui">Quantify</span> in the header fits the spectrum of the region. A single spectrum has no maps.</p>
+<h2 id="maps">Maps</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maps</td>
+<td><span class="ui">Net</span>, <span class="ui">wt%</span>, <span class="ui">at%</span>, <span class="ui">Thickness</span></td>
+<td>What the tiles show: the net counts of each line window, the composition from the k-factors, or the mass thickness in kg/m²</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td><span class="ui">Off</span>, <span class="ui">3 × 3 average</span>, <span class="ui">Gaussian σ 1 px</span></td>
+<td>Smooths the wt%, at% and Thickness maps for display. It is on by default, and a filtered tile says so. Net maps are never filtered.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The filter changes the picture only. The readout, the exports and the results use the raw values.</p>
+<h2 id="elements">Elements</h2>
+<p>Pick the elements in the periodic table of the inspector. <span class="ui">Auto ID</span> proposes elements from the spectrum of the region. Treat the proposal as a start: remove what cannot be in the sample, and add what you know is there.</p>
+<h2 id="tools">Tools</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Select</td>
+<td>Click a region to select it, drag to move the view. <kbd>⌫</kbd> deletes the selected region, the arrow keys move it.</td>
+</tr>
+<tr>
+<td>Rectangle</td>
+<td>Drag a rectangle on any map to sum its pixels</td>
+</tr>
+<tr>
+<td>Ellipse</td>
+<td>Drag to draw the ellipse inside a rectangle</td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td>Click the corners on any map; click the first corner to close the polygon</td>
+</tr>
+<tr>
+<td>Line</td>
+<td>Drag a line on any map: each map is plotted along it, in a small chart over the spectrum</td>
+</tr>
+</tbody>
+</table></div>
+<p>With a shape tool, <kbd>Return</kbd> draws the shape in the middle of the map.</p>
+<h2 id="quantification">Quantification</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continuum</td>
+<td><span class="ui">Empirical</span>, <span class="ui">Polynomial</span></td>
+<td>The background under the peaks. Empirical fits a continuum over the whole spectrum with the step of the Al K edge. Polynomial is the whole-range polynomial of sixth order, as in exSpy.</td>
+</tr>
+<tr>
+<td>k-factors</td>
+<td><span class="ui">Computed</span>, <span class="ui">Typed</span></td>
+<td>Computed uses k-factors from Bote-Salvat cross sections, the Krause yield and the EPQ detector efficiency. Typed uses the Cliff-Lorimer k-factors you give, with their source. <span class="ui">Edit k-factors…</span> opens them.</td>
+</tr>
+<tr>
+<td>Maps method</td>
+<td><span class="ui">Cliff-Lorimer</span>, <span class="ui">Zeta factor</span>, <span class="ui">Cross section</span></td>
+<td>How the wt% and at% maps are quantified. The zeta factor and the cross section method need the dose and their factors: <span class="ui">Edit factors…</span>. The results table is always Cliff-Lorimer.</td>
+</tr>
+<tr>
+<td>Beam energy</td>
+<td>keV</td>
+<td>Read from the file. Type it when the file does not state it.</td>
+</tr>
+<tr>
+<td>Absorption</td>
+<td>off, on</td>
+<td>Corrects for absorption in the sample, weighted over the four detectors. It needs the thickness and the detector geometry of the file.</td>
+</tr>
+<tr>
+<td>Thickness, Thickness ±</td>
+<td>nm</td>
+<td>The sample thickness for the absorption correction, and its uncertainty</td>
+</tr>
+<tr>
+<td>Fit quality</td>
+<td></td>
+<td>How well the last fit describes the spectrum</td>
+</tr>
+</tbody>
+</table></div>
+<p>When the absorption correction cannot be applied, the inspector says "Absorption not applied:" and the reason. The composition is then uncorrected.</p>
+<h2 id="fitting">Fitting</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estimator</td>
+<td><span class="ui">Least squares</span>, <span class="ui">Poisson ML</span></td>
+<td>How the model is fitted to the counts</td>
+</tr>
+<tr>
+<td>σ_k</td>
+<td>%</td>
+<td>The relative uncertainty of a computed k-factor. It is carried into the uncertainties of the composition.</td>
+</tr>
+<tr>
+<td>Poly order</td>
+<td>0 to 8</td>
+<td>With the polynomial continuum: its order</td>
+</tr>
+<tr>
+<td>Lock energy axis</td>
+<td>off, on</td>
+<td>On: the energy offset, gain and peak width are not refined on the pooled spectrum</td>
+</tr>
+<tr>
+<td>Fit to</td>
+<td>keV</td>
+<td>The upper end of the fitted range. Empty means the default: the end of the axis or the beam energy, but at most 20 keV.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="results">Results</h2>
+<p>The table beside the spectrum shows the net counts of the picked elements before <span class="ui">Quantify</span>, and the composition in at% and wt% after it, each with its uncertainty. The reference element is marked "ref.": its computed k-factor is 1 by definition, and the others are relative to it. A value marked "not a measurement" has a note that says why. The line under the table counts the notes of the fit and of Auto ID; read them before you use a number.</p>
+<h2 id="export">Export</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Results CSV…</td>
+<td>The results table: element, line, net counts, at% and wt%, with the record of the fit</td>
+</tr>
+<tr>
+<td>Method JSON…</td>
+<td>The quantification method, with its SHA-256</td>
+</tr>
+<tr>
+<td>Spectrum CSV…, Spectrum MSA…</td>
+<td>The spectrum on screen as energy and counts, or as an EMSA/MAS file</td>
+</tr>
+<tr>
+<td>Regions CSV…</td>
+<td>The pixels, counts, net counts and composition of each kept region</td>
+</tr>
+<tr>
+<td>Maps…</td>
+<td>The maps as one PNG. <span class="ui">Scale bar</span> and <span class="ui">Regions</span> add the scale bar and the selected region.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The results and the method need <span class="ui">Quantify</span> first. <a href="/docs/electron-microscopy-studio/data/export.html">Export</a> says what every export carries.</p>
+<h2 id="sem-spectra">SEM spectra</h2>
+<p>For a spectrum from an SEM the Info tab adds two sections.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEM Conditions</td>
+<td>The conditions the file states: the beam energy, the elevation of the detector, the stage tilt, the energy resolution and the live time, with the take-off angle computed from them as exSpy does</td>
+</tr>
+<tr>
+<td>Line Windows</td>
+<td>The counts in the window of each line minus the scaled background windows, as exSpy's tutorial reads them. The results beside the spectrum are the fit of the part, not these.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="method">Method</h2>
+<p>Cliff and Lorimer, Journal of Microscopy 103 (1975) 203, for the composition from intensity ratios. The fit follows exSpy, the reference the numbers are checked against; the functions and their tolerances are listed in SpectroKit's <a href="https://github.com/EMSuite/SpectroKit/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/ebsd-maps.html"><span>Previous</span>EBSD Maps</a><a class="next" href="/docs/electron-microscopy-studio/reference/eels.html"><span>Next</span>EELS</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

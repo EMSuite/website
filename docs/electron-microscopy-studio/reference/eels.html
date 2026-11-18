@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EELS — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the EELS part of the Spectroscopy workspace in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/eels.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/eels.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html" aria-current="page">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>EELS</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">EELS maps the thickness from the low loss and quantifies core-loss edges of an EELS spectrum image. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Not yet validated against reference data</p>
+<p>The thickness and the edge fits are checked against exSpy, but they have not yet been validated against samples of known thickness or composition. Check them against a reference measured under the same conditions before you report them.</p>
+</div>
+<p>Open a file with <span class="ui">Open EELS Spectrum Image…</span>. <span class="ui">Run</span> does the stages in order: the thickness, the deconvolution if one is chosen, and the fit of the picked edges. What a file allows depends on what it holds: the thickness needs the low loss with its zero-loss peak, the edges need a core-loss spectrum image.</p>
+<h2 id="maps">Maps</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maps</td>
+<td><span class="ui">ZLP</span>, <span class="ui">t/λ</span>, <span class="ui">t</span>, <span class="ui">at%</span>, <span class="ui">wt%</span></td>
+<td>What the tiles show. A choice the file cannot give is off and says why.</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td></td>
+<td>Smooths the t/λ, t, at% and wt% maps for display. It is on by default, and a filtered tile says so. Edge intensities and the ZLP shift are never filtered.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The filter changes the picture only. The readout, the histogram, the results and every export use the raw values.</p>
+<h2 id="tools">Tools</h2>
+<p>The region tools are those of <a href="/docs/electron-microscopy-studio/reference/eds.html#tools">EDS</a>: Select, Rectangle, Ellipse, Polygon and Line.</p>
+<h2 id="edges">Edges</h2>
+<p>Click an element in the periodic table to quantify its edge. Right-click for the edge, or to switch it off. Each edge has a background window and a signal window on the spectrum; drag them there. <span class="ui">Reset Windows</span> puts every window back to its default, and a double-click on one window resets that edge alone.</p>
+<h2 id="processing">Processing</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Align method</td>
+<td>Maximum, then cross-correlation</td>
+<td>How the zero-loss peak of each pixel is found</td>
+</tr>
+<tr>
+<td>Signal from, Signal to</td>
+<td>eV</td>
+<td>Where <span class="ui">Align</span> searches for the zero-loss maximum, and the window of its cross-correlation (exSpy signal_range)</td>
+</tr>
+<tr>
+<td>Crop</td>
+<td>off, on</td>
+<td>On: drops the channels a shift left undefined. Off: keeps every channel, extrapolated linearly at the ends.</td>
+</tr>
+<tr>
+<td>Align</td>
+<td></td>
+<td>Aligns the zero-loss peak across the map</td>
+</tr>
+<tr>
+<td>Threshold</td>
+<td><span class="ui">Estimated</span>, <span class="ui">Fixed</span> with an energy</td>
+<td>Where the zero-loss peak ends and the inelastic signal begins. Estimated uses one rule for the whole map. Noisy data want a fixed threshold.</td>
+</tr>
+<tr>
+<td>Deconvolution</td>
+<td><span class="ui">Off</span>, <span class="ui">Fourier-log</span>, <span class="ui">Fourier-ratio</span>, <span class="ui">Richardson-Lucy</span></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>Iterations</td>
+<td></td>
+<td>With Richardson-Lucy: the number of iterations, 15 by default. More iterations amplify the noise.</td>
+</tr>
+<tr>
+<td>FWHM, Estimate</td>
+<td>eV</td>
+<td>With Fourier-ratio: the width of the zero-loss peak. Empty means estimated from the low loss of the first pixel. Type it when the estimate is refused.</td>
+</tr>
+<tr>
+<td>Mean free path λ</td>
+<td><span class="ui">No λ</span>, <span class="ui">Typed λ</span>, <span class="ui">Estimate λ</span></td>
+<td>No λ gives t/λ only. A typed λ in nm gives t = λ · t/λ. The estimate is Iakoubovskii's λ from the beam energy, the convergence and collection angles and a density.</td>
+</tr>
+<tr>
+<td>Density, Convergence, Collection</td>
+<td></td>
+<td>The values the estimate of λ needs</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Deconvolution</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off</td>
+<td>The edge model fits the core loss as stored</td>
+</tr>
+<tr>
+<td>Fourier-log</td>
+<td>The low loss by its zero-loss peak: the single-scattering distribution. It is drawn dashed; the thickness and the fit do not use it.</td>
+</tr>
+<tr>
+<td>Fourier-ratio</td>
+<td>The core loss by the low loss. The edge model then fits the single-scattering core loss, not convolved with the low loss.</td>
+</tr>
+<tr>
+<td>Richardson-Lucy</td>
+<td>The low loss by its zero-loss peak as the point-spread function. It is drawn dashed; the thickness and the fit do not use it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A pixel where a step cannot be done is left without a value, and the inspector counts those pixels with the reason.</p>
+<h2 id="fitting">Fitting</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Choices</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td><span class="ui">Exact NNLS</span>, <span class="ui">MLLS</span></td>
+<td>Exact NNLS fits each edge on its own windows: a power law on the background window, the intensity of the edge non-negative on the signal window. MLLS is one linear least-squares fit per pixel from the first background window to the end of the axis, with every edge at once.</td>
+</tr>
+<tr>
+<td>Fit to</td>
+<td>eV</td>
+<td>With MLLS: the upper end of the fit. Empty means the end of the axis.</td>
+</tr>
+<tr>
+<td>Background</td>
+<td><span class="ui">Power law</span>, <span class="ui">LCPL</span>, <span class="ui">Polynomial</span>, <span class="ui">Linear</span></td>
+<td>The background under the edges. A choice the model cannot take is off and says why.</td>
+</tr>
+<tr>
+<td>Convolve low loss</td>
+<td>off, on</td>
+<td>Convolves the edge model with the low loss, to account for plural scattering. Off without a low loss, and with Fourier-ratio.</td>
+</tr>
+<tr>
+<td>Beam energy, Convergence α, Collection β</td>
+<td>keV, mrad</td>
+<td>From the file, or typed. The line below says which is which.</td>
+</tr>
+<tr>
+<td>Fit quality</td>
+<td></td>
+<td>The residual sum of squares over the fitted channels, and Pearson's χ²</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="references">References</h2>
+<p>Reference spectra for the fit, listed with their source.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edge</td>
+<td>The edge whose signal window the reference covers</td>
+</tr>
+<tr>
+<td>From Region</td>
+<td>Takes the spectrum of the region over that window, less the background, as the reference</td>
+</tr>
+<tr>
+<td>Import…</td>
+<td>Reads a reference spectrum from an MSA file</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>Removes the selected reference</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="export">Export</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Results CSV…</td>
+<td>The results table: the intensity of each edge with its 1σ, the areal density, at% and wt%, with the thickness line and the references of the methods</td>
+</tr>
+<tr>
+<td>Method JSON…</td>
+<td>What made the map and the fit, each method with its reference, and the SHA-256 of the record</td>
+</tr>
+<tr>
+<td>Spectrum CSV…, Spectrum MSA…</td>
+<td>The spectrum on screen: the low loss and the core loss, and the model where it is fitted</td>
+</tr>
+<tr>
+<td>Regions CSV…</td>
+<td>The pixels, the total intensity, t/λ and the intensities and at% of the edges for each kept region</td>
+</tr>
+<tr>
+<td>Maps…</td>
+<td>The colour mix and the maps as one PNG. <span class="ui">Scale bar</span> and <span class="ui">Regions</span> add the scale bar and the selected region.</td>
+</tr>
+<tr>
+<td>Per-pixel CSV…</td>
+<td>Every pixel: t/λ, its counting σ, the intensities, the zero-loss centre, the threshold, t, and the reason where there is no value</td>
+</tr>
+</tbody>
+</table></div>
+<p>The exports need the thickness map; the results need the edges fitted. The counts are as the file stores them: no gain or dark reference is applied.</p>
+<h2 id="method">Method</h2>
+<p>Thickness by the log-ratio method: Malis, Cheng and Egerton, Journal of Electron Microscopy Technique 8 (1988) 193. Deconvolution after Egerton, Electron Energy-Loss Spectroscopy in the Electron Microscope, 3rd edition (2011), chapter 4. The edge model follows exSpy with its DFT GOS tables. The estimate of λ after Iakoubovskii et al., Microscopy Research and Technique 71 (2008) 626. The numbers are checked against exSpy; the app names the reference of each method in the inspector and in the Method JSON, and the functions and their tolerances are listed in SpectroKit's <a href="https://github.com/EMSuite/SpectroKit/blob/main/docs/parity.md">parity notes</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/eds.html"><span>Previous</span>EDS</a><a class="next" href="/docs/electron-microscopy-studio/reference/results.html"><span>Next</span>Results</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

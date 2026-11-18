@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Results — Electron Microscopy Studio documentation</title>
+<meta name="description" content="Reference for the Results workspace of Electron Microscopy Studio: the table of every measurement of a file, what each row records, and the export.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/results.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/results.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html" aria-current="page">Results</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Reference</p>
+      <h1>Results</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Results lists every finished measurement of the open file in one table, whichever part made it. This page lists every control of the workspace.</p>
+
+<h2 id="show">Show</h2>
+<p>One switch per kind of result, each with its count.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Made in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marks</td>
+<td>Image: distances, angles and profiles</td>
+</tr>
+<tr>
+<td>FFT Spots</td>
+<td>FFT</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>Diffraction</td>
+</tr>
+<tr>
+<td>Rings and spots</td>
+<td>Diffraction</td>
+</tr>
+<tr>
+<td>EDS composition</td>
+<td>EDS</td>
+</tr>
+<tr>
+<td>EELS thickness, EELS edges</td>
+<td>EELS</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="a-result">A result</h2>
+<p>Select a row; the Info tab shows it.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>What it says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Result</td>
+<td>The name of the measurement</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>The number with its unit</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Where on the image it was measured</td>
+</tr>
+<tr>
+<td>Record</td>
+<td>What was recorded with it</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>How it was measured</td>
+</tr>
+</tbody>
+</table></div>
+<p>A result is removed in the part that made it; the Info tab names that part. Below the result, <span class="ui">Source Image</span> lists the file, the object, the size, both axes and any notes of the reader.</p>
+<h2 id="session-and-export">Session and export</h2>
+<p><span class="ui">Session</span> shows the session file the measurements are kept in, with <span class="ui">Show in Finder</span> and <span class="ui">Choose Session File…</span>; see <a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a>. <span class="ui">All results as CSV…</span> exports every finished measurement of the file. It is dimmed while nothing is measured yet, or while a read is running.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/eels.html"><span>Previous</span>EELS</a><a class="next" href="/docs/electron-microscopy-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

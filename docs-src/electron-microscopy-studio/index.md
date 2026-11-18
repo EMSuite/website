@@ -17,6 +17,20 @@ description: Documentation for Electron Microscopy Studio, the native macOS appl
 - [Sessions](/docs/electron-microscopy-studio/data/sessions.html): how your measurements are saved beside the image.
 - [Export](/docs/electron-microscopy-studio/data/export.html): pictures, tables and the method, part by part.
 
+## Reference
+
+Every control of a part, under the name the app shows.
+
+- [Image](/docs/electron-microscopy-studio/reference/image.html): calibration, display, measuring, particles and stacks.
+- [FFT](/docs/electron-microscopy-studio/reference/fft.html): the region, spots, the radial profile, the masked inverse and the HRTEM filters.
+- [Diffraction](/docs/electron-microscopy-studio/reference/diffraction.html): the centre, the calibration on a standard, rings, spots and the crystal.
+- [EBSD Patterns](/docs/electron-microscopy-studio/reference/ebsd-patterns.html): virtual images and the processing stages.
+- [EBSD Indexing](/docs/electron-microscopy-studio/reference/ebsd-indexing.html): phases, Hough and dictionary indexing, and refinement.
+- [EBSD Maps](/docs/electron-microscopy-studio/reference/ebsd-maps.html): the map layers, phases, grains and texture.
+- [EDS](/docs/electron-microscopy-studio/reference/eds.html): maps, elements, quantification and SEM spectra.
+- [EELS](/docs/electron-microscopy-studio/reference/eels.html): thickness, deconvolution, edges and fitting.
+- [Results](/docs/electron-microscopy-studio/reference/results.html): the table of every measurement and its export.
+
 ## Tutorials
 
 The tutorials are being written. They will follow the app's workspaces and their parts from top to bottom:
