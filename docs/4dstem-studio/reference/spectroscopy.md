@@ -7,6 +7,9 @@ Applies to 4DSTEM Studio 5.4 and later.
 
 The workspace needs a spectrum image. Open one with <span class="ui">Open Spectrum Image…</span>. The window then shows the element maps, the spectrum of the selected region below them, and the results beside the spectrum. <span class="ui">Quantify</span> in the header fits the spectrum of the region.
 
+!!! warning "Not yet validated against reference data"
+    The fit is checked against exSpy, but the compositions have not yet been validated against standards of known composition. Treat at% and wt% as a first estimate, and check them against a standard measured under the same conditions before you report them.
+
 ## Maps
 
 | Control | Choices | What it does |
