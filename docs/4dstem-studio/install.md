@@ -17,7 +17,7 @@ On macOS 14 to 25, [version 3.0.0](https://github.com/EMSuite/4DSTEM-Studio/rele
 
 ## Install
 
-1. [Download the disk image](https://github.com/EMSuite/4DSTEM-Studio/releases/latest/download/mac4DSTEM.dmg).
+1. [Download the disk image](https://github.com/EMSuite/4DSTEM-Studio/releases/latest/download/4DSTEM-Studio.dmg).
 2. Open it and drag the app to your Applications folder.
 3. Open the app from Applications. It is signed and notarized, so macOS opens it without a security warning.
 

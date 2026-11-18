@@ -45,6 +45,15 @@ class Stamps(unittest.TestCase):
         self.assertEqual(c.check_stamps("App Studio", "5.5.0", self.src / "missing"), [])
 
 
+class DMGNames(unittest.TestCase):
+    def test_the_renaming_release_and_later_carry_the_new_name(self):
+        self.assertEqual(c.dmg_base("mac4DSTEM", "5.4.2"), "mac4DSTEM")
+        self.assertEqual(c.dmg_base("mac4DSTEM", "5.4.3"), "4DSTEM-Studio")
+        self.assertEqual(c.dmg_base("mac4DSTEM", "5.10.0"), "4DSTEM-Studio")
+        self.assertEqual(c.dmg_base("macEM", "2.1.0"), "macEM")
+        self.assertEqual(c.dmg_base("macEM", "2.1.1"), "Electron-Microscopy-Studio")
+
+
 class OldNames(unittest.TestCase):
     def test_split_wordmark_is_caught(self):
         self.assertEqual(len(c.old_names('<h1 class="wordmark">mac<em>4D</em>STEM</h1>')), 1)
