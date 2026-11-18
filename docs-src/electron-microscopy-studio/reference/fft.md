@@ -25,7 +25,7 @@ Draw a region on the image to transform only that part.
 | Smoothing | <span class="ui">None</span>, <span class="ui">Gaussian</span> with σ | Smooths the region first |
 | Band-pass | <span class="ui">None</span>, <span class="ui">Difference of Gaussians</span>, <span class="ui">Butterworth high-pass</span>, <span class="ui">Butterworth low-pass</span> | Keeps a band of frequencies. <span class="ui">Low σ</span> or <span class="ui">Cutoff</span> sets it. |
 
-The inspector sums the steps up in one line that starts "Before the transform:". The picture is drawn as log₁₀ of the power. The window changes the picture, never a number.
+The inspector sums the steps up in one line that starts "Before the transform:". The picture is drawn as log₁₀ of the power. The window, the smoothing and the band-pass change the transform the spots are measured on: they change a spot's power, not its position.
 
 ## Spots
 

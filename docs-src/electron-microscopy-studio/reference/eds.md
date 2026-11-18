@@ -6,6 +6,9 @@ applies_to: 2.1
 
 <p class="lede">EDS works on an EDS spectrum image or a single spectrum, from a TEM or an SEM. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
 
+!!! warning "Not yet validated against reference data"
+    The fit is checked against exSpy, but the compositions have not yet been validated against standards of known composition. Treat at% and wt% as a first estimate, and check them against a standard measured under the same conditions before you report them.
+
 Open a spectrum image with <span class="ui">Open Spectrum Image…</span>. The window shows the element maps, the spectrum of the selected region below them, and the results beside the spectrum. <span class="ui">Quantify</span> in the header fits the spectrum of the region. A single spectrum has no maps.
 
 ## Maps

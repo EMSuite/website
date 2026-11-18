@@ -6,6 +6,9 @@ applies_to: 2.1
 
 <p class="lede">EELS maps the thickness from the low loss and quantifies core-loss edges of an EELS spectrum image. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
 
+!!! warning "Not yet validated against reference data"
+    The thickness and the edge fits are checked against exSpy, but they have not yet been validated against samples of known thickness or composition. Check them against a reference measured under the same conditions before you report them.
+
 Open a file with <span class="ui">Open EELS Spectrum Image…</span>. <span class="ui">Run</span> does the stages in order: the thickness, the deconvolution if one is chosen, and the fit of the picked edges. What a file allows depends on what it holds: the thickness needs the low loss with its zero-loss peak, the edges need a core-loss spectrum image.
 
 ## Maps
