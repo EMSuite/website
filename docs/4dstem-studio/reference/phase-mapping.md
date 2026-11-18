@@ -9,6 +9,9 @@ The task is made for a matrix with precipitates. One phase is the matrix. Its re
 
 Phase mapping works on the detected disks of the whole scan and compares distances in Å⁻¹, so it needs the Q pixel size. Run <span class="ui">Detect All Disks</span> in Bragg Disks first. Weak precipitate reflections are easy to lose, so tune the detection on a pattern with a precipitate in it.
 
+!!! warning "Not yet validated against reference data"
+    Phase mapping has been compared only with published results on public aluminium-alloy datasets. It has not been validated against samples of known phase fractions or on other alloys. Treat the map and its fractions as a guide, and check them against patterns you can index by hand before you report them.
+
 ## Phases
 
 | Control | What it does |
