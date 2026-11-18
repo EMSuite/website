@@ -8,7 +8,7 @@ Links: every href, src and srcset that points into the site must name a file in 
 on its page. Releases: each app page must give the latest release's version and its .dmg size wherever it states
 them (the text and the JSON-LD), and the kits pages the latest tag of each kit and of EMSuiteUI. From mac4DSTEM 5.3.0 on,
 the website download updates itself (Sparkle), so appcast/mac4dstem.xml must name that latest release: its version, and
-its mac4DSTEM-<version>.dmg on the release with the same length. Documentation: a page under docs-src/ that says which
+its versioned DMG (4DSTEM-Studio-<version>.dmg from 5.4.3, mac4DSTEM-<version>.dmg before) on the release with the same length. Documentation: a page under docs-src/ that says which
 version it applies to (applies_to in its front matter) must name the latest release's major.minor; moving the stamp says
 the page was read against that version. CI runs it on every push
 and once a day, so a new release turns it red until the pages follow. Standard library only; GITHUB_TOKEN is used
@@ -26,6 +26,17 @@ APPS = {"mac4DSTEM": "index.html", "macEM": "mactem/index.html"}
 REPOS = {"mac4DSTEM": "4DSTEM-Studio", "macEM": "Electron-Microscopy-Studio"}
 PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "SimulatoKit", "EMSuiteUI"]
 SKIP = {".git", "datacube", "tools"}
+# Each app's DMG file name from the release that renamed its download (4DSTEM-Studio#496, Electron-Microscopy-Studio#759);
+# earlier releases carry the app's old name. A renamed release also carries <old name>.dmg, so old links keep working.
+FILES = {"mac4DSTEM": ("4DSTEM-Studio", (5, 4, 3)), "macEM": ("Electron-Microscopy-Studio", (2, 1, 1))}
+
+
+def dmg_base(app, ver):
+    """The DMG's base name for this app at this version: the new name from the renaming release on, else the old one."""
+    new, first = FILES[app]
+    return new if tuple(int(n) for n in ver.split(".")) >= first else app
+
+
 # Apps whose website download reads an update feed, the feed's path in this repo, and the first version that reads it.
 FEEDS = {"mac4DSTEM": ("appcast/mac4dstem.xml", (5, 3, 0)), "macEM": ("appcast/macem.xml", (2, 1, 0))}
 # The app name a docs section carries in docs-src/nav.json, for each app.
@@ -166,10 +177,11 @@ def check_releases():
     for app, rel in APPS.items():
         r = latest(REPOS[app])
         ver = r["tag_name"].lstrip("v")
-        dmg = next((a for a in r["assets"] if a["name"] == f"{app}.dmg"), None)
+        base = dmg_base(app, ver)
+        dmg = next((a for a in r["assets"] if a["name"] == f"{base}.dmg"), None)
         if dmg is None:
-            errors.append(f"{rel}: the latest {app} release {r['tag_name']} has no {app}.dmg, so the page's "
-                          f"releases/latest/download/{app}.dmg link is a 404: build it with tools/release.sh "
+            errors.append(f"{rel}: the latest {app} release {r['tag_name']} has no {base}.dmg, so the page's "
+                          f"releases/latest/download/{base}.dmg link is a 404: build it with tools/release.sh "
                           "on that tag and attach it")
             continue
         size = f"{dmg['size'] / 1e6:.1f} MB"
@@ -184,9 +196,9 @@ def check_releases():
         if ld.get("softwareVersion") != ver:
             errors.append(f"{rel}: JSON-LD softwareVersion {ld.get('softwareVersion')}, latest is {ver}")
         if ld.get("fileSize") != size:
-            errors.append(f"{rel}: JSON-LD fileSize {ld.get('fileSize')}, the {app}.dmg of {ver} is {size}")
-        if not ld.get("downloadUrl", "").endswith(f"/{app}.dmg"):
-            errors.append(f"{rel}: JSON-LD downloadUrl must point at {app}.dmg")
+            errors.append(f"{rel}: JSON-LD fileSize {ld.get('fileSize')}, the {base}.dmg of {ver} is {size}")
+        if not ld.get("downloadUrl", "").endswith(f"/{base}.dmg"):
+            errors.append(f"{rel}: JSON-LD downloadUrl must point at {base}.dmg")
         errors += check_feed(app, ver, r["assets"])
         errors += check_stamps(DOCS_APPS[app], ver)
     releases = (ROOT / "suite/releases.html").read_text()
@@ -222,7 +234,7 @@ def check_feed(app, ver, assets):
         if stated != ver:
             errors.append(f"{path}: sparkle:{key} {stated}, the latest {app} release is {ver}")
     enclosure = item.find("enclosure")
-    name = f"{app}-{ver}.dmg"
+    name = f"{dmg_base(app, ver)}-{ver}.dmg"
     url = enclosure.get("url", "") if enclosure is not None else ""
     if url != f"https://github.com/{ORG}/{REPOS[app]}/releases/download/v{ver}/{name}":
         errors.append(f"{path}: the enclosure must point at {name} on the v{ver} release, not {url or 'nothing'}")

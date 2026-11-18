@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
-    <title>mac4DSTEM</title>
+    <title>4DSTEM Studio</title>
     <link>https://mac4dstem.com/</link>
     <item>
-      <title>mac4DSTEM 5.4.2</title>
-      <pubDate>Wed, 18 Nov 2026 13:05:35 GMT</pubDate>
-      <sparkle:version>5.4.2</sparkle:version>
-      <sparkle:shortVersionString>5.4.2</sparkle:shortVersionString>
+      <title>4DSTEM Studio 5.4.3</title>
+      <pubDate>Wed, 18 Nov 2026 21:02:06 GMT</pubDate>
+      <sparkle:version>5.4.3</sparkle:version>
+      <sparkle:shortVersionString>5.4.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.2</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">Version 5.4.2 is a stability release.
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.3</sparkle:fullReleaseNotesLink>
+      <description sparkle:format="plain-text">Version 5.4.3 is a maintenance release.
 
-• Origin from Bragg Peaks finds the direct beam on spot patterns whose first-order disks outshine it, such as Si/SiGe.
-• Fit Ellipse on a mean pattern with sharp crystalline rings keeps the ring fit instead of an amorphous-ring model that could distort it.
-• Saved disk-centre labels come back after the dataset's folder is renamed or moved.
-• The run progress bar follows its count smoothly.
-• EDS: Auto ID quantifies an element found by its L line on its Kα when the spectrum holds it well excited, and offers its near misses (such as carbon below 0.45 keV) as one-click additions. Long DM4 reads use less memory.
-• VoiceOver reads the workspace list as buttons.
-
-Results that change: the Bragg-peak origin on spot patterns where a disk outshines the beam, ellipse fits on crystalline mean patterns, and EDS Auto ID element lists.</description>
-      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.4.2/mac4DSTEM-5.4.2.dmg" type="application/octet-stream" sparkle:edSignature="VxWtVFLysj3vJ+kv+XpLa4/0aTUqzxIyndRRYWZkEU3Qv0TN6QkyTsLL4jkaVBBV9dfDNA0Bm6dqsrdjSY7iBQ==" length="19898069"/>
+• The download from mac4dstem.com is now named 4DSTEM Studio, like the App Store version. Settings and recent datasets carry over, and in-app updates keep working; a copy that updates itself keeps its old file name in Applications for now.</description>
+      <enclosure url="https://github.com/EMSuite/4DSTEM-Studio/releases/download/v5.4.3/4DSTEM-Studio-5.4.3.dmg" type="application/octet-stream" sparkle:edSignature="4Uuw+2+XFHsqfzh0xKmfp6McJQ2ol12MUQItBXRQHX8gmQ8PfbfTsM1PpXkuEcjOf4Ts6WWcUCwxZTVzDJW3AQ==" length="19899454"/>
     </item>
   </channel>
 </rss>
