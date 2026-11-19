@@ -10,19 +10,14 @@
       <sparkle:shortVersionString>2.1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.1</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">Features
+      <description sparkle:format="plain-text">Electron Microscopy Studio 2.1.1 opens large files in less memory, offers EDS Auto ID's near misses as one-click Adds, and takes its new name.
 
-* a large image's open shows its stage and time and can be stopped (#752) (9b8dbf5)
+• Opening a large image shows its stage and time, and Stop cancels it.
+• DM4 spectrum images open, and a second EELS Align runs, in far less memory.
+• Better keyboard and VoiceOver use across the rooms.
+• Export sheets open on the window that asked; File &gt; Open with every window minimised no longer opens an extra empty one.
 
-
-Bug Fixes
-
-* deps: a second EELS Align no longer holds an extra copy of the file, and Auto ID offers what it nearly found (#757) (3836625)
-* export and session sheets open on the window that asked, and one window's export no longer blocks another (#751) (327f0d3)
-* exported files name Electron Microscopy Studio as their writer (#765) (9c6f697)
-* File &amp;gt; Open with every window minimised opens no second, empty window (#763) (2f1c3c4)
-* refuse an image export above 16384 px from its size, before the full-size copy (#750) (a946517)
-* the website download is named Electron Microscopy Studio, its app and DMG files included (#760) (b3aa3f4)</description>
+Results can differ from 2.1.0: an EDS element found by its L line is quantified on its Kα when the spectrum holds it well excited.</description>
       <enclosure url="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/download/v2.1.1/Electron-Microscopy-Studio-2.1.1.dmg" type="application/octet-stream" sparkle:edSignature="WXERyFlhoFGF6tUOK8ANqy3q3ikG3pmCeasQUAqmmKRqiydhCrWw6htjjjfVZvbZtMi6ozo4moVN8Ra8n8+WBw==" length="36092185"/>
     </item>
   </channel>
