@@ -15,7 +15,7 @@ Applies to Electron Microscopy Studio 2.1 and later.
 
 ## Install
 
-1. [Download the disk image](https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/macEM.dmg).
+1. [Download the disk image](https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg).
 2. Open it and drag the app to your Applications folder.
 3. Open the app from Applications. It is signed and notarized, so macOS opens it without a security warning.
 
