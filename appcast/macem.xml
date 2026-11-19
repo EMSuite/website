@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
-    <title>macEM</title>
+    <title>Electron Microscopy Studio</title>
     <link>https://mac4dstem.com/mactem/</link>
     <item>
-      <title>macEM 2.1.0</title>
-      <pubDate>Tue, 17 Nov 2026 18:49:10 GMT</pubDate>
-      <sparkle:version>2.1.0</sparkle:version>
-      <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+      <title>Electron Microscopy Studio 2.1.1</title>
+      <pubDate>Thu, 19 Nov 2026 06:54:15 GMT</pubDate>
+      <sparkle:version>2.1.1</sparkle:version>
+      <sparkle:shortVersionString>2.1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.0</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">macEM 2.1.0 adds a Settings window, particles in a region you draw, Undo for removed marks, spots, rings and EELS references, and marks from the keyboard.
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.1</sparkle:fullReleaseNotesLink>
+      <description sparkle:format="plain-text">Features
 
-• Images, stacks and EBSD patterns keep their bit depth, so large files open in far less memory.
-• Bruker, EDAX and EMsoft .h5 orientation maps open in the Maps room.
-• The website download checks for updates itself.
-• Damaged files are refused in plain words instead of stopping the app.
+* a large image's open shows its stage and time and can be stopped (#752) (9b8dbf5)
 
-Results can differ from 2.0.2: EDS absorption on tilted GMS files, grain sizes on unequal x and y steps, and colour maps.</description>
-      <enclosure url="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/download/v2.1.0/macEM-2.1.0.dmg" type="application/octet-stream" sparkle:edSignature="fWmOEsNaa8plK6BTA+bRtOW0V+bWgAa/J2ZYIA9f8TUfFSoQuXwAuC/0Gm4uOJkQvMI6d1MvUoJtepmhh0ybBA==" length="36031818"/>
+
+Bug Fixes
+
+* deps: a second EELS Align no longer holds an extra copy of the file, and Auto ID offers what it nearly found (#757) (3836625)
+* export and session sheets open on the window that asked, and one window's export no longer blocks another (#751) (327f0d3)
+* exported files name Electron Microscopy Studio as their writer (#765) (9c6f697)
+* File &amp;gt; Open with every window minimised opens no second, empty window (#763) (2f1c3c4)
+* refuse an image export above 16384 px from its size, before the full-size copy (#750) (a946517)
+* the website download is named Electron Microscopy Studio, its app and DMG files included (#760) (b3aa3f4)</description>
+      <enclosure url="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/download/v2.1.1/Electron-Microscopy-Studio-2.1.1.dmg" type="application/octet-stream" sparkle:edSignature="WXERyFlhoFGF6tUOK8ANqy3q3ikG3pmCeasQUAqmmKRqiydhCrWw6htjjjfVZvbZtMi6ozo4moVN8Ra8n8+WBw==" length="36092185"/>
     </item>
   </channel>
 </rss>
