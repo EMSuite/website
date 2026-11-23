@@ -1,9 +1,9 @@
 {
-  "live": false,
   "summary": "Documentation for 4DSTEM Studio and Electron Microscopy Studio, two free native macOS applications for electron microscopy: installation, working with data, step-by-step analysis tutorials, example datasets, and guides for AI agents that drive the apps.",
   "sections": [
     {
       "title": "Overview",
+      "live": true,
       "groups": [{"pages": ["index"]}]
     },
     {
@@ -20,6 +20,7 @@
     {
       "title": "Electron Microscopy Studio",
       "app": "Electron Microscopy Studio",
+      "live": true,
       "groups": [
         {"pages": ["electron-microscopy-studio/index"]},
         {"title": "Get started", "pages": ["electron-microscopy-studio/install", "electron-microscopy-studio/first-look", "electron-microscopy-studio/window"]},

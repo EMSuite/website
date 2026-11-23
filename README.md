@@ -72,8 +72,9 @@ Links between pages are absolute (`/docs/4dstem-studio/install.html`). Tables, f
 (`!!! note "Title"`, `!!! warning`) and raw HTML work; a control's name is written
 `<span class="ui">Detect All Disks</span>` and a key `<kbd>⌘R</kbd>`. Pictures go to `assets/docs/<section>/<page>/`.
 
-While `nav.json` says `"live": false` the pages ask search engines not to index them and stay out of `sitemap.xml`
-and `llms.txt`. The `.nojekyll` file makes GitHub Pages serve the repository as it is, Markdown included.
+Each section in `nav.json` goes live on its own: `"live": true` on the section indexes its pages and lists them in
+`sitemap.xml` and `llms.txt`. A section without it stays hidden (noindex, in neither list) until it is reviewed. Live
+today: the overview and Electron Microscopy Studio. The `.nojekyll` file makes GitHub Pages serve the repository as it is, Markdown included.
 
 ## Checks and releases
 
