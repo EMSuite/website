@@ -76,7 +76,7 @@ HEAD = """<!DOCTYPE html>
 
 <header class="masthead">
   <div class="wrap">
-    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    {brand}
     <nav aria-label="Sections">
       <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
       <a href="/docs/" aria-current="page">Docs</a>
@@ -300,6 +300,11 @@ def body_html(text):
     return out
 
 
+# The masthead names the app the page belongs to, as that app's own page does (suite pages and the overview keep 4DSTEM Studio).
+BRAND_4D = '<a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>'
+BRAND_EMS = '<a class="masthead-mark" href="/electron-microscopy-studio/"><span>Electron Microscopy Studio</span></a>'
+
+
 def render(nav, pages, page):
     meta, section = page["meta"], page["section"]
     esc = html.escape
@@ -313,8 +318,9 @@ def render(nav, pages, page):
     head_title = meta["title"] if top else f'{meta["title"]} — {section["title"]} documentation'
     if len(head_title) > TITLE_MAX:
         head_title = f'{meta["title"]} — Documentation'
+    brand = (BRAND_EMS if section.get("app") == "Electron Microscopy Studio" else BRAND_4D)
     head = HEAD.format(
-        head_title=esc(head_title), og_title=esc(meta["title"], quote=True),
+        brand=brand, head_title=esc(head_title), og_title=esc(meta["title"], quote=True),
         site_name=esc(section.get("app") or "4DSTEM Studio and Electron Microscopy Studio", quote=True),
         og_image=OG_IMAGES.get(section.get("app"), "/assets/og.jpg"),
         description=esc(meta["description"], quote=True), site=SITE, url=page["url"],
