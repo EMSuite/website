@@ -204,7 +204,7 @@ def pager(pages, page):
 def body_html(text):
     out = markdown.Markdown(extensions=EXTENSIONS, output_format="html").convert(text)
     # A table scrolls sideways inside its own panel on a phone, never the page.
-    out = out.replace("<table>", '<div class="tablewrap"><table>').replace("</table>", "</table></div>")
+    out = re.sub(r"<table\b[^>]*>", lambda m: '<div class="tablewrap">' + m.group(0), out).replace("</table>", "</table></div>")
     return out
 
 

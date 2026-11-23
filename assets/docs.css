@@ -253,3 +253,10 @@
 .docs .admonition-title { color: var(--ink); font-weight: 600; }
 
 .docs td code, .docs td .ui { white-space: nowrap; }
+
+/* ---- the Methods page: long function names wrap, so all three columns fit ---- */
+.docs .doc table.methods { table-layout: fixed; width: 100%; min-width: 36rem; }
+.docs .doc table.methods th:nth-child(1) { width: 34%; }
+.docs .doc table.methods th:nth-child(2) { width: 36%; }
+.docs .doc table.methods td { overflow-wrap: anywhere; vertical-align: top; }
+.docs .doc table.methods code { white-space: normal; overflow-wrap: anywhere; }

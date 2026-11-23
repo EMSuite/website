@@ -39,6 +39,7 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
 | `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
 | `tools/check_site.py` | The CI check: internal links, no old app names (mac4DSTEM, macEM, macTEM) in the page text, and versions and download sizes against the GitHub releases. |
+| `tools/build_methods.py` | Generates the Electron Microscopy Studio Methods page (`docs-src/electron-microscopy-studio/methods.md`) from the app's `docs/parity.md` at a release tag: function, reference, tolerance. Run `python3 tools/build_methods.py --fetch` after each app release, then `tools/build_docs.py`. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
 
 ## Writing a documentation page
@@ -78,7 +79,7 @@ app page must state the latest release's version and `.dmg` size (in the text an
 `suite/releases.html` must name each kit's and EMSuiteUI's latest tag. Run it locally with
 `python3 tools/check_site.py` (or `--offline` for links and names only).
 
-After an app release, update the version and size on its page. After a kit or MacEMUI release, regenerate `suite/`.
+After an app release, update the version and size on its page and regenerate the Methods page (`tools/build_methods.py --fetch`). After a kit or MacEMUI release, regenerate `suite/`.
 
 Everything else in `assets/` is a generated artefact — images, icons, the social
 card, and the demo data. None of it is edited by hand.
