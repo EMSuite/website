@@ -84,6 +84,8 @@ class Build(unittest.TestCase):
         (site.src / "nav.json").write_text(json.dumps(nav))
         template = Path(__file__).resolve().parent / "tutorial-template.md"
         (site.src / "app" / "tutorial.md").write_text(template.read_text())
+        (site.src / "datasets.json").write_text(json.dumps({"datasets": {"DATASET-KEY": {
+            "title": "A public dataset", "doi": "10.5281/zenodo.1", "licence": "CC BY 4.0", "recipes": ["RECIPE-NAME"]}}}))
         page = site.outputs()["docs/app/tutorial.html"]
         for part in ("What you will measure", "Steps", "Reading the result", "Export", "The same analysis by an agent"):
             self.assertIn(f">{part}</h2>", page)
