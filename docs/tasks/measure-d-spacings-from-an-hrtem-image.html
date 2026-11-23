@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Measure d-spacings from an HRTEM image — Tasks documentation</title>
+<meta name="description" content="Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.">
+<link rel="canonical" href="https://mac4dstem.com/docs/tasks/measure-d-spacings-from-an-hrtem-image.html">
+<link rel="alternate" type="text/markdown" href="/docs/tasks/measure-d-spacings-from-an-hrtem-image.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Electron Microscopy Studio">
+<meta property="og:url" content="https://mac4dstem.com/docs/tasks/measure-d-spacings-from-an-hrtem-image.html">
+<meta property="og:title" content="Measure d-spacings from an HRTEM image">
+<meta property="og:description" content="Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.">
+<meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/tasks/" aria-current="true">Tasks</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/tasks/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Electron Microscopy Studio</p>
+    <ul>
+      <li><a href="/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.html">Open DM3, DM4 and EMD files</a></li>
+      <li><a href="/docs/tasks/measure-d-spacings-from-an-hrtem-image.html" aria-current="page">Measure d-spacings</a></li>
+      <li><a href="/docs/tasks/calibrate-and-index-a-ring-pattern.html">Calibrate and index rings</a></li>
+      <li><a href="/docs/tasks/quantify-an-eds-spectrum-image.html">Quantify EDS</a></li>
+      <li><a href="/docs/tasks/index-ebsd-patterns-on-a-mac.html">Index EBSD patterns</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Tasks · Electron Microscopy Studio</p>
+      <h1>Measure d-spacings from an HRTEM image</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">The Fourier transform of a lattice image has a pair of spots for each set of fringes. Electron Microscopy Studio measures each spot and gives its spacing.</p>
+
+<ol>
+<li>Open the image with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) and choose <span class="ui">FFT</span> under Imaging in the sidebar.</li>
+<li>Drag a square region over the crystal. A window tapers its edges, so the edge of the region does not streak the transform.</li>
+<li>Click <span class="ui">Find Spots</span>, or click a spot yourself. Each spot is listed with its d-spacing and its |q|; ⚠ marks a spot with another peak close by.</li>
+</ol>
+<p>The spacing is in nm when the image is calibrated, and in pixels when it is not. A masked inverse shows where in the image the frequencies of chosen spots come from. <a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a> lists every control.</p>
+<p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>
+<p class="get-meta">Free. For Apple silicon Macs with macOS 26 or later. <a href="/docs/electron-microscopy-studio/install.html">How to install</a></p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.html"><span>Previous</span>Open DM3, DM4 and EMD files on a Mac</a><a class="next" href="/docs/tasks/calibrate-and-index-a-ring-pattern.html"><span>Next</span>Calibrate and index a ring pattern</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

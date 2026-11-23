@@ -179,6 +179,37 @@ def check_sources(where, meta, datasets):
                         "docs-src/datasets.json; add the recipe to the suite's plan file first, then here")
 
 
+TASKS = "tasks/"
+TASK_LIMITS = {"words": 200, "title": 60, "description": 160}
+STOP = {"a", "an", "and", "the", "on", "of", "from", "in", "to"}
+
+
+def words(markdown_text):
+    """The words a reader reads in a page body: link targets, tags, entities and Markdown marks left out."""
+    text = re.sub(r"\]\([^)]*\)", "]", markdown_text)
+    text = re.sub(r"<[^>]+>|&\w+;|[`*_#|>\[\]]", " ", text)
+    return [w for w in text.split() if re.search(r"\w", w)]
+
+
+def check_task(path, meta, body):
+    """A task page is short and named by its task: body, title and description within their limits, and every word
+    of its address in its title, so the address, the title and the search all say the same task."""
+    where = f"docs-src/{path}.md"
+    errors = []
+    n = len(words(body))
+    if n > TASK_LIMITS["words"]:
+        errors.append(f"{where}: {n} words, a task page has at most {TASK_LIMITS['words']}")
+    if len(meta["title"]) > TASK_LIMITS["title"]:
+        errors.append(f"{where}: the title has {len(meta['title'])} characters, at most {TASK_LIMITS['title']}")
+    if len(meta["description"]) > TASK_LIMITS["description"]:
+        errors.append(f"{where}: the description has {len(meta['description'])} characters, at most {TASK_LIMITS['description']}")
+    title = set(re.findall(r"[a-z0-9]+", meta["title"].lower()))
+    missing = [w for w in path[len(TASKS):].split("-") if w not in STOP and w not in title]
+    if missing:
+        errors.append(f"{where}: the title lacks the address's words {', '.join(missing)}")
+    return errors
+
+
 def url_of(path):
     """The address of a page: its folder for an index page, else its .html file."""
     if path == "index":
@@ -210,6 +241,10 @@ def load(src=SRC):
             check_sources(f"docs-src/{path}.md", meta, datasets)
             if "applies_to" in meta and not section.get("app"):
                 raise DocsError(f"docs-src/{path}.md: applies_to needs a section with an app name in nav.json")
+            if path.startswith(TASKS) and path != TASKS + "index":
+                problems = check_task(path, meta, body)
+                if problems:
+                    raise DocsError("; ".join(problems))
             pages[path] = {"path": path, "meta": meta, "body": body, "section": section, "url": url_of(path)}
             listed.append(path)
     unlisted = sorted(str(f.relative_to(src))[:-3] for f in src.rglob("*.md") if str(f.relative_to(src))[:-3] not in pages)

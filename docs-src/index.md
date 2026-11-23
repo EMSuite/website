@@ -6,6 +6,7 @@ description: How to install 4DSTEM Studio and Electron Microscopy Studio, open y
 <p class="lede">How to install the apps, open your data and work through an analysis, step by step.</p>
 
 <ul class="cards">
+  <li><a href="/docs/tasks/"><strong>Tasks</strong>Open a DM4 file, measure d-spacings, calibrate a ring pattern, quantify EDS, index EBSD: each in three steps.</a></li>
   <li><a href="/docs/4dstem-studio/"><strong>4DSTEM Studio</strong>4D-STEM: calibration, virtual imaging, Bragg disks, strain and crystal maps, EDS beside the scan.</a></li>
   <li><a href="/docs/electron-microscopy-studio/"><strong>Electron Microscopy Studio</strong>TEM and SEM: images and their FFT, diffraction, EBSD, EDS and EELS.</a></li>
   <li><a href="/docs/agents/"><strong>Agents</strong>Let Claude, Codex or a script look at your data in the app and run an analysis while you watch.</a></li>

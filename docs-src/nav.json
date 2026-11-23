@@ -7,6 +7,15 @@
       "groups": [{"pages": ["index"]}]
     },
     {
+      "title": "Tasks",
+      "app": "Electron Microscopy Studio",
+      "live": true,
+      "groups": [
+        {"pages": ["tasks/index"]},
+        {"title": "Electron Microscopy Studio", "pages": ["tasks/open-dm3-dm4-emd-files-on-a-mac", "tasks/measure-d-spacings-from-an-hrtem-image", "tasks/calibrate-and-index-a-ring-pattern", "tasks/quantify-an-eds-spectrum-image", "tasks/index-ebsd-patterns-on-a-mac"]}
+      ]
+    },
+    {
       "title": "4DSTEM Studio",
       "app": "4DSTEM Studio",
       "groups": [
