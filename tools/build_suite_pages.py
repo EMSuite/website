@@ -121,6 +121,7 @@ def page(title, desc, body, path):
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
 <style>
 .tablewrap{{overflow-x:auto;margin:1rem 0}}
 table{{border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}}
@@ -232,7 +233,8 @@ def main():
 <p class="lede">Latest version of each kit and of EMSuiteUI. Tags are bare versions and equal the top entry of the package's CHANGELOG. The apps pin exact tags.</p>
 <div class="tablewrap"><table><thead><tr><th>Package</th><th>Version</th><th>Date</th><th>Tag</th><th>Changes</th></tr></thead><tbody>
 {rows}</tbody></table></div>
-<p>The apps: <a class="u-link" href="https://github.com/{ORG}/4DSTEM-Studio/releases">4DSTEM Studio releases</a> and <a class="u-link" href="https://github.com/{ORG}/Electron-Microscopy-Studio/releases">Electron Microscopy Studio releases</a> on GitHub.</p>"""
+<p>The apps: <a class="u-link" href="https://github.com/{ORG}/4DSTEM-Studio/releases">4DSTEM Studio releases</a> and <a class="u-link" href="https://github.com/{ORG}/Electron-Microscopy-Studio/releases">Electron Microscopy Studio releases</a> on GitHub.</p>
+<p>Every new version of the apps, the kits and EMSuiteUI is announced in the <a class="u-link" href="/releases.atom">release feed</a> (Atom); add it to a feed reader to hear of each one.</p>"""
     (out / "releases.html").write_text(page("Releases", "Current versions and tags of the EMSuite kits and EMSuiteUI.", body, "releases.html"))
 
 if __name__ == "__main__":

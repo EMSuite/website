@@ -41,6 +41,8 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
 | `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
 | `tools/check_site.py` | The CI check: internal links, no old app names (mac4DSTEM, macEM, macTEM) in the page text, and versions and download sizes against the GitHub releases. |
+| `releases.atom` | The release feed (Atom): each new app, kit and EMSuiteUI version, newest first. Every page links it in its head. Generated, do not edit. |
+| `tools/build_feed.py` | Generates `releases.atom` from `appcast/*.xml` and `suite/releases.html`, keeping the entries it already holds. Run it after an app's update feed or the suite pages change; CI fails until it is run. |
 | `tools/build_methods.py` | Generates the Electron Microscopy Studio Methods page (`docs-src/electron-microscopy-studio/methods.md`) from the app's `docs/parity.md` at a release tag: function, reference, tolerance. Run `python3 tools/build_methods.py --fetch` after each app release, then `tools/build_docs.py`. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
 
@@ -85,6 +87,7 @@ app page must state the latest release's version and `.dmg` size (in the text an
 `python3 tools/check_site.py` (or `--offline` for links and names only).
 
 After an app release, update the version and size on its page and regenerate the Methods page (`tools/build_methods.py --fetch`). After a kit or MacEMUI release, regenerate `suite/`.
+After either, run `python3 tools/build_feed.py` so the release feed carries the new version.
 
 Everything else in `assets/` is a generated artefact — images, icons, the social
 card, and the demo data. None of it is edited by hand.
