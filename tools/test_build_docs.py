@@ -100,6 +100,47 @@ class Build(unittest.TestCase):
         with self.assertRaisesRegex(b.DocsError, "set per section"):
             site.outputs()
 
+    def datasets(self, site):
+        (site.src / "datasets.json").write_text(json.dumps({"datasets": {
+            "gold": {"title": "Gold rings", "doi": "10.5281/zenodo.14113591", "licence": "CC BY 4.0",
+                     "recipes": ["diffraction-au-grating"]}}}))
+
+    def test_a_tutorial_on_a_listed_dataset_and_recipe_builds(self):
+        site = Site(extra="dataset: gold\nrecipe: diffraction-au-grating\n")
+        self.datasets(site)
+        self.assertIn("docs/app/install.html", site.outputs())
+
+    def test_a_recipe_that_does_not_exist_is_refused(self):
+        site = Site(extra="dataset: gold\nrecipe: gold-by-hand\n")
+        self.datasets(site)
+        with self.assertRaisesRegex(b.DocsError, "recipe 'gold-by-hand' is not a recipe of gold"):
+            site.outputs()
+
+    def test_a_recipe_needs_its_dataset(self):
+        site = Site(extra="recipe: diffraction-au-grating\n")
+        self.datasets(site)
+        with self.assertRaisesRegex(b.DocsError, "needs the dataset"):
+            site.outputs()
+
+    def test_an_unlisted_dataset_is_refused(self):
+        site = Site(extra="dataset: my-own-scan\n")
+        self.datasets(site)
+        with self.assertRaisesRegex(b.DocsError, "dataset 'my-own-scan' is not in docs-src/datasets.json"):
+            site.outputs()
+
+    def test_a_dataset_without_licence_or_doi_is_refused(self):
+        for field, value in (("licence", ""), ("doi", ""), ("doi", "zenodo 14113591")):
+            site = Site()
+            self.datasets(site)
+            d = json.loads((site.src / "datasets.json").read_text())
+            d["datasets"]["gold"][field] = value
+            (site.src / "datasets.json").write_text(json.dumps(d))
+            with self.assertRaisesRegex(b.DocsError, f"gold", msg=f"{field}={value!r}"):
+                site.outputs()
+
+    def test_the_committed_datasets_have_licence_and_doi(self):
+        self.assertGreater(len(b.load_datasets()), 0)
+
     def test_nav_and_sources_must_agree(self):
         site = Site()
         (site.src / "app" / "stray.md").write_text(PAGE.format(title="Stray", extra=""))
