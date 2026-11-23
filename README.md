@@ -25,7 +25,8 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | Path | Purpose |
 |---|---|
 | `index.html` | The mac4DSTEM page and landing page. Page-specific styling lives in its `<style>` block. |
-| `mactem/index.html` | The macEM page (macTEM up to 1.3), in the landing page's style (its own `<style>` block, the demo left out). |
+| `electron-microscopy-studio/index.html` | The Electron Microscopy Studio page, in the landing page's style (its own `<style>` block, the demo left out). |
+| `mactem/index.html` | Forwards the page's old address to `/electron-microscopy-studio/` (noindex, canonical link). `tools/check_site.py` fails when it stops forwarding or when anything in the site links it. |
 | `privacy.html` | Privacy policy for both applications and the site. |
 | `support.html` | Support, requirements, and known limitations of both applications. |
 | `impressum.html` | Provider identification (§ 5 DDG). |
