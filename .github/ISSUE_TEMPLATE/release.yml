@@ -36,6 +36,25 @@ body:
         - label: "8 Website: tools/release.sh on the tag, DMGs on the release, one website PR (version, size, feed)"
         - label: "9 Store: uploaded from the same tag by the store rule (every minor; a patch only for a crash, lost data or a wrong number)"
         - label: "10 Close: milestone closed; leftovers moved to the next version or Backlog, in the kit repos too"
+  - type: input
+    id: story
+    attributes:
+      label: Launch story sentence (minor releases)
+      description: What someone who does not have the app can do now, in one sentence. Paul agrees to it. It is the store's promotional text, the headline on the app's page and the first line of every post. A patch release has none.
+  - type: checkboxes
+    id: launch
+    attributes:
+      label: Launch kit (every minor release; a patch gets its notes and nothing else)
+      description: Made in the release walk. Launch day is the day Paul presses Release in App Store Connect. Docs and design rules in docs/design/reach.md.
+      options:
+        - label: "L1 Story: the sentence above, agreed by Paul"
+        - label: "L2 Pages: the task pages and tutorials of the new features merged and stamped with the version"
+        - label: "L3 Store texts: promotional text, What's New, keywords (tools/check-store-keywords.sh green if they change)"
+        - label: "L4 Recording session inside the walk, demo or public data, English number format, one appearance for the set: store pictures if they changed, three clips of 20 to 25 seconds, the tutorial recordings, one 60 to 90 second video; every picture reviewed before it goes to Paul"
+        - label: "L5 Numbers: every number in a post has a pinned run or a parity table behind it"
+        - label: "L6 Drafts: one doc for Paul with a post per channel, the note to the maintainers concerned and the video description"
+        - label: "L7 Launch day (Paul): Release in App Store Connect, merge the website PR, upload the videos, send the posts as himself"
+        - label: "L8 The week after: answers drafted for every reply, one row of store views and downloads, GitHub downloads, new Discussions, mails and outside issues; anything asked for twice becomes an issue"
   - type: checkboxes
     id: store
     attributes:
