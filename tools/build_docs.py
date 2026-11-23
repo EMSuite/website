@@ -14,8 +14,11 @@ Front matter (plain `key: value` lines between two `---` lines):
     description  one sentence for search engines and for llms.txt          required
     nav          a shorter name for the sidebar                            optional
     applies_to   the app version the page was read against, as "5.4"       optional; shown as "Applies to ... and later"
-    recipe       tutorials: the name of the reference recipe it follows    optional
-    dataset      tutorials: the dataset's key on the example data page     optional
+    recipe       tutorials: the name of the reference recipe it follows    optional; needs dataset
+    dataset      tutorials: the dataset's key in docs-src/datasets.json    optional
+
+A dataset must be in docs-src/datasets.json with its licence and DOI, and a recipe must be one listed there for the
+page's dataset (a copy of the public recipes' names, since the suite repository that holds them is private).
 
 While nav.json says "live": false the pages ask search engines not to index them and stay out of sitemap.xml and
 llms.txt. Needs Python-Markdown (tools/requirements.txt).
@@ -61,7 +64,7 @@ HEAD = """<!DOCTYPE html>
   <div class="wrap">
     <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
     <nav aria-label="Sections">
-      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
       <a href="/docs/" aria-current="page">Docs</a>
       <a href="/suite/">Kits</a>
     </nav>
@@ -129,6 +132,39 @@ def split_front_matter(text, where="page"):
     return meta, "\n".join(lines[end + 1:]).strip() + "\n"
 
 
+DOI = re.compile(r"^10\.\d{4,9}/\S+$")
+
+
+def load_datasets(src=SRC):
+    """docs-src/datasets.json: the public datasets by key. Each needs a title, a DOI and a licence."""
+    f = src / "datasets.json"
+    if not f.is_file():
+        return {}
+    datasets = json.loads(f.read_text())["datasets"]
+    for key, d in datasets.items():
+        for field in ("title", "doi", "licence"):
+            if not str(d.get(field, "")).strip():
+                raise DocsError(f"datasets.json: {key} has no {field}")
+        if not DOI.match(d["doi"]):
+            raise DocsError(f"datasets.json: {key}: {d['doi']!r} is not a DOI (10.xxxx/...)")
+    return datasets
+
+
+def check_sources(where, meta, datasets):
+    """A page's dataset is a listed public dataset, and its recipe one of that dataset's."""
+    if "recipe" in meta and "dataset" not in meta:
+        raise DocsError(f"{where}: recipe {meta['recipe']!r} needs the dataset it runs on (dataset: <key>)")
+    if "dataset" not in meta:
+        return
+    d = datasets.get(meta["dataset"])
+    if d is None:
+        raise DocsError(f"{where}: dataset {meta['dataset']!r} is not in docs-src/datasets.json, which lists each "
+                        "public dataset with its licence and DOI")
+    if "recipe" in meta and meta["recipe"] not in d.get("recipes", []):
+        raise DocsError(f"{where}: recipe {meta['recipe']!r} is not a recipe of {meta['dataset']} in "
+                        "docs-src/datasets.json; add the recipe to the suite's plan file first, then here")
+
+
 def url_of(path):
     """The address of a page: its folder for an index page, else its .html file."""
     if path == "index":
@@ -141,6 +177,7 @@ def url_of(path):
 def load(src=SRC):
     """nav.json with every page's front matter and body read in: (nav, pages by path)."""
     nav = json.loads((src / "nav.json").read_text())
+    datasets = load_datasets(src)
     pages, listed = {}, []
     for section in nav["sections"]:
         section["paths"] = [p for group in section["groups"] for p in group["pages"]]
@@ -151,6 +188,7 @@ def load(src=SRC):
             if path in pages:
                 raise DocsError(f"nav.json lists {path} twice")
             meta, body = split_front_matter(file.read_text(), f"docs-src/{path}.md")
+            check_sources(f"docs-src/{path}.md", meta, datasets)
             if "applies_to" in meta and not section.get("app"):
                 raise DocsError(f"docs-src/{path}.md: applies_to needs a section with an app name in nav.json")
             pages[path] = {"path": path, "meta": meta, "body": body, "section": section, "url": url_of(path)}

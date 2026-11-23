@@ -76,5 +76,44 @@ class OldNames(unittest.TestCase):
         self.assertEqual(c.old_names('<p>mac</p><p>EM</p>'), [])
 
 
+class Moved(unittest.TestCase):
+    FORWARD = ('<!DOCTYPE html><html><head><meta name="robots" content="noindex">'
+               '<link rel="canonical" href="https://mac4dstem.com/electron-microscopy-studio/">'
+               '<meta http-equiv="refresh" content="0; url=/electron-microscopy-studio/"></head>'
+               '<body><a href="/electron-microscopy-studio/">moved</a></body></html>')
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        for d in ("mactem", "electron-microscopy-studio", "docs"):
+            (self.root / d).mkdir()
+        (self.root / "mactem/index.html").write_text(self.FORWARD)
+        (self.root / "electron-microscopy-studio/index.html").write_text("<p>The app</p>")
+        (self.root / "index.html").write_text('<a href="/electron-microscopy-studio/">EM Studio</a>')
+        (self.root / "sitemap.xml").write_text("<loc>https://mac4dstem.com/electron-microscopy-studio/</loc>")
+
+    def test_a_forwarding_page_and_new_links_pass(self):
+        self.assertEqual(c.check_moved(self.root), [])
+
+    def test_a_link_to_the_old_address_fails(self):
+        (self.root / "docs/page.html").write_text('<a href="/mactem/">old</a><a href="../mactem/index.html">old</a>')
+        errors = c.check_moved(self.root)
+        self.assertEqual(len(errors), 2)
+        self.assertTrue(all("docs/page.html" in e for e in errors))
+
+    def test_the_sitemap_naming_the_old_address_fails(self):
+        (self.root / "sitemap.xml").write_text("<loc>https://mac4dstem.com/mactem/</loc>")
+        self.assertEqual(len(c.check_moved(self.root)), 1)
+
+    def test_an_old_address_that_does_not_forward_fails(self):
+        (self.root / "mactem/index.html").write_text("<p>The old page, still here</p>")
+        self.assertEqual(len(c.check_moved(self.root)), 3)
+
+    def test_a_missing_old_address_fails(self):
+        (self.root / "mactem/index.html").unlink()
+        self.assertEqual(len(c.check_moved(self.root)), 1)
+
+
 if __name__ == "__main__":
     unittest.main()

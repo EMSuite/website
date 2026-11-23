@@ -124,7 +124,7 @@ th,td{{padding:.3rem .7rem;border-bottom:1px solid color-mix(in srgb,currentColo
   <div class="wrap">
     <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
     <nav aria-label="Sections">
-      <a href="/mactem/">Electron Microscopy Studio</a>
+      <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
       <a href="/docs/">Docs</a>
       <a href="/suite/">Kits</a>
       <a href="/suite/benchmarks.html">Benchmarks</a>
@@ -200,7 +200,7 @@ def main():
 {rows}</tbody></table></div>
 <p>Beside the kits, <a class="u-link" href="https://github.com/{ORG}/{SHELL[0]}">{SHELL[0]}</a> {shell["ver"]} holds the apps' shared window, controls and Metal image view. It has no Python reference.</p>
 <p>"Parity: present of rows" counts the functions of the reference package that the kit has and has tested against it; each kit's <code>docs/parity.md</code> lists every function with its state and tolerance. See <a class="u-link" href="/suite/benchmarks.html">benchmarks</a> and <a class="u-link" href="/suite/releases.html">releases</a>.</p>
-<p>Apps: <a class="u-link" href="/">4DSTEM Studio</a> (4D-STEM) and <a class="u-link" href="/mactem/">Electron Microscopy Studio</a> (TEM and SEM images, spectroscopy and diffraction).</p>"""
+<p>Apps: <a class="u-link" href="/">4DSTEM Studio</a> (4D-STEM) and <a class="u-link" href="/electron-microscopy-studio/">Electron Microscopy Studio</a> (TEM and SEM images, spectroscopy and diffraction).</p>"""
     (out / "index.html").write_text(page("Kits", "The six Swift kits of EMSuite: what each does, its Python reference, version and parity.", body, ""))
 
     body = ["<h1>Benchmarks</h1>",
