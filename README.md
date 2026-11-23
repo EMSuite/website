@@ -39,6 +39,8 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
 | `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
 | `tools/check_site.py` | The CI check: internal links, no old app names (mac4DSTEM, macEM, macTEM) in the page text, and versions and download sizes against the GitHub releases. |
+| `tools/tutorial-template.md` | The skeleton every tutorial starts from (see Writing a tutorial). A test builds it. |
+| `tools/docs_pictures.py` | Puts a reviewed picture into the documentation as WebP and PNG. Development only. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
 
 ## Writing a documentation page
@@ -69,6 +71,28 @@ Links between pages are absolute (`/docs/4dstem-studio/install.html`). Tables, f
 
 While `nav.json` says `"live": false` the pages ask search engines not to index them and stay out of `sitemap.xml`
 and `llms.txt`. The `.nojekyll` file makes GitHub Pages serve the repository as it is, Markdown included.
+
+## Writing a tutorial
+
+A tutorial takes the reader through one analysis of one public dataset, from the open file to the exported result.
+
+1. **Start from the recipe.** Every tutorial follows a reference recipe of the suite (`tools/door/plan.json` for
+   4DSTEM Studio, `plan-macEM.json` for Electron Microscopy Studio): its settings, the flags it expects and its numbers
+   with their tolerances. Never work the settings out again on the page. A dataset without a recipe gets one first, in
+   a suite pull request.
+2. **Copy the template.** `cp tools/tutorial-template.md docs-src/<app>/tutorials/<name>.md` and list the page in
+   `nav.json` in a "Tutorials" group. Front matter: `recipe` is the recipe's name, `dataset` the dataset's key; the
+   dataset must be public and on the [Example data](docs-src/data/index.md) page with its licence and DOI.
+3. **Fill the five parts:** what you will measure and what you need; the steps, each with what to click, every
+   setting and why it has this value, and the app's signal to check before going on (fit RMS, "not quantitative",
+   flags, counts) with what to do when it is flagged; reading the result; the export; the same analysis by an agent.
+4. **Pictures.** Result figures come through the agent door (`get_result_image`, `get_pattern_image`: the figures
+   File › Export writes), window pictures from the release walk on the Mac, in the dark appearance, from public data
+   only. Look at every picture before it is committed, then run
+   `python3 tools/docs_pictures.py SHOT.png <app> <name> 01-open` (needs Pillow): it writes a WebP and a PNG fallback
+   1600 px wide to `assets/docs/<app>/<name>/` and prints the `<figure>` to paste. Store screenshots are not reused.
+5. **Build and check:** `python3 tools/build_docs.py`, then `python3 tools/check_site.py --offline`. Mark the pull
+   request "no science review yet" until the page has had one.
 
 ## Checks and releases
 

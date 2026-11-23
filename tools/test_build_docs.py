@@ -77,6 +77,19 @@ class Build(unittest.TestCase):
         (site.root / "sitemap.xml").write_text(files["sitemap.xml"])
         self.assertEqual(site.outputs()["sitemap.xml"], files["sitemap.xml"])
 
+    def test_the_tutorial_template_builds(self):
+        site = Site()
+        nav = json.loads((site.src / "nav.json").read_text())
+        nav["sections"][1]["groups"].append({"title": "Tutorials", "pages": ["app/tutorial"]})
+        (site.src / "nav.json").write_text(json.dumps(nav))
+        template = Path(__file__).resolve().parent / "tutorial-template.md"
+        (site.src / "app" / "tutorial.md").write_text(template.read_text())
+        page = site.outputs()["docs/app/tutorial.html"]
+        for part in ("What you will measure", "Steps", "Reading the result", "Export", "The same analysis by an agent"):
+            self.assertIn(f">{part}</h2>", page)
+        self.assertIn('<source srcset="/assets/docs/APP/TUTORIAL/01-open.webp" type="image/webp">', page)
+        self.assertIn("Applies to App Studio 2.1 and later", page)
+
     def test_nav_and_sources_must_agree(self):
         site = Site()
         (site.src / "app" / "stray.md").write_text(PAGE.format(title="Stray", extra=""))
