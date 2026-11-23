@@ -1,0 +1,46 @@
+name: Release
+description: The tracking issue of one app version. Pinned, in the version's milestone.
+title: "Release X.Y.Z"
+labels: [infra]
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: The feature issues (as sub-issues) and the kit issues each one waits for. After the freeze only bugs join.
+    validations: {required: true}
+  - type: textarea
+    id: kits
+    attributes:
+      label: Kit and EMSuiteUI versions this release ships on
+      value: |
+        - ImagoKit:
+        - FormatoKit:
+        - DiffractoKit:
+        - SpectroKit:
+        - CuboKit:
+        - SimulatoKit:
+        - EMSuiteUI:
+  - type: checkboxes
+    id: train
+    attributes:
+      label: The release train
+      options:
+        - label: "1 Scope: this issue lists every feature and kit issue"
+        - label: "2 Kits first: kit PRs merged, kit Release PRs merged bottom-up (ImagoKit and FormatoKit, DiffractoKit and SpectroKit, EMSuiteUI)"
+        - label: "3 App adopts: one chore(deps) PR takes the new kit versions"
+        - label: "4 Freeze: only release work in the milestone; the nightly green twice in a row"
+        - label: "5 Walk: door recipes and screen steps on the release build, pictures reviewed, the quality gate of the release plan passed; Paul drove a real dataset in every new room"
+        - label: "6 Notes: one docs PR with docs/release-notes/X.Y.Z.md, README version, docs/status.md and the store text"
+        - label: "7 Tag: Paul merges the Release PR; the bot tags and writes the GitHub release"
+        - label: "8 Website: tools/release.sh on the tag, DMGs on the release, one website PR (version, size, feed)"
+        - label: "9 Store: uploaded from the same tag by the store rule (every minor; a patch only for a crash, lost data or a wrong number)"
+        - label: "10 Close: milestone closed; leftovers moved to the next version or Backlog, in the kit repos too"
+  - type: checkboxes
+    id: store
+    attributes:
+      label: Store checklist
+      options:
+        - label: Review-risk check done if the release adds an entitlement, a network connection or third-party data
+        - label: What's new, privacy text and review notes updated
+        - label: Upload started by Paul; agreements and Submit clicked; released by hand after approval

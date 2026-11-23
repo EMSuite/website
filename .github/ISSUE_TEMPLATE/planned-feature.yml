@@ -1,0 +1,95 @@
+name: Feature (planned work)
+description: One thing a user can newly do, in one repo. Answers the six questions of the feature budget first.
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue is one PR in one repo. A feature that needs a kit and an app is one issue per repo, joined by "Depends on" and the release's tracking issue. The feature budget: EMSuite docs/adr/0004.
+  - type: textarea
+    id: story
+    attributes:
+      label: Which workflow story, which step?
+      description: A feature is a step in a named story of the materials TEM user that ends in a figure or a number for a paper.
+    validations: {required: true}
+  - type: textarea
+    id: room
+    attributes:
+      label: Which room, which section?
+      description: No new room without Paul's yes and a real dataset he drives.
+    validations: {required: true}
+  - type: textarea
+    id: defaults
+    attributes:
+      label: Does the reference dataset give a result untouched?
+      description: First result on the defaults, which are the reference package's. More than about five settings in view means a script.
+    validations: {required: true}
+  - type: textarea
+    id: pinned
+    attributes:
+      label: Reference, dataset and tolerance named?
+      description: One Python reference or closed form (package, pinned version, function), one public dataset by its manifest name, that package's own tolerance.
+    validations: {required: true}
+  - type: textarea
+    id: walk
+    attributes:
+      label: What does it add to the release walk?
+      description: The door recipe, the docs page and the walk line it brings.
+    validations: {required: true}
+  - type: textarea
+    id: file
+    attributes:
+      label: Which file carries the result out?
+      description: The export format the next tool opens, with its methods record.
+    validations: {required: true}
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: One sentence, who can do what. "A TEM user gets the spot pattern of a phase for any zone axis."
+    validations: {required: true}
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Each one checkable by a reviewer without asking the author.
+      value: |
+        - [ ] An action and what the app then shows, checkable on screen or through the door
+        - [ ] Each number, its reference and its tolerance
+        - [ ] What the app says for input it refuses
+    validations: {required: true}
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+  - type: textarea
+    id: depends
+    attributes:
+      label: Depends on
+      description: Full references, one per line (EMSuite/DiffractoKit#123), or "none". The weekly report reads them.
+      value: none
+    validations: {required: true}
+  - type: dropdown
+    id: screen
+    attributes:
+      label: Screen
+      options:
+        - None
+        - Mockup (link below)
+        - First thin slice (open the real file, see the data, one interaction)
+    validations: {required: true}
+  - type: textarea
+    id: release-note
+    attributes:
+      label: Release note
+      description: One line in user words. Changed results, no or yes and what moves.
+    validations: {required: true}
+  - type: checkboxes
+    id: docs
+    attributes:
+      label: Docs this PR updates
+      options:
+        - label: README.md
+        - label: docs/status.md
+        - label: docs/parity.md
+        - label: website page
