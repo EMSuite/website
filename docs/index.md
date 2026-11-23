@@ -13,15 +13,7 @@ How to install 4DSTEM Studio and Electron Microscopy Studio, open your data and 
 
 ## How the pages are organised
 
-Each app has the same five parts:
-
-- **Get started**: install the app and see a first result within minutes.
-- **Your data**: the file formats, large datasets, saved sessions and export.
-- **Tutorials**: one analysis from the open file to the exported result, with every setting explained.
-- **Reference**: each workspace and what its controls do.
-- **Troubleshooting**: answers to the usual problems.
-
-Every page says which version of the app it applies to. The documentation describes the latest release; what changed from version to version is in the release notes of [4DSTEM Studio](https://github.com/EMSuite/4DSTEM-Studio/releases) and [Electron Microscopy Studio](https://github.com/EMSuite/Electron-Microscopy-Studio/releases).
+Each app has Get started, Your data, Reference and Help. Every page says which version of the app it applies to, and the documentation describes the latest release. What changed between versions is in the release notes of [4DSTEM Studio](https://github.com/EMSuite/4DSTEM-Studio/releases) and [Electron Microscopy Studio](https://github.com/EMSuite/Electron-Microscopy-Studio/releases).
 
 ## Questions
 
