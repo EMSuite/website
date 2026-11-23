@@ -21,7 +21,10 @@ from urllib.parse import urlsplit, unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 ORG = "EMSuite"
-APPS = {"mac4DSTEM": "index.html", "macEM": "mactem/index.html"}
+APPS = {"mac4DSTEM": "index.html", "macEM": "electron-microscopy-studio/index.html"}
+# Pages that moved: the old address serves a forwarding page, and nothing in the site links to it any more.
+MOVED = {"mactem/index.html": "/electron-microscopy-studio/"}
+SITE = "https://mac4dstem.com"
 # Each app's GitHub repo (renamed 2026-11-17); release assets keep the app names.
 REPOS = {"mac4DSTEM": "4DSTEM-Studio", "macEM": "Electron-Microscopy-Studio"}
 PACKAGES = ["FormatoKit", "ImagoKit", "DiffractoKit", "SpectroKit", "CuboKit", "SimulatoKit", "EMSuiteUI"]
@@ -130,14 +133,15 @@ def parse(path):
     return p
 
 
-def target(page, ref):
+def target(page, ref, root=None):
     """The file a site-internal reference names, or None for an external one."""
+    root = root or ROOT
     u = urlsplit(ref)
     if u.scheme or u.netloc or ref.startswith(("mailto:", "tel:", "data:")):
         return None
     if not u.path:
         return page, u.fragment
-    base = ROOT if u.path.startswith("/") else page.parent
+    base = root if u.path.startswith("/") else page.parent
     f = (base / unquote(u.path).lstrip("/")).resolve()
     if u.path.endswith("/") or f.is_dir():
         f = f / "index.html"
@@ -170,6 +174,37 @@ def check_feed_links(root=None):
         if newest.get(app) != ver:
             errors.append(f"releases.atom: the newest {app} entry is {newest.get(app)}, {path} offers {ver}: "
                           "run python3 tools/build_feed.py")
+    return errors
+
+
+def check_moved(root=None):
+    """Each moved page forwards to its new address, and no page, the sitemap or the update feeds link the old one."""
+    root = root or ROOT
+    errors = []
+    for old, new in MOVED.items():
+        f = root / old
+        if not f.is_file():
+            errors.append(f"{old}: missing; the old address must keep serving a page that forwards to {new}")
+            continue
+        src = f.read_text()
+        if not re.search(rf'<meta http-equiv="refresh" content="0; url={re.escape(new)}">', src):
+            errors.append(f"{old}: has no <meta http-equiv=\"refresh\" content=\"0; url={new}\">")
+        if f'<link rel="canonical" href="{SITE}{new}">' not in src:
+            errors.append(f"{old}: its canonical link must name {SITE}{new}")
+        if '<meta name="robots" content="noindex">' not in src:
+            errors.append(f"{old}: a forwarding page carries noindex")
+        old_url = "/" + old.removesuffix("index.html")
+        for page in sorted(p for p in root.rglob("*.html") if not SKIP & set(p.relative_to(root).parts)):
+            if page == f:
+                continue
+            for ref in parse(page).refs:
+                t = target(page, ref, root)
+                if t and t[0] == f.resolve():
+                    errors.append(f"{page.relative_to(root)}: links the old address {ref}; link {new}")
+        for listing in ("sitemap.xml", "appcast/mac4dstem.xml", "appcast/macem.xml"):
+            p = root / listing
+            if p.is_file() and f"{SITE}{old_url}" in p.read_text():
+                errors.append(f"{listing}: names the old address {SITE}{old_url}; name {SITE}{new}")
     return errors
 
 
@@ -305,6 +340,8 @@ def main():
     print(f"links: {n} pages checked")
     errors += check_feed_links()
     print("feed: every page links it, and it names each app's latest release")
+    errors += check_moved()
+    print(f"moved: {len(MOVED)} old addresses checked")
     errors += check_names()
     print(f"names: {n} pages checked for old app names")
     if not a.offline:
