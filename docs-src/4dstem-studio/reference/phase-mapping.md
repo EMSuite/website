@@ -1,6 +1,6 @@
 ---
 title: Phase mapping
-description: Reference for the Phase mapping task in the Crystal Maps workspace of 4DSTEM Studio: the phases, the matrix, the matching settings, and how to read the phase map and its evidence.
+description: Reference for phase mapping in 4DSTEM Studio's Crystal Maps: the phases, the matrix, the matching settings, and how to read the phase map and its evidence.
 applies_to: 5.4
 ---
 

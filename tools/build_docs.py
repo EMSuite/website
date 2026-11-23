@@ -34,6 +34,9 @@ OUT = ROOT / "docs"
 SITE = "https://mac4dstem.com"
 KEYS = {"title", "description", "nav", "applies_to", "recipe", "dataset"}
 EXTENSIONS = ["extra", "admonition", "sane_lists", "toc"]
+TITLE_MAX = 70   # tools/check_site.py holds every page to it
+# The link-preview picture of each app's pages; shared pages use the site's.
+OG_IMAGES = {"4DSTEM Studio": "/assets/og.jpg", "Electron Microscopy Studio": "/assets/mactem-og.jpg"}
 MARK = ("<!-- docs:start (tools/build_docs.py) -->", "<!-- docs:end -->")
 
 HEAD = """<!DOCTYPE html>
@@ -48,6 +51,16 @@ HEAD = """<!DOCTYPE html>
 <link rel="alternate" type="text/markdown" href="{markdown_url}">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="{robots}">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{site_name}">
+<meta property="og:url" content="{site}{url}">
+<meta property="og:title" content="{og_title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="{site}{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
@@ -243,7 +256,7 @@ def pager(pages, page):
 def body_html(text):
     out = markdown.Markdown(extensions=EXTENSIONS, output_format="html").convert(text)
     # A table scrolls sideways inside its own panel on a phone, never the page.
-    out = out.replace("<table>", '<div class="tablewrap"><table>').replace("</table>", "</table></div>")
+    out = re.sub(r"<table\b[^>]*>", lambda m: '<div class="tablewrap">' + m.group(0), out).replace("</table>", "</table></div>")
     return out
 
 
@@ -257,8 +270,13 @@ def render(nav, pages, page):
     if meta.get("applies_to"):
         stamp = f'      <p class="docs-applies">Applies to {esc(section["app"])} {esc(meta["applies_to"])} and later</p>\n'
     top = page["path"] == "index"
+    head_title = meta["title"] if top else f'{meta["title"]} — {section["title"]} documentation'
+    if len(head_title) > TITLE_MAX:
+        head_title = f'{meta["title"]} — Documentation'
     head = HEAD.format(
-        head_title=esc(meta["title"] if top else f'{meta["title"]} — {section["title"]} documentation'),
+        head_title=esc(head_title), og_title=esc(meta["title"], quote=True),
+        site_name=esc(section.get("app") or "4DSTEM Studio and Electron Microscopy Studio", quote=True),
+        og_image=OG_IMAGES.get(section.get("app"), "/assets/og.jpg"),
         description=esc(meta["description"], quote=True), site=SITE, url=page["url"],
         markdown_url=f'/docs/{page["path"]}.md', robots="index, follow" if nav.get("live") else "noindex",
         sidebar=sidebar(nav, pages, page), title=esc(meta["title"]), stamp=stamp,

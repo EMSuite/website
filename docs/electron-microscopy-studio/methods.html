@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Methods and their references — Documentation</title>
+<meta name="description" content="Every number Electron Microscopy Studio computes itself, the Python package it is checked against, and the tolerance.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/methods.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/methods.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Electron Microscopy Studio">
+<meta property="og:url" content="https://mac4dstem.com/docs/electron-microscopy-studio/methods.html">
+<meta property="og:title" content="Methods and their references">
+<meta property="og:description" content="Every number Electron Microscopy Studio computes itself, the Python package it is checked against, and the tolerance.">
+<meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Methods</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/methods.html" aria-current="page">Methods</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Methods</p>
+      <h1>Methods and their references</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">Each function the app computes itself, the reference it is checked against and how closely. 161 functions in 21 groups, from the app's parity table at 2.1.1.</p>
+
+<p>The rule is the same for every row: the app matches the pinned version of the Python package within the tolerance that package's own tests use, never stricter. Readers, indices and metadata match exactly. Where a method has a paper, the reference names it. The numbers of the kits the app is built on are listed on the <a href="/suite/">kits page</a>, each with its own parity table.</p>
+<p>Generated from <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/blob/v2.1.1/docs/parity.md">docs/parity.md at v2.1.1</a>, which also gives each row's test and notes. The page's tables leave those out.</p>
+<h2 id="readers-exact">Readers (exact)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EBSDH5Reader.read</code> (kikuchipy h5ebsd)</td><td><code>kikuchipy.io.plugins.kikuchipy_h5ebsd.file_reader</code></td><td>header fields, static background and patterns exact; PCs exact</td></tr>
+<tr><td><code>EBSDH5Reader.read</code> (Bruker h5ebsd)</td><td><code>kikuchipy.io.plugins.bruker_h5ebsd.file_reader</code></td><td>exact</td></tr>
+<tr><td><code>EBSDH5Reader.read</code> (EDAX h5ebsd)</td><td><code>kikuchipy.io.plugins.edax_h5ebsd.file_reader</code></td><td>exact; PC converted TSL to Bruker</td></tr>
+<tr><td><code>EBSDH5Reader.read</code> (Oxford H5OINA 6.0 and 7.0)</td><td><code>kikuchipy.io.plugins.oxford_h5ebsd.file_reader</code></td><td>fields exact; tilts exact (the file's float32 radians converted as numpy's float32 <code>rad2deg</code>, <code>x * 180 / pi</code>, then <code>- 90</code> in float32 for the detector tilt); PC converted Oxford to Bruker</td></tr>
+<tr><td><code>EBSDDetectorGeometry.brukerCenter</code> / <code>center</code></td><td><code>EBSDDetector._get_pc_in_bruker_convention</code>, <code>_get_pc_in_convention</code></td><td>1e-12</td></tr>
+<tr><td><code>EDAXBinaryReader.read</code>, <code>pattern</code>, <code>allPatterns</code> (EDAX <code>.up1</code>/<code>.up2</code>)</td><td><code>kikuchipy.io.plugins.edax_binary.file_reader</code></td><td>header fields and patterns exact</td></tr>
+<tr><td><code>ANGReader.read</code> (<code>.ang</code> maps: EDAX TSL, EMsoft, ASTAR, orix)</td><td><code>orix.io.plugins.ang.file_reader</code></td><td>columns bit-exact (sha256 of the float64 columns); header fields exact; shape and step exact</td></tr>
+<tr><td><code>OxfordBinaryReader.read</code>, <code>metadata</code> (Oxford <code>.ebsp</code>)</td><td><code>kikuchipy.io.plugins.oxford_binary.file_reader</code></td><td>version, shapes, steps, positions, file order exact; every pixel bit-exact (<code>EBSDDataset.allPatterns</code>, <code>EBSDPatternReader.row</code>, <code>pattern</code>)</td></tr>
+<tr><td><code>CTFReader.read</code> (<code>.ctf</code> maps: Oxford, Bruker, ASTAR, EMsoft, MTEX; headerless orientation tables)</td><td><code>orix.io.plugins.ctf.file_reader</code>; <code>orix.data.ti_orientations</code></td><td>phases, Laue group, phase ids exact; coordinates, Euler angles (radians of the file's degrees) and columns at 1e-12; shape and steps exact</td></tr>
+<tr><td><code>EBSDH5Reader.readOxfordMap</code> (Oxford H5OINA without patterns: AZtec's map export)</td><td>the H5OINA specification (<code>oinanoanalysis/h5oina</code>, H5OINAFile.md); MTEX's hdf5 config (grid from the header's cells and steps, row by row); DREAM3D EbsdLib <code>H5OINAReader</code> (Laue ids as the <code>.ctf</code>'s, points placed by X and Y); kikuchipy 0.13.1 and orix 0.15.0 read no H5OINA map</td><td>exact (every planted value exact in float32)</td></tr>
+<tr><td><code>EBSDH5Reader.readOrixMap</code> (orix's own HDF5 map file, <code>orix.io.save</code>; kikuchipy's dictionary indexing saves its maps so)</td><td><code>orix.io.plugins.orix_hdf5.file_reader</code> (orix 0.15.0, <code>dict2crystalmap</code>)</td><td>exact: points in data, phase ids, x, y, the stored Euler angles, properties, phases, unit; the cell within 1e-12 relative (diffpy recomputes it from its base, the file stores it as given)</td></tr>
+<tr><td><code>EBSDH5Reader.readVendorMap</code> (Bruker Esprit h5ebsd saved without patterns, and the map beside Bruker patterns)</td><td><code>orix.io.plugins.bruker_h5ebsd.file_reader</code> (orix 0.15.0)</td><td>exact: phase ids, x, y, Euler angles (<code>np.deg2rad</code> of the float32 columns, in float32), the thirteen properties, phases, unit; the cell within 1e-12 relative (diffpy)</td></tr>
+<tr><td><code>EBSDH5Reader.readVendorMap</code> (EDAX OIM h5ebsd saved without patterns, and the map beside EDAX patterns)</td><td><code>orix.io.plugins.ang.file_reader</code> (orix 0.15.0) on the <code>.ang</code> OIM writes for the same scan; no Python reader reads the <code>.h5</code> map (MTEX and DREAM3D's EbsdLib do)</td><td>exact</td></tr>
+<tr><td><code>EBSDH5Reader.readVendorMap</code> (EMsoft dictionary indexing file, EMEBSDDI)</td><td><code>orix.io.plugins.emsoft_h5ebsd.file_reader</code> (orix 0.15.0, <code>refined=False</code>, its default)</td><td>exact</td></tr>
+<tr><td><code>EBSDH5Reader.read</code> (Oxford H5OINA: the patterns kikuchipy does not read, the map beside them)</td><td><code>kikuchipy.io.plugins.oxford_h5ebsd.file_reader</code> with <code>processed=False</code>; <code>readOxfordMap</code></td><td>exact (pixels, map)</td></tr>
+<tr><td><code>EDAXOpening.open</code>, <code>OxfordOpening.open</code> (the doors)</td><td><code>EDAXOpening</code> and <code>OxfordOpening</code> door tests</td><td>exact</td></tr>
+<tr><td><code>ANGReader.quaternion(fromBungeEuler:)</code></td><td><code>orix.quaternion._conversions.eu2qu</code> (Rowenhorst et al. 2015, A.5-6)</td><td>1e-12 relative</td></tr>
+<tr><td><code>NORDIFSettings.read</code> (<code>Setting.txt</code>)</td><td><code>kikuchipy.io.plugins.nordif._get_settings_from_file</code></td><td>exact</td></tr>
+<tr><td><code>NORDIFScan.read</code> (<code>Pattern.dat</code>, <code>Background acquisition pattern.bmp</code>)</td><td><code>kikuchipy.load("Pattern.dat")</code></td><td>patterns bit-exact (SHA-256 of the uint8 block in map order), background bit-exact</td></tr>
+<tr><td><code>NORDIFCalibrationPatterns.read</code> (<code>Calibration (x,y).bmp</code>, positions, area, ROI, scaled to steps)</td><td><code>kikuchipy.load("Setting.txt")</code> (<code>nordif_calibration_patterns</code>)</td><td>positions and shapes exact; patterns bit-exact</td></tr>
+<tr><td><code>NORDIFBitmap.decode</code> (8-bit greyscale BMP)</td><td><code>matplotlib.pyplot.imread</code> (Pillow mode L)</td><td>bit-exact</td></tr>
+<tr><td><code>NORDIFOpening.open</code> (<code>Pattern.dat</code> as an <code>EBSDDataset</code>, read by record)</td><td><code>kikuchipy.load("Pattern.dat")</code> through <code>NORDIFScan</code></td><td>patterns bit-exact against <code>NORDIFScan</code></td></tr>
+<tr><td><code>HyperSpySpectrumFile.header</code>, <code>read</code> (<code>.hspy</code>: one spectrum in HyperSpy's own HDF5 layout)</td><td><code>rsciio.hspy.file_reader</code> (RosettaSciIO 0.15.0, <code>rsciio/hspy/_api.py</code>: <code>Experiments/&lt;title&gt;/data</code>, the <code>axis-&lt;i&gt;</code> groups, the metadata tree as groups of attributes)</td><td>exact</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="sem-images-tiff">SEM images (TIFF)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>SEMImageMetadata.read</code> (Thermo/FEI tags 34680/34682)</td><td>RosettaSciIO 0.15.0 <code>_axes_fei</code>, <code>mapping_fei</code>; tifffile 2026.10.15 <code>read_fei_metadata</code></td><td>axes rtol 1e-4 (RosettaSciIO's <code>test_read_FEI_navcam_metadata</code>); metadata numbers 1e-9 relative, texts exact (its tests: 7 places)</td></tr>
+<tr><td><code>SEMImageMetadata.read</code> (Zeiss tag 34118)</td><td>RosettaSciIO <code>_axes_zeiss</code>, <code>mapping_cz_sem</code>; tifffile <code>read_cz_sem</code></td><td>the same</td></tr>
+<tr><td><code>SEMImageMetadata.read</code> (Tescan tag 50431)</td><td>NexusLIMS <code>tescan_tif</code> (<code>_extract_embedded_hdr</code> pipeline, field units; transcribed in <code>tools/parity/sem/sem-image/tescan_reference.py</code>); no RosettaSciIO branch</td><td>exact (every section and key; values as stored, converted by NexusLIMS's factors)</td></tr>
+<tr><td>Databar rows (Thermo <code>DatabarHeight</code>, Tescan <code>ImageStripSize</code>)</td><td>tifffile's parse of the same bytes; no reader maps it</td><td>exact</td></tr>
+<tr><td>Spot, chamber pressure, Thermo detector</td><td>tifffile's parse; RosettaSciIO does not map them</td><td>exact</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="pattern-processing">Pattern processing</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>PatternProcessing.rescale</code></td><td><code>pattern._pattern._rescale_with_min_max</code></td><td>values 1e-5 relative</td></tr>
+<tr><td><code>PatternProcessing.removeStaticBackground</code> / <code>...Values</code> (subtract, divide, <code>scaleBackground</code>)</td><td><code>_remove_static_background_subtract</code> / <code>_divide</code></td><td>values 1e-5 relative; uint8 within one grey level on at most 1 % of a pattern's pixels (measured 22 of 3600 at worst), 0.2 % of a whole set</td></tr>
+<tr><td><code>PatternProcessing.meanBackground</code></td><td><code>patterns.mean(axis=0).astype(dtype)</code></td><td>exact</td></tr>
+<tr><td><code>PatternProcessing.dynamicBackground</code> (frequency)</td><td><code>get_dynamic_background</code> / <code>filters.fft_barnes._fft_filter</code> with <code>_dynamic_background_frequency_space_setup</code></td><td>1e-5 relative (measured 4.9e-7)</td></tr>
+<tr><td><code>PatternProcessing.dynamicBackground</code> (spatial)</td><td><code>scipy.ndimage.gaussian_filter(sigma=std, truncate=truncate)</code></td><td>1e-5 relative (measured 6.7e-8)</td></tr>
+<tr><td><code>PatternProcessing.removeDynamicBackground</code> / <code>...Values</code> (subtract, divide; frequency, spatial; <code>std</code>, <code>truncate</code>)</td><td><code>_remove_dynamic_background</code></td><td>as the static rows</td></tr>
+<tr><td><code>PatternProcessing.percentile</code></td><td><code>numpy.nanpercentile</code> (method <code>linear</code>)</td><td>exact</td></tr>
+<tr><td><code>PatternProcessing.rescaleIntensity</code> / <code>...Values</code> (<code>percentiles</code>)</td><td><code>kikuchipy.pattern.rescale_intensity</code> (<code>EBSD.rescale_intensity</code>)</td><td>uint8 within one grey level (the bundle's); measured exact on all 2 × 9 patterns</td></tr>
+<tr><td><code>PatternProcessing.normalizeIntensity</code> (<code>numStd</code>, <code>divideBySquareRoot</code>)</td><td><code>_normalize_intensity</code> (<code>EBSD.normalize_intensity</code> on float32)</td><td>rtol 1e-5, atol 1e-6 (1e-8 with the square root); measured 4.8e-7</td></tr>
+<tr><td><code>PatternProcessing.downsample</code> / <code>bin</code></td><td><code>_downsample2d</code> / <code>_bin2d</code> (<code>EBSD.downsample</code>)</td><td>uint8 within one grey level; measured exact for factors 2 and 3</td></tr>
+<tr><td><code>NLPAR.autoMask</code></td><td><code>NLPAR.makeautomask</code></td><td>exact</td></tr>
+<tr><td><code>NLPAR.tiles</code></td><td><code>NLPAR._calcchunks</code></td><td>exact</td></tr>
+<tr><td><code>NLPAR.estimateNoise</code></td><td><code>NLPAR.calcsigma_cpu(nn=1)</code> / <code>sigma_numba</code></td><td>σ rtol 1e-5; distances rtol 1e-5, atol 1e-5</td></tr>
+<tr><td><code>NLPAR.optimiseLambda</code></td><td><code>NLPAR.opt_lambda_cpu</code></td><td>rtol 1e-4</td></tr>
+<tr><td><code>NLPAR.denoise</code>, <code>NLPAR.run</code></td><td><code>NLPAR.calcnlpar_cpu</code> / <code>nlpar_nb</code></td><td>rtol 1e-5, atol 1e-4</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="orientation-maths">Orientation maths</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>RotationConversions</code> (eu2qu, qu2eu, om2qu, qu2om, ax2qu, qu2ax, qu2ho, ho2ax, ax2ro, ro2ax, ho2ro, cu2ho, cu2ro, pyramid)</td><td><code>orix.quaternion._conversions</code> (Rowenhorst et al. 2015; cubochoric: Roşca et al. 2014)</td><td>atol 1e-7</td></tr>
+<tr><td><code>Rotation</code> (<code>*</code>, <code>inverse</code>, <code>angle</code>, <code>axis</code>, <code>angle(with:)</code>, <code>absDot</code>, <code>angleOuter</code>, <code>outer</code>, <code>unique</code>, <code>fromEuler</code>/<code>fromMatrix</code>/<code>fromAxisAngle</code>/<code>fromHomochoric</code>/<code>fromRodrigues</code> and back)</td><td><code>orix.quaternion.Rotation</code>, <code>Quaternion</code></td><td>atol 1e-7; <code>unique</code> indices exact</td></tr>
+<tr><td><code>PointGroup</code> (the 38 groups and 2, m, 32; <code>fromGenerators</code>, <code>subgroups</code>, <code>properSubgroup</code>, <code>laue</code>, <code>laueProperSubgroup</code>, <code>system</code>, <code>eulerFundamentalRegion</code>, <code>fundamentalSectorNormals</code>, <code>fundamentalZoneNormals</code>)</td><td><code>orix.quaternion.symmetry</code></td><td>elements and normals 1e-10, in orix's order; names exact</td></tr>
+<tr><td><code>OrientationRegion.fromSymmetry</code>, <code>contains</code>, <code>vertices</code></td><td><code>orix.quaternion.OrientationRegion</code></td><td>normals 1e-10</td></tr>
+<tr><td><code>Orientations</code> (<code>reduced</code>, <code>angles(with:)</code>, <code>misorientations(from:)</code>, <code>anglesOuter</code>, <code>distanceMatrix</code>), <code>Misorientations</code> (<code>reduced</code>, <code>angles</code>, <code>distanceMatrix</code>)</td><td><code>Orientation.reduce</code>, <code>angle_with</code>, <code>__sub__</code>, <code>angle_with_outer</code>/<code>get_distance_matrix</code> (numba kernels), <code>Misorientation.reduce</code>, <code>get_distance_matrix(lazy=False)</code></td><td>atol 1e-7</td></tr>
+<tr><td><code>Vector3.azimuth</code>, <code>polar</code>, <code>circle(about:)</code>; <code>StereographicProjection</code> (<code>vectorToXY</code>, <code>vectorToXYSplit</code>, <code>xyToVector</code>)</td><td><code>Vector3d.azimuth</code>/<code>polar</code>/<code>get_circle</code>, <code>orix.projections.StereographicProjection</code>, <code>InverseStereographicProjection</code></td><td>atol 1e-7</td></tr>
+<tr><td><code>CrystalLattice</code>, <code>Miller</code> (hkl, uvw, hkil, UVTW, <code>length</code>, <code>rounded</code>, <code>roundIndices</code>)</td><td><code>orix.crystal_map.Phase</code> structure alignment (x ∥ a, z ∥ c*), <code>orix.vector.Miller</code>, <code>_round_indices</code> (MTEX)</td><td>bases 1e-10; vectors 1e-7; rounded indices exact</td></tr>
+<tr><td><code>FundamentalSector</code> (<code>vertices</code>, <code>center</code>, <code>edges</code>, <code>stereographicExtent</code>), <code>PointGroup.projectToFundamentalSector</code></td><td><code>orix.vector.FundamentalSector</code>, <code>Vector3d.in_fundamental_sector</code> (MTEX <code>project2FundamentalRegion</code>)</td><td>vertices and centres 1e-10; edges 1e-9; projections 1e-7</td></tr>
+<tr><td><code>DirectionColorKeyTSL</code> (<code>color(of:)</code>, <code>keyImage</code>), <code>IPFColorKeyTSL</code>, <code>EulerColorKey</code></td><td><code>DirectionColorKeyTSL.direction2color</code> (Nolze &amp; Hielscher 2016 via MTEX), <code>IPFColorKeyTSL.orientation2color</code>, <code>EulerColorKey.orientation2color</code>, <code>Orientation.in_euler_fundamental_region</code></td><td>RGB 1e-6</td></tr>
+<tr><td><code>OrientationSampling</code> (<code>semiEdgeSteps</code>, <code>cubochoricGrid</code>, <code>fundamental</code>, <code>local</code>)</td><td><code>orix.sampling.get_sample_fundamental</code>, <code>get_sample_local</code>, <code>_cubochoric_sampling</code> (cubochoric grid: Roşca, Morawiec and De Graef 2014; resolution to N: Singh and De Graef 2016, eq. 9)</td><td>counts and N exact; rotations atol 1e-7 in orix's order</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="crystal-map">Crystal map</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>CrystalMap</code> (<code>init</code> with orix's phase-list matching and <code>not_indexed</code>, <code>shape</code>, <code>dx</code>, <code>dy</code>, <code>size</code>, <code>ids</code>, <code>row</code>, <code>col</code>, <code>isIndexed</code>, <code>phasesInData</code>, <code>points(ofPhases:)</code>/<code>[phase:]</code>, <code>masked</code>, <code>sliced(rows:columns:)</code>, <code>mapData</code>, <code>orientations</code>), <code>PhaseList</code>, <code>CrystalPhase</code></td><td><code>orix.crystal_map.CrystalMap</code>, <code>PhaseList</code>, <code>Phase</code></td><td>exact; orientations atol 1e-7</td></tr>
+<tr><td><code>OrientationMaps</code> (<code>raster</code> of IPF-X, IPF-Y, IPF-Z and phase layers on the map's grid, <code>gridShape</code>, <code>pointIndexGrid</code>, <code>readout</code>, <code>keyImage</code>, <code>unitCellEdges</code>), the Maps room (P3-04)</td><td><code>CrystalMap.get_map_data</code> of <code>IPFColorKeyTSL.orientation2color</code> per phase along the sample direction, and of <code>phases.colors_rgb</code>, as <code>CrystalMap.plot</code> draws them</td><td>IPF atol 1e-6; phase colours exact</td></tr>
+<tr><td><code>MapAnalysis</code> (<code>run</code>: grain map, KAM, GOS, GND, grain table, mean lineal intercept and ASTM number, <code>boundaryEdges</code>, <code>outline</code>, <code>slip</code>), <code>MapTexture</code> (<code>compute</code>), the Maps room complete (P5-04, Segment)</td><td>DefDAP 1.3.1 <code>EbsdMap.find_grains</code>, <code>calc_kam</code>, <code>calc_nye</code>, <code>Grain.calc_average_ori</code>, <code>calc_grod</code>, <code>calc_average_schmid_factors</code>, <code>calc_slip_traces</code>; orix 0.15.0 <code>pole_density_function</code>, MTEX-style ODF sections (Hielscher and Schaeben 2008); ASTM E112</td><td>grain map and sizes exact; KAM and GOS atol 1e-6 (the bundle's); slip, GND and texture the ported functions' own (exact wiring)</td></tr>
+<tr><td><code>NeighbourMisorientation</code> (<code>misorientations(of:)</code>, <code>anglesDegrees(of:)</code>), <code>AngleHistogram</code></td><td><code>Orientation.__sub__</code> of <code>O[:, 1:]</code>, <code>O[:, :-1]</code> and <code>O[1:, :]</code>, <code>O[:-1, :]</code>; <code>Misorientation.angle</code>; <code>numpy.histogram</code></td><td>misorientations and angles atol 1e-7; counts and edges exact</td></tr>
+<tr><td><code>IndexingComparison</code> (the Indexing room's Compare: per-point disorientation of two results, its histogram, median and share over 2°), <code>PointGroup.disorientationBinsTop</code></td><td>orix 0.15.0 <code>Orientation.angle_with</code> per (A phase, B phase) group (equal to <code>Misorientation.angle</code> for one group); <code>numpy.rad2deg</code>, <code>histogram</code> on <code>arange(0, top + 1)</code>, <code>median</code>, <code>mean(angle &gt; 2)</code>; the bins top from <code>OrientationRegion.from_symmetry(G, G).vertices()</code></td><td>outcomes, edges, counts and the share exact; angles atol 1e-7 rad (-1 in the bundle where not compared); the median atol 5.8e-6° (1e-7 rad)</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="crystal-map-writers">Crystal map writers</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>ANGWriter</code> (<code>text(of:options:)</code>, <code>write</code>; <code>Options</code>: the four columns' properties, extra columns, the <code>OPERATOR:</code> line)</td><td><code>orix.io.plugins.ang.file_writer</code></td><td>bytes exact; read back within the written precision</td></tr>
+<tr><td><code>CTFWriter</code> (<code>text(of:project:author:)</code>, <code>write</code>)</td><td><code>tools/parity/sem/ctf_writer.py</code> (no writer in the pinned stack), read back by <code>orix.io.plugins.ctf.file_reader</code></td><td>bytes exact; read back within the written precision</td></tr>
+<tr><td><code>CrystalMapExtent</code></td><td><code>create_coordinate_arrays</code> and <code>get_map_data</code> as orix's writer uses them</td><td>exact</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="grains-kam-and-gos">Grains, KAM and GOS</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>GrainMap</code> (<code>init(map:)</code> from a <code>CrystalMap</code>, <code>init(euler:)</code>), <code>DefDAPCrystalStructure</code> (<code>cubic</code>, <code>hexagonal</code>, <code>init(pointGroup:)</code>, <code>operators(for:)</code>), <code>DefDAPQuat</code> (<code>fromEuler</code>, <code>symmetricEquivalents</code>, <code>absDot</code>), shared with the slip analysis</td><td><code>Quat.create_many_quats</code>, <code>Quat.calc_sym_eqvs</code>, <code>crystal.crystalStructures</code></td><td>quaternions atol 1e-10; tables exact</td></tr>
+<tr><td><code>GrainBoundaries.find</code> (misorientation with the right and lower neighbour, grain and phase boundary images)</td><td><code>ebsd.Map.find_boundaries</code> (Humphreys 2001)</td><td>images exact; angles atol 1e-7</td></tr>
+<tr><td><code>GrainSegmentation.find</code> (flood fill, minimum size, <code>sizes</code>, <code>areas</code>, <code>equivalentCircleDiameters</code>), <code>neighbourNetwork</code></td><td><code>ebsd.Map.find_grains</code>, <code>_accelerated.flood_fill</code>, <code>build_neighbour_network</code></td><td>grain map, points in flood order, sizes, phases and network exact</td></tr>
+<tr><td><code>KernelAverageMisorientation.map(.defdap)</code></td><td><code>ebsd.Map.calc_kam</code> (3 x 3 kernel, no symmetry)</td><td>atol 1e-6 rad</td></tr>
+<tr><td><code>KernelAverageMisorientation.map(.symmetric(thresholdDegrees:))</code> (the default, 5°)</td><td>the port's own definition (Wright, Nowell and Field 2011): DefDAP's four first neighbours, <code>find_boundaries</code>' symmetric angle, same phase only, threshold, mean of the angles; reference in <code>grain_cases._symmetric_kam</code></td><td>atol 1e-6 rad</td></tr>
+<tr><td><code>GrainOrientationStatistics.compute</code> (<code>averageOrientations</code>, <code>grod</code>, <code>grodAxis</code>, <code>gos</code>, <code>averageCosine</code>, <code>gosMap</code>)</td><td><code>Grain.calc_average_ori</code> (<code>Quat.calc_average_ori</code>), <code>calcMisOri</code>, <code>build_mis_ori_list</code>, <code>calc_grod</code> (Wright et al. 2011)</td><td>average orientation atol 1e-10; GROD, axis, GOS atol 1e-6 rad</td></tr>
+<tr><td><code>GrainSegmentation.meanLinealIntercept</code>, <code>astmGrainSizeNumber</code></td><td>ASTM E112-13 (Heyn intercept; G = −6.643856 log10 ℓ − 3.288, ℓ in mm)</td><td>hand numbers, 1e-12</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="pole-figures-inverse-pole-figures-and-the-odf">Pole figures, inverse pole figures and the ODF</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EqualAreaGrid</code> (edges, centres, stereographic nodes, numpy's <code>histogramdd</code> bin rule)</td><td><code>_sample_S2_equal_area_coordinates</code> (Rohrer et al. 2004), the x, y <code>pole_density_function</code> returns</td><td>atol 1e-10</td></tr>
+<tr><td><code>PoleDensityFunction.counts</code></td><td><code>numpy.histogram2d</code> of <code>to_polar</code> on that grid (half resolution, after <code>in_fundamental_sector</code>, with a symmetry)</td><td>exact, except that each vector the bundle finds within 1e-12 rad of an edge may sit one bin over (16 of 2000 {0001} poles, 5 IPF vectors; 1197 and 393 on the full map)</td></tr>
+<tr><td><code>PoleDensityFunction.density(counts:)</code> (gaussian smoothing, fold into the sector, mask, mrd, log)</td><td>the rest of <code>pole_density_function</code>; scipy's <code>gaussian_filter</code> (truncate 4, <code>wrap</code> in azimuth, <code>reflect</code> in polar)</td><td>atol 1e-7 (catalogue section 5), measured 4e-14 in a Python mirror</td></tr>
+<tr><td><code>PoleFigures.poles</code> / <code>symmetrise</code>, <code>sampleDirections</code>, <code>crystalDirections</code></td><td><code>Miller.symmetrise(unique=True).unit</code>, <code>(~O).outer(m)</code>, <code>O * Vector3d.zvector()</code></td><td>poles atol 1e-10 (as a set: orix sorts)</td></tr>
+<tr><td><code>OrientationDensity.values</code> / <code>section</code> (kernel density on SO(3), φ2 sections)</td><td>the closed form of Hielscher and Schaeben (2008) with MTEX's de la Vallee Poussin kernel, on orix's rotations and proper symmetry elements (<code>texture_cases.odf_values</code>); orix has no ODF</td><td>rtol 1e-4 (brief P5-02)</td></tr>
+<tr><td><code>TextureRaster.stereographic</code>, <code>.section</code></td><td>none (drawing)</td><td>each pixel the value of its bin</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="slip-analysis-and-gnd-density">Slip analysis and GND density</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>SlipSystemSet.load</code>/<code>parse</code>, <code>SlipPhase</code> (files, plane grouping, colours, hexagonal orthonormalisation in the Oxford convention)</td><td><code>defdap.crystal.SlipSystem.load</code>, <code>group</code>, <code>Phase</code>; <code>crystal_utils.create_l_matrix</code>, <code>create_q_matrix</code>, <code>convert_idc</code></td><td>indices exact; unit vectors 1e-12</td></tr>
+<tr><td><code>DefDAPQuat.fromEuler</code>, <code>averageOrientation</code></td><td><code>Quat.create_many_quats</code>, <code>Quat.calc_sym_eqvs</code>, <code>Quat.calc_average_ori</code></td><td>1e-12; grain averages 1e-10</td></tr>
+<tr><td><code>SlipTraceAnalysis.schmidFactors</code>, <code>traces</code></td><td><code>Grain.calc_average_schmid_factors</code>, <code>calc_slip_traces</code> (Schmid &amp; Boas 1935)</td><td>atol 1e-6</td></tr>
+<tr><td><code>NyeTensor.compute</code> (<code>.separate</code>, <code>.defdap131</code>)</td><td><code>defdap.ebsd.Map.calc_nye</code> (Pantleon 2008; L1 norm of the nine components, Ruggles &amp; Fullwood 2013)</td><td>rtol 1e-5, atol 1e6 m⁻²</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="patterns-room">Patterns room</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EBSDBrowsing.meanIntensityMap</code> (the navigation map)</td><td><code>EBSD.mean(axis=(2, 3))</code> (numpy's float64 mean over the two pattern axes)</td><td>rtol 1e-7 (the bundle's); exact to the map's <code>Float</code> rounding on the planted scan</td></tr>
+<tr><td><code>VirtualBSEGrid.edges</code> / <code>rect(of:)</code> (the detector grid)</td><td><code>VirtualBSEImager.grid_rows</code> / <code>grid_cols</code> / <code>roi_from_grid</code> sliced by HyperSpy's <code>UniformDataAxis.value2index</code></td><td>exact</td></tr>
+<tr><td><code>VirtualBSEImaging.images</code> (one image per detector rectangle: the tiles, an explicit ROI, the whole detector)</td><td><code>VirtualBSEImager.get_images_from_grid</code>, <code>EBSD.get_virtual_bse_intensity</code></td><td>exact (float64 sums of integer counts)</td></tr>
+<tr><td><code>VirtualBSEImaging.rgb</code> (the colour mix)</td><td><code>VirtualBSEImager.get_rgb_image(normalize=True)</code>: <code>_normalize_image</code> then <code>rescale_intensity</code></td><td>within 1 count (the bundle's atol)</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="master-patterns-and-their-projection">Master patterns and their projection</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EMsoftMasterPatternReader.read</code> (EBSD, TKD, ECP; Lambert, stereographic; upper, lower, both; all, nearest, range of energies)</td><td><code>kikuchipy.io.plugins.emsoft_{ebsd,tkd,ecp}_master_pattern.file_reader</code></td><td>exact (values, shapes, axes, phase)</td></tr>
+<tr><td><code>SpaceGroupPointGroup.pointGroup</code></td><td><code>orix.quaternion.symmetry.get_point_group(n, proper=False)</code>, <code>contains_inversion</code></td><td>exact, all 230</td></tr>
+<tr><td><code>EBSDMasterPattern.EnergyAxis.index</code></td><td><code>hyperspy.axes.UniformDataAxis.value2index</code> (round)</td><td>exact</td></tr>
+<tr><td><code>MasterPatternProjection.sampleToDetector</code></td><td><code>detectors._ebsd_detector._sample_to_detector_matrix</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>MasterPatternProjection.gnomonicBounds</code></td><td><code>EBSDDetector.gnomonic_bounds</code> (Britton et al. 2016)</td><td>rtol 1e-7</td></tr>
+<tr><td><code>MasterPatternProjection.directionCosines</code></td><td><code>_get_direction_cosines_for_fixed_pc</code> / <code>_varying_pc</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>MasterPatternProjection.project</code> (float32, float64, uint8, uint16)</td><td><code>EBSDMasterPattern.get_patterns</code> (<code>_project_single_pattern_from_master_pattern</code>, <code>_vector2lambert</code>, <code>_get_lambert_interpolation_parameters</code>, <code>_rescale_with_min_max</code>)</td><td>float: rtol 1e-5, atol 1e-8; integer: 1 count</td></tr>
+<tr><td><code>MasterPatternProjectionMetal.project</code> (float32 GPU)</td><td><code>MasterPatternProjection.project</code> (float64 CPU)</td><td>1e-3 absolute on the -1 to 1 scale</td></tr>
+<tr><td><code>MasterPatternProjectionMetal.project</code> on a float32 master pattern (EMsoft's type)</td><td><code>MasterPatternProjection.project</code> (float64 CPU), which keeps a float32 master pattern's intensities (<code>get_patterns</code>: <code>rescale = dtype_out != self.data.dtype</code>)</td><td>1e-3 of the pattern's half range</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="dictionary-indexing">Dictionary indexing</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>DictionaryIndexing.prepare</code> (NCC: centre, unit norm; NDP: unit norm)</td><td><code>NormalizedCrossCorrelationMetric</code> / <code>NormalizedDotProductMetric.prepare_experimental</code>, <code>prepare_dictionary</code></td><td>—</td></tr>
+<tr><td><code>DictionaryIndexing.index</code> (dictionary in memory; CPU float64)</td><td><code>EBSD.dictionary_indexing</code> (<code>_dictionary_indexing</code>, <code>_match_chunk</code>)</td><td>scores rtol 1e-4 (float32 runs), 1e-5 (float64); indices exact where scores do not tie</td></tr>
+<tr><td><code>DictionaryIndexing.index</code> (master pattern, chunk by chunk)</td><td><code>get_patterns(dtype_out=float32)</code> then <code>dictionary_indexing</code></td><td>equal to the in-memory dictionary; F9 as below</td></tr>
+<tr><td><code>DictionaryIndexing.Result.crystalMap</code></td><td>the returned <code>CrystalMap</code> (<code>rotations</code>, <code>prop</code>, <code>create_coordinate_arrays</code>)</td><td>quaternions atol 1e-7, Euler 1e-6, coordinates exact</td></tr>
+<tr><td><code>DictionaryIndexingMetal</code> (float32 GPU product)</td><td>the CPU float64 product</td><td>1e-5 absolute on scores; against kikuchipy rtol 1e-4, with the GPU-projected dictionary 1e-3</td></tr>
+<tr><td>F9 whole scan</td><td><code>m4/dictionary-indexing-nickel-ebsd-large</code></td><td>best match ≥ 99.5 % equal, best scores rtol 1e-2; block rtol 1e-4</td></tr>
+<tr><td><code>OrientationSimilarityMap.compute</code>, <code>DictionaryIndexing.Result.orientationSimilarityMap</code> (Marquardt et al. 2017, Microsc. Microanal. 23, 1144)</td><td><code>kikuchipy.indexing.orientation_similarity_map</code> (scipy <code>generic_filter</code>, origin at size // 2, outside −1)</td><td>exact (float32)</td></tr>
+<tr><td><code>DictionaryMapMerge.merge</code>, <code>Merged.crystalMap</code></td><td><code>kikuchipy.indexing.merge_crystal_maps</code> (with <code>simulation_indices_prop</code>)</td><td>exact; rotations atol 1e-15 (orix normalises them again)</td></tr>
+<tr><td>F9 through the Indexing room's plan: <code>DictionaryIndexingPlan.indexBlock</code> (the room's per-pattern source, the shipped master pattern as the room opens it, orix's 4° sample of the file phase's point group, the file's detector with F9's PC)</td><td><code>m4/dictionary-indexing-nickel-ebsd-large</code></td><td>as F9: best match ≥ 99.5 % equal, best scores rtol 1e-2</td></tr>
+<tr><td>Dictionary indexing through the Indexing room: <code>IndexingSession.index</code> with Method · Dictionary (block by block, chunk progress, Stop, the map, the readout, the exports)</td><td>the run's own <code>DictionaryIndexing.Result</code> and dictionary</td><td>solutions equal the result's best rotations and scores exactly, each the dictionary's rotation at its best simulation index; the crystal map's <code>scores</code> and <code>simulation_indices</code> exact; the .ang's CI within its five decimals</td></tr>
+<tr><td>The Indexing room's OSM layer: <code>IndexingResult.similarity</code> as dictionary blocks land (Marquardt et al. 2017)</td><td><code>m4/orientation-similarity-map</code> (F9's map), kikuchipy's map of the rows kept</td><td>exact</td></tr>
+<tr><td>Dictionary indexing against several phases in the Indexing room: <code>IndexingResult.land(_:rows:)</code> with one result per phase (<code>DictionaryMapMerge.chosenMaps</code>, <code>picked</code>), its OSM layer, its crystal map</td><td><code>m4/merge-crystal-maps</code> (<code>two</code>, <code>renamed</code>, <code>best</code> and their <code>_osm</code>, whole maps); after each block, the port's merge and OSM of the rows landed</td><td>exact: each point's phase, its matches, the merged crystal map's ids, rotations, <code>scores</code>, <code>simulation_indices</code> and phase list, the OSM after each block; the tied run's matches equal the one-phase run's and its OSM twice that run's</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="kikuchi-simulation">Kikuchi simulation</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>CrystalLattice.diffpy</code> (<code>base</code>, <code>recbase</code>, <code>volume</code>, <code>rnorm</code>, <code>orixAligned</code>)</td><td>diffpy.structure <code>Lattice</code> (<code>setLatPar</code>, <code>cosd</code>); orix <code>Phase.structure</code> re-alignment</td><td>rtol 1e-7, atol 1e-12; the closed-form orix base within 1e-12 of the re-aligned one</td></tr>
+<tr><td><code>KikuchiScatteringTables</code></td><td>diffsims <code>ATOMIC_SCATTERING_PARAMS</code>, <code>ATOMIC_SCATTERING_PARAMETERS_DOYLETURNER</code></td><td>exact</td></tr>
+<tr><td><code>KikuchiReflectors.symmetrised</code></td><td><code>ReciprocalLatticeVector.symmetrise</code> (orix <code>Miller.symmetrise(unique=True)</code>)</td><td>exact (indices, order, multiplicity)</td></tr>
+<tr><td><code>KikuchiReflectors.minDSpacing</code>, <code>allowed(centering:)</code></td><td><code>from_min_dspacing</code>, <code>allowed</code></td><td>exact</td></tr>
+<tr><td><code>KikuchiReflectors.dSpacing</code>, <code>structureFactors(cell:)</code>, <code>braggAngles</code></td><td><code>dspacing</code>, <code>calculate_structure_factor("xtables")</code>, <code>calculate_theta</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>KikuchiWavelength.refractionCorrected</code></td><td><code>diffsims.utils.sim_utils.get_refraction_corrected_wavelength</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>GeometricalKikuchiSimulation.simulate</code></td><td><code>KikuchiPatternSimulator.on_detector</code> (<code>lines_coordinates</code>, <code>zone_axes_coordinates</code>, <code>_zone_axes_labels</code>)</td><td>hkl, [uvw], labels exact; pixels rtol 1e-7, atol 1e-6 px; gnomonic rtol 1e-7</td></tr>
+<tr><td><code>GeometricalKikuchiSimulation.roundIndices</code></td><td>orix <code>Miller.round</code> (<code>_round_indices</code>, max index 20)</td><td>exact</td></tr>
+<tr><td><code>GeometricalKikuchiSimulation.Line.edges</code> (band edges)</td><td><code>KikuchiPatternSimulator.plot(mode="bands")</code>: orix <code>Vector3d.get_circle</code> at π/2 ∓ θ about <code>vector_detector</code>, put on the detector by <code>on_detector</code>'s formula</td><td>rtol 1e-5, atol 1e-8 (orix's own <code>get_circle</code> tests, np.allclose defaults), visibility exact</td></tr>
+<tr><td><code>KinematicMasterPattern.lambert</code>, <code>lambertVector</code> (the Kinematical overlay)</td><td>kikuchipy <code>get_pattern</code> on <code>_lambert2vector</code> directions (normalised; the lower hemisphere with z negated), then <code>EBSDMasterPattern.get_patterns</code></td><td>master pattern rtol 1e-5, atol 1e-8; patterns rtol 1e-6, atol 1e-5 (float32)</td></tr>
+<tr><td><code>KinematicMasterPattern.calculate</code></td><td><code>KikuchiPatternSimulator.calculate_master_pattern</code> (stereographic, <code>_get_pattern</code>)</td><td>rtol 1e-5, atol 1e-8</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="pattern-quality">Pattern quality</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>PatternQuality.frequencyVectors</code></td><td><code>pattern._pattern.fft_frequency_vectors</code></td><td>exact</td></tr>
+<tr><td><code>PatternQuality.ImageQuality</code> / <code>imageQuality</code> / <code>imageQualityMap</code> (<code>normalize</code> on, off)</td><td><code>get_image_quality</code>, <code>_get_image_quality</code>, <code>EBSD.get_image_quality</code> (Krieger Lassen 1994)</td><td>1e-5 relative (measured 8.5e-8; 2.6e-6 unnormalised)</td></tr>
+<tr><td><code>PatternQuality.averageNeighbourDotProductMap</code> (window rectangular or circular of any size, <code>zeroMean</code>, <code>normalize</code>)</td><td><code>EBSD.get_average_neighbour_dot_product_map</code>, <code>_map_helper._neighbour_dot_products</code> (Brewick, Wright &amp; Rowenhorst 2019)</td><td>1e-5 relative (measured 5.6e-7)</td></tr>
+<tr><td>F3 end to end (the app's background removal, then both maps)</td><td>kikuchipy's docs chain, whole scan</td><td>IQ 1e-2 relative, ADP 5e-3 relative</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="detector-geometry-and-projection-centre-calibration">Detector geometry and projection-centre calibration</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EBSDDetectorGeometry.Convention(kikuchipyName:)</code>, <code>init(…, convention:)</code>, <code>brukerCenter</code>, <code>center(_:in:)</code>, <code>centers(in:)</code></td><td><code>EBSDDetector(pc, convention)</code>, <code>pc_tsl</code>, <code>pc_oxford</code>, <code>pc_emsoft(4/5)</code></td><td>rtol 1e-7, atol 1e-12; round trip 1e-12</td></tr>
+<tr><td><code>height</code>, <code>width</code>, <code>binnedPixelSize</code>, <code>unbinnedShape</code>, <code>specimenScintillatorDistance</code></td><td>same names</td><td>rtol 1e-7</td></tr>
+<tr><td><code>gnomonicBounds</code>, <code>gnomonicScale</code>, <code>rMax</code></td><td><code>gnomonic_bounds</code>, <code>x_scale</code>/<code>y_scale</code>, <code>r_max</code> (Britton et al. 2016)</td><td>rtol 1e-7</td></tr>
+<tr><td><code>gnomonic(pixel:pc:)</code>, <code>pixel(gnomonic:pc:)</code></td><td><code>to_gnomonic_coords</code>, <code>to_pixel_coords</code></td><td>rtol 1e-7, atol 1e-12</td></tr>
+<tr><td><code>sampleToDetector</code>, <code>detectorToSample</code>, <code>FrameRotation</code></td><td><code>sample_to_detector</code> (<code>_sample_to_detector_matrix</code>)</td><td>rtol 1e-7, atol 1e-12</td></tr>
+<tr><td>TKD set-ups</td><td><code>EBSDDetector</code> with TKD angles</td><td>rtol 1e-7, atol 1e-12</td></tr>
+<tr><td><code>PCCalibrationMovingScreen</code> (Hjelen et al. 1991)</td><td><code>PCCalibrationMovingScreen</code></td><td>rtol 1e-5</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="sem-eds-map-readers-exact">SEM-EDS map readers (exact)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>BrukerEDSReader.read</code> (<code>.bcf</code>: SFS container, header XML, images, hypermap; <code>.spx</code>)</td><td><code>rsciio.bruker.file_reader</code> with <code>unbcf_fast</code> (RosettaSciIO 0.15.0)</td><td>counts, axes, metadata, image pixels exact</td></tr>
+<tr><td><code>EDAXEDSReader.read</code> (<code>.spd</code> with <code>.spc</code> and <code>.ipr</code>, <code>.lsd</code> with <code>.csv</code>, <code>.spc</code>)</td><td><code>rsciio.edax.file_reader</code></td><td>exact</td></tr>
+<tr><td><code>JEOLEDSReader.read</code> (<code>.pts</code>, <code>.eds</code>, <code>.img</code>, <code>.map</code>, <code>.asw</code>)</td><td><code>rsciio.jeol.file_reader</code> with <code>SI_dtype=uint32, read_em_image=True</code></td><td>exact</td></tr>
+<tr><td><code>CSRSpectrumImage.sum</code>, <code>windowSums</code></td><td>numpy sums over the dense cube</td><td>exact (UInt64)</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="sem-eds-exspys-window-path">SEM-EDS (exspy's window path)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>XrayLineDatabase</code></td><td><code>exspy._misc.elements.elements</code></td><td>exact</td></tr>
+<tr><td><code>SEMEDSLines.lines(forElements:)</code></td><td><code>EDSSpectrum._get_lines_from_elements</code> (<code>add_lines()</code>)</td><td>exact</td></tr>
+<tr><td><code>fwhm(atKeV:)</code></td><td><code>get_FWHM_at_Energy</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>integrationWindows</code>, <code>backgroundWindows</code></td><td><code>estimate_integration_windows</code>, <code>estimate_background_windows</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>index(of:)</code>, <code>channels(from:to:)</code></td><td>HyperSpy <code>UniformDataAxis.value2index</code>, <code>_get_array_slices</code></td><td>exact</td></tr>
+<tr><td><code>intensities</code></td><td><code>get_lines_intensity</code></td><td>rtol 1e-7 (measured bit-equal)</td></tr>
+<tr><td><code>cliffLorimer</code>, <code>weightToAtomic</code>, <code>quantify</code></td><td><code>quantification_cliff_lorimer</code> (× 100), <code>material.weight_to_atomic</code></td><td>rtol 1e-7</td></tr>
+<tr><td><code>Conditions.takeOffAngleDeg</code></td><td><code>get_take_off_angle</code> / <code>take_off_angle</code></td><td>rtol 1e-7</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="pattern-filters-fft-filter-clahe-neighbour-averaging">Pattern filters (FFT filter, CLAHE, neighbour averaging)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>PatternWindow.lowpass</code>, <code>.highpass</code>, <code>*</code></td><td><code>filters.window.lowpass_fft_filter</code>, <code>highpass_fft_filter</code>, <code>Window * Window</code></td><td>rtol 1e-12</td></tr>
+<tr><td><code>PatternWindow.gaussian</code>, <code>.modifiedHann</code>, <code>.rectangular</code>, <code>.circular</code>, custom</td><td><code>scipy.signal.windows.gaussian</code> / <code>boxcar</code> (symmetric, <code>fftbins=False</code>), <code>filters.window.modified_hann</code>, <code>Window.make_circular</code></td><td>rtol 1e-12; circular exact</td></tr>
+<tr><td><code>PatternFilters.fftFilter</code> / <code>...Values</code>, frequency (<code>shift</code> on and off)</td><td><code>EBSD.fft_filter(function_domain="frequency")</code>, <code>pattern._pattern.fft_filter</code></td><td>values 1e-5 relative or 1e-3 grey levels (measured 7.4e-6 relative); uint8 within one grey level on at most 1 % of the pixels's rule (measured 0.005 % of all 4125 patterns with the guide's filter, pattern (0, 0) exact; at most 0.22 % with the asymmetric spatial kernel)</td></tr>
+<tr><td><code>PatternFilters.fftFilter</code> / <code>...Values</code>, spatial</td><td><code>EBSD.fft_filter(function_domain="spatial")</code>, <code>filters.fft_barnes._fft_filter</code> (Barnes et al. 2016)</td><td>as frequency (measured 0.004 % of all patterns with the 5 x 5 Gaussian)</td></tr>
+<tr><td><code>AdaptiveHistogramEqualization.equalize</code> / <code>equalizedUnit</code></td><td><code>EBSD.adaptive_histogram_equalization</code>, <code>skimage.exposure.equalize_adapthist</code> (Zuiderveld 1994)</td><td>exact (uint8)</td></tr>
+<tr><td><code>NeighbourAveraging.average</code> / <code>averageValues</code>, <code>windowSums</code></td><td><code>EBSD.average_neighbour_patterns</code>, <code>pattern.chunk._average_neighbour_patterns</code> (Wright et al. 2015)</td><td>window sums exact; values 1e-5 relative or 1e-4 grey levels; uint8 within one grey level on at most 0.2 % (Gaussian) or 2 % (integer-weight windows) of the pixels (measured on all patterns: 0.002 %, 0.14 %)</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="hough-indexing">Hough indexing</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>HoughReflectorLibrary</code> (pole families, variants, Cartesian normals, angle table, family pairs, triplet table; Laue codes and rotations)</td><td><code>tripletvote.addphase</code>, <code>BandIndexer.build_trip_lib</code>, <code>crystal_sym</code>, <code>crystallometry.Crystal</code></td><td>indices exact; poles and normals rtol 1e-7 (poles atol 1e-12); angles atol 1e-5°</td></tr>
+<tr><td><code>HoughBandDetector</code> plan, mask, kernel, <code>radon</code>, <code>convolve</code></td><td><code>radon_fast.Radon.radon_plan_setup</code>, <code>radon_faster</code>; <code>band_detect.BandDetect.band_detect_setup</code>, <code>rdn_conv</code></td><td>counts, bins, mask exact; Radon rtol 1e-5 (atol 1e-4), convolution rtol 1e-5 (atol 2e-3); a flipped plan pixel (below) may move up to 6 lines and 1 % of the convolution, each within 5 grey levels</td></tr>
+<tr><td><code>HoughBandDetector.detect</code>, <code>normals</code></td><td><code>find_bands</code>, <code>rdn_local_max</code>, <code>band_label_numba</code>, <code>Radon.radon2pole</code> ("KIKUCHIPY")</td><td>peak cells exact; sub-pixel peaks and rho 1e-3 px; theta and normals 1e-4; peak values rtol 1e-5; the bands of a pattern with a flipped plan pixel within 1 px and 1°</td></tr>
+<tr><td><code>HoughIndexer.tripletVote</code></td><td><code>BandIndexer._tripvote_numba</code></td><td>counts and families exact; weighted votes and ranks rtol 1e-5 (atol 1e-3)</td></tr>
+<tr><td><code>HoughIndexer.index</code> (<code>assignBands</code>, <code>quest</code>, confidence)</td><td><code>bandindex</code>, <code>_assign_bands_nb2</code>, <code>_calc_quest_weights</code>, <code>_orientation_quest_nb</code>, <code>_calc_cm</code>, <code>EBSDIndexer._indexbandsphase</code></td><td>matched bands, phase, total votes exact; fit atol 2e-3° (float32 arccos near 1), CM, PQ rtol 1e-5, IQ 1e-4 (one flipped-pixel pattern within 0.01 / 1 / 0.01); orientation &lt; 0.01° (m-3m)</td></tr>
+<tr><td><code>HoughIndexer.crystalMap</code></td><td>kikuchipy <code>_hough_indexing.xmap_from_hough_indexing_data</code></td><td>grid, steps, unit, phase list, property names exact; rotations and properties at the bundle's tolerances</td></tr>
+<tr><td>F8 end to end: <code>HoughIndexer.indexMap</code> on the app's corrected demo scan</td><td><code>EBSD.hough_indexing</code> on kikuchipy's corrected scan</td><td>indexed count within 1; 99 % of points under 1°; matched-band count equal on 95 %</td></tr>
+<tr><td>F8 through the Indexing room: <code>IndexingSession.index</code> (the file's phase, the Patterns room's default stages applied per pattern as each is read, the file's mean PC, row by row)</td><td><code>EBSD.hough_indexing</code> on kikuchipy's corrected scan</td><td>as F8 end to end: indexed count within 1; 99 % of points under 1°; matched-band count equal on 95 %</td></tr>
+<tr><td><code>IndexedBand.segment</code> (a detected band's centre line on the pattern, for the overlay)</td><td><code>Radon.radon2pole</code>'s frame ("KIKUCHIPY": the line x cos θ + y sin θ = ρ about the pattern centre, y up)</td><td>analytic lines 1e-9 px; a detected 3 px stripe within 0.75 px of its middle</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="refinement-of-orientations-and-projection-centres">Refinement of orientations and projection centres</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>NelderMead.minimize</code></td><td><code>scipy.optimize._optimize._minimize_neldermead</code></td><td>x, fun, final simplex rtol 1e-12; nfev, nit, status exact</td></tr>
+<tr><td><code>EBSDRefinement.refineOrientations</code> (trust region, none, signal mask, pseudo-symmetry operators)</td><td><code>EBSD.refine_orientation</code></td><td>every point within 0.1° (m-3m); scores rtol 1e-4; operator index exact; operator starts atol 1e-10</td></tr>
+<tr><td><code>EBSDRefinement.refineProjectionCenters</code></td><td><code>EBSD.refine_projection_center</code></td><td>scores rtol 1e-4; PCs rtol 1e-4 on 95 % of values, all within 1e-3</td></tr>
+<tr><td><code>EBSDRefinement.refineOrientationsAndProjectionCenters</code></td><td><code>EBSD.refine_orientation_projection_center</code></td><td>90 % of points within 0.1°, all within 1°; 90 % of scores rtol 1e-4, all 1e-2, mean 1e-4; 90 % of PC values rtol 2e-3, all 5e-2</td></tr>
+<tr><td><code>EBSDRefinement.refineOrientations(map:)</code> and the PC twin</td><td><code>compute_refine_*_results</code></td><td>grid, unit, phase list, −1 and identity at points not indexed, <code>scores</code> and <code>num_evals</code></td></tr>
+<tr><td><code>refineOrientations(map:)</code> on a dictionary-indexed map (<code>DictionaryIndexing.Result.crystalMap</code>)</td><td><code>dictionary_indexing</code> then <code>refine_orientation</code> (from <code>rotations[:, 0]</code>, the best match)</td><td>under 0.1° (m-3m), scores rtol 1e-4; <code>is_in_data</code> and phase ids exact</td></tr>
+<tr><td><code>IndexingRefinement.refine</code> (the Indexing room's row blocks) and a refinement's <code>IndexingResult.crystalMap</code></td><td><code>refine_orientation</code> on the run's map</td><td>exact to one <code>refineOrientations</code> call over every indexed point; the map within the row above's bounds</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="tem-rooms-the-apps-own-numbers">TEM rooms (the app's own numbers)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>EELSCompositionSigma.percentSigmas</code>, <code>sigmas</code> (1σ on at% and wt%)</td><td>SpectroKit's <code>EDXQuantification.quantifyWithSigma</code>, the same first-order propagation of independent amounts (Ku 1966, J. Res. Natl. Bur. Stand. 70C, 263)</td><td>rtol 1e-6 against the kit on hand amounts, 1e-5 on a fitted room</td></tr>
+<tr><td><code>EELSFitQuality.pearsonReduced</code>, <code>of</code> (RSS and reduced χ²)</td><td>the kit's residual sum of squares (<code>EELSModelResult.residualSumOfSquares</code>, <code>EELSMLLSPixel.residualSumOfSquares</code>); Pearson's χ² (Pearson 1900, Philos. Mag. 50, 157) over the fitted channels, divided by the degrees of freedom</td><td>1e-15 on a hand case; RSS equal to the kit's; χ² 1e-12 relative</td></tr>
+</tbody>
+</table></div>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/results.html"><span>Previous</span>Results</a><a class="next" href="/docs/electron-microscopy-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

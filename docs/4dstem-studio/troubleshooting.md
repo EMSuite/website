@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Answers to the usual problems in 4DSTEM Studio: files that do not open, folder access, large datasets, a calibration that is not quantitative, disk detection, updates and the agent door.
+Answers to common problems in 4DSTEM Studio: files that do not open, folder access, large datasets, calibration, disk detection, updates and the agent door.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">The app says what is wrong in its own words. This page lists those messages and what to do about each.</p>

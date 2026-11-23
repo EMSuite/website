@@ -108,6 +108,15 @@ def page(title, desc, body, path):
 <title>{E(title)} — EMSuite</title>
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="https://mac4dstem.com/suite/{path}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EMSuite">
+<meta property="og:url" content="https://mac4dstem.com/suite/{path}">
+<meta property="og:title" content="{E(title)} — EMSuite">
+<meta property="og:description" content="{E(desc)}">
+<meta property="og:image" content="https://mac4dstem.com/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
