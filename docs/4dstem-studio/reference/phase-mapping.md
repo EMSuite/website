@@ -1,6 +1,6 @@
 # Phase mapping
 
-Reference for the Phase mapping task in the Crystal Maps workspace of 4DSTEM Studio: the phases, the matrix, the matching settings, and how to read the phase map and its evidence.
+Reference for phase mapping in 4DSTEM Studio's Crystal Maps: the phases, the matrix, the matching settings, and how to read the phase map and its evidence.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">Phase mapping decides, for each scan position, which of the phases you named explains its detected disks. This page lists every control of the task, which is in the Crystal Maps workspace.</p>

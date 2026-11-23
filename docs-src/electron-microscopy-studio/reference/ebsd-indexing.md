@@ -1,6 +1,6 @@
 ---
 title: EBSD Indexing
-description: Reference for the Indexing part of the EBSD workspace in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.
+description: Reference for EBSD indexing in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.
 applies_to: 2.1
 ---
 

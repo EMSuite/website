@@ -1,6 +1,6 @@
 ---
 title: FFT
-description: Reference for the FFT part of the Imaging workspace in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and the HRTEM filters.
+description: Reference for the FFT in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and HRTEM filters.
 applies_to: 2.1
 ---
 

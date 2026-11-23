@@ -115,5 +115,52 @@ class Moved(unittest.TestCase):
         self.assertEqual(len(c.check_moved(self.root)), 1)
 
 
+class Heads(unittest.TestCase):
+    GOOD = ('<html><head><title>Install — Docs</title>'
+            '<meta name="description" content="Install the app on an Apple silicon Mac: requirements and download.">'
+            '<link rel="canonical" href="https://mac4dstem.com/{rel}">'
+            '<meta property="og:title" content="Install">'
+            '<meta property="og:image" content="https://mac4dstem.com/assets/og.jpg"></head>'
+            '<body><h1>Install</h1></body></html>')
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        (self.root / "assets").mkdir()
+        (self.root / "assets" / "og.jpg").write_bytes(b"jpg")
+        (self.root / "docs").mkdir()
+
+    def write(self, rel, text=None):
+        (self.root / rel).write_text(text or self.GOOD.format(rel=rel.removesuffix("index.html")))
+
+    def test_a_complete_head_passes(self):
+        self.write("docs/install.html")
+        self.write("docs/index.html")
+        self.assertEqual(c.check_heads(self.root), [])
+
+    def test_each_part_fails_on_its_own(self):
+        good = self.GOOD.format(rel="page.html")
+        cases = {
+            "title has 71": good.replace("Install — Docs", "x" * 71),
+            "description has 10": good.replace("Install the app on an Apple silicon Mac: requirements and download.", "Too short."),
+            "2 <h1>": good.replace("<h1>Install</h1>", "<h1>A</h1><h1>B</h1>"),
+            "canonical link": good.replace("https://mac4dstem.com/page.html", "https://mac4dstem.com/other.html"),
+            "no og:title": good.replace('<meta property="og:title" content="Install">', ""),
+            "names no file": good.replace("og.jpg", "missing.jpg"),
+            "picture of this site": good.replace("https://mac4dstem.com/assets/og.jpg", "https://example.org/a.jpg"),
+        }
+        for want, text in cases.items():
+            self.write("page.html", text)
+            errors = c.check_heads(self.root)
+            self.assertEqual(len(errors), 1, f"{want}: {errors}")
+            self.assertIn(want, errors[0])
+
+    def test_404_and_forwarding_pages_need_only_a_title(self):
+        self.write("404.html", "<html><head><title>Not found</title></head><body><h1>Not found</h1></body></html>")
+        self.write("old.html", '<html><head><title>Moved</title><meta http-equiv="refresh" content="0; url=/new/"></head></html>')
+        self.assertEqual(c.check_heads(self.root), [])
+
+
 if __name__ == "__main__":
     unittest.main()

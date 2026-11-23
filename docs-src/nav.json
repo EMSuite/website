@@ -25,6 +25,7 @@
         {"title": "Get started", "pages": ["electron-microscopy-studio/install", "electron-microscopy-studio/first-look", "electron-microscopy-studio/window"]},
         {"title": "Your data", "pages": ["electron-microscopy-studio/data/formats", "electron-microscopy-studio/data/sessions", "electron-microscopy-studio/data/export"]},
         {"title": "Reference", "pages": ["electron-microscopy-studio/reference/image", "electron-microscopy-studio/reference/fft", "electron-microscopy-studio/reference/diffraction", "electron-microscopy-studio/reference/ebsd-patterns", "electron-microscopy-studio/reference/ebsd-indexing", "electron-microscopy-studio/reference/ebsd-maps", "electron-microscopy-studio/reference/eds", "electron-microscopy-studio/reference/eels", "electron-microscopy-studio/reference/results"]},
+        {"title": "Methods", "pages": ["electron-microscopy-studio/methods"]},
         {"title": "Help", "pages": ["electron-microscopy-studio/troubleshooting"]}
       ]
     },

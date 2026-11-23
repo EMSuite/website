@@ -43,6 +43,7 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `tools/check_site.py` | The CI check: internal links, no old app names (mac4DSTEM, macEM, macTEM) in the page text, and versions and download sizes against the GitHub releases. |
 | `tools/tutorial-template.md` | The skeleton every tutorial starts from (see Writing a tutorial). A test builds it. |
 | `tools/docs_pictures.py` | Puts a reviewed picture into the documentation as WebP and PNG. Development only. |
+| `tools/build_methods.py` | Generates the Electron Microscopy Studio Methods page (`docs-src/electron-microscopy-studio/methods.md`) from the app's `docs/parity.md` at a release tag: function, reference, tolerance. Run `python3 tools/build_methods.py --fetch` after each app release, then `tools/build_docs.py`. |
 | `tools/export_atlas.py` | Regenerates the demo dataset. Development only. |
 
 ## Writing a documentation page
@@ -101,12 +102,12 @@ A tutorial takes the reader through one analysis of one public dataset, from the
 ## Checks and releases
 
 CI (`.github/workflows/ci.yml`) runs on every push to `main`, on pull requests, and once a day. It scans for
-references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, no page text (alt text and link previews included) may use an old app name, each
+references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, every page that can be a search result has one `<h1>`, a title of at most 70 characters, a description of 50 to 160, a canonical link to itself and a link preview (`og:title` and an `og:image` that is a file of the site), no page text (alt text and link previews included) may use an old app name, each
 app page must state the latest release's version and `.dmg` size (in the text and in the JSON-LD), and
 `suite/releases.html` must name each kit's and EMSuiteUI's latest tag. Run it locally with
 `python3 tools/check_site.py` (or `--offline` for links and names only).
 
-After an app release, update the version and size on its page. After a kit or MacEMUI release, regenerate `suite/`.
+After an app release, update the version and size on its page and regenerate the Methods page (`tools/build_methods.py --fetch`). After a kit or MacEMUI release, regenerate `suite/`.
 
 Everything else in `assets/` is a generated artefact — images, icons, the social
 card, and the demo data. None of it is edited by hand.
