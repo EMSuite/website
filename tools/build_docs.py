@@ -20,8 +20,8 @@ Front matter (plain `key: value` lines between two `---` lines):
 A dataset must be in docs-src/datasets.json with its licence and DOI, and a recipe must be one listed there for the
 page's dataset (a copy of the public recipes' names, since the suite repository that holds them is private).
 
-While nav.json says "live": false the pages ask search engines not to index them and stay out of sitemap.xml and
-llms.txt. Needs Python-Markdown (tools/requirements.txt).
+Each section of nav.json goes live on its own with "live": true. A live section's pages are indexed and listed in
+sitemap.xml and llms.txt; the pages of a section without it ask search engines not to index them and stay out of both. Needs Python-Markdown (tools/requirements.txt).
 """
 import argparse, html, json, re, sys
 from pathlib import Path
@@ -190,6 +190,11 @@ def url_of(path):
 def load(src=SRC):
     """nav.json with every page's front matter and body read in: (nav, pages by path)."""
     nav = json.loads((src / "nav.json").read_text())
+    if "live" in nav:
+        raise DocsError('nav.json: "live" is set per section, not for the whole documentation')
+    for section in nav["sections"]:
+        if not isinstance(section.get("live", False), bool):
+            raise DocsError(f'nav.json: section {section["title"]}: "live" is true or false')
     datasets = load_datasets(src)
     pages, listed = {}, []
     for section in nav["sections"]:
@@ -277,7 +282,7 @@ def render(nav, pages, page):
         site_name=esc(section.get("app") or "4DSTEM Studio and Electron Microscopy Studio", quote=True),
         og_image=OG_IMAGES.get(section.get("app"), "/assets/og.jpg"),
         description=esc(meta["description"], quote=True), site=SITE, url=page["url"],
-        markdown_url=f'/docs/{page["path"]}.md', robots="index, follow" if nav.get("live") else "noindex",
+        markdown_url=f'/docs/{page["path"]}.md', robots="index, follow" if section.get("live") else "noindex",
         sidebar=sidebar(nav, pages, page), title=esc(meta["title"]), stamp=stamp,
         kicker=f'      <p class="kicker">{kicker}</p>\n' if kicker else "")
     return head + body_html(page["body"]).rstrip() + "\n" + FOOT.format(pager=pager(pages, page))
@@ -295,7 +300,7 @@ def markdown_copy(page):
 def llms_txt(nav, pages):
     out = ["# mac4dstem.com documentation", "",
            "> " + nav["summary"], ""]
-    for section in nav["sections"]:
+    for section in (s for s in nav["sections"] if s.get("live")):
         out += [f'## {section["title"]}', ""]
         for path in section["paths"]:
             p = pages[path]
@@ -305,15 +310,16 @@ def llms_txt(nav, pages):
 
 
 def sitemap(nav, pages, current):
-    """sitemap.xml with the documentation's addresses between the two marker comments (none while not live)."""
+    """sitemap.xml with the live sections' addresses between the two marker comments."""
     lines = ["  " + MARK[0]]
-    if nav.get("live"):
-        for p in pages.values():
+    live = any(s.get("live") for s in nav["sections"])
+    if live:
+        for p in (p for p in pages.values() if p["section"].get("live")):
             lines += ["  <url>", f'    <loc>{SITE}{p["url"]}</loc>', "    <priority>0.6</priority>", "  </url>"]
     block = "\n".join(lines + ["  " + MARK[1]])
     if MARK[0] in current:
         return re.sub(re.escape(MARK[0]) + r".*?" + re.escape(MARK[1]), lambda _: block.lstrip(), current, flags=re.S)
-    if not nav.get("live"):
+    if not live:
         return current
     return current.replace("</urlset>", block + "\n</urlset>")
 
@@ -326,7 +332,7 @@ def outputs(src=SRC, root=ROOT):
         name = page["path"]
         files[f"docs/{name}.html"] = render(nav, pages, page)
         files[f"docs/{name}.md"] = markdown_copy(page)
-    if nav.get("live"):
+    if any(s.get("live") for s in nav["sections"]):
         files["llms.txt"] = llms_txt(nav, pages)
     current = (root / "sitemap.xml").read_text() if (root / "sitemap.xml").is_file() else ""
     if current:
