@@ -1,6 +1,6 @@
 # Imaging
 
-Reference for the Imaging workspace of 4DSTEM Studio: virtual imaging with its detector shapes and presets, diffraction from a scan region, and diffraction groups.
+Reference for the Imaging workspace of 4DSTEM Studio: virtual images with detector shapes and presets, diffraction from a scan region, diffraction groups.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">Imaging turns the scan into pictures: a virtual image from a detector you draw, and the diffraction of a region you choose. This page lists every control of its two tasks.</p>

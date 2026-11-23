@@ -73,7 +73,7 @@ and `llms.txt`. The `.nojekyll` file makes GitHub Pages serve the repository as 
 ## Checks and releases
 
 CI (`.github/workflows/ci.yml`) runs on every push to `main`, on pull requests, and once a day. It scans for
-references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, no page text (alt text and link previews included) may use an old app name, each
+references to private material and runs `tools/check_site.py`: every internal link and `#fragment` must resolve, every page that can be a search result has one `<h1>`, a title of at most 70 characters, a description of 50 to 160, a canonical link to itself and a link preview (`og:title` and an `og:image` that is a file of the site), no page text (alt text and link previews included) may use an old app name, each
 app page must state the latest release's version and `.dmg` size (in the text and in the JSON-LD), and
 `suite/releases.html` must name each kit's and EMSuiteUI's latest tag. Run it locally with
 `python3 tools/check_site.py` (or `--offline` for links and names only).

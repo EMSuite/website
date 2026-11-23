@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Answers to the usual problems in Electron Microscopy Studio: files that cannot be read, folder access, a workspace or part that is dimmed, images without a scale, updates and the agent door.
+description: Answers to common problems in Electron Microscopy Studio: files that cannot be read, folder access, dimmed workspaces, images without a scale, updates.
 applies_to: 2.1
 ---
 

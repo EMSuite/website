@@ -1,6 +1,6 @@
 ---
 title: EDS
-description: Reference for the EDS part of the Spectroscopy workspace in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.
+description: Reference for EDS in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.
 applies_to: 2.1
 ---
 

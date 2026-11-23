@@ -144,6 +144,78 @@ def target(page, ref):
     return f, u.fragment
 
 
+# What a search result and a link preview show (RL6). The 404 page and forwarding pages are not results.
+TITLE_MAX = 70
+DESCRIPTION_RANGE = (50, 160)
+SITE_URL = "https://mac4dstem.com"
+
+
+class Head(html.parser.HTMLParser):
+    """A page's title, its meta tags, its canonical link and how many h1 it has."""
+    def __init__(self):
+        super().__init__()
+        self.title, self.meta, self.canonical, self.h1, self.refresh, self._in_title = None, {}, None, 0, False, False
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "title":
+            self._in_title, self.title = True, ""
+        elif tag == "meta":
+            key = a.get("name") or a.get("property")
+            if key:
+                self.meta[key] = a.get("content") or ""
+            if (a.get("http-equiv") or "").lower() == "refresh":
+                self.refresh = True
+        elif tag == "link" and a.get("rel") == "canonical":
+            self.canonical = a.get("href")
+        elif tag == "h1":
+            self.h1 += 1
+
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self._in_title = False
+
+    def handle_data(self, data):
+        if self._in_title:
+            self.title += data
+
+
+def check_heads(root=None):
+    """Every page a search engine may show: one h1, a title and a description of the right length, a canonical
+    link to itself, and a link preview (og:title and an og:image that is a file of this site)."""
+    root = root or ROOT
+    errors = []
+    for page in sorted(p for p in root.rglob("*.html") if not SKIP & set(p.relative_to(root).parts)):
+        name = str(page.relative_to(root))
+        h = Head()
+        h.feed(page.read_text())
+        title = re.sub(r"\s+", " ", h.title or "").strip()
+        if not title:
+            errors.append(f"{name}: no <title>")
+        elif len(title) > TITLE_MAX:
+            errors.append(f"{name}: the title has {len(title)} characters, at most {TITLE_MAX}: {title}")
+        if name == "404.html" or h.refresh:
+            continue
+        if h.h1 != 1:
+            errors.append(f"{name}: {h.h1} <h1>, a page has one main heading")
+        lo, hi = DESCRIPTION_RANGE
+        d = h.meta.get("description", "")
+        if not lo <= len(d) <= hi:
+            errors.append(f"{name}: the description has {len(d)} characters, {lo} to {hi}")
+        rel = name.removesuffix("index.html")
+        want = f"{SITE_URL}/{rel}"
+        if h.canonical != want:
+            errors.append(f"{name}: canonical link {h.canonical}, should be {want}")
+        if not h.meta.get("og:title"):
+            errors.append(f"{name}: no og:title for the link preview")
+        img = h.meta.get("og:image", "")
+        if not img.startswith(SITE_URL + "/"):
+            errors.append(f"{name}: og:image must be a picture of this site, not {img or 'nothing'}")
+        elif not (root / img[len(SITE_URL) + 1:]).is_file():
+            errors.append(f"{name}: og:image {img} names no file")
+    return errors
+
+
 def check_links():
     errors, parsed = [], {}
     for page in pages():
@@ -274,6 +346,8 @@ def main():
     a = ap.parse_args()
     errors, n = check_links()
     print(f"links: {n} pages checked")
+    errors += check_heads()
+    print("heads: title, description, one h1, canonical link and link preview")
     errors += check_names()
     print(f"names: {n} pages checked for old app names")
     if not a.offline:

@@ -1,6 +1,6 @@
 # EDS
 
-Reference for the EDS part of the Spectroscopy workspace in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.
+Reference for EDS in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.
 
 Applies to Electron Microscopy Studio 2.1 and later.
 <p class="lede">EDS works on an EDS spectrum image or a single spectrum, from a TEM or an SEM. This page lists every control of the part, which is in the Spectroscopy workspace.</p>

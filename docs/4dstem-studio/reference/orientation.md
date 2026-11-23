@@ -1,6 +1,6 @@
 # Orientation
 
-Reference for the Orientation task in the Crystal Maps workspace of 4DSTEM Studio: the area, the phase model, the quality levels, the engine, the Q scale and the display modes.
+Reference for orientation mapping in 4DSTEM Studio's Crystal Maps: the area, the phase model, quality levels, the engine, the Q scale and the display modes.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">Orientation matches the detected disks at each scan position against templates of one crystal and maps the orientation that fits best. This page lists every control of the task, which is in the Crystal Maps workspace.</p>

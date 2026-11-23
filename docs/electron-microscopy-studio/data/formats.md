@@ -1,6 +1,6 @@
 # File formats
 
-The TEM and SEM file formats Electron Microscopy Studio opens: images, EDS and EELS spectrum images, EBSD patterns and orientation maps, and the files that are read together.
+The TEM and SEM file formats Electron Microscopy Studio opens: images, EDS and EELS spectrum images, EBSD patterns, orientation maps and paired files.
 
 Applies to Electron Microscopy Studio 2.1 and later.
 <p class="lede">Open the file the microscope wrote. What the file holds decides where it opens.</p>
