@@ -1,6 +1,6 @@
 # Bragg Disks
 
-Reference for the Bragg Disks workspace of 4DSTEM Studio: the probe kernel, the detector, every disk detection setting with its default, and the counts the app reports.
+Reference for the Bragg Disks workspace of 4DSTEM Studio: the probe kernel, the detector, every disk detection setting with its default, and the counts.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">Bragg Disks finds the diffraction disks in every pattern. This page lists every control of its inspector under the name the app shows.</p>

@@ -1,6 +1,6 @@
 ---
 title: EELS
-description: Reference for the EELS part of the Spectroscopy workspace in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.
+description: Reference for EELS in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.
 applies_to: 2.1
 ---
 

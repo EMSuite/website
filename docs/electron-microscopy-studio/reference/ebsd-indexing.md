@@ -1,6 +1,6 @@
 # EBSD Indexing
 
-Reference for the Indexing part of the EBSD workspace in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.
+Reference for EBSD indexing in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.
 
 Applies to Electron Microscopy Studio 2.1 and later.
 <p class="lede">Indexing finds the crystal orientation of every pattern of an EBSD or TKD scan, by Hough indexing or by dictionary indexing. This page lists every control of the part, which is in the EBSD workspace.</p>

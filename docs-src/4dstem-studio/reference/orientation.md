@@ -1,6 +1,6 @@
 ---
 title: Orientation
-description: Reference for the Orientation task in the Crystal Maps workspace of 4DSTEM Studio: the area, the phase model, the quality levels, the engine, the Q scale and the display modes.
+description: Reference for orientation mapping in 4DSTEM Studio's Crystal Maps: the area, the phase model, quality levels, the engine, the Q scale and the display modes.
 applies_to: 5.4
 ---
 

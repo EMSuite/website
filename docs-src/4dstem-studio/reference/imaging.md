@@ -1,6 +1,6 @@
 ---
 title: Imaging
-description: Reference for the Imaging workspace of 4DSTEM Studio: virtual imaging with its detector shapes and presets, diffraction from a scan region, and diffraction groups.
+description: Reference for the Imaging workspace of 4DSTEM Studio: virtual images with detector shapes and presets, diffraction from a scan region, diffraction groups.
 applies_to: 5.4
 ---
 
