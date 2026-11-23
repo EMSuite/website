@@ -1,0 +1,13 @@
+{
+  "about": "The public datasets a tutorial may use: its key (the dataset field of a tutorial's front matter), title, DOI and licence as read from the record, and the reference recipes of the suite (tools/door/plan.json, plan-macEM.json) that run on it. Only public datasets are listed. A new recipe for a public dataset is added here in the same change as its tutorial. tools/build_docs.py refuses a tutorial whose dataset is not here with a licence and a DOI, or whose recipe is not one of its dataset's.",
+  "datasets": {
+    "srtio3-100": {"title": "SrTiO3 along [100], high magnification", "doi": "10.5281/zenodo.5113449", "licence": "CC BY 4.0", "app": "4DSTEM Studio", "recipes": []},
+    "bfo-bto-films": {"title": "BiFeO3–BaTiO3 films", "doi": "10.5281/zenodo.23890861", "licence": "CC BY 4.0", "app": "4DSTEM Studio", "recipes": []},
+    "almgsi-sheared-beta": {"title": "Sheared β″ precipitates in Al-Mg-Si", "doi": "10.5281/zenodo.2652906", "licence": "CC BY 4.0", "app": "4DSTEM Studio", "recipes": ["aa6060-ntnu"]},
+    "alculi-phase-mapping": {"title": "Precipitate phase mapping in aluminium alloys", "doi": "10.5281/zenodo.6645396", "licence": "CC BY 4.0", "app": "4DSTEM Studio", "recipes": ["thronsen-A"]},
+    "nickel-ebsd-gain": {"title": "Nickel EBSD patterns with varying camera gain", "doi": "10.5281/zenodo.7497682", "licence": "CC BY 4.0", "app": "Electron Microscopy Studio", "recipes": ["patterns-nickel"]},
+    "rr1000-ebsd-map": {"title": "EBSD map of shot-peened RR1000", "doi": "10.5281/zenodo.4730184", "licence": "CC BY 4.0", "app": "Electron Microscopy Studio", "recipes": ["maps-rr1000-ctf"]},
+    "alite-sem-bse": {"title": "Large SEM-BSE images of hydrated alite", "doi": "10.5281/zenodo.8210797", "licence": "CC BY 4.0", "app": "Electron Microscopy Studio", "recipes": []},
+    "pyxem-demo": {"title": "pyxem demo data", "doi": "10.5281/zenodo.14113591", "licence": "CC BY 4.0", "app": "Electron Microscopy Studio", "recipes": ["diffraction-au-grating"]}
+  }
+}
