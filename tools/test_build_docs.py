@@ -12,15 +12,18 @@ PAGE = "---\ntitle: {title}\ndescription: A page.\n{extra}---\n\n## Heading\n\n|
 class Site:
     """A small docs-src and sitemap.xml in a temporary folder."""
 
-    def __init__(self, live=False, extra=""):
+    def __init__(self, live=(), extra=""):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
         self.src = self.root / "docs-src"
         (self.src / "app").mkdir(parents=True)
-        nav = {"live": live, "summary": "Docs.", "sections": [
+        nav = {"summary": "Docs.", "sections": [
             {"title": "Overview", "groups": [{"pages": ["index"]}]},
             {"title": "App", "app": "App Studio", "groups": [
                 {"pages": ["app/index"]}, {"title": "Get started", "pages": ["app/install"]}]}]}
+        for section in nav["sections"]:
+            if section["title"] in live:
+                section["live"] = True
         (self.src / "nav.json").write_text(json.dumps(nav))
         (self.src / "index.md").write_text(PAGE.format(title="Documentation", extra=""))
         (self.src / "app" / "index.md").write_text(PAGE.format(title="App", extra=""))
@@ -69,13 +72,33 @@ class Build(unittest.TestCase):
         self.assertEqual(files["sitemap.xml"], (site.root / "sitemap.xml").read_text())
 
     def test_live_is_listed_once(self):
-        site = Site(live=True)
+        site = Site(live=("Overview", "App"))
         files = site.outputs()
         self.assertIn('<meta name="robots" content="index, follow">', files["docs/index.html"])
         self.assertIn("- [Install](https://mac4dstem.com/docs/app/install.md): A page.", files["llms.txt"])
         self.assertEqual(files["sitemap.xml"].count("<loc>https://mac4dstem.com/docs/app/install.html</loc>"), 1)
         (site.root / "sitemap.xml").write_text(files["sitemap.xml"])
         self.assertEqual(site.outputs()["sitemap.xml"], files["sitemap.xml"])
+
+    def test_a_mixed_nav_lists_only_its_live_sections(self):
+        site = Site(live=("App",))
+        files = site.outputs()
+        self.assertIn('<meta name="robots" content="index, follow">', files["docs/app/install.html"])
+        self.assertIn('<meta name="robots" content="noindex">', files["docs/index.html"])
+        self.assertIn("<loc>https://mac4dstem.com/docs/app/install.html</loc>", files["sitemap.xml"])
+        self.assertIn("<loc>https://mac4dstem.com/docs/app/</loc>", files["sitemap.xml"])
+        self.assertNotIn("<loc>https://mac4dstem.com/docs/</loc>", files["sitemap.xml"])
+        self.assertIn("## App", files["llms.txt"])
+        self.assertNotIn("## Overview", files["llms.txt"])
+        self.assertNotIn("(https://mac4dstem.com/docs/index.md)", files["llms.txt"])
+
+    def test_a_whole_docs_live_switch_is_refused(self):
+        site = Site()
+        nav = json.loads((site.src / "nav.json").read_text())
+        nav["live"] = True
+        (site.src / "nav.json").write_text(json.dumps(nav))
+        with self.assertRaisesRegex(b.DocsError, "set per section"):
+            site.outputs()
 
     def test_nav_and_sources_must_agree(self):
         site = Site()
