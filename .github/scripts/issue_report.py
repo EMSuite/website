@@ -101,7 +101,7 @@ def main() -> int:
     body = render(out, status)
     existing = [i for i in issues if i.get("title") == REPORT_TITLE and "pull_request" not in i]
     if body:
-        text = f"Open work that breaks the suite's issue rules (EMSuite CLAUDE.md), found by the weekly check.\n\n{body}\n"
+        text = f"Open work that breaks the suite's issue rules (milestone, one kind label, dependencies, status page), found by the weekly check.\n\n{body}\n"
         if existing:
             gh("issue", "edit", str(existing[0]["number"]), "--repo", repo, "--body", text)
         else:
