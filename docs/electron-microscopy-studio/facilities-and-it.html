@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Electron Microscopy Studio for facilities and IT — Documentation</title>
+<meta name="description" content="What Electron Microscopy Studio installs, touches and connects to, its licence and where to report a problem. For facility managers and IT staff.">
+<link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/facilities-and-it.html">
+<link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/facilities-and-it.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Electron Microscopy Studio">
+<meta property="og:url" content="https://mac4dstem.com/docs/electron-microscopy-studio/facilities-and-it.html">
+<meta property="og:title" content="Electron Microscopy Studio for facilities and IT">
+<meta property="og:description" content="What Electron Microscopy Studio installs, touches and connects to, its licence and where to report a problem. For facility managers and IT staff.">
+<meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/"><img src="/assets/icon-512.png" alt="" width="512" height="512"><span><em>4D</em>STEM Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/electron-microscopy-studio/">Electron Microscopy Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/tasks/">Tasks</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/" aria-current="true">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Get started</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/install.html">Install</a></li>
+      <li><a href="/docs/electron-microscopy-studio/first-look.html">First look</a></li>
+      <li><a href="/docs/electron-microscopy-studio/window.html">The window</a></li>
+    </ul>
+    <p class="docs-group">Your data</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/sessions.html">Sessions</a></li>
+      <li><a href="/docs/electron-microscopy-studio/data/export.html">Export</a></li>
+    </ul>
+    <p class="docs-group">Reference</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/reference/image.html">Image</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/fft.html">FFT</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html">EBSD Patterns</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-indexing.html">EBSD Indexing</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/ebsd-maps.html">EBSD Maps</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/eels.html">EELS</a></li>
+      <li><a href="/docs/electron-microscopy-studio/reference/results.html">Results</a></li>
+    </ul>
+    <p class="docs-group">Methods</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/methods.html">Methods</a></li>
+    </ul>
+    <p class="docs-group">Help</p>
+    <ul>
+      <li><a href="/docs/electron-microscopy-studio/troubleshooting.html">Troubleshooting</a></li>
+      <li><a href="/docs/electron-microscopy-studio/facilities-and-it.html" aria-current="page">Facilities and IT</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Electron Microscopy Studio · Help</p>
+      <h1>Electron Microscopy Studio for facilities and IT</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+<p class="lede">A free, signed and notarized Mac app. No account, no Python, no server. It reads the files you choose and sends nothing about them anywhere.</p>
+
+<h2 id="install">Install</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>How</th>
+<th>Updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disk image</td>
+<td><a href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download the .dmg</a>, drag the app to Applications</td>
+<td>The app checks once a day; the check can be turned off in Settings</td>
+</tr>
+<tr>
+<td>Mac App Store</td>
+<td>Install from the store page</td>
+<td>The App Store updates it</td>
+</tr>
+</tbody>
+</table></div>
+<p>Needs an Apple silicon Mac with macOS 26 or later, and about 36 MB. To remove it, drag the app to the Trash.</p>
+<h2 id="what-the-app-touches">What the app touches</h2>
+<ul>
+<li>It runs in the macOS App Sandbox. It opens only the files and folders a person picks in an Open or Save panel.</li>
+<li>Next to an image it writes one session file, <code>&lt;name&gt;.mactem.h5</code>. Your data file is never changed.</li>
+<li>Settings and recent files are in the app's own container.</li>
+<li>It sends no analytics, no crash reports and no usage data.</li>
+</ul>
+<h2 id="what-it-connects-to">What it connects to</h2>
+<ul>
+<li><strong>Update check</strong> (disk image only): once a day it reads a small feed from mac4dstem.com, with no system profile. An update you accept is downloaded from GitHub.</li>
+<li><strong>Agent access</strong>: off by default. When a person turns it on in Settings, the app listens on this Mac's loopback address only, and answers only requests that carry its token.</li>
+<li><strong>Release 2.3 adds one connection</strong>: the phase search, which asks the Materials Project for crystal structures. It starts only when a person searches, and sends the search terms. Nothing else leaves the Mac.</li>
+</ul>
+<h2 id="licence-and-reports">Licence and reports</h2>
+<p>GPL-3.0-only; the source is on <a href="https://github.com/EMSuite/Electron-Microscopy-Studio">GitHub</a>. Questions and bugs go to the <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/issues">issue tracker</a>. Security problems go through the repository's private reporting (Security tab, then Report a vulnerability). Other questions: <a href="mailto:mail@mac4dstem.com">mail@mac4dstem.com</a>. See also <a href="/privacy.html">Privacy</a>.</p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/troubleshooting.html"><span>Previous</span>Troubleshooting</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

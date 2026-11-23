@@ -263,3 +263,18 @@
 /* ---- task pages: the download button keeps its own colours inside an article ---- */
 .doc a.get-btn { color: var(--on-accent); }
 .doc .get-meta a { color: inherit; }
+
+/* Print: the page alone, in black on white, so a documentation page (the facilities and IT page above all) fits one sheet. */
+@media print {
+  @page { margin: 14mm; }
+  .masthead, .site-footer, .docs-nav, .docs-pager, .skip { display: none !important; }
+  .docs { display: block; }
+  body { background: #fff; color: #000; font-size: 9.5pt; line-height: 1.35; }
+  .docs .doc, .docs .doc p, .docs .doc ul, .docs .doc ol { max-width: none; }
+  .docs .doc .lede { font-size: 11.5pt; margin: 0 0 0.5rem; }
+  .docs .doc h2 { margin-top: 0.9rem; font-size: 12pt; }
+  .docs .doc h1 { font-size: 18pt; margin: 0 0 0.4rem; }
+  .docs .doc p, .docs .doc ul, .docs .doc table { margin-bottom: 0.5rem; }
+  a { color: inherit; text-decoration: none; }
+  .tablewrap { overflow: visible; }
+}

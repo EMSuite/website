@@ -35,3 +35,4 @@
 - [Results](https://mac4dstem.com/docs/electron-microscopy-studio/reference/results.md): Reference for the Results workspace of Electron Microscopy Studio: the table of every measurement of a file, what each row records, and the export.
 - [Methods and their references](https://mac4dstem.com/docs/electron-microscopy-studio/methods.md): Every number Electron Microscopy Studio computes itself, the Python package it is checked against, and the tolerance.
 - [Troubleshooting](https://mac4dstem.com/docs/electron-microscopy-studio/troubleshooting.md): Answers to common problems in Electron Microscopy Studio: files that cannot be read, folder access, dimmed workspaces, images without a scale, updates.
+- [Electron Microscopy Studio for facilities and IT](https://mac4dstem.com/docs/electron-microscopy-studio/facilities-and-it.md): What Electron Microscopy Studio installs, touches and connects to, its licence and where to report a problem. For facility managers and IT staff.
