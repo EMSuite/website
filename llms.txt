@@ -6,6 +6,15 @@
 
 - [Documentation](https://mac4dstem.com/docs/index.md): How to install 4DSTEM Studio and Electron Microscopy Studio, open your data and work through an analysis step by step, by hand or with an AI agent.
 
+## Tasks
+
+- [What do you want to do?](https://mac4dstem.com/docs/tasks/index.md): Common electron microscopy tasks on a Mac and how Electron Microscopy Studio does each one in three steps.
+- [Open DM3, DM4 and EMD files on a Mac](https://mac4dstem.com/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.md): Open DigitalMicrograph .dm3 and .dm4 and Velox .emd files natively on a Mac, with the pixel size read from the file.
+- [Measure d-spacings from an HRTEM image](https://mac4dstem.com/docs/tasks/measure-d-spacings-from-an-hrtem-image.md): Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.
+- [Calibrate and index a ring pattern](https://mac4dstem.com/docs/tasks/calibrate-and-index-a-ring-pattern.md): Calibrate an electron diffraction pattern on a gold, aluminium or silicon ring, then index the rings and spots against a crystal or a CIF.
+- [Quantify an EDS spectrum image](https://mac4dstem.com/docs/tasks/quantify-an-eds-spectrum-image.md): Quantify a TEM or SEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties.
+- [Index EBSD patterns on a Mac](https://mac4dstem.com/docs/tasks/index-ebsd-patterns-on-a-mac.md): Index EBSD and TKD patterns on a Mac by Hough or dictionary indexing, as kikuchipy does, and export the map as .ang or .ctf.
+
 ## Electron Microscopy Studio
 
 - [Electron Microscopy Studio](https://mac4dstem.com/docs/electron-microscopy-studio/index.md): Documentation for Electron Microscopy Studio, the native macOS app for TEM and SEM data: getting started, your data, reference and troubleshooting.

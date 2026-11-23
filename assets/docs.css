@@ -260,3 +260,6 @@
 .docs .doc table.methods th:nth-child(2) { width: 36%; }
 .docs .doc table.methods td { overflow-wrap: anywhere; vertical-align: top; }
 .docs .doc table.methods code { white-space: normal; overflow-wrap: anywhere; }
+/* ---- task pages: the download button keeps its own colours inside an article ---- */
+.doc a.get-btn { color: var(--on-accent); }
+.doc .get-meta a { color: inherit; }

@@ -47,6 +47,38 @@ class FrontMatter(unittest.TestCase):
                 b.split_front_matter(text)
 
 
+class TaskPages(unittest.TestCase):
+    def meta(self, title="Open DM3 files on a Mac", description="Open them."):
+        return {"title": title, "description": description}
+
+    def test_a_short_page_named_by_its_task_passes(self):
+        body = "1. Choose <span class=\"ui\">Open Image…</span> and see [Formats](/docs/a/formats.html).\n"
+        self.assertEqual(b.words(body), ["1.", "Choose", "Open", "Image…", "and", "see", "Formats"])
+        self.assertEqual(b.check_task("tasks/open-dm3-files-on-a-mac", self.meta(), body), [])
+
+    def test_each_limit_fails_on_its_own(self):
+        path = "tasks/open-dm3-files-on-a-mac"
+        self.assertIn("201 words", b.check_task(path, self.meta(), "word " * 201)[0])
+        self.assertIn("title has 61", b.check_task(path, self.meta(title="Open DM3 files on a Mac " + "x" * 37), "")[0])
+        self.assertIn("description has 161", b.check_task(path, self.meta(description="d" * 161), "")[0])
+
+    def test_the_address_words_must_be_in_the_title(self):
+        errors = b.check_task("tasks/open-emd-files-on-a-mac", self.meta(), "")
+        self.assertEqual(len(errors), 1)
+        self.assertIn("emd", errors[0])
+
+    def test_a_long_task_page_stops_the_build(self):
+        site = Site()
+        nav = json.loads((site.src / "nav.json").read_text())
+        nav["sections"].append({"title": "Tasks", "groups": [{"pages": ["tasks/index", "tasks/open-dm3-files"]}]})
+        (site.src / "nav.json").write_text(json.dumps(nav))
+        (site.src / "tasks").mkdir()
+        (site.src / "tasks" / "index.md").write_text(PAGE.format(title="Tasks", extra="") + "word " * 300)
+        (site.src / "tasks" / "open-dm3-files.md").write_text(PAGE.format(title="Open DM3 files", extra="") + "word " * 300)
+        with self.assertRaisesRegex(b.DocsError, "tasks/open-dm3-files.md: 3.. words"):
+            site.outputs()
+
+
 class Build(unittest.TestCase):
     def test_pages_markdown_copies_and_addresses(self):
         files = Site(extra="applies_to: 5.4\n").outputs()
