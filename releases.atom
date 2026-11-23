@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>EMSuite releases</title>
+  <subtitle>New versions of 4DSTEM Studio, Electron Microscopy Studio and the Swift kits they are built on.</subtitle>
+  <id>https://mac4dstem.com/releases.atom</id>
+  <link rel="self" type="application/atom+xml" href="https://mac4dstem.com/releases.atom"/>
+  <link rel="alternate" type="text/html" href="https://mac4dstem.com/suite/releases.html"/>
+  <updated>2026-11-19T06:54:15Z</updated>
+  <author><name>EMSuite</name></author>
+  <entry>
+    <title>Electron Microscopy Studio 2.1.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.1"/>
+    <id>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.1</id>
+    <updated>2026-11-19T06:54:15Z</updated>
+    <category term="Electron Microscopy Studio"/>
+    <summary type="text">Electron Microscopy Studio 2.1.1 opens large files in less memory, offers EDS Auto ID's near misses as one-click Adds, and takes its new name.
+
+• Opening a large image shows its stage and time, and Stop cancels it.
+• DM4 spectrum images open, and a second EELS Align runs, in far less memory.
+• Better keyboard and VoiceOver use across the rooms.
+• Export sheets open on the window that asked; File &gt; Open with every window minimised no longer opens an extra empty one.
+
+Results can differ from 2.1.0: an EDS element found by its L line is quantified on its Kα when the spectrum holds it well excited.</summary>
+  </entry>
+  <entry>
+    <title>4DSTEM Studio 5.4.3</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.3"/>
+    <id>https://github.com/EMSuite/4DSTEM-Studio/releases/tag/v5.4.3</id>
+    <updated>2026-11-18T21:02:06Z</updated>
+    <category term="4DSTEM Studio"/>
+    <summary type="text">Version 5.4.3 is a maintenance release.
+
+• The download from mac4dstem.com is now named 4DSTEM Studio, like the App Store version. Settings and recent datasets carry over, and in-app updates keep working; a copy that updates itself keeps its old file name in Applications for now.</summary>
+  </entry>
+  <entry>
+    <title>SpectroKit 0.16.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.16.0"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.16.0</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.16.0: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.16.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.18.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.18.0"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.18.0</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.18.0: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.18.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>EMSuiteUI 0.13.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/EMSuiteUI/releases/tag/0.13.0"/>
+    <id>https://github.com/EMSuite/EMSuiteUI/releases/tag/0.13.0</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary type="text">EMSuiteUI 0.13.0: the changes are in its CHANGELOG (https://github.com/EMSuite/EMSuiteUI/blob/0.13.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>DiffractoKit 0.18.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/DiffractoKit/releases/tag/0.18.1"/>
+    <id>https://github.com/EMSuite/DiffractoKit/releases/tag/0.18.1</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary type="text">DiffractoKit 0.18.1: the changes are in its CHANGELOG (https://github.com/EMSuite/DiffractoKit/blob/0.18.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>CuboKit 0.12.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/CuboKit/releases/tag/0.12.1"/>
+    <id>https://github.com/EMSuite/CuboKit/releases/tag/0.12.1</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary type="text">CuboKit 0.12.1: the changes are in its CHANGELOG (https://github.com/EMSuite/CuboKit/blob/0.12.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>ImagoKit 0.11.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/ImagoKit/releases/tag/0.11.0"/>
+    <id>https://github.com/EMSuite/ImagoKit/releases/tag/0.11.0</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <summary type="text">ImagoKit 0.11.0: the changes are in its CHANGELOG (https://github.com/EMSuite/ImagoKit/blob/0.11.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.5.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.5.0"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.5.0</id>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.5.0: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.5.0/CHANGELOG.md).</summary>
+  </entry>
+</feed>
