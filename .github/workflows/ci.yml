@@ -40,3 +40,5 @@ jobs:
         run: python3 -m unittest discover -s tools -p 'test_*.py'
       - name: docs/ is what docs-src gives
         run: python3 tools/build_docs.py --check
+      - name: releases.atom is what the update feeds and the releases page give
+        run: python3 tools/build_feed.py --check

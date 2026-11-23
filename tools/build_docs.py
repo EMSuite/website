@@ -52,6 +52,7 @@ HEAD = """<!DOCTYPE html>
 
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/docs.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
 </head>
 
 <body>
