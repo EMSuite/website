@@ -148,6 +148,35 @@ def target(page, ref, root=None):
     return f, u.fragment
 
 
+FEED_LINK = '<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">'
+
+
+def check_feed_links(root=None):
+    """Every page links the release feed in its head, and the feed's newest entry of each app is the release its
+    update feed offers."""
+    root = root or ROOT
+    errors = [f"{p.relative_to(root)}: no link to the release feed in its head ({FEED_LINK})"
+              for p in sorted(p for p in root.rglob("*.html") if not SKIP & set(p.relative_to(root).parts))
+              if FEED_LINK not in p.read_text().split("</head>")[0]]
+    atom = root / "releases.atom"
+    if not atom.is_file():
+        return errors + ["releases.atom: missing: run python3 tools/build_feed.py"]
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import build_feed
+    newest = build_feed.newest_app_versions(atom.read_text())
+    for path in build_feed.APPS:
+        f = root / path
+        if not f.is_file():
+            continue
+        channel = ET.parse(f).getroot().find("channel")
+        ver = channel.findtext(f"item/{SPARKLE}shortVersionString")
+        app = channel.findtext("title")
+        if newest.get(app) != ver:
+            errors.append(f"releases.atom: the newest {app} entry is {newest.get(app)}, {path} offers {ver}: "
+                          "run python3 tools/build_feed.py")
+    return errors
+
+
 # What a search result and a link preview show (RL6). The 404 page and forwarding pages are not results.
 TITLE_MAX = 70
 DESCRIPTION_RANGE = (50, 160)
@@ -381,6 +410,8 @@ def main():
     a = ap.parse_args()
     errors, n = check_links()
     print(f"links: {n} pages checked")
+    errors += check_feed_links()
+    print("feed: every page links it, and it names each app's latest release")
     errors += check_moved()
     print(f"moved: {len(MOVED)} old addresses checked")
     errors += check_heads()
