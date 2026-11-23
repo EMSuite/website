@@ -1,0 +1,25 @@
+name: Spike
+description: A risk to retire before design. The answer goes into this issue; no code merges unless it says so.
+labels: [report]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+    validations: {required: true}
+  - type: textarea
+    id: settle
+    attributes:
+      label: What would settle it, and what would refute the answer
+    validations: {required: true}
+  - type: textarea
+    id: limit
+    attributes:
+      label: Limit
+      value: One session. No PR to main unless the outcome names one.
+    validations: {required: true}
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: Left empty here. The outcome is a comment on this issue that states the answer, its evidence and the issues it creates.

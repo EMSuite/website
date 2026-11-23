@@ -1,0 +1,52 @@
+name: Kit port
+description: One method ported into a kit from its pinned Python reference.
+labels: [science]
+body:
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and literature reference
+      description: The method's name and the paper it comes from (it goes into docs/parity.md).
+    validations: {required: true}
+  - type: textarea
+    id: reference
+    attributes:
+      label: Python reference
+      description: Package, pinned version or commit, and the function.
+    validations: {required: true}
+  - type: textarea
+    id: tolerance
+    attributes:
+      label: Tolerance and its source
+      description: The tolerance that package's own tests use for the function, never stricter (D12); assert_allclose defaults for the dtype where it states none.
+    validations: {required: true}
+  - type: textarea
+    id: api
+    attributes:
+      label: Public API sketch
+      render: swift
+    validations: {required: true}
+  - type: textarea
+    id: fixtures
+    attributes:
+      label: Fixtures
+      description: The generator that writes them from the reference, and its inputs (public data only).
+    validations: {required: true}
+  - type: textarea
+    id: d16
+    attributes:
+      label: CPU and Metal plan (D16)
+      description: The float64 CPU path on Accelerate; a Metal float32 path only where size pays, checked against the CPU at the upstream float32 tolerance.
+    validations: {required: true}
+  - type: input
+    id: consumer
+    attributes:
+      label: Consumer
+      description: The app or EMSuiteUI issue that waits for this, as EMSuite/<repo>#n.
+    validations: {required: true}
+  - type: textarea
+    id: depends
+    attributes:
+      label: Depends on
+      description: Full references, one per line, or "none".
+      value: none

@@ -1,0 +1,42 @@
+# The suite's checks (synced from EMSuite/EMSuite tools/github/checks.yml by tools/github/sync.sh; edit it there).
+# On every PR: the title is a conventional commit and the body names its issue (chore(deps) and the Release PR are
+# exempt). Weekly: one report issue lists open issues that break the issue rules. Linux only; no macOS slot.
+name: checks
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+      - name: title and issue
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_HEAD: ${{ github.event.pull_request.head.ref }}
+        run: python3 .github/scripts/pr_check.py
+  issue-report:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+      - name: weekly issue report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/issue_report.py
