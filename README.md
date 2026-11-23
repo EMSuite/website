@@ -25,7 +25,8 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | Path | Purpose |
 |---|---|
 | `index.html` | The mac4DSTEM page and landing page. Page-specific styling lives in its `<style>` block. |
-| `mactem/index.html` | The macEM page (macTEM up to 1.3), in the landing page's style (its own `<style>` block, the demo left out). |
+| `electron-microscopy-studio/index.html` | The Electron Microscopy Studio page, in the landing page's style (its own `<style>` block, the demo left out). |
+| `mactem/index.html` | Forwards the page's old address to `/electron-microscopy-studio/` (noindex, canonical link). `tools/check_site.py` fails when it stops forwarding or when anything in the site links it. |
 | `privacy.html` | Privacy policy for both applications and the site. |
 | `support.html` | Support, requirements, and known limitations of both applications. |
 | `impressum.html` | Provider identification (§ 5 DDG). |
@@ -35,6 +36,7 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
 | `suite/` | Kits overview, benchmarks and releases pages for the macEM suite. Generated, do not edit. |
 | `tools/build_suite_pages.py` | Generates `suite/` from the kits' and MacEMUI's CHANGELOG, `docs/parity.md` and `docs/benchmarks.md`. Run `python3 tools/build_suite_pages.py --fetch` after a kit or MacEMUI release. |
 | `docs-src/` | The documentation's sources: `nav.json` (sections, groups, page order) and one Markdown file per page. |
+| `docs-src/datasets.json` | The public datasets tutorials may use: DOI, licence, and the names of the suite's reference recipes on each (a copy, since the suite repository is private). |
 | `docs/` | The documentation pages and their Markdown copies. Generated, do not edit. |
 | `assets/docs.css` | Styling of the documentation pages, on top of `site.css`. |
 | `tools/build_docs.py` | Generates `docs/` from `docs-src/`. Needs Python-Markdown: `pip install -r tools/requirements.txt`. |
@@ -56,7 +58,9 @@ opening `index.html` directly from the filesystem will not load the stylesheet.
    ```
 
    `applies_to` is the app version the page was read against; the page shows "Applies to … 5.4 and later".
-   A tutorial also names its `recipe` and `dataset`.
+   A tutorial also names its `recipe` and `dataset`: the dataset is a key of `docs-src/datasets.json`, which lists each
+   public dataset with its DOI and licence and the suite's recipes that run on it, and the build refuses a tutorial
+   whose dataset or recipe is not there.
    When the app has a new minor release, `tools/check_site.py` fails for every page whose `applies_to` is behind it:
    read the page against the new version, correct it, and move the stamp. A feature that arrived with that version
    gets a note in the text, `!!! note "New in 5.5"`. There are no copies of the documentation per version.

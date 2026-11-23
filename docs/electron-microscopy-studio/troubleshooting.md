@@ -40,7 +40,7 @@ Each part of a workspace needs its own kind of data. A dimmed one says why when 
 
 The app checks once a day whether a newer version exists. To check now, choose <span class="ui">Check for Updates…</span> in the app menu. To turn the daily check off, clear <span class="ui">Settings › Software Update › Check for updates automatically</span>.
 
-If an update does not install, download the current disk image from the [Electron Microscopy Studio page](/mactem/) and replace the app in Applications. Your settings stay.
+If an update does not install, download the current disk image from the [Electron Microscopy Studio page](/electron-microscopy-studio/) and replace the app in Applications. Your settings stay.
 
 ## An agent cannot connect
 
