@@ -1,6 +1,6 @@
 # EELS
 
-Reference for the EELS part of the Spectroscopy workspace in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.
+Reference for EELS in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.
 
 Applies to Electron Microscopy Studio 2.1 and later.
 <p class="lede">EELS maps the thickness from the low loss and quantifies core-loss edges of an EELS spectrum image. This page lists every control of the part, which is in the Spectroscopy workspace.</p>

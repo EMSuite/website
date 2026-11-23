@@ -1,6 +1,6 @@
 # FFT
 
-Reference for the FFT part of the Imaging workspace in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and the HRTEM filters.
+Reference for the FFT in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and HRTEM filters.
 
 Applies to Electron Microscopy Studio 2.1 and later.
 <p class="lede">FFT shows the Fourier transform of an image or of a region of it, measures its spots, and filters the image through a mask. This page lists every control of the part, which is in the Imaging workspace.</p>

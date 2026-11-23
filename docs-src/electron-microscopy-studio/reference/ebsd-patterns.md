@@ -1,6 +1,6 @@
 ---
 title: EBSD Patterns
-description: Reference for the Patterns part of the EBSD workspace in Electron Microscopy Studio: virtual images, the processing stages with kikuchipy's names, and the exports.
+description: Reference for EBSD patterns in Electron Microscopy Studio: virtual images, the processing stages with kikuchipy's names, and the exports.
 applies_to: 2.1
 ---
 

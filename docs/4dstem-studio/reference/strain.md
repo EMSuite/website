@@ -1,6 +1,6 @@
 # Strain
 
-Reference for the Strain task in the Crystal Maps workspace of 4DSTEM Studio: the reference, the basis, the strain components and how to read the fit diagnostics.
+Reference for strain mapping in 4DSTEM Studio's Crystal Maps: the reference, the basis, the strain components and how to read the fit diagnostics.
 
 Applies to 4DSTEM Studio 5.4 and later.
 <p class="lede">Strain measures how the lattice at each scan position differs from a reference lattice. This page lists every control of the task, which is in the Crystal Maps workspace.</p>

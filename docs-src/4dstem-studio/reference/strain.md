@@ -1,6 +1,6 @@
 ---
 title: Strain
-description: Reference for the Strain task in the Crystal Maps workspace of 4DSTEM Studio: the reference, the basis, the strain components and how to read the fit diagnostics.
+description: Reference for strain mapping in 4DSTEM Studio's Crystal Maps: the reference, the basis, the strain components and how to read the fit diagnostics.
 applies_to: 5.4
 ---
 

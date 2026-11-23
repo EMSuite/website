@@ -1,6 +1,6 @@
 # Electron Microscopy Studio
 
-Documentation for Electron Microscopy Studio, the native macOS application for TEM and SEM data: getting started, data, tutorials, reference and troubleshooting.
+Documentation for Electron Microscopy Studio, the native macOS app for TEM and SEM data: getting started, your data, reference and troubleshooting.
 <p class="lede">TEM and SEM data on the Mac: images, diffraction, EBSD and spectra, each in its own workspace.</p>
 
 ## Get started

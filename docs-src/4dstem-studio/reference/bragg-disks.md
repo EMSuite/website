@@ -1,6 +1,6 @@
 ---
 title: Bragg Disks
-description: Reference for the Bragg Disks workspace of 4DSTEM Studio: the probe kernel, the detector, every disk detection setting with its default, and the counts the app reports.
+description: Reference for the Bragg Disks workspace of 4DSTEM Studio: the probe kernel, the detector, every disk detection setting with its default, and the counts.
 applies_to: 5.4
 ---
 
