@@ -62,6 +62,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mac4dstem.com/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mac4dstem.com/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mac4dstem.com/docs/electron-microscopy-studio/</loc>
     <priority>0.6</priority>
   </url>

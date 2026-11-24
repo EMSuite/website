@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Simulate a diffraction pattern from a CIF — Tasks documentation</title>
+<meta name="description" content="Simulate the electron diffraction spots of any crystal from a CIF or a Materials Project phase on a Mac, down any zone axis, with double diffraction.">
+<link rel="canonical" href="https://mac4dstem.com/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html">
+<link rel="alternate" type="text/markdown" href="/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.md">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Electron Microscopy Studio">
+<meta property="og:url" content="https://mac4dstem.com/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html">
+<meta property="og:title" content="Simulate a diffraction pattern from a CIF">
+<meta property="og:description" content="Simulate the electron diffraction spots of any crystal from a CIF or a Materials Project phase on a Mac, down any zone axis, with double diffraction.">
+<meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/docs.css">
+<link rel="alternate" type="application/atom+xml" title="EMSuite releases" href="/releases.atom">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="masthead-mark" href="/electron-microscopy-studio/"><span>Electron Microscopy Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="/">4DSTEM Studio</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/suite/">Kits</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <nav class="docs-nav" aria-label="Documentation">
+    <p class="docs-group">Documentation</p>
+    <ul class="docs-sections">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/tasks/" aria-current="true">Tasks</a></li>
+      <li><a href="/docs/4dstem-studio/">4DSTEM Studio</a></li>
+      <li><a href="/docs/electron-microscopy-studio/">Electron Microscopy Studio</a></li>
+      <li><a href="/docs/agents/">Agents</a></li>
+      <li><a href="/docs/data/">Example data</a></li>
+    </ul>
+    <ul>
+      <li><a href="/docs/tasks/">Overview</a></li>
+    </ul>
+    <p class="docs-group">Electron Microscopy Studio</p>
+    <ul>
+      <li><a href="/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.html">Open DM3, DM4 and EMD files</a></li>
+      <li><a href="/docs/tasks/measure-d-spacings-from-an-hrtem-image.html">Measure d-spacings</a></li>
+      <li><a href="/docs/tasks/calibrate-and-index-a-ring-pattern.html">Calibrate and index rings</a></li>
+      <li><a href="/docs/tasks/quantify-an-eds-spectrum-image.html">Quantify EDS</a></li>
+      <li><a href="/docs/tasks/index-ebsd-patterns-on-a-mac.html">Index EBSD patterns</a></li>
+      <li><a href="/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html">Index a spot pattern</a></li>
+      <li><a href="/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html" aria-current="page">Simulate a diffraction pattern</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="doc">
+      <p class="kicker">Tasks · Electron Microscopy Studio</p>
+      <h1>Simulate a diffraction pattern from a CIF</h1>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.3 and later</p>
+<p class="lede">See which spots a crystal gives down a zone axis before you tilt to it, or over your own pattern.</p>
+
+<ol>
+<li>In the Diffraction workspace, click <span class="ui">Add Phase…</span> and choose a phase from the Materials Project or <span class="ui">Open CIF…</span>. Set the <span class="ui">Voltage</span> and the camera.</li>
+<li>Type a <span class="ui">Zone axis</span>, such as <code>110</code>, and an <span class="ui">In-plane rotation</span>. Drag the crystal or the pattern to tilt it.</li>
+<li>In <span class="ui">Simulation</span>, switch on <span class="ui">Labels</span> for hkl and <span class="ui">Double diffraction</span> for the spots a crystal forbids but two beams add. Leave the <span class="ui">Excitation error</span> at 0.02 Å⁻¹ unless you know better.</li>
+</ol>
+<p><span class="ui">Spots CSV…</span> writes the table and <span class="ui">Figure…</span> the picture. <a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a> lists every control.</p>
+<p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>
+<p class="get-meta">Free. For Apple silicon Macs with macOS 26 or later. <a href="/docs/electron-microscopy-studio/install.html">How to install</a></p>
+      <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html"><span>Previous</span>Index a measured spot pattern against a CIF</a></nav>
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Siegen, Germany</span>
+    <nav aria-label="Legal and support">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
