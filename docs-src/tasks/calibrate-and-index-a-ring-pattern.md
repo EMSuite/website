@@ -1,7 +1,7 @@
 ---
 title: Calibrate and index a ring pattern
 nav: Calibrate and index rings
-description: Calibrate an electron diffraction pattern on a gold, aluminium or silicon ring, then index the rings and spots against your own phase from a CIF or the Materials Project.
+description: Calibrate an electron diffraction pattern on a gold, aluminium or silicon ring, then index its rings and spots against your own phase.
 applies_to: 2.6
 ---
 
