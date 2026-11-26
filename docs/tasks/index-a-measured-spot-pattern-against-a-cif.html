@@ -74,13 +74,13 @@
     <article class="doc">
       <p class="kicker">Tasks · Electron Microscopy Studio</p>
       <h1>Index a measured spot pattern against a CIF</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.3 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">From a spot pattern to the crystal's zone axis and orientation, with the spots that explain it.</p>
 
 <ol>
-<li>Open the pattern with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) and choose the Diffraction workspace. Check that <span class="ui">Calibration</span> shows a scale and the beam energy.</li>
-<li>In <span class="ui">Phases</span>, click <span class="ui">Add Phase…</span>. Search the Materials Project by elements or formula, or click <span class="ui">Open CIF…</span>.</li>
-<li>Click <span class="ui">Index</span> (<kbd>⌘R</kbd>). The header gives the zone axis, the tilt from it, how many spots it explains and the misfit. A tie or a half turn about the beam is stated, never hidden.</li>
+<li>Open the pattern with <span class="ui">Open…</span> (<kbd>⌘O</kbd>) and choose <span class="ui">Diffraction › Calibrate</span>. Check that <span class="ui">Calibration</span> shows a scale and the beam energy; calibrate on a ring of a standard if the file has no scale.</li>
+<li>Choose <span class="ui">Index</span>. In <span class="ui">Phases</span>, click <span class="ui">Add Phase…</span>: search the Materials Project by elements or formula, or open your own CIF. Index waits until a phase is shown.</li>
+<li>Click <span class="ui">Index</span> in the toolbar (<kbd>⌘R</kbd>). It finds the spots and the orientation. The header gives the zone axis, the tilt from it, how many spots it explains and the misfit. A tie or a half turn about the beam is stated, never hidden: step through them with <span class="ui">Solution</span> and <span class="ui">Flip 180°</span>.</li>
 </ol>
 <p>Delete a false spot or click a missed one, then index again. <a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a> lists every control.</p>
 <p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>

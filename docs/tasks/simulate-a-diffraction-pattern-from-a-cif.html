@@ -74,13 +74,13 @@
     <article class="doc">
       <p class="kicker">Tasks · Electron Microscopy Studio</p>
       <h1>Simulate a diffraction pattern from a CIF</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.3 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">See which spots a crystal gives down a zone axis before you tilt to it, or over your own pattern.</p>
 
 <ol>
-<li>In the Diffraction workspace, click <span class="ui">Add Phase…</span> and choose a phase from the Materials Project or <span class="ui">Open CIF…</span>. Set the <span class="ui">Voltage</span> and the camera.</li>
-<li>Type a <span class="ui">Zone axis</span>, such as <code>110</code>, and an <span class="ui">In-plane rotation</span>. Drag the crystal or the pattern to tilt it.</li>
-<li>In <span class="ui">Simulation</span>, switch on <span class="ui">Labels</span> for hkl and <span class="ui">Double diffraction</span> for the spots a crystal forbids but two beams add. Leave the <span class="ui">Excitation error</span> at 0.02 Å⁻¹ unless you know better.</li>
+<li>Choose <span class="ui">File › New Simulation</span>. In <span class="ui">Phases</span>, click <span class="ui">Add Phase…</span> and pick a Materials Project phase or open a CIF. Set the <span class="ui">Voltage</span> and the <span class="ui">Camera length</span> in <span class="ui">Microscope</span>.</li>
+<li>Type a <span class="ui">Zone axis</span>, such as <code>110</code>, and an <span class="ui">In-plane rotation</span>, or drag the crystal or the pattern to tilt it.</li>
+<li>In <span class="ui">Simulation</span>, switch on <span class="ui">hkl labels</span>, and <span class="ui">Double diffraction</span> for the spots a crystal forbids but two beams add. The <span class="ui">Excitation error</span> starts at 0.02 Å⁻¹, as py4DSTEM. <span class="ui">Intensities</span> picks kinematic or dynamical spots.</li>
 </ol>
 <p><span class="ui">Spots CSV…</span> writes the table and <span class="ui">Figure…</span> the picture. <a href="/docs/electron-microscopy-studio/reference/diffraction.html">Diffraction</a> lists every control.</p>
 <p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>
