@@ -1,6 +1,6 @@
 ---
 title: Diffraction
-description: Reference for the Diffraction workspace of Electron Microscopy Studio: calibrate on a standard, index a pattern against your phases, simulate diffraction, HRTEM, CBED and STEM, plan tilts, powder patterns and thickness.
+description: Reference for Diffraction in Electron Microscopy Studio: calibrate, index against your phases, simulate, tilt plan, powder and thickness.
 applies_to: 2.6
 ---
 

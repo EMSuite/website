@@ -1,6 +1,6 @@
 # Diffraction
 
-Reference for the Diffraction workspace of Electron Microscopy Studio: calibrate on a standard, index a pattern against your phases, simulate diffraction, HRTEM, CBED and STEM, plan tilts, powder patterns and thickness.
+Reference for Diffraction in Electron Microscopy Studio: calibrate, index against your phases, simulate, tilt plan, powder and thickness.
 
 Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Diffraction measures one electron diffraction pattern and simulates what a crystal gives. Its parts sit under Diffraction in the workspace list: Calibrate, Index, Simulate, Tilt Plan, Powder and Thickness. This page lists every control, part by part.</p>
