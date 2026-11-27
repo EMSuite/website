@@ -2,7 +2,7 @@
 
 Reference for EBSD indexing in Electron Microscopy Studio: phases, Hough and dictionary indexing, refinement, comparing two results and the exports.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Indexing finds the crystal orientation of every pattern of an EBSD or TKD scan, by Hough indexing or by dictionary indexing. This page lists every control of the part, which is in the EBSD workspace.</p>
 
 The part needs an h5ebsd pattern file and at least one phase. The names in brackets are those of pyEBSDindex and kikuchipy.
@@ -23,6 +23,8 @@ The patterns the run uses, the projection centre and the pattern size. <span cla
 | Remove | Takes the phase out of the list. The file is unchanged. |
 
 A phase of the file that states no space group or lattice is left out, and the inspector names it.
+
+The reflector list follows pyEBSDindex: HCP for a hexagonal phase, BCC for a body-centred cubic one and FCC for every other. For a phase that is neither cubic nor hexagonal (a tetragonal, trigonal, orthorhombic or lower cell from a CIF) pyEBSDindex takes the FCC list when no pole families are named, and so does the app. Those need not be the phase's strong bands, so the phase list says so under Hough. Check such a phase with <span class="ui">Dictionary</span> and a master pattern of it.
 
 ## Method
 
@@ -46,8 +48,8 @@ Hough indexing runs on the CPU in double precision.
 
 | Control | What it does |
 |---|---|
-| Open Master Pattern… | Opens an EMsoft EBSD or TKD master pattern (`.h5`), as kikuchipy loads it |
-| The master of a phase | The master pattern the dictionary of the phase is simulated from. Its space group must be that of the phase. |
+| Open Master Pattern… | Opens an EMsoft EBSD or TKD master pattern (`.h5`), as kikuchipy loads it. The demo scan opens with kikuchipy's nickel master pattern; your own scan takes the master pattern of its phase, which you open here. |
+| The master of a phase | The master pattern the dictionary of the phase is simulated from. Its space group must be that of the phase. When its phase has another name (nickel's master pattern for aluminium), the section warns: the dictionary is then the other phase's patterns. |
 | Resolution | The mean angle between neighbouring orientations of the dictionary, from 1° to 15° |
 | Dictionary | The number of orientations sampled, one simulated pattern each |
 | Metric | How a pattern and a simulated pattern are compared |

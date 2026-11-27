@@ -12,7 +12,7 @@
       "live": true,
       "groups": [
         {"pages": ["tasks/index"]},
-        {"title": "Electron Microscopy Studio", "pages": ["tasks/open-dm3-dm4-emd-files-on-a-mac", "tasks/measure-d-spacings-from-an-hrtem-image", "tasks/calibrate-and-index-a-ring-pattern", "tasks/quantify-an-eds-spectrum-image", "tasks/index-ebsd-patterns-on-a-mac"]}
+        {"title": "Electron Microscopy Studio", "pages": ["tasks/open-dm3-dm4-emd-files-on-a-mac", "tasks/measure-d-spacings-from-an-hrtem-image", "tasks/calibrate-and-index-a-ring-pattern", "tasks/quantify-an-eds-spectrum-image", "tasks/index-ebsd-patterns-on-a-mac", "tasks/index-a-measured-spot-pattern-against-a-cif", "tasks/simulate-a-diffraction-pattern-from-a-cif"]}
       ]
     },
     {

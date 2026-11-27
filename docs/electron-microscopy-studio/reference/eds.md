@@ -2,7 +2,7 @@
 
 Reference for EDS in Electron Microscopy Studio: maps, elements, regions, quantification, fitting, SEM spectra and the exports.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">EDS works on an EDS spectrum image or a single spectrum, from a TEM or an SEM. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
 
 !!! warning "Not yet validated against reference data"
@@ -75,9 +75,11 @@ The table beside the spectrum shows the net counts of the picked elements before
 
 The results and the method need <span class="ui">Quantify</span> first. [Export](/docs/electron-microscopy-studio/data/export.html) says what every export carries.
 
-## SEM spectra
+## SEM spectra and maps
 
-For a spectrum from an SEM the Info tab adds two sections.
+A spectrum or map from an SEM gives the line intensities (the fitted net counts with their uncertainty) and no wt% or at%, as exSpy does for SEM spectra: the thin-film k-factors of the part do not hold for a bulk sample, whose absorption and fluorescence they leave out. The table says so where the at% would be, and the wt%, at% and mass-thickness maps say so too; the net-count maps are drawn. This holds for every SEM file: an SEM spectrum in a HyperSpy file, and the Bruker, EDAX and JEOL files that RosettaSciIO reads as SEM (Bruker and JEOL up to 30 kV, EDAX always).
+
+For an SEM spectrum in a HyperSpy file the Info tab adds two sections.
 
 | Section | What it shows |
 |---|---|

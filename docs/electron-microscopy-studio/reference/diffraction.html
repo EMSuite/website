@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Diffraction — Electron Microscopy Studio documentation</title>
-<meta name="description" content="Reference for the Diffraction workspace of Electron Microscopy Studio: the centre, the calibration on a standard, rings and spots, the crystal and indexing.">
+<meta name="description" content="Reference for Diffraction in Electron Microscopy Studio: calibrate, index against your phases, simulate, tilt plan, powder and thickness.">
 <link rel="canonical" href="https://mac4dstem.com/docs/electron-microscopy-studio/reference/diffraction.html">
 <link rel="alternate" type="text/markdown" href="/docs/electron-microscopy-studio/reference/diffraction.md">
 <meta name="color-scheme" content="light dark">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Electron Microscopy Studio">
 <meta property="og:url" content="https://mac4dstem.com/docs/electron-microscopy-studio/reference/diffraction.html">
 <meta property="og:title" content="Diffraction">
-<meta property="og:description" content="Reference for the Diffraction workspace of Electron Microscopy Studio: the centre, the calibration on a standard, rings and spots, the crystal and indexing.">
+<meta property="og:description" content="Reference for Diffraction in Electron Microscopy Studio: calibrate, index against your phases, simulate, tilt plan, powder and thickness.">
 <meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -97,10 +97,13 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Reference</p>
       <h1>Diffraction</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
-<p class="lede">Diffraction measures a single diffraction pattern: its centre, its scale, the d-spacings of rings and spots, and which reflections of a crystal they are. This page lists every control of the workspace.</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
+<p class="lede">Diffraction measures one electron diffraction pattern and simulates what a crystal gives. Its parts sit under Diffraction in the workspace list: Calibrate, Index, Simulate, Tilt Plan, Powder and Thickness. This page lists every control, part by part.</p>
 
-<h2 id="tools">Tools</h2>
+<p>The pattern fills the centre. Index and Simulate show the crystal beside it, Tilt Plan the zone axes near the beam, Powder the powder pattern. The tables (the readout, the spots) are tabs of the bottom area. The verb of the part is in the toolbar: <span class="ui">Calibrate on Ring</span>, <span class="ui">Index</span>, <span class="ui">Simulate</span> or <span class="ui">Measure Thickness</span>.</p>
+<p>Diffraction takes a pattern: a recorded file, or a Simulation document and its CBED pattern. A simulated HRTEM or STEM image is a real-space image: Diffraction says so and offers Image and FFT.</p>
+<h2 id="calibrate">Calibrate</h2>
+<h3 id="tools">Tools</h3>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -111,15 +114,15 @@
 <tbody>
 <tr>
 <td>Ring</td>
-<td>Drag from the inner to the outer edge of a ring. The ring is fitted inside that annulus.</td>
+<td>Drag from the inner to the outer edge of a ring. The ring is fitted inside that annulus. Double-click to fit again.</td>
 </tr>
 <tr>
 <td>Spot</td>
-<td>Click a spot</td>
+<td>Click a spot to measure it. With the keyboard: <kbd>⌥</kbd> and an arrow move the cursor, <kbd>Return</kbd> adds the spot.</td>
 </tr>
 </tbody>
 </table></div>
-<h2 id="centre">Centre</h2>
+<h3 id="centre">Centre</h3>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -138,8 +141,8 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="calibration">Calibration</h2>
-<p>The scale of the pattern in Å⁻¹ per pixel comes from the file, from a ring of a standard, or from a value you type.</p>
+<h3 id="calibration">Calibration</h3>
+<p>The scale of the pattern in Å⁻¹ per pixel comes from the file, from a ring of a standard, or from a value you type. The standard is for the scale only: it is never used as the phase of your pattern.</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -154,7 +157,7 @@
 </tr>
 <tr>
 <td>Standard</td>
-<td>The standard the pattern is of: Au, Al or Si</td>
+<td>The calibration standard the pattern is of: Au, Al or Si</td>
 </tr>
 <tr>
 <td>Ring</td>
@@ -187,7 +190,7 @@
 </tbody>
 </table></div>
 <p>When both exist, the inspector says how far the fitted Δq is from the axis of the file, in percent. Check a large difference before you rely on either.</p>
-<h2 id="rings-and-spots">Rings and Spots</h2>
+<h3 id="rings-and-spots">Rings and Spots</h3>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -210,7 +213,8 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="crystal">Crystal</h2>
+<h2 id="phases">Phases</h2>
+<p>The phases are the crystals your pattern is indexed against and simulated from. Nothing is assumed: until you show a phase, Index and the ring labels wait for one, as py4DSTEM, pyxem and CrysTBox ask you to name the crystal.</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -220,16 +224,28 @@
 </thead>
 <tbody>
 <tr>
-<td>Crystal</td>
-<td>The crystal the rings and spots are indexed against: a built-in one or a CIF</td>
+<td>Add Phase…</td>
+<td>Finds a phase on the Materials Project by elements or formula, or opens a CIF. The phase goes into My Phases, your library on this Mac.</td>
 </tr>
 <tr>
-<td>Open CIF…</td>
-<td>Reads a crystal from a CIF file</td>
+<td>Find Phases…</td>
+<td>Ranks My Phases (your library, the standards, the crystals of the open patterns) and, if you search, Materials Project phases by how many of the measured rings or spots each explains. It says "explains", never "is". <span class="ui">Use Phase</span> shows the chosen one.</td>
 </tr>
 <tr>
-<td>k_max</td>
-<td>How far out reflections are listed, in Å⁻¹</td>
+<td>The switch of a phase</td>
+<td>Shows the phase: Index, the labels and the simulation use the phases shown</td>
+</tr>
+<tr>
+<td>Update from Library</td>
+<td>Takes the library's copy of the phase. Index and the readout start again.</td>
+</tr>
+<tr>
+<td>Save as CIF…</td>
+<td>Saves the phase as a CIF, with its symmetry and where it came from</td>
+</tr>
+<tr>
+<td>q max</td>
+<td>How far out reflections are listed for indexing, in Å⁻¹ (no 2π)</td>
 </tr>
 <tr>
 <td>Tolerance</td>
@@ -237,8 +253,250 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="display-and-export">Display and export</h2>
-<p>The display controls are those of <a href="/docs/electron-microscopy-studio/reference/image.html#display">Image</a>. <span class="ui">Export Readout CSV…</span> writes the readout of the rings and spots as CSV.</p>
+<p>The Materials Project search sends only what you typed, when you press Search. Without a network, open your own CIF files.</p>
+<h2 id="index">Index</h2>
+<p><span class="ui">Index</span> finds the spots of a spot pattern and the orientation of the shown phase that explains them: the zone axis, the in-plane rotation and, with <span class="ui">Fit scale</span>, the scale. The pattern's header gives the zone axis, the tilt from it, how many spots it explains and the misfit. A tie or a half turn about the beam is stated, never hidden.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solution</td>
+<td>Steps through the orientations Index cannot tell apart, at most five, the best first</td>
+</tr>
+<tr>
+<td>Flip 180°</td>
+<td>Turns the simulated spots 180° about the beam, the look-alike a centrosymmetric pattern cannot tell apart</td>
+</tr>
+<tr>
+<td>Remove Spots</td>
+<td>Removes every spot, found or clicked, and keeps the rings and their scale. Index then finds the spots again.</td>
+</tr>
+<tr>
+<td>Fit scale</td>
+<td>On: Index fits the scale within ±3 % of the room's. Off: it holds the room's scale.</td>
+</tr>
+<tr>
+<td>Zone axis</td>
+<td>The beam direction [u v w]. Type one, or drag the simulated pattern or the crystal to tilt and turn it.</td>
+</tr>
+<tr>
+<td>In-plane rotation</td>
+<td>The pattern's turn about the beam</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="simulation-over-the-pattern">Simulation over the pattern</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulated spots</td>
+<td>Draws the kinematical spot pattern of the shown phase at the orientation over the pattern</td>
+</tr>
+<tr>
+<td>hkl labels</td>
+<td>Labels the spots with their indices</td>
+</tr>
+<tr>
+<td>Double diffraction</td>
+<td>Also draws, as dashed rings, the spots a twice-diffracted beam adds where the crystal forbids a reflection, such as 002 in silicon down [1 1 0]</td>
+</tr>
+<tr>
+<td>Excitation error</td>
+<td>σ of the excitation envelope, 0.02 Å⁻¹ by default as py4DSTEM</td>
+</tr>
+<tr>
+<td>Unit cell</td>
+<td>Draws the edges of the unit cell in the crystal pane</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="precipitate">Precipitate</h3>
+<p>Places a precipitate in the shown crystal and draws the spots of its variants over the pattern.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precipitate</td>
+<td>None, a phase of your library, a standard, or the crystal of another open pattern</td>
+</tr>
+<tr>
+<td>First pair, Second pair</td>
+<td>The orientation relationship, typed as a paper states it: a plane <code>(h k l)</code> or direction <code>[u v w]</code> of the precipitate parallel to one of the matrix, twice (as orix builds a relationship). The first pair is kept exact; the second fixes the turn about it.</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Fills in a relationship from the literature with its reference, such as β″ (Mg₅Si₆) in Al (Andersen et al. 1998). It warns when your matrix is not the paper's.</td>
+</tr>
+<tr>
+<td>Variants</td>
+<td>Draws the shown variants' spots as pink diamonds. Variants of one group give the same spots in this view.</td>
+</tr>
+<tr>
+<td>Double diffraction</td>
+<td>Also draws the spots a beam diffracted by the matrix and again by a variant adds</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="simulate">Simulate</h2>
+<p><span class="ui">File › New Simulation</span> opens a Simulation document: a simulated pattern with the crystal beside it and no measured pattern under it. Choose its phase with <span class="ui">Add Phase…</span>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microscope</td>
+<td>Voltage, the camera length, Cₛ, the focal and angular spread</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>The zone axis and the in-plane rotation, as in Index. Drag the pattern or the crystal to tilt and turn it.</td>
+</tr>
+<tr>
+<td>Simulation</td>
+<td>Simulated spots, hkl labels, double diffraction, the excitation error, and <span class="ui">Intensities</span>: Kinematic (the</td>
+</tr>
+<tr>
+<td>Specimen</td>
+<td>The source of the atoms (the phase, or a model you open), the beam direction, the box and the thickness. <span class="ui">Show HRTEM Image</span> and <span class="ui">Show STEM Image</span> open each as its own tab, in Image.</td>
+</tr>
+<tr>
+<td>HRTEM</td>
+<td>Defocus (with <span class="ui">Scherzer</span>), thickness, field of view, objective aperture and the potential. <span class="ui">Defocus and Thickness Table…</span> shows a through-focus, through-thickness series; <span class="ui">Export abTEM Script…</span> writes the same run as an abTEM script.</td>
+</tr>
+<tr>
+<td>Thermal Vibrations</td>
+<td>Frozen phonons and their configurations, with the σ of each element</td>
+</tr>
+<tr>
+<td>Beside Measured</td>
+<td>Places a measured image beside the simulated one, or inset, at the measured scale</td>
+</tr>
+<tr>
+<td>STEM</td>
+<td>Probe semiangle, defocus, scan step and the detector (BF, ABF, ADF, HAADF or custom angles)</td>
+</tr>
+<tr>
+<td>CBED</td>
+<td>Beam semiangle (<span class="ui">Fit Discs</span> sets it so the discs just touch), the angular step, the thickness and the pattern edge. <span class="ui">Show CBED Pattern</span> opens the pattern in Diffraction, where <span class="ui">Simulate</span> runs it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The HRTEM, CBED and STEM images are multislice simulations, checked against abTEM. The image shows simulated data only and says so.</p>
+<h2 id="tilt-plan">Tilt Plan</h2>
+<p>The holder's tilts to the zone axes near the indexed orientation.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>α now, β now</td>
+<td>The stage tilts when the pattern was recorded</td>
+</tr>
+<tr>
+<td>α limit, β limit</td>
+<td>How far the holder tilts either way, 30° by default</td>
+</tr>
+<tr>
+<td>Tilt axis, β sense</td>
+<td>The α axis in the pattern and the sense of β. Find them with <span class="ui">Calibrate</span> from a second indexed pattern of the crystal at other tilts, 10° or more apart.</td>
+</tr>
+<tr>
+<td>Zone axis</td>
+<td>A zone axis near the beam, nearest first, with its angle and, once the axis is calibrated, the tilts that bring it on</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="ui">Tilt List CSV…</span> writes the list.</p>
+<h2 id="powder">Powder</h2>
+<p>The powder pattern of the shown phases: electron rings against q at this pattern's beam energy, or an X-ray pattern against 2θ.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pattern</td>
+<td>Electron or X-ray</td>
+</tr>
+<tr>
+<td>Radiation</td>
+<td>The X-ray line, Cu Kα by default (pymatgen's list)</td>
+</tr>
+<tr>
+<td>2θ from, 2θ to, q max</td>
+<td>The range drawn</td>
+</tr>
+<tr>
+<td>Compare with</td>
+<td>A second phase drawn beside: a phase of your library, a standard or another open crystal</td>
+</tr>
+<tr>
+<td>Mark overlaps</td>
+<td>Marks the peaks the phases share, and each phase's strongest peak that no other has</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="thickness">Thickness</h2>
+<p><span class="ui">Measure Thickness</span> fits the two-beam intensity across a diffracted disc of a CBED pattern (Kelly et al. 1975). Tilt so one reflection is strong. <span class="ui">Use in Simulation</span> sets the Simulation document's specimen thickness to the result.</p>
+<h2 id="export">Export</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Readout CSV…</td>
+<td>The fitted rings and measured spots, with their q and d</td>
+</tr>
+<tr>
+<td>Spots CSV…</td>
+<td>The simulated spots</td>
+</tr>
+<tr>
+<td>Tilt List CSV…</td>
+<td>The zone axes near the beam, with the tilts to each</td>
+</tr>
+<tr>
+<td>Powder CSV…, Powder XY…</td>
+<td>The peak table, and the pattern as x, y</td>
+</tr>
+<tr>
+<td>Figure…</td>
+<td>The pattern with its marks, labels and scale bar, as PDF, SVG or PNG</td>
+</tr>
+</tbody>
+</table></div>
+<p>The display controls are those of <a href="/docs/electron-microscopy-studio/reference/image.html#display">Image</a>.</p>
       <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/fft.html"><span>Previous</span>FFT</a><a class="next" href="/docs/electron-microscopy-studio/reference/ebsd-patterns.html"><span>Next</span>EBSD Patterns</a></nav>
     </article>
   </main>

@@ -13,4 +13,6 @@ applies_to: 2.1
   <li><a href="/docs/tasks/calibrate-and-index-a-ring-pattern.html"><strong>Calibrate and index a ring pattern</strong>The scale from a gold, aluminium or silicon standard, then the rings of your crystal.</a></li>
   <li><a href="/docs/tasks/quantify-an-eds-spectrum-image.html"><strong>Quantify an EDS spectrum image</strong>Element maps and a composition in at% and wt% from TEM or SEM EDS.</a></li>
   <li><a href="/docs/tasks/index-ebsd-patterns-on-a-mac.html"><strong>Index EBSD patterns on a Mac</strong>Hough or dictionary indexing of a pattern file, then the orientation map.</a></li>
+  <li><a href="/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html"><strong>Index a measured spot pattern against a CIF</strong>The zone axis and orientation of a single-crystal pattern.</a></li>
+  <li><a href="/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html"><strong>Simulate a diffraction pattern from a CIF</strong>The spots of any crystal down any zone axis, with double diffraction.</a></li>
 </ul>
