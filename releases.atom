@@ -8,6 +8,34 @@
   <updated>2026-11-26T00:00:00Z</updated>
   <author><name>EMSuite</name></author>
   <entry>
+    <title>SpectroKit 0.17.2</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.2"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.17.2</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.17.2: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.17.2/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.8.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.1"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.1</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.8.1: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.8.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>ImagoKit 0.12.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/ImagoKit/releases/tag/0.12.0"/>
+    <id>https://github.com/EMSuite/ImagoKit/releases/tag/0.12.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">ImagoKit 0.12.0: the changes are in its CHANGELOG (https://github.com/EMSuite/ImagoKit/blob/0.12.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.22.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.22.0"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.22.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.22.0: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.22.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
     <title>EMSuiteUI 0.20.1</title>
     <link rel="alternate" type="text/html" href="https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1"/>
     <id>https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1</id>
@@ -20,6 +48,13 @@
     <id>https://github.com/EMSuite/DiffractoKit/releases/tag/0.24.2</id>
     <updated>2026-11-26T00:00:00Z</updated>
     <summary type="text">DiffractoKit 0.24.2: the changes are in its CHANGELOG (https://github.com/EMSuite/DiffractoKit/blob/0.24.2/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>CuboKit 0.13.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/CuboKit/releases/tag/0.13.0"/>
+    <id>https://github.com/EMSuite/CuboKit/releases/tag/0.13.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">CuboKit 0.13.0: the changes are in its CHANGELOG (https://github.com/EMSuite/CuboKit/blob/0.13.0/CHANGELOG.md).</summary>
   </entry>
   <entry>
     <title>SpectroKit 0.17.1</title>
