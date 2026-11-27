@@ -2,7 +2,7 @@
 
 Reference for the Maps part of the EBSD workspace in Electron Microscopy Studio: the source, the map layers, phases, grains, texture and the exports.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Maps shows an orientation map and what follows from it: phases, grains, misorientation and texture. This page lists every control of the part, which is in the EBSD workspace.</p>
 
 Maps opens an `.ang` or `.ctf` map, an `.h5oina` file saved without patterns, an `.h5` file of orix, or an EBSD pattern file that carries a map. It also shows a run of [Indexing](/docs/electron-microscopy-studio/reference/ebsd-indexing.html).
@@ -31,6 +31,7 @@ The phases of the map with their colours. A phase without a known point group ha
 | Button | What it writes |
 |---|---|
 | Map PNG… | The map on screen as a figure: whole pixels per point, a scale bar, and the colour key or the phase legend beside it |
+| Map PDF…, Map SVG… | The map as a vector figure for a paper: the boundaries as lines, a vector scale bar and the key as live text |
 | Grains CSV… | The grain table: size, equivalent diameter, mean orientation, GOS, neighbours and the largest Schmid factor of each grain |
 | Histogram CSV… | The distribution of the Histogram tab (KAM, GOS or grain size): the edges and the count of each bin |
 | Texture PNG… | The pole figures, the IPF-Z density and the ODF sections of the texture phase as one figure, each with its colour bar |

@@ -97,11 +97,11 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Methods</p>
       <h1>Methods and their references</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
-<p class="lede">Each function the app computes itself, the reference it is checked against and how closely. 161 functions in 21 groups, from the app's parity table at 2.1.1.</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
+<p class="lede">Each function the app computes itself, the reference it is checked against and how closely. 184 functions in 24 groups, from the app's parity table at 2.6.0.</p>
 
 <p>The rule is the same for every row: the app matches the pinned version of the Python package within the tolerance that package's own tests use, never stricter. Readers, indices and metadata match exactly. Where a method has a paper, the reference names it. The numbers of the kits the app is built on are listed on the <a href="/suite/">kits page</a>, each with its own parity table.</p>
-<p>Generated from <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/blob/v2.1.1/docs/parity.md">docs/parity.md at v2.1.1</a>, which also gives each row's test and notes. The page's tables leave those out.</p>
+<p>Generated from <a href="https://github.com/EMSuite/Electron-Microscopy-Studio/blob/v2.6.0/docs/parity.md">docs/parity.md at v2.6.0</a>, which also gives each row's test and notes. The page's tables leave those out.</p>
 <h2 id="readers-exact">Readers (exact)</h2>
 <div class="tablewrap"><table class="methods">
 <thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
@@ -129,6 +129,14 @@
 <tr><td><code>NORDIFBitmap.decode</code> (8-bit greyscale BMP)</td><td><code>matplotlib.pyplot.imread</code> (Pillow mode L)</td><td>bit-exact</td></tr>
 <tr><td><code>NORDIFOpening.open</code> (<code>Pattern.dat</code> as an <code>EBSDDataset</code>, read by record)</td><td><code>kikuchipy.load("Pattern.dat")</code> through <code>NORDIFScan</code></td><td>patterns bit-exact against <code>NORDIFScan</code></td></tr>
 <tr><td><code>HyperSpySpectrumFile.header</code>, <code>read</code> (<code>.hspy</code>: one spectrum in HyperSpy's own HDF5 layout)</td><td><code>rsciio.hspy.file_reader</code> (RosettaSciIO 0.15.0, <code>rsciio/hspy/_api.py</code>: <code>Experiments/&lt;title&gt;/data</code>, the <code>axis-&lt;i&gt;</code> groups, the metadata tree as groups of attributes)</td><td>exact</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="pictures-png-and-jpeg">Pictures (PNG and JPEG)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>PictureImageReader.read</code> (ImageIO's decoded samples, no drawing; grey by the brightest channel)</td><td>RosettaSciIO 0.14.0 <code>rsciio.image.file_reader</code>, which is imageio 2.37.4 over Pillow 12.3.0; truth written by <code>tools/parity/picture-parity/make_fixtures.py</code></td><td>PNG exact per pixel (I1: grey 8 and 16 bit, RGB, RGBA, palette, Adam7, gAMA, iCCP); JPEG grey within 1 level, colour 4:4:4 within 2 (I2; two decoders, the largest difference is printed by the test); EXIF orientation 1 to 8 as Pillow's <code>ImageOps.exif_transpose</code> (I3)</td></tr>
 </tbody>
 </table></div>
 
@@ -266,6 +274,7 @@
 <tr><td><code>MasterPatternProjection.directionCosines</code></td><td><code>_get_direction_cosines_for_fixed_pc</code> / <code>_varying_pc</code></td><td>rtol 1e-7</td></tr>
 <tr><td><code>MasterPatternProjection.project</code> (float32, float64, uint8, uint16)</td><td><code>EBSDMasterPattern.get_patterns</code> (<code>_project_single_pattern_from_master_pattern</code>, <code>_vector2lambert</code>, <code>_get_lambert_interpolation_parameters</code>, <code>_rescale_with_min_max</code>)</td><td>float: rtol 1e-5, atol 1e-8; integer: 1 count</td></tr>
 <tr><td><code>MasterPatternProjectionMetal.project</code> (float32 GPU)</td><td><code>MasterPatternProjection.project</code> (float64 CPU)</td><td>1e-3 absolute on the -1 to 1 scale</td></tr>
+<tr><td><code>MasterPatternProjectionMetal.Projector</code> (a dictionary chunk by chunk)</td><td><code>MasterPatternProjectionMetal.project</code> in one go</td><td>exact</td></tr>
 <tr><td><code>MasterPatternProjectionMetal.project</code> on a float32 master pattern (EMsoft's type)</td><td><code>MasterPatternProjection.project</code> (float64 CPU), which keeps a float32 master pattern's intensities (<code>get_patterns</code>: <code>rescale = dtype_out != self.data.dtype</code>)</td><td>1e-3 of the pattern's half range</td></tr>
 </tbody>
 </table></div>
@@ -278,7 +287,7 @@
 <tr><td><code>DictionaryIndexing.index</code> (dictionary in memory; CPU float64)</td><td><code>EBSD.dictionary_indexing</code> (<code>_dictionary_indexing</code>, <code>_match_chunk</code>)</td><td>scores rtol 1e-4 (float32 runs), 1e-5 (float64); indices exact where scores do not tie</td></tr>
 <tr><td><code>DictionaryIndexing.index</code> (master pattern, chunk by chunk)</td><td><code>get_patterns(dtype_out=float32)</code> then <code>dictionary_indexing</code></td><td>equal to the in-memory dictionary; F9 as below</td></tr>
 <tr><td><code>DictionaryIndexing.Result.crystalMap</code></td><td>the returned <code>CrystalMap</code> (<code>rotations</code>, <code>prop</code>, <code>create_coordinate_arrays</code>)</td><td>quaternions atol 1e-7, Euler 1e-6, coordinates exact</td></tr>
-<tr><td><code>DictionaryIndexingMetal</code> (float32 GPU product)</td><td>the CPU float64 product</td><td>1e-5 absolute on scores; against kikuchipy rtol 1e-4, with the GPU-projected dictionary 1e-3</td></tr>
+<tr><td><code>DictionaryIndexingMetal</code> (float32 GPU product, <code>MPSMatrixMultiplication</code> since #624)</td><td>the CPU float64 product</td><td>1e-5 absolute on scores; against kikuchipy rtol 1e-4, with the GPU-projected dictionary 1e-3</td></tr>
 <tr><td>F9 whole scan</td><td><code>m4/dictionary-indexing-nickel-ebsd-large</code></td><td>best match ≥ 99.5 % equal, best scores rtol 1e-2; block rtol 1e-4</td></tr>
 <tr><td><code>OrientationSimilarityMap.compute</code>, <code>DictionaryIndexing.Result.orientationSimilarityMap</code> (Marquardt et al. 2017, Microsc. Microanal. 23, 1144)</td><td><code>kikuchipy.indexing.orientation_similarity_map</code> (scipy <code>generic_filter</code>, origin at size // 2, outside −1)</td><td>exact (float32)</td></tr>
 <tr><td><code>DictionaryMapMerge.merge</code>, <code>Merged.crystalMap</code></td><td><code>kikuchipy.indexing.merge_crystal_maps</code> (with <code>simulation_indices_prop</code>)</td><td>exact; rotations atol 1e-15 (orix normalises them again)</td></tr>
@@ -405,8 +414,43 @@
 <div class="tablewrap"><table class="methods">
 <thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
 <tbody>
+<tr><td><code>PatternIndexing.findSpots</code>, <code>.q</code>, <code>.index</code> (the Diffraction room's Index)</td><td>DiffractoKit's <code>PatternSpots.find</code> (py4DSTEM <code>find_Bragg_disks</code> / get_maxima_2D, the kit's P41) and <code>PatternOrientation.index</code> (template match, zone-axis solver and tilt refinement, the kit's P45 against py4DSTEM 0.14.19 <code>match_single_pattern</code>); the room maps each spot to q (qx down the rows, \|q\| the readout's q of its radius, the inverse of the overlay's map), drops the direct beam (nearer than half the crystal's shortest g, at least 5 px) and indexes the spots within 1.5 Å⁻¹. Found spots become the room's spot marks; with spots marked, Index reads those, and a clicked spot among them (no intensity) sends the marks to <code>ZoneAxisSolver.solve(clicked: true)</code> (the kit's P43): the zone axis and turn only, no tilt. The Spots table and its CSV list each spot's R (px from the centre Index ran about), q, d = 1/q, its hkl's d in the cell (<code>UnitCell.d</code>) and Δd/d, and R in mm as R px times the camera's pixel pitch, the kit's numbers unrounded in the CSV (<code>%.9g</code>). A Simulation document's Spots table lists the simulated spots instead, with R in mm = λ L \|g\| (λ DiffractoKit's <code>RingCalibration.wavelengthAngstroms</code>, L the Microscope section's camera length; <code>SimulationSpotsTableTests</code>, 1e-9)</td><td>0.5° (the kit's own bound is its P45 regression, medians about 0.1°); the q map 1e-12</td></tr>
+<tr><td><code>ZoneAxisOverlay.spots</code> (the Diffraction room's simulated spots of a typed zone axis)</td><td>DiffractoKit's <code>SpotPatternSimulator</code> at <code>CrystalOrientation(zoneAxis:inPlaneAngle:cell:)</code> (py4DSTEM's zone-axis frame and kinematical spot pattern, the kit's P42); placed by the room's scale and centre: row = centre + qx/Δq, column = centre + qy/Δq (py4DSTEM's qx down the rows), the radius the inverse of the readout's q (<code>RingScale.radius</code>)</td><td>1e-9 px</td></tr>
+<tr><td><code>ZoneAxisOverlay.tilted</code>, <code>.turned</code>, <code>DiffractionAnalysis.flip</code>, <code>.tilt(down:across:)</code>, <code>PatternIndexing.solverSettings(fitScale:)</code> (#787: the Tilt tool, ⌥ drag and its keys, Flip, Fit scale, the solutions)</td><td>DiffractoKit's <code>CrystalOrientation.tilted(by:)</code> and <code>rotatedInPlane(by:)</code>; <code>ZoneAxisSolver.Settings(scaleWindow:)</code> (0.03 on, 0 off)</td><td>1e-6 px, 1e-6°</td></tr>
+<tr><td><code>ZoneAxisOverlay.spots</code> with Double diffraction and the excitation error</td><td>DiffractoKit's <code>DoubleDiffraction.spots(simulator:orientation:volts:settings:)</code> (g₁ + g₂ within one crystal on a forbidden reflection: Gjønnes and Moodie, Acta Cryst. 19 (1965) 65; Williams and Carter 2009) and <code>SpotPatternSimulator.Settings(sigmaExcitationError:)</code> (py4DSTEM's envelope,</td><td>≤ 3σ kept)</td></tr>
 <tr><td><code>EELSCompositionSigma.percentSigmas</code>, <code>sigmas</code> (1σ on at% and wt%)</td><td>SpectroKit's <code>EDXQuantification.quantifyWithSigma</code>, the same first-order propagation of independent amounts (Ku 1966, J. Res. Natl. Bur. Stand. 70C, 263)</td><td>rtol 1e-6 against the kit on hand amounts, 1e-5 on a fitted room</td></tr>
 <tr><td><code>EELSFitQuality.pearsonReduced</code>, <code>of</code> (RSS and reduced χ²)</td><td>the kit's residual sum of squares (<code>EELSModelResult.residualSumOfSquares</code>, <code>EELSMLLSPixel.residualSumOfSquares</code>); Pearson's χ² (Pearson 1900, Philos. Mag. 50, 157) over the fitted channels, divided by the degrees of freedom</td><td>1e-15 on a hand case; RSS equal to the kit's; χ² 1e-12 relative</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="hrtem-simulation-25">HRTEM simulation (2.5)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>SimulationSpecimen.cell(of:)</code>, <code>build</code></td><td>SimulatoKit <code>SlabBuilder.slab(of:zoneAxis:…)</code> (abTEM <code>orthogonalize_cell</code>) on the phase's cell (ASE <code>cellpar_to_cell</code>) and every site</td><td>1e-9 Å; counts exact</td></tr>
+<tr><td><code>SimulationSpecimen.inPlaneAngle</code></td><td>DiffractoKit <code>CrystalOrientation(zoneAxis:inPlaneAngle:cell:)</code> against the slab's orientation</td><td>1e-12 on every matrix element</td></tr>
+<tr><td><code>HRTEMImage.grid</code>, <code>thermalGrid</code>, <code>squareGrid</code>, <code>planePeriods</code>, <code>exitWaves</code></td><td>SimulatoKit <code>SimulationPlan.sampling(largestAngle:energy:)</code> (abTEM's min(0.05 Å, λ / 3β)); abTEM 1.0.10's grid rule, gpts = ⌈extent / sampling⌉ per axis on its own (<code>abtem.core.grid.Grid</code>), so its pixels are square within one point in a length; <code>Potential(...).build().tiled(repetitionsZ:)</code> of one period</td><td>grid exact; pixel sides within 0.5 %; one period repeated equals the whole slab's run within 1e-12</td></tr>
+<tr><td><code>HRTEMImage.image</code></td><td>SimulatoKit <code>ContrastTransferFunction.images(of:defocus:tile:)</code> (abTEM <code>Waves.apply_ctf(...).intensity()</code>), tiled to the field of view</td><td>pixels 1e-6 of the largest; calibration 1e-15 nm</td></tr>
+<tr><td><code>HRTEMOptics.scherzerDefocusNM</code>, <code>HRTEMPreset</code></td><td>SimulatoKit <code>ContrastTransferFunction.scherzerDefocus(Cs:energy:)</code>, √(3/2 Cs λ)</td><td>1e-12 relative; presets exact</td></tr>
+<tr><td><code>HRTEMTransferCurve.of</code></td><td>SimulatoKit <code>ContrastTransferFunction.profiles(energy:points:)</code> and <code>pointResolution(energy:)</code></td><td>1e-12 relative</td></tr>
+<tr><td><code>HRTEMImage.table</code></td><td><code>HRTEMImage.image</code> at each defocus and stored thickness, 2 nm cells</td><td>exact (the same function)</td></tr>
+<tr><td><code>HRTEMImage.configuration</code>, <code>addingConfiguration</code>, the ensemble mean</td><td>SimulatoKit <code>FrozenPhonons(structure:sigmas:configurations:seed:)</code> (abTEM <code>FrozenPhonons</code>, Einstein model, σ per element, seeded per configuration)</td><td>positions exact; a continued run's image bit-equal to an uninterrupted one</td></tr>
+<tr><td><code>HRTEMImage.convergence</code></td><td>the app's own readout: RMS(mean of n − mean of n − 1) / RMS(mean of n)</td><td>1e-12 (0 for a repeated configuration)</td></tr>
+<tr><td><code>AbTEMScript.text</code></td><td>abTEM 1.0.10 and ASE 3.29.0: <code>Potential(gpts, slice_thickness, parametrization="lobato", projection="infinite", exit_planes)</code>, <code>PlaneWave</code>, <code>CTF</code>, <code>FrozenPhonons</code></td><td>every number written in Swift's round-trip form (exact)</td></tr>
+<tr><td><code>SlabDrawing.drawn</code>, <code>SlabDrawing.columns</code></td><td>SimulatoKit <code>SlabBuilder</code> positions (abTEM <code>orthogonalize_cell</code>), projected along the beam; no computation of their own</td><td>positions 1e-9 Å; marks on the pixel of their position, 1e-9 px</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="cbed-stem-and-atom-models-26">CBED, STEM and atom models (2.6)</h2>
+<div class="tablewrap"><table class="methods">
+<thead><tr><th>Function</th><th>Reference</th><th>Tolerance</th></tr></thead>
+<tbody>
+<tr><td><code>DynamicalSpots</code>, <code>DynamicalBeams</code></td><td>SimulatoKit <code>BeamIntensities(exitWaves:of:exitPlanes:)</code> (abTEM 1.0.10 <code>index_diffraction_spots</code>) of the HRTEM run's exit waves at whole periods</td><td>exact (the kit's numbers, renamed by hkl)</td></tr>
+<tr><td><code>CBEDRun.run</code>, <code>CBEDPattern</code></td><td>SimulatoKit <code>Probe(semiangleCutoff:)</code> at the box's middle through the tiled one-period potential, <code>diffractionPattern(maxAngle: .cutoff)</code> (abTEM 1.0.10 <code>Probe(...).multislice(...).diffraction_patterns(max_angle="cutoff")</code>), cropped to the edge</td><td>the kit's numbers (its CBED pins); Σ of a pattern 1 ± 0.05 inside the edge</td></tr>
+<tr><td><code>CBEDTilt</code>, <code>CBEDRun.run(tiltMrad:)</code></td><td>SimulatoKit <code>Probe(…, tilt:)</code> (abTEM 1.0.10 <code>Probe(semiangle_cutoff, tilt=(tx, ty))</code>: e^{−2πi (kx tan tx + ky tan ty) Δz} on every propagator); the tilt is the beam of the orientation drawn by hand written in the slab's box, tan t = −(b_x, b_y) / b_z (b toward the source; the kit's slab mirrors crystal and beam to depth)</td><td>each disc's share of the probe within 1 % (plus 1e−4 of the probe); the tilt read back to 1e−9 mrad; the brightest diffracted disc is abTEM's and the one on the overlay's Laue circle</td></tr>
+<tr><td><code>CBEDThickness.measure</code></td><td>DiffractoKit <code>TwoBeamThickness.fit</code> (Kelly et al. 1975 whole-profile fit, Allen 1981 fringe line; DiffractoKit's own pins, no Python reference package) on the profile the app reads across the diffracted disc</td><td>3 % on a synthetic Si 2 2 0 disc of 250 nm, and on the app's own tilted multislice CBED of Si [1 1 0] (2 2̄ 0 two-beam, 250 nm stored, Metal)</td></tr>
+<tr><td><code>STEMImage.prepare</code>, <code>STEMScan.image</code>, <code>radialProfile</code></td><td>SimulatoKit <code>STEMRun</code> with <code>FlexibleAnnularDetector</code> (abTEM 1.0.10 <code>Probe(...).scan(..., detectors=FlexibleAnnularDetector())</code>) and <code>ScanMeasurement.integrateRadial</code> (abTEM <code>integrate_radial</code>)</td><td>the kit's numbers (its STEM and flexible annular pins); bands add to 1e-12; a sliced run equals one run exactly on the CPU</td></tr>
+<tr><td><code>AtomModelSpecimen</code></td><td>DiffractoKit <code>AtomModel.read</code> (ASE 3.29.0's extxyz, xyz and vasp readers) and <code>CrystalLoading</code>; SimulatoKit <code>SlabBuilder.slab(ofModel:beamAlong:…)</code> (abTEM <code>orthogonalize_cell</code> on the model's cell, ASE <code>center(vacuum=5)</code> for a model without one)</td><td>1e-9 Å; counts exact</td></tr>
 </tbody>
 </table></div>
       <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/reference/results.html"><span>Previous</span>Results</a><a class="next" href="/docs/electron-microscopy-studio/troubleshooting.html"><span>Next</span>Troubleshooting</a></nav>

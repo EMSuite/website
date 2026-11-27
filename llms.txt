@@ -9,10 +9,10 @@
 ## Tasks
 
 - [What do you want to do?](https://mac4dstem.com/docs/tasks/index.md): Common electron microscopy tasks on a Mac and how Electron Microscopy Studio does each one in three steps.
-- [Open DM3, DM4 and EMD files on a Mac](https://mac4dstem.com/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.md): Open DigitalMicrograph .dm3 and .dm4 and Velox .emd files natively on a Mac, with the pixel size read from the file.
+- [Open DM3, DM4 and EMD files on a Mac](https://mac4dstem.com/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.md): Open DigitalMicrograph .dm3 and .dm4, Velox .emd and TIA .ser files natively on a Mac, with the pixel size read from the file.
 - [Measure d-spacings from an HRTEM image](https://mac4dstem.com/docs/tasks/measure-d-spacings-from-an-hrtem-image.md): Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.
 - [Calibrate and index a ring pattern](https://mac4dstem.com/docs/tasks/calibrate-and-index-a-ring-pattern.md): Calibrate an electron diffraction pattern on a gold, aluminium or silicon ring, then index its rings and spots against your own phase.
-- [Quantify an EDS spectrum image](https://mac4dstem.com/docs/tasks/quantify-an-eds-spectrum-image.md): Quantify a TEM or SEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties.
+- [Quantify an EDS spectrum image](https://mac4dstem.com/docs/tasks/quantify-an-eds-spectrum-image.md): Quantify a TEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties. An SEM one gives line intensities.
 - [Index EBSD patterns on a Mac](https://mac4dstem.com/docs/tasks/index-ebsd-patterns-on-a-mac.md): Index EBSD and TKD patterns on a Mac by Hough or dictionary indexing, as kikuchipy does, and export the map as .ang or .ctf.
 - [Index a measured spot pattern against a CIF](https://mac4dstem.com/docs/tasks/index-a-measured-spot-pattern-against-a-cif.md): Find the zone axis and orientation of a single-crystal electron diffraction pattern against a CIF or a Materials Project phase on a Mac.
 - [Simulate a diffraction pattern from a CIF](https://mac4dstem.com/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.md): Simulate the electron diffraction spots of any crystal from a CIF or a Materials Project phase on a Mac, down any zone axis, with double diffraction.

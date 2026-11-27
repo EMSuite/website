@@ -97,7 +97,7 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Help</p>
       <h1>Troubleshooting</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">The app says what is wrong in its own words. This page lists those messages and what to do about each.</p>
 
 <h2 id="a-file-does-not-open">A file does not open</h2>
@@ -117,7 +117,7 @@
 <tbody>
 <tr>
 <td>No file open holds an image</td>
-<td>Image, FFT and Diffraction work on an image. Open one.</td>
+<td>Image, FFT and Diffraction work on an image. Open one, or choose File › New Simulation to simulate a pattern with none.</td>
 </tr>
 <tr>
 <td>No file open holds an EDS spectrum image</td>
@@ -141,6 +141,8 @@
 </tr>
 </tbody>
 </table></div>
+<h2 id="a-phase-search-finds-nothing">A phase search finds nothing</h2>
+<p><span class="ui">Add Phase…</span> asks the Materials Project, which needs an internet connection. Without one, open a CIF file in the same sheet: a phase added once, from either source, works offline. The search sends the elements, the formula or the entry id you type, and your own API key if you saved one in <span class="ui">Settings › Materials Project</span>.</p>
 <h2 id="the-image-has-no-scale">The image has no scale</h2>
 <p><strong>"Not calibrated: the scale bar counts pixels."</strong> The file carries no pixel size. Distances, profiles and particle sizes are then given in pixels. The <span class="ui">Calibration</span> section of the Image inspector shows what the file carries and where it came from.</p>
 <p><strong>"Pixels are not square".</strong> The file's two axes have different pixel sizes. The scale bar uses the horizontal axis.</p>

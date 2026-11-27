@@ -2,7 +2,7 @@
 
 Reference for the Results workspace of Electron Microscopy Studio: the table of every measurement of a file, what each row records, and the export.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Results lists every finished measurement of the open file in one table, whichever part made it. This page lists every control of the workspace.</p>
 
 ## Show

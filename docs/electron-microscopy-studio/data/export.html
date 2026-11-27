@@ -97,8 +97,8 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Your data</p>
       <h1>Export</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
-<p class="lede">Pictures leave the app as PNG, numbers as CSV, and the method as JSON, so a result can be repeated.</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
+<p class="lede">Pictures leave the app as PNG, or as PDF or SVG figures for a paper; numbers as CSV; and the method as JSON, so a result can be repeated.</p>
 
 <p>The export commands are in the <span class="ui">File</span> menu and as buttons in the inspector of each part. A command is available when its part has the result.</p>
 <h2 id="by-part">By part</h2>
@@ -139,6 +139,10 @@
 <td>Results CSV, Spectrum CSV, Spectrum MSA, Regions CSV, Maps, Per-pixel CSV, Method JSON</td>
 </tr>
 <tr>
+<td>Diffraction</td>
+<td><span class="ui">Export Figure…</span> (<kbd>⇧⌘E</kbd>), <span class="ui">Copy Figure</span> (<kbd>⇧⌘C</kbd>), <span class="ui">Save Phase as CIF…</span>, <span class="ui">Export Spots…</span> (the Spots CSV)</td>
+</tr>
+<tr>
 <td>Results</td>
 <td><span class="ui">Export Results…</span> (<kbd>⌥⇧⌘E</kbd>), <span class="ui">Export Session Report…</span></td>
 </tr>
@@ -147,8 +151,11 @@
 <h2 id="what-the-files-are-for">What the files are for</h2>
 <ul>
 <li><strong>PNG</strong> is for pictures: images, maps, patterns and transforms.</li>
+<li><strong>PDF and SVG</strong> figures are for a paper: the FFT, the EDS and EELS spectra and maps, the orientation maps and the diffraction pattern leave with their rings, boundaries and scale bar as vectors and every label as live text. <span class="ui">Copy Figure</span> pastes the figure into Keynote.</li>
 <li><strong>CSV</strong> tables open in any spreadsheet or script.</li>
 <li><strong>Method JSON</strong> records the settings a result was made with. Keep it with the result.</li>
+<li><strong>The methods record</strong>: every export carries a record of how its numbers were made (the source by fingerprint, each step and setting, the app and kit versions). <span class="ui">File › Export Methods Record…</span> saves the room's record as JSON, and <span class="ui">Edit › Copy Methods Paragraph</span> (<kbd>⌥⌘C</kbd>) copies it as a paragraph for a methods section.</li>
+<li><strong>HyperSpy files</strong>: <span class="ui">File › Export HyperSpy File…</span> writes the Image room's image, the Diffraction room's pattern or the EELS room's spectrum image as a <code>.hspy</code> that <code>hs.load</code> opens, with the methods record in its metadata.</li>
 <li><strong>EDAX ANG</strong> and <strong>Oxford CTF</strong> carry an indexed map to other EBSD software, such as MTEX or orix.</li>
 <li><strong>Spectrum MSA</strong> is the EMSA format that spectroscopy software reads.</li>
 </ul>

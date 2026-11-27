@@ -2,7 +2,7 @@
 
 Reference for the FFT in Electron Microscopy Studio: the region, the window, spots and d-spacings, the radial profile, the masked inverse and HRTEM filters.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">FFT shows the Fourier transform of an image or of a region of it, measures its spots, and filters the image through a mask. This page lists every control of the part, which is in the Imaging workspace.</p>
 
 ## Region
@@ -39,6 +39,10 @@ Click a spot on the transform to measure it. The spot is listed in the inspector
 | Remove, Remove All | Deletes one spot, or all |
 
 A yellow ring is a measured spot, a blue one the selected spot, and a dashed one a spot that could not be measured. ⚠ marks a spot with another peak close by: its position is less certain.
+
+## Strain (GPA)
+
+Appears once a spot is measured. Strain and rotation maps by geometric phase analysis, from the first two measured spots at an angle taken as g₁ and g₂. <span class="ui">Reference</span> chooses the part of the region taken as undistorted, whose mean strain and rotation are zero; <span class="ui">Map Strain</span> computes the maps and shows them in the left pane. The section states its validation: the maps are checked on planted fields only. The transform also exports as a PDF or SVG figure with its rings and labels as vectors ([Export](/docs/electron-microscopy-studio/data/export.html)).
 
 ## Radial Profile
 

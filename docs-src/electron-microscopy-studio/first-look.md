@@ -1,14 +1,14 @@
 ---
 title: First look
 description: See a first measurement in Electron Microscopy Studio within minutes, using the demo data that comes with the app.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">From the welcome screen to a measured distance and a Fourier transform in a few minutes, with the demo data that comes with the app. No download needed.</p>
 
 ## Open a demo
 
-1. Open Electron Microscopy Studio. The welcome screen offers <span class="ui">Open Image…</span> and <span class="ui">Try Demo Data</span>.
+1. Open Electron Microscopy Studio. The welcome window offers <span class="ui">Open Image…</span> and <span class="ui">Try Demo Data</span>, and lists your recent files and the tutorials.
 2. Click <span class="ui">Try Demo Data</span> and choose <span class="ui">Lattice Image</span>.
 
 The image opens in the Imaging workspace. The <span class="ui">Calibration</span> section of the inspector on the right shows the pixel size and where it came from.
@@ -41,13 +41,15 @@ Choose <span class="ui">File › Export Image…</span> (<kbd>⇧⌘E</kbd>).
 | Lattice Image | Imaging › Image |
 | SEM Image (generated) | Imaging › Image |
 | Au Diffraction Pattern | Diffraction |
+| Nanowire Spot Pattern (pyxem) | Diffraction |
+| Silicon Simulation (CIF) | Diffraction |
 | Ni EBSD Patterns (kikuchipy) | EBSD › Patterns |
 | Duplex Steel Orientation Map (orix) | EBSD › Maps |
 | EDX Spectrum Image | Spectroscopy › EDS |
 | SEM-EDS Spectrum (BAM TM002) | Spectroscopy › EDS |
 | EELS Spectrum Image | Spectroscopy › EELS |
 
-The lattice image, the diffraction pattern, the SEM image and the two spectrum images are generated. The nickel patterns, the orientation map and the SEM-EDS spectrum are public data; [Example data](/docs/data/) names their sources.
+The lattice image, the gold diffraction pattern, the SEM image and the two spectrum images are generated. The nickel patterns, the orientation map, the nanowire spot pattern and the SEM-EDS spectrum are public data; [Example data](/docs/data/) names their sources.
 
 ## Next
 

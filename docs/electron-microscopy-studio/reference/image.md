@@ -2,7 +2,7 @@
 
 Reference for the Image part of the Imaging workspace in Electron Microscopy Studio: calibration, display, the measuring tools, particles and stacks.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Image shows a TEM or SEM image with its calibration, and measures on it: distances, angles, line profiles and particles. This page lists every control of the part, which is in the Imaging workspace.</p>
 
 ## Calibration
