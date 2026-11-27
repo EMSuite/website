@@ -2,7 +2,7 @@
 
 Index EBSD and TKD patterns on a Mac by Hough or dictionary indexing, as kikuchipy does, and export the map as .ang or .ctf.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">From a pattern file to an orientation map, with the methods and settings of kikuchipy and pyEBSDindex.</p>
 
 1. Open an h5ebsd pattern file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>). In EBSD › Patterns, set the processing and the detector geometry.

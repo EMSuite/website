@@ -2,7 +2,7 @@
 
 Reference for EBSD patterns in Electron Microscopy Studio: virtual images, the processing stages with kikuchipy's names, and the exports.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Patterns browses the patterns of an EBSD or TKD scan, forms virtual images from them, and processes them before indexing. This page lists every control of the part, which is in the EBSD workspace.</p>
 
 The part needs an h5ebsd pattern file. The processing follows kikuchipy; the names in brackets below are kikuchipy's, so a run can be redone in Python.

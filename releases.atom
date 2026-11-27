@@ -5,8 +5,146 @@
   <id>https://mac4dstem.com/releases.atom</id>
   <link rel="self" type="application/atom+xml" href="https://mac4dstem.com/releases.atom"/>
   <link rel="alternate" type="text/html" href="https://mac4dstem.com/suite/releases.html"/>
-  <updated>2026-11-23T00:00:00Z</updated>
+  <updated>2026-11-27T08:35:39Z</updated>
   <author><name>EMSuite</name></author>
+  <entry>
+    <title>Electron Microscopy Studio 2.6.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.6.0"/>
+    <id>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.6.0</id>
+    <updated>2026-11-27T08:35:39Z</updated>
+    <category term="Electron Microscopy Studio"/>
+    <summary type="text">Simulate electron diffraction, HRTEM, CBED and STEM images, index a spot pattern, and put figures straight into a paper.
+
+New
+• Index finds the spots of a diffraction pattern and its full crystal orientation. Drag the simulated pattern to tilt it, step through the solutions, flip it, fit the scale.
+• Phases from the Materials Project or a CIF; a phase you added once works offline, and Save as CIF writes it out. Find Phases ranks them against your pattern and the elements of your EDS map.
+• Simulation documents: File &gt; New Simulation shows a crystal's diffraction pattern with the crystal beside it. Save it as a small .emsim file and open it again later.
+• HRTEM, CBED and STEM simulation: a live HRTEM image with defocus, thickness, optics and frozen phonons; convergent-beam patterns with a thickness series and two-beam thickness measurement; STEM images with BF, ABF, ADF and HAADF bands. Place a simulation beside your measured image, or export it as a script.
+• Diffraction tools: simulated spots over your pattern for any zone axis (with double diffraction), a spots table, a holder tilt planner, powder patterns and precipitate variants. A pattern saved as PNG or JPEG opens too.
+• Figures and files: Export Figure writes a PDF or SVG with live text; Copy Figure pastes into Keynote; HyperSpy files go out; every export carries a record of the method and settings that made it.
+• Quick Look for DigitalMicrograph, MRC, Velox and TIA files in the Finder; TIA .ser and .emi files open.
+• Strain maps from a lattice image, keys to move between rooms, a welcome window with tutorials, a Help menu, and demo data for a spot pattern, silicon and an EELS core loss.
+• An AI assistant you connect can work every room and open files from a folder you choose. Off by default.
+
+Improved
+• Diffraction is laid out in steps (Calibrate, Index, Simulate, Tilt Plan, Powder, Thickness); an indexed pattern labels only its strongest spots, so it stays readable.
+• Toolbar: Simulate for simulations, Export for every room. EBSD Maps shows its results beside the map.
+• Faster EBSD dictionary indexing and pattern filtering.
+• Numbers read the same way everywhere, and variants and warnings no longer rely on colour alone.
+
+Fixed
+• A HyperSpy spectrum saved as .hdf5 opens.
+• Updating the downloaded app renames it to Electron Microscopy Studio.
+
+Results change in three places: a ring calibration now fits the central background as py4DSTEM does (the Au standard moves by about 0.2 %); the EDS energy axis is refined from 0.6 keV up; and Quantify on a single SEM spectrum gives line intensities only, as eXSpy does.
+
+Requires macOS 26 or later on an Apple silicon Mac.</summary>
+  </entry>
+  <entry>
+    <title>SpectroKit 0.17.2</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.2"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.17.2</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.17.2: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.17.2/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.8.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.1"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.1</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.8.1: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.8.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>ImagoKit 0.12.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/ImagoKit/releases/tag/0.12.0"/>
+    <id>https://github.com/EMSuite/ImagoKit/releases/tag/0.12.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">ImagoKit 0.12.0: the changes are in its CHANGELOG (https://github.com/EMSuite/ImagoKit/blob/0.12.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.22.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.22.0"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.22.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.22.0: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.22.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>EMSuiteUI 0.20.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1"/>
+    <id>https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">EMSuiteUI 0.20.1: the changes are in its CHANGELOG (https://github.com/EMSuite/EMSuiteUI/blob/0.20.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>DiffractoKit 0.24.2</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/DiffractoKit/releases/tag/0.24.2"/>
+    <id>https://github.com/EMSuite/DiffractoKit/releases/tag/0.24.2</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">DiffractoKit 0.24.2: the changes are in its CHANGELOG (https://github.com/EMSuite/DiffractoKit/blob/0.24.2/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>CuboKit 0.13.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/CuboKit/releases/tag/0.13.0"/>
+    <id>https://github.com/EMSuite/CuboKit/releases/tag/0.13.0</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">CuboKit 0.13.0: the changes are in its CHANGELOG (https://github.com/EMSuite/CuboKit/blob/0.13.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SpectroKit 0.17.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.1"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.17.1</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.17.1: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.17.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.8.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.0"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.0</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.8.0: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.8.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.21.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.21.0"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.21.0</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.21.0: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.21.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SpectroKit 0.17.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.0"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.17.0</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.17.0: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.17.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.7.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.7.1"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.7.1</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.7.1: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.7.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.20.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.20.1"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.20.1</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.20.1: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.20.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>EMSuiteUI 0.17.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/EMSuiteUI/releases/tag/0.17.0"/>
+    <id>https://github.com/EMSuite/EMSuiteUI/releases/tag/0.17.0</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary type="text">EMSuiteUI 0.17.0: the changes are in its CHANGELOG (https://github.com/EMSuite/EMSuiteUI/blob/0.17.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>DiffractoKit 0.23.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/DiffractoKit/releases/tag/0.23.0"/>
+    <id>https://github.com/EMSuite/DiffractoKit/releases/tag/0.23.0</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary type="text">DiffractoKit 0.23.0: the changes are in its CHANGELOG (https://github.com/EMSuite/DiffractoKit/blob/0.23.0/CHANGELOG.md).</summary>
+  </entry>
   <entry>
     <title>FormatoKit 0.18.1</title>
     <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.18.1"/>

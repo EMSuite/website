@@ -1,7 +1,7 @@
 ---
 title: Sessions
 description: How Electron Microscopy Studio keeps the measurements you draw on an image in a session file beside it, and how they come back.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">The distances, angles and profiles you draw on an image are kept in a session file beside the image. Your data file is never changed.</p>
@@ -27,6 +27,10 @@ If macOS did not give the app the session file, the image's row says "session fi
 ## The last session
 
 <span class="ui">File › Reopen Last Session</span> (<kbd>⇧⌘O</kbd>) opens the files you had open when you last quit, in the place you left. It is offered, never done at launch, so a large file is not loaded before you ask.
+
+## Simulation documents
+
+A simulation made with <span class="ui">File › New Simulation</span> is a document of its own. <span class="ui">File › Save Simulation</span> (<kbd>⌘S</kbd>) saves it as a small `.emsim` file that holds its phase and settings; opening that file brings back the same pattern and spot list.
 
 ## Moving data
 

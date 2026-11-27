@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 description: Answers to common problems in Electron Microscopy Studio: files that cannot be read, folder access, dimmed workspaces, images without a scale, updates.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">The app says what is wrong in its own words. This page lists those messages and what to do about each.</p>
@@ -22,12 +22,16 @@ Each part of a workspace needs its own kind of data. A dimmed one says why when 
 
 | The reason | What it means |
 |---|---|
-| No file open holds an image | Image, FFT and Diffraction work on an image. Open one. |
+| No file open holds an image | Image, FFT and Diffraction work on an image. Open one, or choose File › New Simulation to simulate a pattern with none. |
 | No file open holds an EDS spectrum image | EDS needs a spectrum image with X-ray counts. |
 | No file open holds an EELS spectrum image | EELS needs an energy-loss spectrum image. |
 | No file open holds EBSD patterns | Patterns and Indexing need an EBSD pattern dataset. |
 | No file open holds an orientation map | Maps needs an indexed map. |
 | The open images belong to a spectrum image, not a diffraction pattern | The image is the survey image of a spectrum image. Diffraction needs a diffraction pattern. |
+
+## A phase search finds nothing
+
+<span class="ui">Add Phase…</span> asks the Materials Project, which needs an internet connection. Without one, open a CIF file in the same sheet: a phase added once, from either source, works offline. The search sends the elements, the formula or the entry id you type, and your own API key if you saved one in <span class="ui">Settings › Materials Project</span>.
 
 ## The image has no scale
 

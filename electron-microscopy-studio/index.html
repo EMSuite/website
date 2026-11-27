@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Electron Microscopy Studio — TEM and SEM analysis on the Mac</title>
-<meta name="description" content="Electron Microscopy Studio: free and open-source TEM and SEM analysis for Apple silicon Macs. Images and FFTs, diffraction, EBSD, EDS and EELS.">
+<meta name="description" content="Electron Microscopy Studio: free and open-source TEM and SEM analysis for Apple silicon Macs. Images and FFTs, diffraction and simulation, EBSD, EDS and EELS.">
 <link rel="canonical" href="https://mac4dstem.com/electron-microscopy-studio/">
 <meta name="color-scheme" content="light dark">
 
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Electron Microscopy Studio">
 <meta property="og:url" content="https://mac4dstem.com/electron-microscopy-studio/">
 <meta property="og:title" content="Electron Microscopy Studio — TEM and SEM analysis on the Mac">
-<meta property="og:description" content="A native macOS application for TEM and SEM: calibrated images and FFTs, electron diffraction, EBSD patterns, indexing and orientation maps, and EDS and EELS with quantification, natively on Apple silicon.">
+<meta property="og:description" content="A native macOS application for TEM and SEM: calibrated images and FFTs, electron diffraction and its simulation (kinematic, HRTEM, CBED, STEM), EBSD patterns, indexing and orientation maps, and EDS and EELS with quantification, natively on Apple silicon.">
 <meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -50,7 +50,7 @@
 
   <div class="wrap">
     <section class="hero">
-      <p class="eyebrow">Version 2.1.1 · part of EMSuite, beside <a class="u-link" href="/">4DSTEM Studio</a></p>
+      <p class="eyebrow">Version 2.6.0 · part of EMSuite, beside <a class="u-link" href="/">4DSTEM Studio</a></p>
 
       <div class="hero-head">
         <h1 class="wordmark">Electron Microscopy <em>Studio</em></h1>
@@ -67,7 +67,7 @@
         <a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">
           <span aria-hidden="true">↓</span> Download for macOS
         </a>
-        <p class="get-meta">Version 2.1.1 · 36.1 MB · signed and notarized · macOS 26+ on Apple silicon</p>
+        <p class="get-meta">Version 2.6.0 · 42.0 MB · signed and notarized · macOS 26+ on Apple silicon</p>
       </div>
 
       <ul class="specs">
@@ -118,7 +118,15 @@
         </li>
         <li>
           <h3>Diffraction<span class="room-tag">Diffraction</span></h3>
-          <p>Calibrate on a ring or from the file, fit rings, index spots against a standard or a CIF.</p>
+          <p>Calibrate on a ring or from the file, fit rings, index spots, and get the full orientation of a spot pattern by dragging a simulated one over it.</p>
+        </li>
+        <li>
+          <h3>Phases<span class="room-tag">Diffraction · Phases</span></h3>
+          <p>Search the Materials Project or open your own CIF files. Find Phases ranks them against your pattern and EDS elements. Powder patterns, precipitate variants and a holder tilt planner.</p>
+        </li>
+        <li>
+          <h3>Simulation<span class="room-tag">Simulation</span></h3>
+          <p>Kinematic diffraction simulations as documents, with the crystal beside the pattern. HRTEM images, CBED patterns and STEM images (BF, ABF, ADF, HAADF), checked against abTEM.</p>
         </li>
         <li>
           <h3>EBSD patterns<span class="room-tag">EBSD · Patterns</span></h3>
@@ -142,7 +150,7 @@
         </li>
         <li>
           <h3>Results<span class="room-tag">Results</span></h3>
-          <p>Every measurement in one place. CSV, MSA, PNG with scale bar, a session report, and the method as JSON.</p>
+          <p>Every measurement in one place. CSV, MSA, PNG, PDF and SVG figures, a session report, and the method as JSON.</p>
         </li>
       </ul>
     </section>
@@ -211,11 +219,11 @@
   "url": "https://mac4dstem.com/electron-microscopy-studio/",
   "applicationCategory": "ScientificApplication",
   "operatingSystem": "macOS 26 or later, Apple silicon",
-  "softwareVersion": "2.1.1",
+  "softwareVersion": "2.6.0",
   "downloadUrl": "https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg",
-  "fileSize": "36.1 MB",
+  "fileSize": "42.0 MB",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-  "description": "A native macOS application for TEM and SEM: calibrated images and FFTs, electron diffraction, EBSD patterns, indexing and orientation maps, and EDS and EELS with quantification, computed natively on Apple silicon.",
+  "description": "A native macOS application for TEM and SEM: calibrated images and FFTs, electron diffraction and its simulation (kinematic, HRTEM, CBED, STEM), EBSD patterns, indexing and orientation maps, and EDS and EELS with quantification, computed natively on Apple silicon.",
   "offers": {
     "@type": "Offer",
     "price": "0",

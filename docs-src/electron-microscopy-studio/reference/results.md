@@ -1,7 +1,7 @@
 ---
 title: Results
 description: Reference for the Results workspace of Electron Microscopy Studio: the table of every measurement of a file, what each row records, and the export.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">Results lists every finished measurement of the open file in one table, whichever part made it. This page lists every control of the workspace.</p>

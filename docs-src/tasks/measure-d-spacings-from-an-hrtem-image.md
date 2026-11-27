@@ -2,7 +2,7 @@
 title: Measure d-spacings from an HRTEM image
 nav: Measure d-spacings
 description: Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">The Fourier transform of a lattice image has a pair of spots for each set of fringes. Electron Microscopy Studio measures each spot and gives its spacing.</p>

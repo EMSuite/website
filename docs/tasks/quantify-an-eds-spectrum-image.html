@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Quantify an EDS spectrum image — Tasks documentation</title>
-<meta name="description" content="Quantify a TEM or SEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties.">
+<meta name="description" content="Quantify a TEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties. An SEM one gives line intensities.">
 <link rel="canonical" href="https://mac4dstem.com/docs/tasks/quantify-an-eds-spectrum-image.html">
 <link rel="alternate" type="text/markdown" href="/docs/tasks/quantify-an-eds-spectrum-image.md">
 <meta name="color-scheme" content="light dark">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Electron Microscopy Studio">
 <meta property="og:url" content="https://mac4dstem.com/docs/tasks/quantify-an-eds-spectrum-image.html">
 <meta property="og:title" content="Quantify an EDS spectrum image">
-<meta property="og:description" content="Quantify a TEM or SEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties.">
+<meta property="og:description" content="Quantify a TEM EDS spectrum image on a Mac: element maps, regions, and the composition in at% and wt% with uncertainties. An SEM one gives line intensities.">
 <meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -65,6 +65,8 @@
       <li><a href="/docs/tasks/calibrate-and-index-a-ring-pattern.html">Calibrate and index rings</a></li>
       <li><a href="/docs/tasks/quantify-an-eds-spectrum-image.html" aria-current="page">Quantify EDS</a></li>
       <li><a href="/docs/tasks/index-ebsd-patterns-on-a-mac.html">Index EBSD patterns</a></li>
+      <li><a href="/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html">Index a spot pattern</a></li>
+      <li><a href="/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html">Simulate a diffraction pattern</a></li>
     </ul>
   </nav>
 
@@ -72,17 +74,17 @@
     <article class="doc">
       <p class="kicker">Tasks · Electron Microscopy Studio</p>
       <h1>Quantify an EDS spectrum image</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
-<p class="lede">Element maps and a composition from Velox, GMS, Bruker, EDAX and JEOL EDS files.</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
+<p class="lede">Element maps and a composition from Velox and GMS TEM spectrum images; an SEM spectrum gives line intensities.</p>
 
 <ol>
 <li>Open the spectrum image with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>). It opens in Spectroscopy › EDS with its maps and spectrum.</li>
 <li>Pick the elements in the periodic table of the inspector. <span class="ui">Auto ID</span> proposes some; remove what cannot be in the sample. Draw a region on any map.</li>
-<li>Click <span class="ui">Quantify</span>. The table gives at% and wt% with uncertainties (Cliff-Lorimer), and the maps can show wt% and at%.</li>
+<li>Click <span class="ui">Quantify</span>. For a TEM spectrum image the table gives at% and wt% with uncertainties (Cliff-Lorimer), and the maps can show wt% and at%. For an SEM file the table gives the net counts and says why it gives no composition.</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">A first estimate</p>
-<p>The fit is checked against exSpy, but the compositions are not yet validated against standards. Check them against a standard measured under the same conditions before you report them.</p>
+<p>An SEM spectrum or map (Bruker, EDAX or JEOL) gives the line intensities with their uncertainty and no wt% or at%, as exSpy does for SEM spectra: the thin-film k-factors do not hold for a bulk sample. The fit is checked against exSpy, but the compositions are not yet validated against standards. Check them against a standard measured under the same conditions before you report them.</p>
 </div>
 <p><a href="/docs/electron-microscopy-studio/reference/eds.html">EDS</a> lists every control.</p>
 <p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>

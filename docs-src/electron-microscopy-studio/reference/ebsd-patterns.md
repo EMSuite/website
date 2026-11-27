@@ -1,7 +1,7 @@
 ---
 title: EBSD Patterns
 description: Reference for EBSD patterns in Electron Microscopy Studio: virtual images, the processing stages with kikuchipy's names, and the exports.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">Patterns browses the patterns of an EBSD or TKD scan, forms virtual images from them, and processes them before indexing. This page lists every control of the part, which is in the EBSD workspace.</p>

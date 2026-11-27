@@ -2,7 +2,7 @@
 
 Measure lattice spacings from the FFT of an HRTEM image on a Mac: draw a region, find the spots, read each d-spacing.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">The Fourier transform of a lattice image has a pair of spots for each set of fringes. Electron Microscopy Studio measures each spot and gives its spacing.</p>
 
 1. Open the image with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) and choose <span class="ui">FFT</span> under Imaging in the sidebar.

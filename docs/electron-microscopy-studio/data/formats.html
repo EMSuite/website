@@ -97,7 +97,7 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Your data</p>
       <h1>File formats</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">Open the file the microscope wrote. What the file holds decides where it opens.</p>
 
 <p>Open a file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) or from <span class="ui">File › Open Recent</span>. The same command opens every kind of file, not only images.</p>
@@ -113,8 +113,13 @@
 <tbody>
 <tr>
 <td>TEM images</td>
-<td>DigitalMicrograph <code>.dm3</code> and <code>.dm4</code>, Velox <code>.emd</code>, TIFF, MRC</td>
+<td>DigitalMicrograph <code>.dm3</code> and <code>.dm4</code>, Velox <code>.emd</code>, TIA <code>.ser</code> (with its <code>.emi</code>), TIFF, MRC</td>
 <td>Imaging</td>
+</tr>
+<tr>
+<td>Pictures</td>
+<td>A pattern or image saved as PNG or JPEG (from a paper or a camera export); its scale is typed or fitted to a ring of a known phase</td>
+<td>Imaging, or Diffraction for a pattern</td>
 </tr>
 <tr>
 <td>SEM images</td>
@@ -123,12 +128,17 @@
 </tr>
 <tr>
 <td>TEM spectrum images</td>
-<td>EDS from Velox and GMS, EELS from GMS, single <code>.msa</code> spectra</td>
+<td>EDS from Velox and GMS, EELS from GMS, TIA spectra and spectrum images, single <code>.msa</code> spectra</td>
 <td>Spectroscopy</td>
 </tr>
 <tr>
+<td>HyperSpy files</td>
+<td>The images, EELS and EDS spectrum images and spectra of a <code>.hspy</code> file, each in its room</td>
+<td>Imaging or Spectroscopy</td>
+</tr>
+<tr>
 <td>SEM-EDS</td>
-<td>Bruker <code>.bcf</code> and <code>.spx</code>; EDAX <code>.spd</code>, <code>.lsd</code> and <code>.spc</code>; JEOL <code>.pts</code>, <code>.eds</code> and <code>.asw</code>; a single spectrum in a HyperSpy <code>.hspy</code> file</td>
+<td>Bruker <code>.bcf</code> and <code>.spx</code>; EDAX <code>.spd</code>, <code>.lsd</code> and <code>.spc</code>; JEOL <code>.pts</code>, <code>.eds</code> and <code>.asw</code>; an SEM spectrum in a HyperSpy <code>.hspy</code> file</td>
 <td>Spectroscopy</td>
 </tr>
 <tr>
@@ -143,7 +153,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>A diffraction pattern is an image file; open it and go to the Diffraction workspace.</p>
+<p>A diffraction pattern is an image file; open it and go to the Diffraction workspace. A simulation document (<code>.emsim</code>) opens in Diffraction too, and a phase opens from a CIF file with <span class="ui">Add Phase…</span>.</p>
+<p>In the Finder, a <code>.dm3</code>, <code>.dm4</code>, <code>.mrc</code>, <code>.emd</code> or <code>.ser</code> file shows its image as its icon, and the space bar shows the image with its scale bar and the header of the file (Quick Look). A <code>.ser</code> file shows its image without its <code>.emi</code>, but with no calibration then.</p>
 <p>TKD patterns are read and indexed as EBSD patterns are. No TKD dataset has been checked in the app yet.</p>
 <h2 id="files-that-are-read-together">Files that are read together</h2>
 <p>Some files are read together with a file of the same name beside them. Keep them in one folder:</p>

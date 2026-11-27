@@ -2,7 +2,7 @@
 title: Index EBSD patterns on a Mac
 nav: Index EBSD patterns
 description: Index EBSD and TKD patterns on a Mac by Hough or dictionary indexing, as kikuchipy does, and export the map as .ang or .ctf.
-applies_to: 2.1
+applies_to: 2.6
 ---
 
 <p class="lede">From a pattern file to an orientation map, with the methods and settings of kikuchipy and pyEBSDindex.</p>

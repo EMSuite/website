@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Open DM3, DM4 and EMD files on a Mac — Tasks documentation</title>
-<meta name="description" content="Open DigitalMicrograph .dm3 and .dm4 and Velox .emd files natively on a Mac, with the pixel size read from the file.">
+<meta name="description" content="Open DigitalMicrograph .dm3 and .dm4, Velox .emd and TIA .ser files natively on a Mac, with the pixel size read from the file.">
 <link rel="canonical" href="https://mac4dstem.com/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.html">
 <link rel="alternate" type="text/markdown" href="/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.md">
 <meta name="color-scheme" content="light dark">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Electron Microscopy Studio">
 <meta property="og:url" content="https://mac4dstem.com/docs/tasks/open-dm3-dm4-emd-files-on-a-mac.html">
 <meta property="og:title" content="Open DM3, DM4 and EMD files on a Mac">
-<meta property="og:description" content="Open DigitalMicrograph .dm3 and .dm4 and Velox .emd files natively on a Mac, with the pixel size read from the file.">
+<meta property="og:description" content="Open DigitalMicrograph .dm3 and .dm4, Velox .emd and TIA .ser files natively on a Mac, with the pixel size read from the file.">
 <meta property="og:image" content="https://mac4dstem.com/assets/mactem-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -65,6 +65,8 @@
       <li><a href="/docs/tasks/calibrate-and-index-a-ring-pattern.html">Calibrate and index rings</a></li>
       <li><a href="/docs/tasks/quantify-an-eds-spectrum-image.html">Quantify EDS</a></li>
       <li><a href="/docs/tasks/index-ebsd-patterns-on-a-mac.html">Index EBSD patterns</a></li>
+      <li><a href="/docs/tasks/index-a-measured-spot-pattern-against-a-cif.html">Index a spot pattern</a></li>
+      <li><a href="/docs/tasks/simulate-a-diffraction-pattern-from-a-cif.html">Simulate a diffraction pattern</a></li>
     </ul>
   </nav>
 
@@ -72,15 +74,15 @@
     <article class="doc">
       <p class="kicker">Tasks · Electron Microscopy Studio</p>
       <h1>Open DM3, DM4 and EMD files on a Mac</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">Electron Microscopy Studio opens the files TEM software writes, natively on Apple silicon, with the calibration the microscope stored.</p>
 
 <ol>
-<li>Choose <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) and pick a DigitalMicrograph <code>.dm3</code> or <code>.dm4</code> file, a Velox <code>.emd</code> file, a TIFF or an MRC file.</li>
+<li>Choose <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) and pick a DigitalMicrograph <code>.dm3</code> or <code>.dm4</code> file, a Velox <code>.emd</code> file, a TIA <code>.ser</code> file (with its <code>.emi</code>), a TIFF or an MRC file.</li>
 <li>The image opens in the Imaging workspace. The <span class="ui">Calibration</span> section of the inspector shows the pixel size and the field of the file it came from. An image without one is marked "Not calibrated".</li>
 <li>Measure with the <span class="ui">Distance</span>, <span class="ui">Angle</span> and <span class="ui">Profile</span> tools, or save the picture with <span class="ui">File › Export Image…</span> (<kbd>⇧⌘E</kbd>).</li>
 </ol>
-<p>The same command opens EDS and EELS spectrum images, SEM images and EBSD scans; each opens in its own workspace. <a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a> lists every format, and <a href="/docs/electron-microscopy-studio/reference/image.html">Image</a> every control.</p>
+<p>In the Finder, a <code>.dm3</code>, <code>.dm4</code>, <code>.mrc</code>, <code>.emd</code> or <code>.ser</code> file shows its image as its icon, and the space bar shows the image with its scale bar and the header of the file (Quick Look), without opening the app. The same command opens EDS and EELS spectrum images, SEM images and EBSD scans; each opens in its own workspace. <a href="/docs/electron-microscopy-studio/data/formats.html">File formats</a> lists every format, and <a href="/docs/electron-microscopy-studio/reference/image.html">Image</a> every control.</p>
 <p><a class="get-btn" href="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/latest/download/Electron-Microscopy-Studio.dmg">Download Electron Microscopy Studio</a></p>
 <p class="get-meta">Free. For Apple silicon Macs with macOS 26 or later. <a href="/docs/electron-microscopy-studio/install.html">How to install</a></p>
       <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/tasks/"><span>Previous</span>What do you want to do?</a><a class="next" href="/docs/tasks/measure-d-spacings-from-an-hrtem-image.html"><span>Next</span>Measure d-spacings from an HRTEM image</a></nav>

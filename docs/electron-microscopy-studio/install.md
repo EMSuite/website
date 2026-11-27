@@ -2,7 +2,7 @@
 
 Install Electron Microscopy Studio on an Apple silicon Mac: requirements, download, updating and removing the app.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">The app is free. It needs no Python, no other runtime and no account.</p>
 
 ## What you need
@@ -11,7 +11,7 @@ Applies to Electron Microscopy Studio 2.1 and later.
 |---|---|
 | Mac | Apple silicon |
 | macOS | 26 or later |
-| Download | About 36 MB |
+| Download | About 42 MB |
 
 ## Install
 
@@ -19,7 +19,7 @@ Applies to Electron Microscopy Studio 2.1 and later.
 2. Open it and drag the app to your Applications folder.
 3. Open the app from Applications. It is signed and notarized, so macOS opens it without a security warning.
 
-The app starts with a welcome screen. [First look](/docs/electron-microscopy-studio/first-look.html) takes it from there.
+The app starts with a welcome window that lists your recent files and the tutorials. [First look](/docs/electron-microscopy-studio/first-look.html) takes it from there.
 
 ## Update
 

@@ -2,7 +2,7 @@
 
 The TEM and SEM file formats Electron Microscopy Studio opens: images, EDS and EELS spectrum images, EBSD patterns, orientation maps and paired files.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">Open the file the microscope wrote. What the file holds decides where it opens.</p>
 
 Open a file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) or from <span class="ui">File › Open Recent</span>. The same command opens every kind of file, not only images.
@@ -11,14 +11,18 @@ Open a file with <span class="ui">Open Image…</span> (<kbd>⌘O</kbd>) or from
 
 | Kind of data | Formats | Opens in |
 |---|---|---|
-| TEM images | DigitalMicrograph `.dm3` and `.dm4`, Velox `.emd`, TIFF, MRC | Imaging |
+| TEM images | DigitalMicrograph `.dm3` and `.dm4`, Velox `.emd`, TIA `.ser` (with its `.emi`), TIFF, MRC | Imaging |
+| Pictures | A pattern or image saved as PNG or JPEG (from a paper or a camera export); its scale is typed or fitted to a ring of a known phase | Imaging, or Diffraction for a pattern |
 | SEM images | TIFF from Thermo Fisher (FEI), Zeiss and Tescan, read with the microscope's settings; JEOL `.img` and `.map` | Imaging |
-| TEM spectrum images | EDS from Velox and GMS, EELS from GMS, single `.msa` spectra | Spectroscopy |
-| SEM-EDS | Bruker `.bcf` and `.spx`; EDAX `.spd`, `.lsd` and `.spc`; JEOL `.pts`, `.eds` and `.asw`; a single spectrum in a HyperSpy `.hspy` file | Spectroscopy |
+| TEM spectrum images | EDS from Velox and GMS, EELS from GMS, TIA spectra and spectrum images, single `.msa` spectra | Spectroscopy |
+| HyperSpy files | The images, EELS and EDS spectrum images and spectra of a `.hspy` file, each in its room | Imaging or Spectroscopy |
+| SEM-EDS | Bruker `.bcf` and `.spx`; EDAX `.spd`, `.lsd` and `.spc`; JEOL `.pts`, `.eds` and `.asw`; an SEM spectrum in a HyperSpy `.hspy` file | Spectroscopy |
 | EBSD and TKD patterns | h5ebsd from kikuchipy, Bruker, EDAX and Oxford Instruments (`.h5oina`); EDAX `.up1` and `.up2`; Oxford `.ebsp`; NORDIF `Pattern.dat` | EBSD › Patterns |
 | Orientation maps | `.ang`, `.ctf`, Oxford `.h5oina` saved without patterns, `.h5` maps from orix, Bruker Esprit and EDAX OIM saved without patterns, EMsoft's dictionary indexing | EBSD › Maps |
 
-A diffraction pattern is an image file; open it and go to the Diffraction workspace.
+A diffraction pattern is an image file; open it and go to the Diffraction workspace. A simulation document (`.emsim`) opens in Diffraction too, and a phase opens from a CIF file with <span class="ui">Add Phase…</span>.
+
+In the Finder, a `.dm3`, `.dm4`, `.mrc`, `.emd` or `.ser` file shows its image as its icon, and the space bar shows the image with its scale bar and the header of the file (Quick Look). A `.ser` file shows its image without its `.emi`, but with no calibration then.
 
 TKD patterns are read and indexed as EBSD patterns are. No TKD dataset has been checked in the app yet.
 

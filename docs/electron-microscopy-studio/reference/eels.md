@@ -2,7 +2,7 @@
 
 Reference for EELS in Electron Microscopy Studio: alignment, thickness, deconvolution, edges, fitting, references and the exports.
 
-Applies to Electron Microscopy Studio 2.1 and later.
+Applies to Electron Microscopy Studio 2.6 and later.
 <p class="lede">EELS maps the thickness from the low loss and quantifies core-loss edges of an EELS spectrum image. This page lists every control of the part, which is in the Spectroscopy workspace.</p>
 
 !!! warning "Not yet validated against reference data"
@@ -82,6 +82,7 @@ Reference spectra for the fit, listed with their source.
 | Spectrum CSV…, Spectrum MSA… | The spectrum on screen: the low loss and the core loss, and the model where it is fitted |
 | Regions CSV… | The pixels, the total intensity, t/λ and the intensities and at% of the edges for each kept region |
 | Maps… | The colour mix and the maps as one PNG. <span class="ui">Scale bar</span> and <span class="ui">Regions</span> add the scale bar and the selected region. |
+| Spectrum PDF…, Spectrum SVG…, Maps PDF…, Maps SVG… | The spectrum and the maps as vector figures for a paper: the spectrum as one path and every label as live text |
 | Per-pixel CSV… | Every pixel: t/λ, its counting σ, the intensities, the zero-loss centre, the threshold, t, and the reason where there is no value |
 
 The exports need the thickness map; the results need the edges fitted. The counts are as the file stores them: no gain or dark reference is applied.

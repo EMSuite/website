@@ -97,7 +97,7 @@
     <article class="doc">
       <p class="kicker">Electron Microscopy Studio · Your data</p>
       <h1>Sessions</h1>
-      <p class="docs-applies">Applies to Electron Microscopy Studio 2.1 and later</p>
+      <p class="docs-applies">Applies to Electron Microscopy Studio 2.6 and later</p>
 <p class="lede">The distances, angles and profiles you draw on an image are kept in a session file beside the image. Your data file is never changed.</p>
 
 <h2 id="the-session-file">The session file</h2>
@@ -111,6 +111,8 @@
 <p>If macOS did not give the app the session file, the image's row says "session file needs access". In the <span class="ui">Measure</span> section of the inspector, click <span class="ui">Choose Session File…</span> and pick it. <span class="ui">Show in Finder</span> there shows where the session file is.</p>
 <h2 id="the-last-session">The last session</h2>
 <p><span class="ui">File › Reopen Last Session</span> (<kbd>⇧⌘O</kbd>) opens the files you had open when you last quit, in the place you left. It is offered, never done at launch, so a large file is not loaded before you ask.</p>
+<h2 id="simulation-documents">Simulation documents</h2>
+<p>A simulation made with <span class="ui">File › New Simulation</span> is a document of its own. <span class="ui">File › Save Simulation</span> (<kbd>⌘S</kbd>) saves it as a small <code>.emsim</code> file that holds its phase and settings; opening that file brings back the same pattern and spot list.</p>
 <h2 id="moving-data">Moving data</h2>
 <p>Move or copy the image and its <code>.mactem.h5</code> file together and keep their names. A session file belongs to the image it was saved for.</p>
       <nav class="docs-pager" aria-label="Previous and next page"><a class="prev" href="/docs/electron-microscopy-studio/data/formats.html"><span>Previous</span>File formats</a><a class="next" href="/docs/electron-microscopy-studio/data/export.html"><span>Next</span>Export</a></nav>
