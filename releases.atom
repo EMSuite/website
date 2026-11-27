@@ -5,8 +5,43 @@
   <id>https://mac4dstem.com/releases.atom</id>
   <link rel="self" type="application/atom+xml" href="https://mac4dstem.com/releases.atom"/>
   <link rel="alternate" type="text/html" href="https://mac4dstem.com/suite/releases.html"/>
-  <updated>2026-11-24T00:00:00Z</updated>
+  <updated>2026-11-26T00:00:00Z</updated>
   <author><name>EMSuite</name></author>
+  <entry>
+    <title>EMSuiteUI 0.20.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1"/>
+    <id>https://github.com/EMSuite/EMSuiteUI/releases/tag/0.20.1</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">EMSuiteUI 0.20.1: the changes are in its CHANGELOG (https://github.com/EMSuite/EMSuiteUI/blob/0.20.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>DiffractoKit 0.24.2</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/DiffractoKit/releases/tag/0.24.2"/>
+    <id>https://github.com/EMSuite/DiffractoKit/releases/tag/0.24.2</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary type="text">DiffractoKit 0.24.2: the changes are in its CHANGELOG (https://github.com/EMSuite/DiffractoKit/blob/0.24.2/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SpectroKit 0.17.1</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.1"/>
+    <id>https://github.com/EMSuite/SpectroKit/releases/tag/0.17.1</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">SpectroKit 0.17.1: the changes are in its CHANGELOG (https://github.com/EMSuite/SpectroKit/blob/0.17.1/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>SimulatoKit 0.8.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.0"/>
+    <id>https://github.com/EMSuite/SimulatoKit/releases/tag/0.8.0</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">SimulatoKit 0.8.0: the changes are in its CHANGELOG (https://github.com/EMSuite/SimulatoKit/blob/0.8.0/CHANGELOG.md).</summary>
+  </entry>
+  <entry>
+    <title>FormatoKit 0.21.0</title>
+    <link rel="alternate" type="text/html" href="https://github.com/EMSuite/FormatoKit/releases/tag/0.21.0"/>
+    <id>https://github.com/EMSuite/FormatoKit/releases/tag/0.21.0</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary type="text">FormatoKit 0.21.0: the changes are in its CHANGELOG (https://github.com/EMSuite/FormatoKit/blob/0.21.0/CHANGELOG.md).</summary>
+  </entry>
   <entry>
     <title>SpectroKit 0.17.0</title>
     <link rel="alternate" type="text/html" href="https://github.com/EMSuite/SpectroKit/releases/tag/0.17.0"/>
