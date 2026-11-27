@@ -4,21 +4,39 @@
     <title>Electron Microscopy Studio</title>
     <link>https://mac4dstem.com/electron-microscopy-studio/</link>
     <item>
-      <title>Electron Microscopy Studio 2.1.1</title>
-      <pubDate>Thu, 19 Nov 2026 06:54:15 GMT</pubDate>
-      <sparkle:version>2.1.1</sparkle:version>
-      <sparkle:shortVersionString>2.1.1</sparkle:shortVersionString>
+      <title>Electron Microscopy Studio 2.6.0</title>
+      <pubDate>Fri, 27 Nov 2026 08:35:39 GMT</pubDate>
+      <sparkle:version>2.6.0</sparkle:version>
+      <sparkle:shortVersionString>2.6.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.1.1</sparkle:fullReleaseNotesLink>
-      <description sparkle:format="plain-text">Electron Microscopy Studio 2.1.1 opens large files in less memory, offers EDS Auto ID's near misses as one-click Adds, and takes its new name.
+      <sparkle:fullReleaseNotesLink>https://github.com/EMSuite/Electron-Microscopy-Studio/releases/tag/v2.6.0</sparkle:fullReleaseNotesLink>
+      <description sparkle:format="plain-text">Simulate electron diffraction, HRTEM, CBED and STEM images, index a spot pattern, and put figures straight into a paper.
 
-• Opening a large image shows its stage and time, and Stop cancels it.
-• DM4 spectrum images open, and a second EELS Align runs, in far less memory.
-• Better keyboard and VoiceOver use across the rooms.
-• Export sheets open on the window that asked; File &gt; Open with every window minimised no longer opens an extra empty one.
+New
+• Index finds the spots of a diffraction pattern and its full crystal orientation. Drag the simulated pattern to tilt it, step through the solutions, flip it, fit the scale.
+• Phases from the Materials Project or a CIF; a phase you added once works offline, and Save as CIF writes it out. Find Phases ranks them against your pattern and the elements of your EDS map.
+• Simulation documents: File &gt; New Simulation shows a crystal's diffraction pattern with the crystal beside it. Save it as a small .emsim file and open it again later.
+• HRTEM, CBED and STEM simulation: a live HRTEM image with defocus, thickness, optics and frozen phonons; convergent-beam patterns with a thickness series and two-beam thickness measurement; STEM images with BF, ABF, ADF and HAADF bands. Place a simulation beside your measured image, or export it as a script.
+• Diffraction tools: simulated spots over your pattern for any zone axis (with double diffraction), a spots table, a holder tilt planner, powder patterns and precipitate variants. A pattern saved as PNG or JPEG opens too.
+• Figures and files: Export Figure writes a PDF or SVG with live text; Copy Figure pastes into Keynote; HyperSpy files go out; every export carries a record of the method and settings that made it.
+• Quick Look for DigitalMicrograph, MRC, Velox and TIA files in the Finder; TIA .ser and .emi files open.
+• Strain maps from a lattice image, keys to move between rooms, a welcome window with tutorials, a Help menu, and demo data for a spot pattern, silicon and an EELS core loss.
+• An AI assistant you connect can work every room and open files from a folder you choose. Off by default.
 
-Results can differ from 2.1.0: an EDS element found by its L line is quantified on its Kα when the spectrum holds it well excited.</description>
-      <enclosure url="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/download/v2.1.1/Electron-Microscopy-Studio-2.1.1.dmg" type="application/octet-stream" sparkle:edSignature="WXERyFlhoFGF6tUOK8ANqy3q3ikG3pmCeasQUAqmmKRqiydhCrWw6htjjjfVZvbZtMi6ozo4moVN8Ra8n8+WBw==" length="36092185"/>
+Improved
+• Diffraction is laid out in steps (Calibrate, Index, Simulate, Tilt Plan, Powder, Thickness); an indexed pattern labels only its strongest spots, so it stays readable.
+• Toolbar: Simulate for simulations, Export for every room. EBSD Maps shows its results beside the map.
+• Faster EBSD dictionary indexing and pattern filtering.
+• Numbers read the same way everywhere, and variants and warnings no longer rely on colour alone.
+
+Fixed
+• A HyperSpy spectrum saved as .hdf5 opens.
+• Updating the downloaded app renames it to Electron Microscopy Studio.
+
+Results change in three places: a ring calibration now fits the central background as py4DSTEM does (the Au standard moves by about 0.2 %); the EDS energy axis is refined from 0.6 keV up; and Quantify on a single SEM spectrum gives line intensities only, as eXSpy does.
+
+Requires macOS 26 or later on an Apple silicon Mac.</description>
+      <enclosure url="https://github.com/EMSuite/Electron-Microscopy-Studio/releases/download/v2.6.0/Electron-Microscopy-Studio-2.6.0.dmg" type="application/octet-stream" sparkle:edSignature="bxlnt63lFh+u6RHWj4W682hvQbmyLiJuZULS69bNsmimbYK3sTQ35Sh/UWZBwcJwLNzZkZbsBeRELX9xj1YoBw==" length="41983852"/>
     </item>
   </channel>
 </rss>
